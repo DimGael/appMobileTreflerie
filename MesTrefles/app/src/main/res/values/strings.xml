@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mes Trefles</string>
+    <string name="transactionTitre">Transaction</string>
+    <string name="monSoldeTitre">Mon Solde</string>
+    <string name="mesDepensesTitre">Mes Dépenses</string>
+    <string name="paramètresTitre">Paramètres</string>
 </resources>

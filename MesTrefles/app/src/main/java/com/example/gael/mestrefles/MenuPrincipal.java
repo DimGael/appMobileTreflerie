@@ -1,9 +1,9 @@
 package com.example.gael.mestrefles;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class MenuPrincipal extends AppCompatActivity {
+public class MenuPrincipal extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

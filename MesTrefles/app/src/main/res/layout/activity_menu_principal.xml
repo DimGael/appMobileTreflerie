@@ -10,39 +10,39 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/boutonTransaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="50dp"
         android:layout_marginTop="50dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="20dp"
-        android:text="Button" />
+        android:layout_weight="0.25"
+        android:text="@string/transactionTitre" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/boutonMonSolde"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="20dp"
-        android:text="Button" />
+        android:layout_marginHorizontal="50dp"
+        android:layout_weight="0.25"
+        android:text="@string/monSoldeTitre" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/boutonMesDepenses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="20dp"
-        android:text="Button" />
+        android:layout_marginHorizontal="50dp"
+        android:layout_weight="0.25"
+        android:text="@string/mesDepensesTitre" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/boutonParamètres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="50dp"
-        android:text="Button" />
+        android:layout_marginHorizontal="50dp"
+        android:layout_weight="0.25"
+        android:text="@string/paramètresTitre" />
 </LinearLayout>
