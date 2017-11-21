@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -34,6 +35,10 @@ public class MenuPrincipal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        this.ajoutEcouteursSurBoutons();
+    }
+
+    private void ajoutEcouteursSurBoutons() {
         //Rajout des écouteurs sur les boutons
         Button boutonTransaction = (Button)this.findViewById(R.id.BoutonTransaction);
         boutonTransaction.setOnClickListener(this);
