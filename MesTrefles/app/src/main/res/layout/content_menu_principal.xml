@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="50dp"
-        android:text="Button" />
+        android:text="@string/titreTransaction" />
 
     <Button
         android:id="@+id/button2"
@@ -25,7 +25,7 @@
         android:layout_weight="1"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="25dp"
-        android:text="Button" />
+        android:text="@string/titreSolde"/>
 
     <Button
         android:id="@+id/button3"
@@ -34,7 +34,7 @@
         android:layout_weight="1"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="25dp"
-        android:text="Button" />
+        android:text="@string/titreDepenses" />
 
     <Button
         android:id="@+id/button4"
@@ -44,5 +44,5 @@
         android:layout_marginTop="25dp"
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="50dp"
-        android:text="Button" />
+        android:text="@string/titreParametres" />
 </LinearLayout>
