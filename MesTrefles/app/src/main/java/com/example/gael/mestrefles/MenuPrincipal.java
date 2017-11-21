@@ -12,14 +12,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MenuPrincipal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -31,6 +34,19 @@ public class MenuPrincipal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Rajout des écouteurs sur les boutons
+        Button boutonTransaction = (Button)this.findViewById(R.id.BoutonTransaction);
+        boutonTransaction.setOnClickListener(this);
+
+        Button boutonSolde = (Button)this.findViewById(R.id.BoutonMonSolde);
+        boutonSolde.setOnClickListener(this);
+
+        Button boutonDepense = (Button)this.findViewById(R.id.BoutonMesDepenses);
+        boutonDepense.setOnClickListener(this);
+
+        Button boutonParametre = (Button)this.findViewById(R.id.BoutonParametres);
+        boutonParametre.setOnClickListener(this);
     }
 
     @Override
@@ -88,5 +104,25 @@ public class MenuPrincipal extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        //Méthode qui s'active si on appuie sur un des écouteurs de la vue
+        if(view.getId() == R.id.BoutonTransaction){
+            //Action à faire lors de l'utilisation du bouton Transaction
+        }
+
+        if(view.getId() == R.id.BoutonMonSolde){
+            //Action à faire lors de l'utilisation du bouton Solde
+        }
+
+        if(view.getId() == R.id.BoutonMesDepenses){
+            //Action à faire lors de l'utilisation du bouton Dépenses
+        }
+
+        if(view.getId() == R.id.BoutonParametres){
+            //Action à faire lors de l'utilisation du bouton Parametres
+        }
     }
 }
