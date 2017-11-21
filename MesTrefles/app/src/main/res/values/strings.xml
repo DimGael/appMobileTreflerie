@@ -10,4 +10,7 @@
     <string name="titreSolde">Mon Solde</string>
     <string name="titreDepenses">Mes Dépenses</string>
     <string name="titreParametres">Paramètres</string>
+    <string name="textNumeroDuDest">Numéro Du Destinataire :</string>
+    <string name="TextMontant">Montant :</string>
+    <string name="boutonValide">Valider</string>
 </resources>
