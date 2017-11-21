@@ -1,9 +1,7 @@
 package com.example.gael.mestrefles;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 public class MenuPrincipal extends AppCompatActivity
@@ -111,6 +110,9 @@ public class MenuPrincipal extends AppCompatActivity
         //Méthode qui s'active si on appuie sur un des écouteurs de la vue
         if(view.getId() == R.id.BoutonTransaction){
             //Action à faire lors de l'utilisation du bouton Transaction
+            final Intent intentTransac = new Intent(MenuPrincipal.this, TransactionActivity.class);
+            this.startActivity(intentTransac);
+
         }
 
         if(view.getId() == R.id.BoutonMonSolde){
