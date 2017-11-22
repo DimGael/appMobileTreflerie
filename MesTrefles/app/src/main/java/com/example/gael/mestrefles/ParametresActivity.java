@@ -62,6 +62,8 @@ public class ParametresActivity extends AppCompatActivity
             final Intent intentAccueil = new Intent(ParametresActivity.this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
         } else if (id == R.id.mDepenses) {
+            final Intent intentDepenses = new Intent(ParametresActivity.this, DepenseActivity.class);
+            this.startActivity(intentDepenses);
 
         } else if (id == R.id.mSolde) {
             final Intent intentSolde = new Intent(ParametresActivity.this, SoldeActivity.class);

@@ -36,6 +36,11 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity android:name=".DepenseActivity"
+            android:label="@string/titreDepenses"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>

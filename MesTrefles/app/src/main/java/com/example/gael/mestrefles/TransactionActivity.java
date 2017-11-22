@@ -70,9 +70,11 @@ public class TransactionActivity extends AppCompatActivity
             final Intent intentAccueil = new Intent(TransactionActivity.this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
         } else if (id == R.id.mDepenses) {
+            final Intent intentDepenses = new Intent(TransactionActivity.this, DepenseActivity.class);
+            this.startActivity(intentDepenses);
 
         } else if (id == R.id.mSolde) {
-            final Intent intentSolde = new Intent(TransactionActivity.this, ParametresActivity.class);
+            final Intent intentSolde = new Intent(TransactionActivity.this, SoldeActivity.class);
             this.startActivity(intentSolde);
 
         } else if (id == R.id.mTransaction) {

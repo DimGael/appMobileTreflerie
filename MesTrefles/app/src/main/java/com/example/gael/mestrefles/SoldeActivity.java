@@ -70,6 +70,8 @@ public class SoldeActivity extends AppCompatActivity
             final Intent intentAccueil = new Intent(SoldeActivity.this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
         } else if (id == R.id.mDepenses) {
+            final Intent intentDepenses = new Intent(SoldeActivity.this, DepenseActivity.class);
+            this.startActivity(intentDepenses);
 
         } else if (id == R.id.mSolde) {
             //Ne rien faire car on est déjà sur cette activité
