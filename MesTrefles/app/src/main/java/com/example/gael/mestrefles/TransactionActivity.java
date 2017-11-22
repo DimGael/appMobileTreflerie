@@ -86,14 +86,14 @@ public class TransactionActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        final double montant;
+        final int montant;
         final int numDestinataire;
 
-        EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
+        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
         numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
 
-        EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
-        montant = Double.valueOf(editTextMontant.getText().toString()).doubleValue();
+        final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
+        montant = Integer.valueOf(editTextMontant.getText().toString()).intValue();
 
 
         if(numDestinataire > 10000){
@@ -103,7 +103,10 @@ public class TransactionActivity extends AppCompatActivity
             Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
         }
         else{
-            
+            final String message = String.valueOf(montant)+"/"+String.valueOf(numDestinataire);
+            SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
+            editTextMontant.setText("");
+            editTextNumDestinataire.setText("");
         }
     }
 }
