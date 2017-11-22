@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 
 public class ParametresActivity extends AppCompatActivity
@@ -34,9 +33,6 @@ public class ParametresActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
-        boutonActualiser.setOnClickListener(this);
 
     }
 
