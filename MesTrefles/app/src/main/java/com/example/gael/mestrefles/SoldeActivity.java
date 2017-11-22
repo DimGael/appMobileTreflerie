@@ -67,7 +67,8 @@ public class SoldeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mAccueil) {
-            // Handle the camera action
+            final Intent intentAccueil = new Intent(SoldeActivity.this, MenuPrincipal.class);
+            this.startActivity(intentAccueil);
         } else if (id == R.id.mDepenses) {
 
         } else if (id == R.id.mSolde) {
