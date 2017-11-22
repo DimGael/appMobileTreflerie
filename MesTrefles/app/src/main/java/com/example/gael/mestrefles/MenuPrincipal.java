@@ -121,6 +121,8 @@ public class MenuPrincipal extends AppCompatActivity
 
         if(view.getId() == R.id.BoutonMonSolde){
             //Action à faire lors de l'utilisation du bouton Solde
+            final Intent intentTransac = new Intent(MenuPrincipal.this, SoldeActivity.class);
+            this.startActivity(intentTransac);
         }
 
         if(view.getId() == R.id.BoutonMesDepenses){

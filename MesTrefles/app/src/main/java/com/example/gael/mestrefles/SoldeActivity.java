@@ -57,7 +57,7 @@ public class SoldeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mAccueil) {
-            // Handle the camera action
+
         } else if (id == R.id.mDepenses) {
 
         } else if (id == R.id.mSolde) {
