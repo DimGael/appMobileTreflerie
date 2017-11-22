@@ -8,12 +8,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class SoldeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,10 @@ public class SoldeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Envoi d'un sms dès l'ouverture de l'activité
+        final String message = "S?";
+        SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
 
     }
 
@@ -73,5 +79,12 @@ public class SoldeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        //Lors de l'activation du bouton Actualiser
+        final String message = "S?";
+        SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
     }
 }
