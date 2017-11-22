@@ -7,31 +7,20 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.gael.mestrefles.SoldeActivity"
-    tools:showIn="@layout/app_bar_solde"
+    tools:context="com.example.gael.mestrefles.ParametresActivity"
+    tools:showIn="@layout/app_bar_parametres"
     android:paddingTop="40dp">
 
     <TextView
-        android:id="@+id/textMsgSolde"
+        android:id="@+id/textMontantMaxTransact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="60dp"
         android:layout_marginVertical="20dp"
-        android:text="@string/textMsgSolde"
+        android:text="@string/textMontantMaxTransact"
         android:textColor="@color/text"
         android:textSize="30sp"
         android:gravity="center"/>
-
-    <TextView
-        android:id="@+id/textNbrTrefles"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:text="@string/textNbrTrefles"
-        android:textColor="@color/text"
-        android:textSize="75sp" />
 
     <TextView
         android:id="@+id/textTrefles"
@@ -45,14 +34,14 @@
         android:gravity="center"/>
 
     <Button
-        android:id="@+id/boutonActualiser"
+        android:id="@+id/boutonValider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="75dp"
         android:layout_marginHorizontal="75dp"
         android:layout_marginTop="25dp"
         android:layout_weight="1"
-        android:text="@string/boutonActualiser"
+        android:text="@string/boutonValide"
         android:textSize="20sp" />
 
 </LinearLayout>
