@@ -12,6 +12,7 @@ import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 
 public class SoldeActivity extends AppCompatActivity
@@ -38,6 +39,8 @@ public class SoldeActivity extends AppCompatActivity
         final String message = "S?";
         SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
 
+        final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
+        boutonActualiser.setOnClickListener(this);
     }
 
     @Override
