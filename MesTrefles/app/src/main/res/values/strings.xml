@@ -5,12 +5,24 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Paramètres</string>
-    
+
+    //Titres
     <string name="titreTransaction">Transactions</string>
     <string name="titreSolde">Mon Solde</string>
     <string name="titreDepenses">Mes Dépenses</string>
     <string name="titreParametres">Paramètres</string>
+
+    //Transaction
     <string name="textNumeroDuDest">Numéro Du Destinataire :</string>
     <string name="TextMontant">Montant :</string>
     <string name="boutonValide">Valider</string>
+
+    //Mon solde
+    <string name="textMsgSolde">Vous possédez :</string>
+    <string name="textNbrTrefles">50,65</string>
+    <string name="textTrefles">Trèfles</string>
+    <string name="boutonActualiser">Actualiser</string>
+
+
+
 </resources>
