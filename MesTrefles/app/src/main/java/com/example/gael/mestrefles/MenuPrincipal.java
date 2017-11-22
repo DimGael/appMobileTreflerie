@@ -95,13 +95,18 @@ public class MenuPrincipal extends AppCompatActivity
         } else if (id == R.id.mDepenses) {
 
         } else if (id == R.id.mSolde) {
+            final Intent intentSolde = new Intent(MenuPrincipal.this, SoldeActivity.class);
+            this.startActivity(intentSolde);
 
         } else if (id == R.id.mTransaction) {
+            final Intent intentTransac = new Intent(MenuPrincipal.this, TransactionActivity.class);
+            this.startActivity(intentTransac);
 
         } else if (id == R.id.mAide) {
 
         } else if (id == R.id.mParametres) {
-
+            final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
+            this.startActivity(intentParam);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -121,8 +126,8 @@ public class MenuPrincipal extends AppCompatActivity
 
         if(view.getId() == R.id.BoutonMonSolde){
             //Action à faire lors de l'utilisation du bouton Solde
-            final Intent intentTransac = new Intent(MenuPrincipal.this, SoldeActivity.class);
-            this.startActivity(intentTransac);
+            final Intent intentSolde = new Intent(MenuPrincipal.this, SoldeActivity.class);
+            this.startActivity(intentSolde);
         }
 
         if(view.getId() == R.id.BoutonMesDepenses){
@@ -131,6 +136,8 @@ public class MenuPrincipal extends AppCompatActivity
 
         if(view.getId() == R.id.BoutonParametres){
             //Action à faire lors de l'utilisation du bouton Parametres
+            final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
+            this.startActivity(intentParam);
         }
     }
 }

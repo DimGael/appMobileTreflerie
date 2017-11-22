@@ -1,5 +1,6 @@
 package com.example.gael.mestrefles;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -66,13 +67,17 @@ public class ParametresActivity extends AppCompatActivity
         } else if (id == R.id.mDepenses) {
 
         } else if (id == R.id.mSolde) {
+            final Intent intentSolde = new Intent(ParametresActivity.this, SoldeActivity.class);
+            this.startActivity(intentSolde);
 
         } else if (id == R.id.mTransaction) {
+            final Intent intentTransac = new Intent(ParametresActivity.this, TransactionActivity.class);
+            this.startActivity(intentTransac);
 
         } else if (id == R.id.mAide) {
 
         } else if (id == R.id.mParametres) {
-
+            //Ne rien faire car on est déjà dans les paramètres
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
