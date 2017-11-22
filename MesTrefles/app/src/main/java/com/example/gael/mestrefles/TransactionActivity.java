@@ -1,5 +1,6 @@
 package com.example.gael.mestrefles;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -66,17 +67,22 @@ public class TransactionActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mAccueil) {
-            // Handle the camera action
+            final Intent intentAccueil = new Intent(TransactionActivity.this, MenuPrincipal.class);
+            this.startActivity(intentAccueil);
         } else if (id == R.id.mDepenses) {
 
         } else if (id == R.id.mSolde) {
+            final Intent intentSolde = new Intent(TransactionActivity.this, ParametresActivity.class);
+            this.startActivity(intentSolde);
 
         } else if (id == R.id.mTransaction) {
+            //Ne rien faire car on est déjà sur cette activité
 
         } else if (id == R.id.mAide) {
 
         } else if (id == R.id.mParametres) {
-
+            final Intent intentParam = new Intent(TransactionActivity.this, ParametresActivity.class);
+            this.startActivity(intentParam);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
