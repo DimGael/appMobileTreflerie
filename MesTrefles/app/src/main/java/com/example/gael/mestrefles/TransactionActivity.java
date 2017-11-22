@@ -8,12 +8,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class TransactionActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,9 @@ public class TransactionActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
+        boutonValider.setOnClickListener(this);
 
     }
 
@@ -74,5 +82,28 @@ public class TransactionActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        final double montant;
+        final int numDestinataire;
+
+        EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
+        numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
+
+        EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
+        montant = Double.valueOf(editTextMontant.getText().toString()).doubleValue();
+
+
+        if(numDestinataire > 10000){
+            Toast.makeText(TransactionActivity.this, "Numéro de destinataire invalide", Toast.LENGTH_SHORT).show();
+        }
+        else if(montant > 250){
+            Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            
+        }
     }
 }
