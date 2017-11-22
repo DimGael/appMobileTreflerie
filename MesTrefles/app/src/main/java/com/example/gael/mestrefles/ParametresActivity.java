@@ -12,13 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class SoldeActivity extends AppCompatActivity
+public class ParametresActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solde);
+        setContentView(R.layout.activity_parametres);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

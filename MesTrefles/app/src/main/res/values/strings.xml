@@ -12,17 +12,31 @@
     <string name="titreDepenses">Mes Dépenses</string>
     <string name="titreParametres">Paramètres</string>
 
+    //Menu
+    <string name="menuAccueil">Accueil</string>
+    <string name="menuDepenses">Mes dépenses</string>
+    <string name="menuSolde">Mon solde</string>
+    <string name="menuTransaction">Transaction</string>
+    <string name="menuAide">Aide</string>
+    <string name="menuParametres">Paramètres</string>
+
+
+    //Général / Utilisé plusieurs fois :
+    <string name="textTrefles">Trèfles</string>
+    <string name="boutonValide">Valider</string>
+
     //Transaction
     <string name="textNumeroDuDest">Numéro Du Destinataire :</string>
     <string name="TextMontant">Montant :</string>
-    <string name="boutonValide">Valider</string>
+
 
     //Mon solde
     <string name="textMsgSolde">Vous possédez :</string>
     <string name="textNbrTrefles">50,65</string>
-    <string name="textTrefles">Trèfles</string>
     <string name="boutonActualiser">Actualiser</string>
 
+    //Parametres
+    <string name="textMontantMaxTransact">Montant maximal des transactions :</string>
 
 
 </resources>
