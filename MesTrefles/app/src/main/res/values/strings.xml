@@ -37,6 +37,8 @@
 
     //Parametres
     <string name="textMontantMaxTransact">Montant maximal des transactions :</string>
-
+    <string name="txtAide">Aide</string>
+    <string name="boutonSiteAide">www.treflerie.info</string>
+    <string name="boutonMailSupport">Envoyer un mail au support</string>
 
 </resources>
