@@ -41,4 +41,9 @@
     <string name="boutonSiteAide">www.treflerie.info</string>
     <string name="boutonMailSupport">Envoyer un mail au support</string>
 
+    //Depenses
+    <string name="txtDepenses">Mes dépenses</string>
+    <string name="txtBeneficiaire">Bénéficiaire</string>
+    <string name="txtMontant">Montant</string>
+    v<string name="txtDate">Date</string>
 </resources>

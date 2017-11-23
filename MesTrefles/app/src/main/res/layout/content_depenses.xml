@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.gael.mestrefles.DepenseActivity"
+    tools:showIn="@layout/app_bar_depenses">
+
+    <TextView
+        android:id="@+id/txtMsgDepenses"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:gravity="center"
+        android:text="@string/txtDepenses"
+        android:textSize="30sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtBeneficiaire"
+            android:layout_width="200dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:background="@color/tableauGris"
+            android:gravity="center"
+            android:text="@string/txtBeneficiaire"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txtMontant"
+            android:layout_width="150dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:background="@color/tableauGris"
+            android:gravity="center"
+            android:text="@string/txtMontant"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="120dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:background="@color/tableauGris"
+            android:gravity="center"
+            android:text="@string/txtDate"
+            android:textSize="25sp" />
+
+    </LinearLayout>
 
 </LinearLayout>
+
