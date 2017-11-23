@@ -36,10 +36,6 @@ public class SoldeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Envoi d'un sms dès l'ouverture de l'activité
-        final String message = "S?";
-        SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
-
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
     }
