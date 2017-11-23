@@ -58,7 +58,7 @@ public class MenuPrincipal extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            android.os.Process.killProcess(android.os.Process.myPid());
+            super.onBackPressed();
         }
     }
 
