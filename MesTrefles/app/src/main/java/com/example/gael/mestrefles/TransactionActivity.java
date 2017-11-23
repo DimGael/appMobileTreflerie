@@ -57,7 +57,8 @@ public class TransactionActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            final Intent intentAccueil = new Intent(TransactionActivity.this, MenuPrincipal.class);
+            this.startActivity(intentAccueil);
         }
     }
 
