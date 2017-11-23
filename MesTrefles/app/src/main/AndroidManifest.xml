@@ -25,6 +25,24 @@
             android:label="@string/titreTransaction"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity android:name=".SoldeActivity"
+            android:label="@string/titreSolde"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".ParametresActivity"
+            android:label="@string/titreParametres"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".DepenseActivity"
+            android:label="@string/titreDepenses"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
 
 </manifest>

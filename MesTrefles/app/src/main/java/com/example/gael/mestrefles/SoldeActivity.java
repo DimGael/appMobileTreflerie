@@ -14,17 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 
-public class TransactionActivity extends AppCompatActivity
+public class SoldeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transaction);
+        setContentView(R.layout.activity_solde);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -35,13 +33,15 @@ public class TransactionActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
-        boutonValider.setOnClickListener(this);
+        //Envoi d'un sms dès l'ouverture de l'activité
+        final String message = "S?";
+        SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
 
+        final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
+        boutonActualiser.setOnClickListener(this);
     }
 
     @Override
@@ -67,23 +67,23 @@ public class TransactionActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mAccueil) {
-            final Intent intentAccueil = new Intent(TransactionActivity.this, MenuPrincipal.class);
+            final Intent intentAccueil = new Intent(SoldeActivity.this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
         } else if (id == R.id.mDepenses) {
-            final Intent intentDepenses = new Intent(TransactionActivity.this, DepenseActivity.class);
+            final Intent intentDepenses = new Intent(SoldeActivity.this, DepenseActivity.class);
             this.startActivity(intentDepenses);
 
         } else if (id == R.id.mSolde) {
-            final Intent intentSolde = new Intent(TransactionActivity.this, SoldeActivity.class);
-            this.startActivity(intentSolde);
+            //Ne rien faire car on est déjà sur cette activité
 
         } else if (id == R.id.mTransaction) {
-            //Ne rien faire car on est déjà sur cette activité
+            final Intent intentTransac = new Intent(SoldeActivity.this, TransactionActivity.class);
+            this.startActivity(intentTransac);
 
         } else if (id == R.id.mAide) {
 
         } else if (id == R.id.mParametres) {
-            final Intent intentParam = new Intent(TransactionActivity.this, ParametresActivity.class);
+            final Intent intentParam = new Intent(SoldeActivity.this, ParametresActivity.class);
             this.startActivity(intentParam);
         }
 
@@ -94,27 +94,8 @@ public class TransactionActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        final int montant;
-        final int numDestinataire;
-
-        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
-        numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
-
-        final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
-        montant = Integer.valueOf(editTextMontant.getText().toString()).intValue();
-
-
-        if(numDestinataire > 10000){
-            Toast.makeText(TransactionActivity.this, "Numéro de destinataire invalide", Toast.LENGTH_SHORT).show();
-        }
-        else if(montant > 250){
-            Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            final String message = String.valueOf(montant)+"/"+String.valueOf(numDestinataire);
-            SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
-            editTextMontant.setText("");
-            editTextNumDestinataire.setText("");
-        }
+        //Lors de l'activation du bouton Actualiser
+        final String message = "S?";
+        SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
     }
 }

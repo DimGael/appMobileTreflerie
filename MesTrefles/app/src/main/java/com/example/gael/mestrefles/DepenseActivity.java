@@ -10,17 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-public class MenuPrincipal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class DepenseActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_depenses);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,22 +32,6 @@ public class MenuPrincipal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        this.ajoutEcouteursSurBoutons();
-    }
-
-    private void ajoutEcouteursSurBoutons() {
-        //Rajout des écouteurs sur les boutons
-        Button boutonTransaction = (Button)this.findViewById(R.id.BoutonTransaction);
-        boutonTransaction.setOnClickListener(this);
-
-        Button boutonSolde = (Button)this.findViewById(R.id.BoutonMonSolde);
-        boutonSolde.setOnClickListener(this);
-
-        Button boutonDepense = (Button)this.findViewById(R.id.BoutonMesDepenses);
-        boutonDepense.setOnClickListener(this);
-
-        Button boutonParametre = (Button)this.findViewById(R.id.BoutonParametres);
-        boutonParametre.setOnClickListener(this);
     }
 
     @Override
@@ -91,57 +73,28 @@ public class MenuPrincipal extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mAccueil) {
+            final Intent intentAccueil = new Intent(DepenseActivity.this, MenuPrincipal.class);
+            this.startActivity(intentAccueil);
 
         } else if (id == R.id.mDepenses) {
-            final Intent intentDepenses = new Intent(MenuPrincipal.this, DepenseActivity.class);
-            this.startActivity(intentDepenses);
-
+            //Ne rien faire car on est déjà dans cette activité
         } else if (id == R.id.mSolde) {
-            final Intent intentSolde = new Intent(MenuPrincipal.this, SoldeActivity.class);
+            final Intent intentSolde = new Intent(DepenseActivity.this, SoldeActivity.class);
             this.startActivity(intentSolde);
 
         } else if (id == R.id.mTransaction) {
-            final Intent intentTransac = new Intent(MenuPrincipal.this, TransactionActivity.class);
+            final Intent intentTransac = new Intent(DepenseActivity.this, TransactionActivity.class);
             this.startActivity(intentTransac);
 
         } else if (id == R.id.mAide) {
 
         } else if (id == R.id.mParametres) {
-            final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
+            final Intent intentParam = new Intent(DepenseActivity.this, ParametresActivity.class);
             this.startActivity(intentParam);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onClick(View view) {
-        //Méthode qui s'active si on appuie sur un des écouteurs de la vue
-        if(view.getId() == R.id.BoutonTransaction){
-            //Action à faire lors de l'utilisation du bouton Transaction
-            final Intent intentTransac = new Intent(MenuPrincipal.this, TransactionActivity.class);
-            this.startActivity(intentTransac);
-
-        }
-
-        if(view.getId() == R.id.BoutonMonSolde){
-            //Action à faire lors de l'utilisation du bouton Solde
-            final Intent intentSolde = new Intent(MenuPrincipal.this, SoldeActivity.class);
-            this.startActivity(intentSolde);
-        }
-
-        if(view.getId() == R.id.BoutonMesDepenses){
-            //Action à faire lors de l'utilisation du bouton Dépenses
-            final Intent intentDepenses = new Intent(MenuPrincipal.this, DepenseActivity.class);
-            this.startActivity(intentDepenses);
-        }
-
-        if(view.getId() == R.id.BoutonParametres){
-            //Action à faire lors de l'utilisation du bouton Parametres
-            final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
-            this.startActivity(intentParam);
-        }
     }
 }
