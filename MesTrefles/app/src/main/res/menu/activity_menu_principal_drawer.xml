@@ -22,7 +22,7 @@
             android:title="@string/menuTransaction" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Aide">
         <menu>
             <item
                 android:id="@+id/mAide"

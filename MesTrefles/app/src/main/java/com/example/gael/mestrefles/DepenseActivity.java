@@ -40,7 +40,8 @@ public class DepenseActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            final Intent intentAccueil = new Intent(DepenseActivity.this, MenuPrincipal.class);
+            this.startActivity(intentAccueil);
         }
     }
 
@@ -65,6 +66,7 @@ public class DepenseActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
