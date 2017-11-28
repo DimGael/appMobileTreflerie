@@ -14,7 +14,8 @@
         android:id="@+id/BoutonTransaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:text="@string/titreTransaction" />
@@ -23,7 +24,8 @@
         android:id="@+id/BoutonMonSolde"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:text="@string/titreSolde" />
@@ -32,7 +34,8 @@
         android:id="@+id/BoutonMesDepenses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:text="@string/titreDepenses" />
@@ -42,7 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:layout_marginHorizontal="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:text="@string/titreParametres" />
