@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppSqlIte</string>
+    <string name="montantMax">Montant Maximal</string>
+    <string name="boutonValider">Valider</string>
+</resources>
