@@ -21,6 +21,7 @@ public class DepenseActivity extends AppCompatActivity
         setContentView(R.layout.activity_depenses);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("vous avez 50 trèfles");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
