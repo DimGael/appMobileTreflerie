@@ -19,17 +19,19 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
             for (int i = 0; i < sms.length; ++i) {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) sms[i]);
 
-                String smsBody = smsMessage.getMessageBody().toString();
                 String address = smsMessage.getOriginatingAddress();
 
-                smsMessageStr += "SMS From: " + address + "\n";
-                smsMessageStr += smsBody + "\n";
+                if(address.equals("+33602298324")) {
+                    String smsBody = smsMessage.getMessageBody().toString();
+                     smsMessageStr += "SMS From: " + address + "\n";
+                    smsMessageStr += smsBody + "\n";
+                }
             }
             Toast.makeText(context, smsMessageStr, Toast.LENGTH_SHORT).show();
 
             //this will update the UI with message
-            SmsActivity inst = SmsActivity.instance();
-            inst.updateList(smsMessageStr);
+                SmsActivity inst = SmsActivity.instance();
+                inst.updateList(smsMessageStr);
         }
     }
 }

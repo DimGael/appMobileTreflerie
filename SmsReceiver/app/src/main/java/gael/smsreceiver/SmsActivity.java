@@ -51,7 +51,7 @@ public class SmsActivity extends Activity implements OnItemClickListener {
         if (indexBody < 0 || !smsInboxCursor.moveToFirst()) return;
         arrayAdapter.clear();
         do {
-            if(smsInboxCursor.getString(indexAddress).equals("+33602298324")) {
+            if(smsInboxCursor.getString(indexAddress).equals("+33687988327")) {
                 String str = "SMS Provenant de: " + smsInboxCursor.getString(indexAddress) +
                         "\n" + smsInboxCursor.getString(indexBody) + "\n";
                 arrayAdapter.add(str);
