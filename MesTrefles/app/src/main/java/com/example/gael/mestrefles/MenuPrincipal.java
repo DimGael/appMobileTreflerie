@@ -23,6 +23,7 @@ public class MenuPrincipal extends AppCompatActivity
         setContentView(R.layout.activity_menu_principal);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Mes Trèfles    Solde:50,65 T");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
