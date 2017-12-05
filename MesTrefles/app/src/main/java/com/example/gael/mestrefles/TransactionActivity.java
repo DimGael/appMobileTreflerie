@@ -8,6 +8,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.view.Menu;
@@ -15,10 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gael.sqlite.MontantMaxDataSource;
 import com.example.gael.sqlite.MySQLiteHelperMontantMax;
+
+import org.w3c.dom.Text;
 
 
 public class TransactionActivity extends AppCompatActivity
@@ -103,25 +107,36 @@ public class TransactionActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        final double montant;
-        final int numDestinataire;
+
 
         final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
-        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextMontant);
+        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
+
         if (editTextNumDestinataire.getText().toString().equals("") || editTextMontant.getText().toString().equals("")) {
             Toast.makeText(TransactionActivity.this, "Vous n'avez pas rempli les champs", Toast.LENGTH_SHORT).show();
         }
         else {
+            final double montant;
+            int numDestinataire = 0;
 
             montant = Double.valueOf(editTextMontant.getText().toString()).doubleValue();
-            numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
 
-            if (numDestinataire > 10000.0) {
-                Toast.makeText(TransactionActivity.this, "Numéro de destinataire invalide", Toast.LENGTH_SHORT).show();
+            try {
+                numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
+            }
+            catch (NumberFormatException e){
+                numDestinataire = 10001;
+            }
+
+            if (numDestinataire > 10000) {
+                final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
+                editTextErrNumDestinaire.setText("Erreur lors de la saisie du numéro destinataire");
+
             } else if (montant > 250.0) {
                 Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
+                final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurNumeroCompte);
             } else {
-                final String message = String.valueOf(montant) + "/" + String.valueOf(numDestinataire);
+                final String message = montant + "/" + numDestinataire;
                 Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
                 //SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
                 editTextMontant.setText("");

@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#ac8a4a</color>
     <color name="colorSecondaryOrange">#FFC581</color>
     <color name="colorAccent">#629c44</color>
+
     <color name="text">#000000</color>
     <color name="tableauGris">#DCDCDC</color>
+
+    <color name="erreur">#b90000</color>
 </resources>

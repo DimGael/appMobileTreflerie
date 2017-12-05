@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/UtilisationDeSQLite.iml" filepath="$PROJECT_DIR$/UtilisationDeSQLite.iml" />
-      <module fileurl="file://D:\Documents\GitHub\appMobileTreflerie\UtilisationDeSQLite\UtilisationDeSQLite.iml" filepath="D:\Documents\GitHub\appMobileTreflerie\UtilisationDeSQLite\UtilisationDeSQLite.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\Documents\GitHub\appMobileTreflerie\UtilisationDeSQLite\app\app.iml" filepath="D:\Documents\GitHub\appMobileTreflerie\UtilisationDeSQLite\app\app.iml" />
     </modules>
   </component>
 </project>
