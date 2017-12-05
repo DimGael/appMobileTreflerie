@@ -5,5 +5,5 @@
     <item
     android:id="@+id/mAccueil"
     android:icon="@drawable/ic_page_accueil"
-    android:title="@string/pageAccueil" />
+    android:title="Page d'acceuil" />
 </android.support.constraint.ConstraintLayout>
