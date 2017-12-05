@@ -1,4 +1,4 @@
-package com.example.gael.appsqlite;
+package com.example.gael.sqlite;
 
 /**
  * Created by Gael on 29/11/2017.

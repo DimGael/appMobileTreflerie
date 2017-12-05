@@ -1,8 +1,7 @@
 package com.example.gael.appsqlite;
 
-import android.os.TestLooperManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Récupération du montant Max
             final double montantMax = Double.valueOf(editMontantMax.getText().toString());
 
-            if (montantMax >= 250) {
-               Toast.makeText(getApplicationContext(),"Le montant maximum d'une transaction est de 250", Toast.LENGTH_SHORT);
+            if (montantMax >= 250.0) {
+               Toast.makeText(getApplicationContext(),"Le montant maximum d'une transaction est de 250", Toast.LENGTH_SHORT).show();
             } else if (montantMax > 0) {
                 //Ajout du montant max dans la bdd
                 montantMaxDataSource.majMontantMax(montantMax);

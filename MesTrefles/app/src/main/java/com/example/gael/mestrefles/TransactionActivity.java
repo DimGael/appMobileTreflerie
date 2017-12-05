@@ -17,14 +17,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.gael.sqlite.MontantMaxDataSource;
+import com.example.gael.sqlite.MySQLiteHelperMontantMax;
+
 
 public class TransactionActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    private MontantMaxDataSource montantMaxDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
+
+        montantMaxDataSource = new MontantMaxDataSource(this);
+        montantMaxDataSource.open();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -95,27 +103,42 @@ public class TransactionActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        final int montant;
+        final double montant;
         final int numDestinataire;
 
-        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
-        numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
-
         final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
-        montant = Integer.valueOf(editTextMontant.getText().toString()).intValue();
+        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextMontant);
+        if (editTextNumDestinataire.getText().toString().equals("") || editTextMontant.getText().toString().equals("")) {
+            Toast.makeText(TransactionActivity.this, "Vous n'avez pas rempli les champs", Toast.LENGTH_SHORT).show();
+        }
+        else {
 
+            montant = Double.valueOf(editTextMontant.getText().toString()).doubleValue();
+            numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
 
-        if(numDestinataire > 10000){
-            Toast.makeText(TransactionActivity.this, "Numéro de destinataire invalide", Toast.LENGTH_SHORT).show();
+            if (numDestinataire > 10000.0) {
+                Toast.makeText(TransactionActivity.this, "Numéro de destinataire invalide", Toast.LENGTH_SHORT).show();
+            } else if (montant > 250.0) {
+                Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
+            } else {
+                final String message = String.valueOf(montant) + "/" + String.valueOf(numDestinataire);
+                Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
+                //SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
+                editTextMontant.setText("");
+                editTextNumDestinataire.setText("");
+            }
         }
-        else if(montant > 250){
-            Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            final String message = String.valueOf(montant)+"/"+String.valueOf(numDestinataire);
-            SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
-            editTextMontant.setText("");
-            editTextNumDestinataire.setText("");
-        }
+    }
+
+    @Override
+    public void onPause(){
+        this.montantMaxDataSource.close();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume(){
+        this.montantMaxDataSource.open();
+        super.onResume();
     }
 }
