@@ -23,9 +23,9 @@ public class AccueilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-
-        Intent intentMenu = new Intent(this, MenuPrincipal.class);
-        this.startActivity(intentMenu);
+        SystemClock.sleep(5000);
+        //Intent intentMenu = new Intent(this, MenuPrincipal.class);
+       // this.startActivity(intentMenu);
     }
 
 
