@@ -34,10 +34,45 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
             if(doitAfficher){
             Toast.makeText(context, smsMessageStr, Toast.LENGTH_SHORT).show();
 
-            //this will update the UI with message
+            //Traduisons le message reçu :
+
+                //this will update the UI with message
                 // SmsActivity inst = SmsActivity.instance();
                 // inst.updateList(smsMessageStr);
             }
         }
+    }
+
+    public String dirigerMessage(String message){
+        String pageChoisie = "Accueil";
+        String debutMessage = message.substring(0,4);
+        switch (debutMessage){
+            case "Votre":
+                pageChoisie = "DerniereTransaction";
+                break;
+            case "Le so":
+                pageChoisie = "AfficherSolde";
+                break;
+            case "Volum":
+                pageChoisie = "HistoriqueDepenses";
+                break;
+            case "Donné":
+                pageChoisie = "Transaction";
+                break;
+            case "Recu ":
+                //Je ne sais pas
+                pageChoisie = "Accueil";
+                break;
+            case "Trans":
+                pageChoisie = "EffectuerTransaction";
+                break;
+            default:
+                pageChoisie = "Accueil";
+                break;
+
+        }
+
+        return pageChoisie;
+
     }
 }
