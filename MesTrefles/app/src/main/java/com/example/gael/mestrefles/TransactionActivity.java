@@ -28,6 +28,7 @@ import org.w3c.dom.Text;
 public class TransactionActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    //Classe qui va nous servir à manipuler la table MontantMax
     private MontantMaxDataSource montantMaxDataSource;
 
     @Override
