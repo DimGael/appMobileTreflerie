@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -135,7 +136,7 @@ public class TransactionActivity extends AppCompatActivity
                 editTextErrMontant.setText("Montant trop élevé \n (Vous pouvez paramètrer le montant maximum dans les paramètres)");
                 editTextErrNumDestinaire.setText("");
             } else {
-                final String message = montant + "/" + numDestinataire;
+                final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
                 Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
                 //SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
                 editTextMontant.setText("");
@@ -158,7 +159,12 @@ public class TransactionActivity extends AppCompatActivity
         super.onResume();
     }
 
-    private String creerMessage(double montant, int numDestinataire){
-        return "3,25"+numDestinataire;
+    private String creerMessage(double montant, String numDestinataire){
+        int avantVirgule;
+        double apresVirgule;
+
+        avantVirgule = (int)montant;
+        apresVirgule = (montant%1)*100;
+        return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
     }
 }
