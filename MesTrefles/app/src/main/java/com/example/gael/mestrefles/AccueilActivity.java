@@ -3,6 +3,7 @@ package com.example.gael.mestrefles;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,13 +24,14 @@ public class AccueilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-        }
-        //SystemClock.sleep(5000);
-        Intent intentMenu = new Intent(this, MenuPrincipal.class);
-        this.startActivity(intentMenu);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intentMenu = new Intent(AccueilActivity.this, MenuPrincipal.class);
+                startActivity(intentMenu);
+                finish();
+            }
+        }, 3000);
     }
 
 
