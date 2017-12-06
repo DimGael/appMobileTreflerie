@@ -124,19 +124,24 @@ public class TransactionActivity extends AppCompatActivity
                 numDestinataire = 10001;
             }
 
-            if (numDestinataire > 10000) {
-                final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
-                editTextErrNumDestinaire.setText("Erreur lors de la saisie du numéro destinataire");
+            final double montantMax = this.montantMaxDataSource.getMontantMax();
+            final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurMontantTransaction);
+            final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
 
-            } else if (montant > 250.0) {
-                Toast.makeText(TransactionActivity.this, "Montant de la transacion trop grand", Toast.LENGTH_SHORT).show();
-                final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurNumeroCompte);
+            if (numDestinataire > 10000) {
+                editTextErrNumDestinaire.setText("Erreur, la saisie du numéro du destinataire est invalide");
+                editTextErrMontant.setText("");
+            } else if (montant > montantMax) {
+                editTextErrMontant.setText("Montant trop élevé \n (Vous pouvez paramètrer le montant maximum dans les paramètres)");
+                editTextErrNumDestinaire.setText("");
             } else {
                 final String message = montant + "/" + numDestinataire;
                 Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
                 //SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
                 editTextMontant.setText("");
                 editTextNumDestinataire.setText("");
+                editTextErrNumDestinaire.setText("");
+                editTextErrMontant.setText("");
             }
         }
     }
@@ -151,5 +156,9 @@ public class TransactionActivity extends AppCompatActivity
     public void onResume(){
         this.montantMaxDataSource.open();
         super.onResume();
+    }
+
+    private String creerMessage(double montant, int numDestinataire){
+        return "3,25"+numDestinataire;
     }
 }

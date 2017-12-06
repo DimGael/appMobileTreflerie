@@ -70,7 +70,7 @@ public class MontantMaxDataSource {
         if(cursor.moveToFirst()){
             return cursor.getDouble(1);
         }else
-            return 0;
+            return 250;
     }
 
 }
