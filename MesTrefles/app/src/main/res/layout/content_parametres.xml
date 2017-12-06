@@ -28,7 +28,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editNbrMaxTrefles"
+            android:id="@+id/editTextMontantMax"
             android:layout_width="111dp"
             android:layout_height="35dp"
             android:layout_marginLeft="75dp"
