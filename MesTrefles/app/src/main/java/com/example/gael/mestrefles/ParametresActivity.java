@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.gael.sqlite.MontantMaxDataSource;
+import com.example.gael.montantmax.MontantMaxDataSource;
 
 
 public class ParametresActivity extends AppCompatActivity
@@ -131,7 +131,7 @@ public class ParametresActivity extends AppCompatActivity
                 this.montantMaxDataSource.majMontantMax(nouvMontantMax);
 
                 //Affichage d'un message de confirmation rapelant le nouveau montant max
-                
+
             }
         }
     }

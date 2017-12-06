@@ -1,4 +1,4 @@
-package com.example.gael.sqlite;
+package com.example.gael.montantmax;
 
 /**
  * Created by Gael on 29/11/2017.

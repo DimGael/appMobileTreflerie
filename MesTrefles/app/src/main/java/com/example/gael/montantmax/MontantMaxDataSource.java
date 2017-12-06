@@ -1,4 +1,4 @@
-package com.example.gael.sqlite;
+package com.example.gael.montantmax;
 
 import android.content.ContentValues;
 import android.content.Context;

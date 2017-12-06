@@ -8,9 +8,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
-import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,10 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gael.sqlite.MontantMaxDataSource;
-import com.example.gael.sqlite.MySQLiteHelperMontantMax;
-
-import org.w3c.dom.Text;
+import com.example.gael.montantmax.MontantMaxDataSource;
 
 
 public class TransactionActivity extends AppCompatActivity
