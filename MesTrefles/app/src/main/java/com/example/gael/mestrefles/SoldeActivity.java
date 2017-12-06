@@ -40,7 +40,7 @@ public class SoldeActivity extends AppCompatActivity
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
-        this.majAffichageSolde(25.25);
+        this.majAffichageSolde(1000.12);
     }
 
     @Override
@@ -101,6 +101,15 @@ public class SoldeActivity extends AppCompatActivity
 
     private void majAffichageSolde(double nouvSolde){
         TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
-        textViewSolde.setText(Double.toString(nouvSolde));
+        textViewSolde.setText(this.afficherDoubleAvecVirgule(nouvSolde));
+    }
+
+    private String afficherDoubleAvecVirgule(double doublePoint){
+        int avantVirgule;
+        double apresVirgule;
+
+        avantVirgule = (int)doublePoint;
+        apresVirgule = (doublePoint%1)*100;
+        return avantVirgule+","+(int)apresVirgule;
     }
 }
