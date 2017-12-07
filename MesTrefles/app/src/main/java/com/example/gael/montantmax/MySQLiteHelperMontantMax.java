@@ -17,7 +17,7 @@ public class MySQLiteHelperMontantMax extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE = "create table "+TABLE_MONTANT_MAX+" ("
             +COLUMN_ID+" integer primary key autoincrement,"
-            +COLUMN_MONTANT_MAX+" integer not null)";
+            +COLUMN_MONTANT_MAX+" number not null)";
 
     public MySQLiteHelperMontantMax(Context context) {
         super(context, "trefle.db", null, 1);

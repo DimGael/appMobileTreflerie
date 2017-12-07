@@ -14,10 +14,12 @@ public class MontantMaxDataSource {
 
     private SQLiteDatabase database;
     private MySQLiteHelperMontantMax dbHelper;
-    private String[] allColumns = { MySQLiteHelperMontantMax.COLUMN_ID,
-            MySQLiteHelperMontantMax.COLUMN_MONTANT_MAX };
+    private String[] allColumns;
 
     public MontantMaxDataSource(Context context){
+        this.allColumns = new String[]{MySQLiteHelperMontantMax.COLUMN_ID,
+                MySQLiteHelperMontantMax.COLUMN_MONTANT_MAX};
+
         dbHelper = new MySQLiteHelperMontantMax(context);
     }
 

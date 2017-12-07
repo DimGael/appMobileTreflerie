@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class SoldeActivity extends AppCompatActivity
@@ -38,6 +39,8 @@ public class SoldeActivity extends AppCompatActivity
 
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
+
+        this.majAffichageSolde(1000.12);
     }
 
     @Override
@@ -94,5 +97,19 @@ public class SoldeActivity extends AppCompatActivity
         //Lors de l'activation du bouton Actualiser
         final String message = "S?";
         SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
+    }
+
+    private void majAffichageSolde(double nouvSolde){
+        TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
+        textViewSolde.setText(this.afficherDoubleAvecVirgule(nouvSolde));
+    }
+
+    private String afficherDoubleAvecVirgule(double doublePoint){
+        int avantVirgule;
+        double apresVirgule;
+
+        avantVirgule = (int)doublePoint;
+        apresVirgule = (doublePoint%1)*100;
+        return avantVirgule+","+(int)apresVirgule;
     }
 }
