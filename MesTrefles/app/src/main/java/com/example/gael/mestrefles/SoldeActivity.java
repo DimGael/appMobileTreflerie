@@ -17,8 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class SoldeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class SoldeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class SoldeActivity extends AppCompatActivity
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
-        this.majAffichageSolde(1000.12);
+        this.majAffichageSolde(50);
     }
 
     @Override
