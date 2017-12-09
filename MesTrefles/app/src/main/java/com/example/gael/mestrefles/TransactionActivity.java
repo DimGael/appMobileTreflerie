@@ -21,91 +21,48 @@ import android.widget.Toast;
 import com.example.gael.montantmax.MontantMaxDataSource;
 
 
-public class TransactionActivity extends AppCompatActivity
+public class TransactionActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    @Override
+    public Toolbar getToolbar() {
+        return (Toolbar)this.findViewById(R.id.toolbar);
+    }
 
     //Classe qui va nous servir à manipuler la table MontantMax
     private MontantMaxDataSource montantMaxDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
+        super.onCreate(savedInstanceState);
 
         montantMaxDataSource = new MontantMaxDataSource(this);
         montantMaxDataSource.open();
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
         boutonValider.setOnClickListener(this);
 
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            final Intent intentAccueil = new Intent(TransactionActivity.this, MenuPrincipal.class);
-            this.startActivity(intentAccueil);
-        }
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
+    public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.mAccueil) {
-            final Intent intentAccueil = new Intent(TransactionActivity.this, MenuPrincipal.class);
-            this.startActivity(intentAccueil);
-        } else if (id == R.id.mDepenses) {
-            final Intent intentDepenses = new Intent(TransactionActivity.this, DepenseActivity.class);
-            this.startActivity(intentDepenses);
-
-        } else if (id == R.id.mSolde) {
-            final Intent intentSolde = new Intent(TransactionActivity.this, SoldeActivity.class);
-            this.startActivity(intentSolde);
-
-        } else if (id == R.id.mTransaction) {
-            //Ne rien faire car on est déjà sur cette activité
-
-        } else if (id == R.id.mAide) {
-
-        } else if (id == R.id.mParametres) {
-            final Intent intentParam = new Intent(TransactionActivity.this, ParametresActivity.class);
-            this.startActivity(intentParam);
+        //Si l'utilisateur clique sur dépense, ne fais rien
+        if (id == R.id.mTransaction) {
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        //Sinon la méthode est gérée par la superclass (BasicTrefleActivity)
+        return super.onNavigationItemSelected(item);
     }
 
     @Override
     public void onClick(View view) {
-
-
         final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
         final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
 

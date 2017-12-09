@@ -13,27 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MenuPrincipal extends AppCompatActivity
+public class MenuPrincipal extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
 
     @Override
+    public Toolbar getToolbar() {
+        return (Toolbar)this.findViewById(R.id.toolbar);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Mes Trèfles    Solde:50,65 T");
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        super.onCreate(savedInstanceState);
 
         this.ajoutEcouteursSurBoutons();
     }
@@ -53,68 +45,20 @@ public class MenuPrincipal extends AppCompatActivity
         boutonParametre.setOnClickListener(this);
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //Si l'utilisateur clique sur dépense, ne fais rien
         if (id == R.id.mAccueil) {
-
-        } else if (id == R.id.mDepenses) {
-            final Intent intentDepenses = new Intent(MenuPrincipal.this, DepenseActivity.class);
-            this.startActivity(intentDepenses);
-
-        } else if (id == R.id.mSolde) {
-            final Intent intentSolde = new Intent(MenuPrincipal.this, SoldeActivity.class);
-            this.startActivity(intentSolde);
-
-        } else if (id == R.id.mTransaction) {
-            final Intent intentTransac = new Intent(MenuPrincipal.this, TransactionActivity.class);
-            this.startActivity(intentTransac);
-
-        } else if (id == R.id.mAide) {
-
-        } else if (id == R.id.mParametres) {
-            final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
-            this.startActivity(intentParam);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        //Sinon la méthode est gérée par la superclass (BasicTrefleActivity)
+        return super.onNavigationItemSelected(item);
     }
 
     @Override

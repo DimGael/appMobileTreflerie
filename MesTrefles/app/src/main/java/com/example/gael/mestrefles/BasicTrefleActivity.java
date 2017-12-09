@@ -11,18 +11,29 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.gael.soldeactuel.SoldeDataSource;
+
 /**
  * Created by GaëlPortable on 06/12/2017.
  */
 
 public abstract class BasicTrefleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    protected SoldeDataSource soldeDataSource;
+
+
+
+    public abstract Toolbar getToolbar();
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Solde : 50 Trèfles");
+        this.soldeDataSource = new SoldeDataSource(this.getBaseContext());
+        this.soldeDataSource.open();
+
+        Toolbar toolbar = this.getToolbar();
+        toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -62,7 +73,8 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            final Intent intentParam = new Intent(this, ParametresActivity.class);
+            this.startActivity(intentParam);
         }
 
         return super.onOptionsItemSelected(item);
@@ -101,4 +113,15 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         return true;
     }
 
+    @Override
+    public void onPause(){
+        this.soldeDataSource.close();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume(){
+        this.soldeDataSource.open();
+        super.onResume();
+    }
 }
