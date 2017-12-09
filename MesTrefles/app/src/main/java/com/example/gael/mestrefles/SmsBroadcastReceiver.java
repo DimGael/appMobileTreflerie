@@ -26,7 +26,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                 String address = smsMessage.getOriginatingAddress();
 
-                if(address.equals("+33687988327")) {
+                if(address.equals("+33782572437")) {
                     String smsBody = smsMessage.getMessageBody().toString();
                      smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
