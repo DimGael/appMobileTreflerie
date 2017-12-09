@@ -1,11 +1,13 @@
 package com.example.gael.mestrefles;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.telephony.SmsMessage;
 import android.widget.Toast;
+
+
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
 
@@ -39,37 +41,42 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 //this will update the UI with message
                 // SmsActivity inst = SmsActivity.instance();
                 // inst.updateList(smsMessageStr);
+                this.dirigerMessage(smsMessageStr, context);
             }
         }
     }
 
-    public String dirigerMessage(String message){
+    public String dirigerMessage(String message, Context context){
         String pageChoisie = "Accueil";
-        String debutMessage = message.substring(0,4);
+        String debutMessage = message.substring(0,5);
         switch (debutMessage){
             case "Votre":
-                pageChoisie = "DerniereTransaction";
+                final Intent myIntent = new Intent(context, TransactionActivity.class);
+                context.startActivity(myIntent);
                 break;
             case "Le so":
-                pageChoisie = "AfficherSolde";
+                Toast.makeText(null, "Votre solde a été mis à jour", Toast.LENGTH_SHORT).show();
                 break;
             case "Volum":
-                pageChoisie = "HistoriqueDepenses";
+                final Intent intentP1 = new Intent(context, MenuPrincipal.class);
+                context.startActivity(intentP1);
                 break;
             case "Donné":
-                pageChoisie = "Transaction";
+                final Intent intentP2 = new Intent(context, MenuPrincipal.class);
+                context.startActivity(intentP2);
                 break;
             case "Recu ":
-                //Je ne sais pas
-                pageChoisie = "Accueil";
+                final Intent intentP3 = new Intent(context, MenuPrincipal.class);
+                context.startActivity(intentP3);
                 break;
             case "Trans":
-                pageChoisie = "EffectuerTransaction";
+                final Intent intentP4 = new Intent(context, MenuPrincipal.class);
+                context.startActivity(intentP4);
                 break;
             default:
-                pageChoisie = "Accueil";
+                final Intent intentP5 = new Intent(context, MenuPrincipal.class);
+                context.startActivity(intentP5);
                 break;
-
         }
 
         return pageChoisie;

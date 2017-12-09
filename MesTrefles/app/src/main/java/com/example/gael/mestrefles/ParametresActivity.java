@@ -50,6 +50,7 @@ public class ParametresActivity extends AppCompatActivity
         ((Button)this.findViewById(R.id.boutonValiderParametres)).setOnClickListener(this);
 
         //Ajouter le montant actuel du montant max de transaction
+        ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
 
     }
 
@@ -108,11 +109,6 @@ public class ParametresActivity extends AppCompatActivity
         if(id == R.id.boutonValiderParametres){
             //Action lorsque l'utilisateur appuie sur le bouton valider en paramètres
 
-            /*
-            1. gérer le fait que l'utilisateur n'ai rien mis
-            2. L'utilisateur entre une valeur supérieure à 250
-            */
-
             final EditText editTextMontantMax  = (EditText)this.findViewById(R.id.editTextMontantMax);
 
             if(editTextMontantMax.getText().toString().equals("")){
@@ -131,7 +127,8 @@ public class ParametresActivity extends AppCompatActivity
                 this.montantMaxDataSource.majMontantMax(nouvMontantMax);
 
                 //Affichage d'un message de confirmation rapelant le nouveau montant max
-
+                Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
+                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
             }
         }
     }

@@ -1,8 +1,11 @@
 package com.example.gael.soldeactuel;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
 
 /**
  * Created by Gael on 06/12/2017.
@@ -15,7 +18,7 @@ public class SoldeDataSource {
     private final String[] allColumns;
 
     public SoldeDataSource(Context context) {
-        allColumns = new String[]{MySQLiteHelperSolde.COLUMN_ID, MySQLiteHelperSolde.COLUMN_SOLDE, MySQLiteHelperSolde.COLUMN_DATE_ACTUALISATION};
+        allColumns = new String[]{MySQLiteHelperSolde.COLUMN_ID, MySQLiteHelperSolde.COLUMN_SOLDE};
 
         dbHelper = new MySQLiteHelperSolde(context);
     }
@@ -29,7 +32,42 @@ public class SoldeDataSource {
     }
 
     /*
-    public void majSolde(double solde);
     public Solde getSoldeActuel();
      */
+
+    public Solde majSolde(double solde){
+        ContentValues values = new ContentValues();
+
+        values.put(MySQLiteHelperSolde.COLUMN_SOLDE, solde);
+
+        //insertId récupère l'id du nouvel element inséré dans la bdd
+        long insertId = database.insert(MySQLiteHelperSolde.TABLE_SOLDE, null, values);
+
+
+        Cursor cursor = database.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, MySQLiteHelperSolde.COLUMN_ID+"="+insertId, null, null, null, null);
+        cursor.moveToFirst();
+
+        Solde nouvSolde = new Solde();
+        nouvSolde.setId(cursor.getLong(1));
+        nouvSolde.setSoldeActuel(cursor.getDouble(2));
+
+        //Retirer les anciens soldes de la bdd
+        this.deleteAncienSoldes(nouvSolde.getId());
+
+        return nouvSolde;
+    }
+
+    private void deleteAncienSoldes(long idSoldeAGarder){
+        this.database.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+idSoldeAGarder, null);
+    }
+
+    public double getSoldeActuel(){
+        Cursor cursor = this.database.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            return cursor.getDouble(2);
+        }
+        else{
+            return 0.0;
+        }
+    }
 }

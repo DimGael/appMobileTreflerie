@@ -16,14 +16,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gael.soldeactuel.SoldeDataSource;
 
-public class SoldeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+public class SoldeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    private SoldeDataSource soldeDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solde);
+
+        this.soldeDataSource = new SoldeDataSource(this);
+        this.soldeDataSource.open();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -40,7 +46,7 @@ public class SoldeActivity extends AppCompatActivity
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
-        this.majAffichageSolde(1000.12);
+        this.majAffichageSolde(this.soldeDataSource.getSoldeActuel());
     }
 
     @Override
@@ -111,5 +117,17 @@ public class SoldeActivity extends AppCompatActivity
         avantVirgule = (int)doublePoint;
         apresVirgule = (doublePoint%1)*100;
         return avantVirgule+","+(int)apresVirgule;
+    }
+
+    @Override
+    public void onPause(){
+        this.soldeDataSource.close();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume(){
+        this.soldeDataSource.open();
+        super.onResume();
     }
 }
