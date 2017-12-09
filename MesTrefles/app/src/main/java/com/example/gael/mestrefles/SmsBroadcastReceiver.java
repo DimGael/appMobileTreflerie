@@ -8,6 +8,8 @@ import android.telephony.SmsMessage;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.example.gael.soldeactuel.Solde;
+import com.example.gael.soldeactuel.SoldeDataSource;
 
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
@@ -43,6 +45,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
                             if(!msgSolde[8].isEmpty()) {
+                                /*Gael help me with MySQL to change the value of "solde" GENRE UN SETTEUR LE MAJ MARCHE PAS XD
+
+                                SoldeDataSource soldeActuel = new SoldeDataSource(context);
+                                soldeActuel.majSolde(Double.parseDouble(msgSolde[8]));*/
                                 Toast.makeText(context, msgSolde[8], Toast.LENGTH_SHORT).show();
                             }
                             Intent solde = new Intent(context, SoldeActivity.class);
