@@ -42,7 +42,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             break;
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
-                            Toast.makeText(context, msgSolde[8], Toast.LENGTH_SHORT).show();
+                            if(!msgSolde[8].isEmpty()) {
+                                Toast.makeText(context, msgSolde[8], Toast.LENGTH_SHORT).show();
+                            }
                             Intent solde = new Intent(context, SoldeActivity.class);
                             solde.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(solde);
