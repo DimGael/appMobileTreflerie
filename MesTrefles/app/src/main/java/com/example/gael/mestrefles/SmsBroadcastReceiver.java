@@ -31,7 +31,31 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                      smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
                     Toast.makeText(context, smsBody, Toast.LENGTH_SHORT).show();
-                    //this.dirigerMessage(smsBody, context);
+                    String debutMessage = smsBody.substring(0,5);
+                    switch (debutMessage){
+                        case "Votre":
+                            Toast.makeText(context, "Derniere transaction ...", Toast.LENGTH_SHORT).show();
+
+                            break;
+                        case "Le so":
+                            Toast.makeText(context, "Solde ...", Toast.LENGTH_SHORT).show();
+                            break;
+                        case "Volum":
+                            Toast.makeText(context, "Volume ...", Toast.LENGTH_SHORT).show();
+                            break;
+                        case "Donné":
+                            Toast.makeText(context, "Donné à ...", Toast.LENGTH_SHORT).show();
+                            break;
+                        case "Recu ":
+                            Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
+                            break;
+                        case "Trans":
+                            Toast.makeText(context, "Transaction", Toast.LENGTH_SHORT).show();
+                            break;
+                        default:
+                            Toast.makeText(context, "DEFAULT", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
                 }
             }
         }
