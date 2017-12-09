@@ -14,12 +14,10 @@ public class MySQLiteHelperSolde extends SQLiteOpenHelper {
     public static final String TABLE_SOLDE = "solde";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_SOLDE = "solde";
-    public static final String COLUMN_DATE_ACTUALISATION = "date_actualisation";
 
     private static final String TABLE_CREATE = "CREATE TABLE "+ TABLE_SOLDE + "("+
             COLUMN_ID+" integer primary key autoincrement," +
-            COLUMN_SOLDE+" number not null,"+
-            COLUMN_DATE_ACTUALISATION+" date )";
+            COLUMN_SOLDE+" number not null)";
 
     public MySQLiteHelperSolde(Context context) {
         super(context, "trefle.bd", null, 1);
