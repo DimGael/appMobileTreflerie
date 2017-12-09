@@ -30,22 +30,13 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     String smsBody = smsMessage.getMessageBody().toString();
                      smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
-                    doitAfficher = true;
+                    Toast.makeText(context, smsBody, Toast.LENGTH_SHORT).show();
+                    //this.dirigerMessage(smsBody, context);
                 }
-            }
-            if(doitAfficher){
-            Toast.makeText(context, smsMessageStr, Toast.LENGTH_SHORT).show();
-
-            //Traduisons le message reçu :
-
-                //this will update the UI with message
-                // SmsActivity inst = SmsActivity.instance();
-                // inst.updateList(smsMessageStr);
-                this.dirigerMessage(smsMessageStr, context);
             }
         }
     }
-
+/*
     public String dirigerMessage(String message, Context context){
         String pageChoisie = "Accueil";
         String debutMessage = message.substring(0,5);
@@ -81,5 +72,5 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
         return pageChoisie;
 
-    }
+    }*/
 }
