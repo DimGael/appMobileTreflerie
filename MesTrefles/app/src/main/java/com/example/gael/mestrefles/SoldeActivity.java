@@ -28,8 +28,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solde);
+        super.onCreate(savedInstanceState);
 
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
@@ -90,7 +90,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     public void onClick(View view) {
         //Lors de l'activation du bouton Actualiser
         final String message = "S?";
-        SmsManager.getDefault().sendTextMessage("0782572437",null,message,null,null);
+        SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
     }
 
     private void majAffichageSolde(double nouvSolde){
