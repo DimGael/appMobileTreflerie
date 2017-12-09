@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
+import android.view.Menu;
 import android.widget.Toast;
 
 
@@ -30,30 +31,51 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     String smsBody = smsMessage.getMessageBody().toString();
                      smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
-                    Toast.makeText(context, smsBody, Toast.LENGTH_SHORT).show();
                     String debutMessage = smsBody.substring(0,5);
+
                     switch (debutMessage){
                         case "Votre":
                             Toast.makeText(context, "Derniere transaction ...", Toast.LENGTH_SHORT).show();
-
+                            Intent derniereTransaction = new Intent(context, MenuPrincipal.class);
+                            derniereTransaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(derniereTransaction);
                             break;
                         case "Le so":
-                            Toast.makeText(context, "Solde ...", Toast.LENGTH_SHORT).show();
+                            String[] msgSolde = smsBody.split(" ");
+                            Toast.makeText(context, msgSolde[8], Toast.LENGTH_SHORT).show();
+                            Intent solde = new Intent(context, SoldeActivity.class);
+                            solde.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(solde);
                             break;
                         case "Volum":
                             Toast.makeText(context, "Volume ...", Toast.LENGTH_SHORT).show();
+                            Intent volume = new Intent(context, MenuPrincipal.class);
+                            volume.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(volume);
                             break;
                         case "Donné":
                             Toast.makeText(context, "Donné à ...", Toast.LENGTH_SHORT).show();
+                            Intent donne = new Intent(context, TransactionActivity.class);
+                            donne.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(donne);
                             break;
                         case "Recu ":
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
+                            Intent recu = new Intent(context, TransactionActivity.class);
+                            recu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(recu);
                             break;
                         case "Trans":
                             Toast.makeText(context, "Transaction", Toast.LENGTH_SHORT).show();
+                            Intent transaction = new Intent(context, TransactionActivity.class);
+                            transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(transaction);
                             break;
                         default:
                             Toast.makeText(context, "DEFAULT", Toast.LENGTH_SHORT).show();
+                            Intent menu = new Intent(context, MenuPrincipal.class);
+                            menu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(menu);
                             break;
                     }
                 }
