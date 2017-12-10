@@ -24,6 +24,8 @@ import com.example.gael.montantmax.MontantMaxDataSource;
 public class TransactionActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    public static final String INTENT_VALID_TRANSAC = "INTENT_VALID_TRANSAC";
+
     @Override
     public Toolbar getToolbar() {
         return (Toolbar)this.findViewById(R.id.toolbar);
@@ -42,6 +44,15 @@ public class TransactionActivity extends BasicTrefleActivity
 
         Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
         boutonValider.setOnClickListener(this);
+
+        final double soldeEnvoye = this.getIntent().getDoubleExtra(this.INTENT_VALID_TRANSAC, -1.0);
+        if(soldeEnvoye != -1.0){
+            Toast.makeText(this, "Transaction bien effectuée !", Toast.LENGTH_SHORT).show();
+            this.soldeDataSource.majSolde(this.soldeDataSource.getSoldeActuel() - soldeEnvoye);
+            this.majSoldeToolbar();
+        }
+
+        ((Button)this.findViewById(R.id.boutonValider)).setEnabled(true);
 
     }
 
@@ -93,6 +104,7 @@ public class TransactionActivity extends BasicTrefleActivity
                 editTextErrMontant.setText("Montant trop élevé \n (Vous pouvez paramètrer le montant maximum dans les paramètres)");
                 editTextErrNumDestinaire.setText("");
             } else {
+                ((Button)this.findViewById(R.id.boutonValider)).setEnabled(false);
                 final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
                 //Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
                 SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
@@ -123,6 +135,10 @@ public class TransactionActivity extends BasicTrefleActivity
 
         avantVirgule = (int)montant;
         apresVirgule = (montant%1)*100;
+
+        if(apresVirgule == 0.0){
+            return avantVirgule+"/"+numDestinataire;
+        }
         return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
     }
 }

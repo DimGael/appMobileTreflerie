@@ -59,8 +59,17 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             context.startActivity(volume);
                             break;
                         case "Donné":
-                            Toast.makeText(context, "Transaction bien effectuée", Toast.LENGTH_SHORT).show();
                             //A faire lors de la confirmation d'un transaction
+                            String soldeEnvoyeString = smsBody.split(":")[1];
+                            soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
+                            Toast.makeText(context, soldeEnvoyeString, Toast.LENGTH_SHORT).show();
+
+                            double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
+
+                            Intent transaction = new Intent(context, TransactionActivity.class);
+                            transaction.putExtra(TransactionActivity.INTENT_VALID_TRANSAC, soldeEnvoye);
+                            transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(transaction);
                             break;
                         case "Recu ":
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
@@ -70,9 +79,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             break;
                         case "Trans":
                             Toast.makeText(context, "Transaction", Toast.LENGTH_SHORT).show();
-                            Intent transaction = new Intent(context, TransactionActivity.class);
+                            /*Intent transaction = new Intent(context, TransactionActivity.class);
                             transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(transaction);
+                            context.startActivity(transaction);*/
                             break;
                         default:
                             Toast.makeText(context, "DEFAULT", Toast.LENGTH_SHORT).show();
