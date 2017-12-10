@@ -93,11 +93,9 @@ public class TransactionActivity extends BasicTrefleActivity
                 editTextErrMontant.setText("Montant trop élevé \n (Vous pouvez paramètrer le montant maximum dans les paramètres)");
                 editTextErrNumDestinaire.setText("");
             } else {
-                //final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
+                final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
                 //Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
-
-                final String messageEnvoi = editTextMontant.getText().toString() + "/" + editTextNumDestinataire.getText().toString();
-                SmsManager.getDefault().sendTextMessage("+33782572437",null,messageEnvoi,null,null);
+                SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
 
                 editTextMontant.setText("");
                 editTextNumDestinataire.setText("");
