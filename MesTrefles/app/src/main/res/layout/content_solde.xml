@@ -29,7 +29,7 @@
         android:gravity="center"
         android:text="@string/textMsgSolde"
         android:textColor="@color/text"
-        android:textSize="30sp" />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/textNbrTrefles"
@@ -42,7 +42,7 @@
         android:gravity="center"
         android:text="@string/textNbrTrefles"
         android:textColor="@color/text"
-        android:textSize="75sp" />
+        android:textSize="75dp" />
 
     <TextView
         android:id="@+id/textTrefles"
@@ -54,7 +54,7 @@
         android:layout_marginBottom="10dp"
         android:text="@string/textTrefles"
         android:textColor="@color/text"
-        android:textSize="60sp"
+        android:textSize="60dp"
         android:gravity="center"/>
 
     <RelativeLayout
@@ -66,10 +66,10 @@
             style="@style/BoutonClassique"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="17dp"
             android:layout_weight="1"
             android:text="@string/boutonActualiser"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
     </RelativeLayout>
 
 </LinearLayout>
