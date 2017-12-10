@@ -7,6 +7,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,11 +38,32 @@ public class ParametresActivity extends BasicTrefleActivity
         this.montantMaxDataSource = new MontantMaxDataSource(this);
         this.montantMaxDataSource.open();
 
+        //Tant qu'on change rien le bouton n'est pas activable
+        ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
+
         //Ajout de l'écouteur sur le bouton
         ((Button)this.findViewById(R.id.boutonValiderParametres)).setOnClickListener(this);
 
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
+
+        //Quand le texte change, le bouton est de nouveau actif
+        ((EditText)this.findViewById(R.id.editTextMontantMax)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
     }
 
