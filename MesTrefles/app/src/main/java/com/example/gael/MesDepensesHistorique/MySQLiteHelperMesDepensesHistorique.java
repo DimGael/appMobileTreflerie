@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by Gael on 29/11/2017.
+ * Created by Alexis on 10/12/2017.
  */
 
 public class MySQLiteHelperMesDepensesHistorique extends SQLiteOpenHelper {

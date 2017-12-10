@@ -36,7 +36,7 @@ public class AccueilActivity extends AppCompatActivity {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.SEND_SMS)) {
-                //Cela signifie que la permission à déjà était
+                //Cela signifie que la permission a déjà été
                 //demandé et l'utilisateur l'a refusé
                 //Vous pouvez aussi expliquer à l'utilisateur pourquoi
                 //cette permission est nécessaire et la redemander
