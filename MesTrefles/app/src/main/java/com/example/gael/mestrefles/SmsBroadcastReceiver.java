@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.example.gael.soldeactuel.Solde;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
+import java.util.regex.Pattern;
+
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
 
@@ -44,6 +46,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             break;
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
+                            if(!msgSolde[5].isEmpty()) {
+                                String numeroCompte = (msgSolde[5]);
+                            }
                             if(!msgSolde[8].isEmpty()) {
                                 double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
                                 Intent solde = new Intent(context, SoldeActivity.class);
@@ -51,6 +56,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                 solde.putExtra(SoldeActivity.INTENT_NOUV_SOLDE, nouvSolde);
                                 context.startActivity(solde);
                             }
+
                             break;
                         case "Volum":
                             Toast.makeText(context, "Volume ...", Toast.LENGTH_SHORT).show();
@@ -59,6 +65,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             context.startActivity(volume);
                             break;
                         case "Donné":
+
                             //A faire lors de la confirmation d'un transaction
                             String soldeEnvoyeString = smsBody.split(":")[1];
                             soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
@@ -71,8 +78,23 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(transaction);
                             break;
+
                         case "Recu ":
+                            String[] msgReception = smsBody.split(" ");
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
+                            if(!msgReception[2].isEmpty() && !msgReception[3].isEmpty()) {
+                                String provenanceNomPrenom = (msgReception[2]+" "+msgReception[3]);
+                                Toast.makeText(context, provenanceNomPrenom, Toast.LENGTH_SHORT).show();
+                            }
+                            if(!msgReception[4].isEmpty()) {
+                                String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
+                                String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
+                                String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
+                                String partieTrefles[] = smsBody.split(Pattern.quote(":"));
+                                String treflesRecus = partieTrefles[1];
+                                Toast.makeText(context, provenanceNumeroCompte, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, treflesRecus, Toast.LENGTH_SHORT).show();
+                            }
                             Intent recu = new Intent(context, TransactionActivity.class);
                             recu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(recu);
@@ -103,41 +125,4 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         }
         return Double.valueOf(s).doubleValue();
     }
-/*
-    public String dirigerMessage(String message, Context context){
-        String pageChoisie = "Accueil";
-        String debutMessage = message.substring(0,5);
-        switch (debutMessage){
-            case "Votre":
-                final Intent myIntent = new Intent(context, TransactionActivity.class);
-                context.startActivity(myIntent);
-                break;
-            case "Le so":
-                Toast.makeText(null, "Votre solde a été mis à jour", Toast.LENGTH_SHORT).show();
-                break;
-            case "Volum":
-                final Intent intentP1 = new Intent(context, MenuPrincipal.class);
-                context.startActivity(intentP1);
-                break;
-            case "Donné":
-                final Intent intentP2 = new Intent(context, MenuPrincipal.class);
-                context.startActivity(intentP2);
-                break;
-            case "Recu ":
-                final Intent intentP3 = new Intent(context, MenuPrincipal.class);
-                context.startActivity(intentP3);
-                break;
-            case "Trans":
-                final Intent intentP4 = new Intent(context, MenuPrincipal.class);
-                context.startActivity(intentP4);
-                break;
-            default:
-                final Intent intentP5 = new Intent(context, MenuPrincipal.class);
-                context.startActivity(intentP5);
-                break;
-        }
-
-        return pageChoisie;
-
-    }*/
 }
