@@ -57,54 +57,67 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/boutonValiderParametres"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_weight="1"
-        android:text="@string/boutonValide" />
+        android:layout_height="85dp">
+
+        <Button
+            android:id="@+id/boutonValiderParametres"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="@string/boutonValide" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="284dp"
         android:background="@color/colorSecondaryOrange"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtAide"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="150dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/txtAide"
-            android:textColor="@color/text"
-            android:textSize="20sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/boutonSiteAide"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_weight="1"
-            android:text="@string/boutonSiteAide" />
-        <Button
-            android:id="@+id/boutonMailSupport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_weight="1"
-            android:text="@string/boutonMailSupport" />
+            <TextView
+                android:id="@+id/txtAide"
+                android:layout_width="60dp"
+                android:layout_height="81dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/txtAide"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/boutonSiteAide"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_alignLeft="@+id/boutonMailSupport"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/boutonMailSupport"
+                android:layout_marginTop="64dp"
+                android:layout_weight="1"
+                android:text="@string/boutonSiteAide" />
+
+            <Button
+                android:id="@+id/boutonMailSupport"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/boutonSiteAide"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="17dp"
+                android:layout_weight="1"
+                android:text="@string/boutonMailSupport" />
+        </RelativeLayout>
 
     </LinearLayout>
 

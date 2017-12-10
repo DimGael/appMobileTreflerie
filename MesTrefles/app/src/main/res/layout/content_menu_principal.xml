@@ -4,50 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.gael.mestrefles.MenuPrincipal"
-    tools:showIn="@layout/app_bar_menu_principal"
-    android:background="@color/colorPrimary">
+    tools:showIn="@layout/app_bar_menu_principal">
 
-    <Button
-        android:id="@+id/BoutonTransaction"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_weight="1"
-        android:text="@string/titreTransaction" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/BoutonMonSolde"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_weight="1"
-        android:text="@string/titreSolde" />
+        <Button
+            android:id="@+id/BoutonTransaction"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_above="@+id/BoutonMesDepenses"
+            android:layout_alignLeft="@+id/BoutonMesDepenses"
+            android:layout_alignStart="@+id/BoutonMesDepenses"
+            android:layout_marginBottom="18dp"
+            android:layout_weight="1"
+            android:text="@string/titreTransaction" />
 
-    <Button
-        android:id="@+id/BoutonMesDepenses"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_weight="1"
-        android:text="@string/titreDepenses" />
+        <Button
+            android:id="@+id/BoutonMonSolde"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_above="@+id/BoutonTransaction"
+            android:layout_alignLeft="@+id/BoutonTransaction"
+            android:layout_alignStart="@+id/BoutonTransaction"
+            android:layout_marginBottom="18dp"
+            android:layout_weight="1"
+            android:text="@string/titreSolde" />
 
-    <Button
-        android:id="@+id/BoutonParametres"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_weight="1"
-        android:text="@string/titreParametres" />
+        <Button
+            android:id="@+id/BoutonParametres"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/BoutonMesDepenses"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            android:layout_weight="1"
+            android:text="@string/titreParametres" />
+
+        <Button
+            android:id="@+id/BoutonMesDepenses"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_alignLeft="@+id/BoutonParametres"
+            android:layout_alignStart="@+id/BoutonParametres"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:text="@string/titreDepenses" />
+    </RelativeLayout>
 </LinearLayout>
