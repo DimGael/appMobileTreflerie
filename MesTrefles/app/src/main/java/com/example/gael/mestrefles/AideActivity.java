@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,11 +9,13 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gael.montantmax.MontantMaxDataSource;
@@ -31,7 +34,33 @@ public class AideActivity extends BasicTrefleActivity
         setContentView(R.layout.activity_aide);
         super.onCreate(savedInstanceState);
         this.ajoutEcouteursSurBoutons();
+
+        TextView textView1 = (TextView) findViewById(R.id.textView);
+        TextView textView2 = (TextView) findViewById(R.id.textView2);
+        TextView textView3 = (TextView) findViewById(R.id.textView3);
+
+        Button bouton1 = (Button) findViewById(R.id.boutonSiteAide);
+        Button bouton2 = (Button) findViewById(R.id.boutonMailSupport);
+
+        setFont(textView1,"QSregular.ttf");
+        setFont(textView2,"QSregular.ttf");
+        setFont(textView3,"QSregular.ttf");
+
+        setFont(bouton1,"QSregular.ttf");
+        setFont(bouton2,"QSregular.ttf");
     }
+
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

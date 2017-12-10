@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,8 +9,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class DepenseActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +28,26 @@ public class DepenseActivity extends BasicTrefleActivity
         setContentView(R.layout.activity_depenses);
         super.onCreate(savedInstanceState);
 
+        TextView textView1 = (TextView) findViewById(R.id.txtMsgDepenses);
+        TextView textView2 = (TextView) findViewById(R.id.txtBeneficiaire);
+        TextView textView3 = (TextView) findViewById(R.id.txtMontant);
+        TextView textView4 = (TextView) findViewById(R.id.txtDate);
+
+
+        setFont(textView1,"QSregular.ttf");
+        setFont(textView2,"QSregular.ttf");
+        setFont(textView3,"QSregular.ttf");
+        setFont(textView4,"QSregular.ttf");
+    }
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

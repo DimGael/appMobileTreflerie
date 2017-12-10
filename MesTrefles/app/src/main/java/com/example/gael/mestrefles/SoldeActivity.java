@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +50,33 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
             ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
         }
         ((Button)this.findViewById(R.id.boutonActualiser)).setEnabled(true);
+
+        TextView textView1 = (TextView) findViewById(R.id.textMsgSolde);
+        TextView textView2 = (TextView) findViewById(R.id.textNbrTrefles);
+        TextView textView3 = (TextView) findViewById(R.id.textTrefles);
+        TextView textView4 = (TextView) findViewById(R.id.texteReponseSolde);
+
+        Button bouton1 = (Button) findViewById(R.id.boutonActualiser);
+
+        setFont(textView1,"QSregular.ttf");
+        setFont(textView2,"QSregular.ttf");
+        setFont(textView3,"QSregular.ttf");
+        setFont(textView4,"QSregular.ttf");
+
+        setFont(bouton1,"QSregular.ttf");
     }
+
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

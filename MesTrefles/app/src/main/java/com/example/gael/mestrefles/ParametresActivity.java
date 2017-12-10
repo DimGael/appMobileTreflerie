@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,11 +10,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gael.montantmax.MontantMaxDataSource;
@@ -65,6 +68,35 @@ public class ParametresActivity extends BasicTrefleActivity
             }
         });
 
+        Button bouton1 = (Button) findViewById(R.id.boutonValiderParametres);
+        Button bouton2 = (Button) findViewById(R.id.boutonSiteAide);
+        Button bouton3 = (Button) findViewById(R.id.boutonMailSupport);
+
+        TextView textView1 = (TextView) findViewById(R.id.textMontantMaxTransact);
+        TextView textView2 = (TextView) findViewById(R.id.textTrefles);
+        TextView textView3 = (TextView) findViewById(R.id.txtAide);
+
+        EditText editText1 = (EditText) findViewById(R.id.editTextMontantMax);
+
+        setFont(bouton1,"QSregular.ttf");
+        setFont(bouton2,"QSregular.ttf");
+        setFont(bouton3,"QSregular.ttf");
+
+        setFont(bouton1,"QSregular.ttf");
+        setFont(bouton2,"QSregular.ttf");
+        setFont(bouton3,"QSregular.ttf");
+
+        setFont(editText1,"QSregular.ttf");
+    }
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,7 +57,38 @@ public class TransactionActivity extends BasicTrefleActivity
 
         ((Button)this.findViewById(R.id.boutonValider)).setEnabled(true);
 
+        TextView textView1 = (TextView) findViewById(R.id.textNumeroDest);
+        TextView textView2 = (TextView) findViewById(R.id.erreurNumeroCompte);
+        TextView textView3 = (TextView) findViewById(R.id.textMontant);
+        TextView textView4 = (TextView) findViewById(R.id.erreurMontantTransaction);
+        TextView textView5 = (TextView) findViewById(R.id.texteReponseSolde);
+
+        Button bouton1 = (Button) findViewById(R.id.boutonValider);
+
+        EditText editText1 = (EditText) findViewById(R.id.editTextNumeroDest);
+        EditText editText2 = (EditText) findViewById(R.id.editTextMontant);
+
+        setFont(textView1,"QSregular.ttf");
+        setFont(textView2,"QSregular.ttf");
+        setFont(textView3,"QSregular.ttf");
+        setFont(textView4,"QSregular.ttf");
+        setFont(textView5,"QSregular.ttf");
+
+        setFont(bouton1,"QSregular.ttf");
+
     }
+
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

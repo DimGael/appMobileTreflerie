@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,10 +9,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MenuPrincipal extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -28,6 +31,25 @@ public class MenuPrincipal extends BasicTrefleActivity
         super.onCreate(savedInstanceState);
 
         this.ajoutEcouteursSurBoutons();
+        Button bouton1 = (Button) findViewById(R.id.BoutonMonSolde);
+        Button bouton2 = (Button) findViewById(R.id.BoutonTransaction);
+        Button bouton3 = (Button) findViewById(R.id.BoutonParametres);
+        Button bouton4 = (Button) findViewById(R.id.BoutonMesDepenses);
+
+        setFont(bouton1,"QSregular.ttf");
+        setFont(bouton2,"QSregular.ttf");
+        setFont(bouton3,"QSregular.ttf");
+        setFont(bouton4,"QSregular.ttf");
+    }
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
     }
 
     private void ajoutEcouteursSurBoutons() {
