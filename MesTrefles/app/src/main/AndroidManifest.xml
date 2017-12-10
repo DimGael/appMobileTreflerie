@@ -45,6 +45,11 @@
             android:label="@string/titreTransaction"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity android:name=".AideActivity"
+            android:label="@string/titreAide"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".RefusActivity"
             android:label="@string/titreRefus"
             android:theme="@style/AppTheme.NoActionBar">

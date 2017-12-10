@@ -100,7 +100,8 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
             this.startActivity(intentTransac);
 
         } else if (id == R.id.mAide) {
-
+            final Intent intentAide = new Intent(this, AideActivity.class);
+            this.startActivity(intentAide);
         } else if (id == R.id.mParametres) {
             final Intent intentParam = new Intent(this, ParametresActivity.class);
             this.startActivity(intentParam);

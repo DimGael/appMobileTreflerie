@@ -25,12 +25,9 @@ public class AideActivity extends BasicTrefleActivity
         return (Toolbar)this.findViewById(R.id.toolbar);
     }
 
-    //Classe qui va nous servir à manipuler la table MontantMax
-    private MontantMaxDataSource montantMaxDataSource;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_parametres);
+        setContentView(R.layout.activity_aide);
         super.onCreate(savedInstanceState);
 
     }
@@ -76,7 +73,8 @@ public class AideActivity extends BasicTrefleActivity
         } else if (id == R.id.mAide) {
 
         } else if (id == R.id.mParametres) {
-            //Ne rien faire car on est déjà dans les paramètres
+            final Intent intentParam = new Intent(AideActivity.this, ParametresActivity.class);
+            this.startActivity(intentParam);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -86,43 +84,16 @@ public class AideActivity extends BasicTrefleActivity
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
-        if(id == R.id.boutonValiderParametres){
-            //Action lorsque l'utilisateur appuie sur le bouton valider en paramètres
 
-            final EditText editTextMontantMax  = (EditText)this.findViewById(R.id.editTextMontantMax);
-
-            if(editTextMontantMax.getText().toString().equals("")){
-                //Si l'utilisateur n'a rien mis :
-                Toast.makeText(this,"Vous n'avez rien saisi", Toast.LENGTH_SHORT).show();
-            }
-            else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() > 250.0){
-                //Si l'utilisateur a mis une valeur supérieure à 250
-                Toast.makeText(this,"Vous ne pouvez pas excéder 250 trèfles", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                //Si l'utilisateur a tout rempli correctement, mise à jour du montant maximal puis affichage du montant maximal
-                final double nouvMontantMax = Double.valueOf(editTextMontantMax.getText().toString()).doubleValue();
-
-                //Mise à jour du montant max
-                this.montantMaxDataSource.majMontantMax(nouvMontantMax);
-
-                //Affichage d'un message de confirmation rapelant le nouveau montant max
-                Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
-            }
-        }
     }
 
     @Override
     public void onPause(){
-        this.montantMaxDataSource.close();
         super.onPause();
     }
 
     @Override
     public void onResume(){
-        this.montantMaxDataSource.open();
         super.onResume();
     }
 }
