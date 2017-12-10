@@ -17,9 +17,6 @@
     android:background="@color/colorPrimary">
 
 
-
-
-
 </LinearLayout>
     <include
         layout="@layout/app_bar_accueil"
