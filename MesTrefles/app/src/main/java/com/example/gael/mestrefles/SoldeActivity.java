@@ -21,7 +21,7 @@ import com.example.gael.soldeactuel.SoldeDataSource;
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    private static SoldeActivity inst;
+    public static String INTENT_NOUV_SOLDE = "INTENT_NOUV_SOLDE";
 
     @Override
     public Toolbar getToolbar() {
@@ -36,9 +36,13 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
-        //this.majSoldeToolbar();
-
         this.majAffichageSolde(this.soldeDataSource.getSoldeActuel());
+
+        final double nouvSolde = this.getIntent().getDoubleExtra(SoldeActivity.INTENT_NOUV_SOLDE, -1);
+        if(nouvSolde != -1){
+            this.soldeDataSource.majSolde(nouvSolde);
+            this.majAffichageSolde(nouvSolde);
+        }
     }
 
     @Override
