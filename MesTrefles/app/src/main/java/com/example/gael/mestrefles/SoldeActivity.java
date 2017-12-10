@@ -38,12 +38,16 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
         this.majAffichageSolde(this.soldeDataSource.getSoldeActuel());
 
+        ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
+
         final double nouvSolde = this.getIntent().getDoubleExtra(SoldeActivity.INTENT_NOUV_SOLDE, -1);
         if(nouvSolde != -1){
             this.soldeDataSource.majSolde(nouvSolde);
             this.majAffichageSolde(nouvSolde);
             this.majSoldeToolbar();
+            ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
         }
+        ((Button)this.findViewById(R.id.boutonActualiser)).setEnabled(true);
     }
 
     @Override
@@ -66,6 +70,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         //Lors de l'activation du bouton Actualiser
         final String message = "S?";
         SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
+        ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
+        ((Button)this.findViewById(R.id.boutonActualiser)).setEnabled(false);
     }
 
     private void majAffichageSolde(double nouvSolde){
