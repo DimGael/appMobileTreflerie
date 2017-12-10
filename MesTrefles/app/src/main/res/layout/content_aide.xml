@@ -45,7 +45,7 @@
             android:layout_height="100dp">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/boutonAideSite"
                 style="@style/BoutonClassique"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
@@ -71,7 +71,7 @@
             android:layout_height="100dp">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/boutonMailSupport"
                 style="@style/BoutonClassique"
                 android:layout_width="200dp"
                 android:layout_height="60dp"

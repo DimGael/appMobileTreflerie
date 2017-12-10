@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -60,16 +61,19 @@ public class AideActivity extends BasicTrefleActivity
 
     @Override
     public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.boutonSiteAide) {
+            //MARCHE PAS 
+            Uri uri = Uri.parse("http://www.google.com"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+        else if (id == R.id.boutonMailSupport) {
+            //Action lorsque l'utilisateur appuie sur le bouton site
+            Uri uri = Uri.parse("http://www.google.com"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
 
-    }
-
-    @Override
-    public void onPause(){
-        super.onPause();
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
+        }
     }
 }
