@@ -79,15 +79,6 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         textViewSolde.setText(this.afficherDoubleAvecVirgule(nouvSolde));
     }
 
-    private String afficherDoubleAvecVirgule(double doublePoint){
-        int avantVirgule;
-        double apresVirgule;
-
-        avantVirgule = (int)doublePoint;
-        apresVirgule = (doublePoint%1)*100;
-        return avantVirgule+","+(int)apresVirgule;
-    }
-
     @Override
     public void onPause(){
         this.soldeDataSource.close();
