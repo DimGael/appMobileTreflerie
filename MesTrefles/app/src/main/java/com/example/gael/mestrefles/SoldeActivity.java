@@ -36,25 +36,10 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
+        this.soldeDataSource.majSolde(35.0);
+        this.majSoldeToolbar();
+
         this.majAffichageSolde(this.soldeDataSource.getSoldeActuel());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            final Intent intentAccueil = new Intent(SoldeActivity.this, MenuPrincipal.class);
-            this.startActivity(intentAccueil);
-        }
     }
 
     @Override

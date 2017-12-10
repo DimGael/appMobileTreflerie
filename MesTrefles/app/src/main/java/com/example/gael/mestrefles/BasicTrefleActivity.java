@@ -23,6 +23,10 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
     public abstract Toolbar getToolbar();
 
+    public void majSoldeToolbar(){
+        this.getToolbar().setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

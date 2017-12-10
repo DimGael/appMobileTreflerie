@@ -31,10 +31,6 @@ public class SoldeDataSource {
         this.dbHelper.close();
     }
 
-    /*
-    public Solde getSoldeActuel();
-     */
-
     public Solde majSolde(double solde){
         ContentValues values = new ContentValues();
 
@@ -43,13 +39,12 @@ public class SoldeDataSource {
         //insertId récupère l'id du nouvel element inséré dans la bdd
         long insertId = database.insert(MySQLiteHelperSolde.TABLE_SOLDE, null, values);
 
-
         Cursor cursor = database.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, MySQLiteHelperSolde.COLUMN_ID+"="+insertId, null, null, null, null);
         cursor.moveToFirst();
 
         Solde nouvSolde = new Solde();
-        nouvSolde.setId(cursor.getLong(1));
-        nouvSolde.setSoldeActuel(cursor.getDouble(2));
+        nouvSolde.setId(cursor.getLong(0));
+        nouvSolde.setSoldeActuel(cursor.getDouble(1));
 
         //Retirer les anciens soldes de la bdd
         this.deleteAncienSoldes(nouvSolde.getId());
@@ -57,14 +52,14 @@ public class SoldeDataSource {
         return nouvSolde;
     }
 
-    private void deleteAncienSoldes(long idSoldeAGarder){
-        this.database.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+idSoldeAGarder, null);
+    private void deleteAncienSoldes(long insertId){
+        this.database.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+insertId, null);
     }
 
     public double getSoldeActuel(){
         Cursor cursor = this.database.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, null, null, null, null, null);
         if(cursor.moveToFirst()){
-            return cursor.getDouble(2);
+            return cursor.getDouble(1);
         }
         else{
             return 0.0;
