@@ -59,10 +59,8 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             context.startActivity(volume);
                             break;
                         case "Donné":
-                            Toast.makeText(context, "Donné à ...", Toast.LENGTH_SHORT).show();
-                            Intent donne = new Intent(context, TransactionActivity.class);
-                            donne.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(donne);
+                            Toast.makeText(context, "Transaction bien effectuée", Toast.LENGTH_SHORT).show();
+                            //A faire lors de la confirmation d'un transaction
                             break;
                         case "Recu ":
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
