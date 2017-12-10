@@ -39,7 +39,6 @@ public class AideActivity extends BasicTrefleActivity
 
         if (id == R.id.mAide) {
 
-<<<<<<< HEAD
         } else if (id == R.id.mTransaction) {
             final Intent intentTransac = new Intent(AideActivity.this, TransactionActivity.class);
             this.startActivity(intentTransac);
@@ -49,11 +48,11 @@ public class AideActivity extends BasicTrefleActivity
         } else if (id == R.id.mParametres) {
             final Intent intentParam = new Intent(AideActivity.this, ParametresActivity.class);
             this.startActivity(intentParam);
-=======
+
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
->>>>>>> 2bba1a229a9bd4e2107f89eb4fd74e599ba9783f
+
         }
 
         return super.onNavigationItemSelected(item);
