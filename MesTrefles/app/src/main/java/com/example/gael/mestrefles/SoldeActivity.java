@@ -36,8 +36,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
-        this.soldeDataSource.majSolde(35.0);
-        this.majSoldeToolbar();
+        //this.majSoldeToolbar();
 
         this.majAffichageSolde(this.soldeDataSource.getSoldeActuel());
     }
