@@ -30,7 +30,7 @@ public class AideActivity extends BasicTrefleActivity
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_aide);
         super.onCreate(savedInstanceState);
-
+        this.ajoutEcouteursSurBoutons();
     }
 
     @Override
@@ -59,20 +59,30 @@ public class AideActivity extends BasicTrefleActivity
         return super.onNavigationItemSelected(item);
     }
 
+    private void ajoutEcouteursSurBoutons() {
+        //Rajout des écouteurs sur les boutons aide et mail
+        Button boutonSiteAide = (Button)this.findViewById(R.id.boutonSiteAide);
+        boutonSiteAide.setOnClickListener(this);
+
+        Button boutonMailSupport = (Button)this.findViewById(R.id.boutonMailSupport);
+        boutonMailSupport.setOnClickListener(this);
+    }
+
     @Override
     public void onClick(View view) {
-        int id = view.getId();
-        if (id == R.id.boutonSiteAide) {
-            //MARCHE PAS 
-            Uri uri = Uri.parse("http://www.google.com"); // missing 'http://' will cause crashed
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+        if (view.getId() == R.id.boutonSiteAide) {
+
+            String url= "http://www.google.fr";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
         }
-        else if (id == R.id.boutonMailSupport) {
+        else if (view.getId() == R.id.boutonMailSupport) {
             //Action lorsque l'utilisateur appuie sur le bouton site
-            Uri uri = Uri.parse("http://www.google.com"); // missing 'http://' will cause crashed
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+            String url= "http://www.google.fr";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
 
         }
     }
