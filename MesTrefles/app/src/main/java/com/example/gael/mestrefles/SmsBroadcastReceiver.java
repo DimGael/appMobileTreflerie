@@ -45,15 +45,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
                             if(!msgSolde[8].isEmpty()) {
-                                /*Gael help me with MySQL to change the value of "solde" GENRE UN SETTEUR LE MAJ MARCHE PAS XD
-
-                                SoldeDataSource soldeActuel = new SoldeDataSource(context);
-                                soldeActuel.majSolde(Double.parseDouble(msgSolde[8]));*/
-
-                                String message = msgSolde[8];
-                                String[] messages = message.split(",");
-                                double nouvSolde = Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
-                                Toast.makeText(context, nouvSolde+"", Toast.LENGTH_SHORT).show();
+                                double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
                                 Intent solde = new Intent(context, SoldeActivity.class);
                                 solde.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 solde.putExtra(SoldeActivity.INTENT_NOUV_SOLDE, nouvSolde);
@@ -94,6 +86,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 }
             }
         }
+    }
+
+    private double getDoubleSansVirgule(String s) {
+        String message = s;
+        String[] messages = message.split(",");
+        return Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
     }
 /*
     public String dirigerMessage(String message, Context context){
