@@ -21,8 +21,6 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
     protected SoldeDataSource soldeDataSource;
 
-
-
     public abstract Toolbar getToolbar();
 
     @Override

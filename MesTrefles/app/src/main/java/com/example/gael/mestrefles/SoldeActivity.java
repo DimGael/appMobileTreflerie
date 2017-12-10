@@ -21,6 +21,8 @@ import com.example.gael.soldeactuel.SoldeDataSource;
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    private static SoldeActivity inst;
+
     @Override
     public Toolbar getToolbar() {
         return (Toolbar)this.findViewById(R.id.toolbar);
@@ -59,31 +61,15 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.mAccueil) {
-            final Intent intentAccueil = new Intent(SoldeActivity.this, MenuPrincipal.class);
-            this.startActivity(intentAccueil);
-        } else if (id == R.id.mDepenses) {
-            final Intent intentDepenses = new Intent(SoldeActivity.this, DepenseActivity.class);
-            this.startActivity(intentDepenses);
-
-        } else if (id == R.id.mSolde) {
+        if (id == R.id.mSolde) {
             //Ne rien faire car on est déjà sur cette activité
 
-        } else if (id == R.id.mTransaction) {
-            final Intent intentTransac = new Intent(SoldeActivity.this, TransactionActivity.class);
-            this.startActivity(intentTransac);
 
-        } else if (id == R.id.mAide) {
-
-        } else if (id == R.id.mParametres) {
-            final Intent intentParam = new Intent(SoldeActivity.this, ParametresActivity.class);
-            this.startActivity(intentParam);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return super.onNavigationItemSelected(item);
     }
 
     @Override
