@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -15,7 +16,9 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.gael.mestrefles.DepenseActivity"
-    tools:showIn="@layout/app_bar_depenses">
+    tools:showIn="@layout/app_bar_depenses"
+    android:paddingTop="80dp">
+
 
     <TextView
         android:id="@+id/txtMsgDepenses"
@@ -24,7 +27,6 @@
         android:gravity="center"
         android:text="@string/txtDepenses"
         android:textSize="30sp" />
-
 
     <LinearLayout
         android:layout_width="match_parent"

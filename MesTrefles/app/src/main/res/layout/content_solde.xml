@@ -16,20 +16,20 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.gael.mestrefles.SoldeActivity"
     tools:showIn="@layout/app_bar_solde"
-    android:paddingTop="40dp">
+    android:paddingTop="80dp">
 
     <TextView
         android:id="@+id/textMsgSolde"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:text="@string/textMsgSolde"
         android:textColor="@color/text"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textNbrTrefles"
