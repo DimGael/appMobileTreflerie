@@ -76,7 +76,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
     private void majAffichageSolde(double nouvSolde){
         TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
-        textViewSolde.setText(this.afficherDoubleAvecVirgule(nouvSolde));
+        textViewSolde.setText(Double.toString(nouvSolde));
     }
 
     @Override
