@@ -9,4 +9,6 @@
     <color name="tableauGris">#DCDCDC</color>
 
     <color name="erreur">#b90000</color>
+
+    <color name="couleurTextBouton">#FFFFFF</color>
 </resources>

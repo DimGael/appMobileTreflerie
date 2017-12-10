@@ -24,9 +24,7 @@
 
         <Button
             android:id="@+id/BoutonTransaction"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            style="@style/BoutonClassique"
             android:layout_above="@+id/BoutonMesDepenses"
             android:layout_alignLeft="@+id/BoutonMesDepenses"
             android:layout_alignStart="@+id/BoutonMesDepenses"
@@ -36,9 +34,7 @@
 
         <Button
             android:id="@+id/BoutonMonSolde"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            style="@style/BoutonClassique"
             android:layout_above="@+id/BoutonTransaction"
             android:layout_alignLeft="@+id/BoutonTransaction"
             android:layout_alignStart="@+id/BoutonTransaction"
@@ -48,9 +44,7 @@
 
         <Button
             android:id="@+id/BoutonParametres"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            style="@style/BoutonClassique"
             android:layout_below="@+id/BoutonMesDepenses"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
@@ -59,9 +53,7 @@
 
         <Button
             android:id="@+id/BoutonMesDepenses"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            style="@style/BoutonClassique"
             android:layout_alignLeft="@+id/BoutonParametres"
             android:layout_alignStart="@+id/BoutonParametres"
             android:layout_centerVertical="true"
