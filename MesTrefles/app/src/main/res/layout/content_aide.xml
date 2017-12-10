@@ -17,109 +17,43 @@
         tools:context="com.example.gael.mestrefles.ParametresActivity"
         tools:showIn="@layout/app_bar_parametres">
 
+
         <TextView
-            android:id="@+id/textMontantMaxTransact"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/textMontantMaxTransact"
-            android:textColor="@color/text"
-            android:textSize="20sp" />
+            android:text="@string/titreAide"
+            android:textSize="40dp"
 
-        <LinearLayout
+            />
+
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="88dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:text="@string/messageAideSite"
+            android:textSize="20dp"
+            />
 
-            <EditText
-                android:id="@+id/editTextMontantMax"
-                android:layout_width="116dp"
-                android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="75dp"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textTrefles"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/textTrefles"
-                android:textColor="@color/text"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <RelativeLayout
+        <Button
+            android:id="@+id/button2"
             android:layout_width="match_parent"
-            android:layout_height="85dp">
+            android:layout_height="wrap_content"
+            android:text="@string/bouttonAideSite" />
 
-            <Button
-                android:id="@+id/boutonValiderParametres"
-                style="@style/BoutonClassique"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:text="@string/boutonValide" />
-        </RelativeLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="284dp"
-            android:background="@color/colorSecondaryOrange"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:text="@string/messageAideSupport"
+            android:textSize="20dp"
+            />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="800dp"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/txtAide"
-                    android:layout_width="60dp"
-                    android:layout_height="81dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/txtAide"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/boutonSiteAide"
-                    style="@style/BoutonClassique"
-                    android:layout_alignLeft="@+id/boutonMailSupport"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignStart="@+id/boutonMailSupport"
-                    android:layout_marginTop="64dp"
-                    android:layout_weight="1"
-                    android:text="@string/boutonSiteAide" />
-
-                <Button
-                    android:id="@+id/boutonMailSupport"
-                    style="@style/BoutonClassique"
-                    android:layout_below="@+id/boutonSiteAide"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="17dp"
-                    android:layout_weight="1"
-                    android:text="@string/boutonMailSupport" />
-            </RelativeLayout>
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouttonAideSupport" />
 
     </LinearLayout>
 </ScrollView>
