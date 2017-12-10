@@ -49,7 +49,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                                 SoldeDataSource soldeActuel = new SoldeDataSource(context);
                                 soldeActuel.majSolde(Double.parseDouble(msgSolde[8]));*/
-                                Toast.makeText(context, msgSolde[8], Toast.LENGTH_SHORT).show();
+
+                                String message = msgSolde[8];
+                                String[] messages = message.split(",");
+                                double nouvSolde = Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
+                                Toast.makeText(context, nouvSolde+"", Toast.LENGTH_SHORT).show();
                             }
                             Intent solde = new Intent(context, SoldeActivity.class);
                             solde.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

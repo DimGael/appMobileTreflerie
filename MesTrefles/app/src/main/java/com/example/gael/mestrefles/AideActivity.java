@@ -33,39 +33,13 @@ public class AideActivity extends BasicTrefleActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            final Intent intentAccueil = new Intent(AideActivity.this, MenuPrincipal.class);
-            this.startActivity(intentAccueil);
-        }
-    }
-
-    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.mAccueil) {
-            final Intent intentAccueil = new Intent(AideActivity.this, MenuPrincipal.class);
-            this.startActivity(intentAccueil);
-        } else if (id == R.id.mDepenses) {
-            final Intent intentDepenses = new Intent(AideActivity.this, DepenseActivity.class);
-            this.startActivity(intentDepenses);
+        if (id == R.id.mAide) {
 
-        } else if (id == R.id.mSolde) {
-            final Intent intentSolde = new Intent(AideActivity.this, SoldeActivity.class);
-            this.startActivity(intentSolde);
-
+<<<<<<< HEAD
         } else if (id == R.id.mTransaction) {
             final Intent intentTransac = new Intent(AideActivity.this, TransactionActivity.class);
             this.startActivity(intentTransac);
@@ -75,11 +49,14 @@ public class AideActivity extends BasicTrefleActivity
         } else if (id == R.id.mParametres) {
             final Intent intentParam = new Intent(AideActivity.this, ParametresActivity.class);
             this.startActivity(intentParam);
+=======
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+>>>>>>> 2bba1a229a9bd4e2107f89eb4fd74e599ba9783f
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return super.onNavigationItemSelected(item);
     }
 
     @Override
