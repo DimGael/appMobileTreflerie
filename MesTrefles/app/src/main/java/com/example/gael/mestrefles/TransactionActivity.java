@@ -50,6 +50,7 @@ public class TransactionActivity extends BasicTrefleActivity
             Toast.makeText(this, "Transaction bien effectuée !", Toast.LENGTH_SHORT).show();
             this.soldeDataSource.majSolde(this.soldeDataSource.getSoldeActuel() - soldeEnvoye);
             this.majSoldeToolbar();
+            ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
         }
 
         ((Button)this.findViewById(R.id.boutonValider)).setEnabled(true);
@@ -105,6 +106,7 @@ public class TransactionActivity extends BasicTrefleActivity
                 editTextErrNumDestinaire.setText("");
             } else {
                 ((Button)this.findViewById(R.id.boutonValider)).setEnabled(false);
+                ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
                 final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
                 //Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
                 SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);

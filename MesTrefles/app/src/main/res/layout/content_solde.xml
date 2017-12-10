@@ -72,19 +72,19 @@
 
 
         <TextView
-            android:id="@+id/texteReponseSolde"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/boutonActualiser"
-            android:layout_marginTop="15dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/text" />
-    </RelativeLayout>
+    android:id="@+id/texteReponseSolde"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/boutonActualiser"
+    android:layout_marginTop="15dp"
+    android:textSize="25dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:textAlignment="center"
+    android:textColor="@color/text" />
+</RelativeLayout>
 
 </LinearLayout>
 </ScrollView>
