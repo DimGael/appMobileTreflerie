@@ -55,7 +55,7 @@ public class AccueilActivity extends AppCompatActivity {
                     startActivity(intentMenu);
                     finish();
                 }
-            }, 3000);
+            }, 2000);
         }
     }
     @Override
