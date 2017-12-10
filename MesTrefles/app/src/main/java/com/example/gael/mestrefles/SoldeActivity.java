@@ -42,6 +42,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         if(nouvSolde != -1){
             this.soldeDataSource.majSolde(nouvSolde);
             this.majAffichageSolde(nouvSolde);
+            this.majSoldeToolbar();
         }
     }
 

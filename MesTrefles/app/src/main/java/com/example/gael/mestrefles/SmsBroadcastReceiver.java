@@ -90,8 +90,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
     private double getDoubleSansVirgule(String s) {
         String message = s;
-        String[] messages = message.split(",");
-        return Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
+        if(s.contains(",")) {
+            String[] messages = message.split(",");
+            return Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
+        }
+        return Double.valueOf(s).doubleValue();
     }
 /*
     public String dirigerMessage(String message, Context context){
