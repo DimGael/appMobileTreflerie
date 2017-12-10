@@ -23,7 +23,7 @@
     <EditText
         android:id="@+id/editTextNumeroDest"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:textColor="@color/text"
         android:layout_marginRight="50dp"
@@ -57,7 +57,7 @@
     <EditText
         android:id="@+id/editTextMontant"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:textColor="@color/text"
         android:layout_marginRight="50dp"
@@ -74,7 +74,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:textColor="@color/erreur"
-        android:layout_marginBottom="70dp"/>
+        android:layout_marginBottom="30dp"/>
     <!-- Le contenu texte sera modifié dans le contexte de l'application -->
 
     <RelativeLayout
