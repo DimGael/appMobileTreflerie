@@ -1,6 +1,7 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -49,12 +50,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             if(!msgSolde[5].isEmpty()) {
                                 String numeroCompte = (msgSolde[5]);
                             }
+
                             if(!msgSolde[8].isEmpty()) {
-                                double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
-                                Intent solde = new Intent(context, SoldeActivity.class);
-                                solde.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                solde.putExtra(SoldeActivity.INTENT_NOUV_SOLDE, nouvSolde);
-                                context.startActivity(solde);
+                                this.updateSoldeBdd(context, msgSolde[8]);
+                                if(SoldeActivity.instance != null){
+                                    this.receptionSmsDansSoldeActivity();
+                                }
                             }
 
                             break;
@@ -115,6 +116,17 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 }
             }
         }
+    }
+
+    private void updateSoldeBdd(Context context, String messageSolde) {
+        final double nouvSolde = getDoubleSansVirgule(messageSolde);
+        SoldeDataSource soldeDataSource = new SoldeDataSource(context);
+        soldeDataSource.open();
+        soldeDataSource.majSolde(nouvSolde);
+    }
+
+    private void receptionSmsDansSoldeActivity() {
+        //Choses à faire si on est dans SoldeActivity
     }
 
     private double getDoubleSansVirgule(String s) {

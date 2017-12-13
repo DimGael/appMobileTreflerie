@@ -15,11 +15,9 @@ public class SoldeDataSource {
 
     private SQLiteDatabase database;
     private MySQLiteHelperSolde dbHelper;
-    private final String[] allColumns;
+    private static final String[] allColumns = new String[]{MySQLiteHelperSolde.COLUMN_ID, MySQLiteHelperSolde.COLUMN_SOLDE};
 
     public SoldeDataSource(Context context) {
-        allColumns = new String[]{MySQLiteHelperSolde.COLUMN_ID, MySQLiteHelperSolde.COLUMN_SOLDE};
-
         dbHelper = new MySQLiteHelperSolde(context);
     }
 
@@ -32,14 +30,18 @@ public class SoldeDataSource {
     }
 
     public Solde majSolde(double solde){
+        return SoldeDataSource.majSolde(solde, this.database);
+    }
+
+    public static Solde majSolde(double solde, SQLiteDatabase sqldb){
         ContentValues values = new ContentValues();
 
         values.put(MySQLiteHelperSolde.COLUMN_SOLDE, solde);
 
         //insertId récupère l'id du nouvel element inséré dans la bdd
-        long insertId = database.insert(MySQLiteHelperSolde.TABLE_SOLDE, null, values);
+        long insertId = sqldb.insert(MySQLiteHelperSolde.TABLE_SOLDE, null, values);
 
-        Cursor cursor = database.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, MySQLiteHelperSolde.COLUMN_ID+"="+insertId, null, null, null, null);
+        Cursor cursor = sqldb.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, MySQLiteHelperSolde.COLUMN_ID+"="+insertId, null, null, null, null);
         cursor.moveToFirst();
 
         Solde nouvSolde = new Solde();
@@ -47,13 +49,18 @@ public class SoldeDataSource {
         nouvSolde.setSoldeActuel(cursor.getDouble(1));
 
         //Retirer les anciens soldes de la bdd
-        this.deleteAncienSoldes(nouvSolde.getId());
+        SoldeDataSource.deleteAncienSoldes(nouvSolde.getId(), sqldb);
 
         return nouvSolde;
+
     }
 
     private void deleteAncienSoldes(long insertId){
         this.database.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+insertId, null);
+    }
+
+    private static void deleteAncienSoldes(long insertId, SQLiteDatabase sqldb){
+        sqldb.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+insertId, null);
     }
 
     public double getSoldeActuel(){

@@ -19,7 +19,6 @@
             android:name=".AccueilActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <!-- Enlever les commentaires sur cette ligne pour tester Accueil Activity-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,13 +31,6 @@
             android:name=".MenuPrincipal"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <!-- Enlever les commentaires sur cette ligne pour faire marcher l'application
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
         </activity>
 
         <activity android:name=".TransactionActivity"

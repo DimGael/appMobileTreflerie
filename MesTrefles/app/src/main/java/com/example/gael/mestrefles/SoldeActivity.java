@@ -24,6 +24,7 @@ import com.example.gael.soldeactuel.SoldeDataSource;
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public static String INTENT_NOUV_SOLDE = "INTENT_NOUV_SOLDE";
+    public static SoldeActivity instance = null;
 
     @Override
     public Toolbar getToolbar() {
@@ -64,6 +65,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         setFont(textView4,"QSregular.ttf");
 
         setFont(bouton1,"QSregular.ttf");
+        instance = this;
     }
 
     public void setFont(TextView textView, String fontName) {
@@ -109,12 +111,14 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
     @Override
     public void onPause(){
+        instance = null;
         this.soldeDataSource.close();
         super.onPause();
     }
 
     @Override
     public void onResume(){
+        instance = this;
         this.soldeDataSource.open();
         super.onResume();
     }
