@@ -87,7 +87,6 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         if (id == R.id.mSolde) {
             //Ne rien faire car on est déjà sur cette activité
 
-
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
