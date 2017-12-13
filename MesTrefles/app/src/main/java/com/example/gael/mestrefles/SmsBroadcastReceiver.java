@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gael.soldeactuel.Solde;
@@ -47,14 +48,16 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             break;
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
+
                             if(!msgSolde[5].isEmpty()) {
                                 String numeroCompte = (msgSolde[5]);
                             }
 
                             if(!msgSolde[8].isEmpty()) {
-                                this.updateSoldeBdd(context, msgSolde[8]);
+                                final double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
+                                this.updateSoldeBdd(context, nouvSolde);
                                 if(SoldeActivity.instance != null){
-                                    this.receptionSmsDansSoldeActivity();
+                                    this.receptionSmsDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
                                 }
                             }
 
@@ -118,23 +121,25 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    private void updateSoldeBdd(Context context, String messageSolde) {
-        final double nouvSolde = getDoubleSansVirgule(messageSolde);
+    private void updateSoldeBdd(Context context, double nouvSolde) {
         SoldeDataSource soldeDataSource = new SoldeDataSource(context);
         soldeDataSource.open();
         soldeDataSource.majSolde(nouvSolde);
     }
 
-    private void receptionSmsDansSoldeActivity() {
+    private void receptionSmsDansSoldeActivity(double nouvSolde) {
         //Choses à faire si on est dans SoldeActivity
+        SoldeActivity.instance.majAffichageSolde(nouvSolde);
+        SoldeActivity.instance.majSoldeToolbar();
+        ((TextView)SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
+        SoldeActivity.instance.changerEtatBouton();
     }
 
-    private double getDoubleSansVirgule(String s) {
-        String message = s;
-        if(s.contains(",")) {
+    private double getDoubleSansVirgule(String message) {
+        if(message.contains(",")) {
             String[] messages = message.split(",");
             return Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
         }
-        return Double.valueOf(s).doubleValue();
+        return Double.valueOf(message).doubleValue();
     }
 }

@@ -43,15 +43,6 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
 
-        final double nouvSolde = this.getIntent().getDoubleExtra(SoldeActivity.INTENT_NOUV_SOLDE, -1);
-        if(nouvSolde != -1){
-            this.soldeDataSource.majSolde(nouvSolde);
-            this.majAffichageSolde(nouvSolde);
-            this.majSoldeToolbar();
-            ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
-        }
-        ((Button)this.findViewById(R.id.boutonActualiser)).setEnabled(true);
-
         TextView textView1 = (TextView) findViewById(R.id.textMsgSolde);
         TextView textView2 = (TextView) findViewById(R.id.textNbrTrefles);
         TextView textView3 = (TextView) findViewById(R.id.textTrefles);
@@ -100,10 +91,15 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         final String message = "S?";
         SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
-        ((Button)this.findViewById(R.id.boutonActualiser)).setEnabled(false);
+        this.changerEtatBouton();
     }
 
-    private void majAffichageSolde(double nouvSolde){
+    public void changerEtatBouton() {
+        final Button bouton = (Button)this.findViewById(R.id.boutonActualiser);
+        bouton.setEnabled(!bouton.isEnabled());
+    }
+
+    public void majAffichageSolde(double nouvSolde){
         TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
         textViewSolde.setText(Double.toString(nouvSolde));
     }
