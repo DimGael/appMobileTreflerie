@@ -110,5 +110,10 @@ public class MenuPrincipal extends BasicTrefleActivity
             final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
             this.startActivity(intentParam);
         }
+
+        if(view.getId() == R.id.BoutonAide){
+            //Action à faire lors de l'utilisation du bouton Aide
+            final Intent intentAide = new Intent(MenuPrincipal.this, AideActivity.class);
+        }
     }
 }

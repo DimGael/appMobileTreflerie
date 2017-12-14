@@ -59,6 +59,15 @@
             android:layout_centerVertical="true"
             android:layout_weight="1"
             android:text="@string/titreDepenses" />
+
+        <Button
+            android:id="@+id/BoutonAide"
+            style="@style/BoutonClassique"
+            android:layout_below="@+id/BoutonParametres"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1"
+            android:text="Aide" />
     </RelativeLayout>
 </LinearLayout>
 </ScrollView>
