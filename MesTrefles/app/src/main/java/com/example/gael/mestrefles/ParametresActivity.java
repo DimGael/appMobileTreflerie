@@ -73,6 +73,8 @@ public class ParametresActivity extends BasicTrefleActivity
 
         TextView textView1 = (TextView) findViewById(R.id.textMontantMaxTransact);
 
+        TextView textView2 = (TextView) findViewById(R.id.textTrefles);
+
         EditText editText1 = (EditText) findViewById(R.id.editTextMontantMax);
 
         setFont(bouton1,"QSregular.ttf");

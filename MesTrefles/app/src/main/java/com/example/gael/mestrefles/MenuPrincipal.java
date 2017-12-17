@@ -35,11 +35,13 @@ public class MenuPrincipal extends BasicTrefleActivity
         Button bouton2 = (Button) findViewById(R.id.BoutonTransaction);
         Button bouton3 = (Button) findViewById(R.id.BoutonParametres);
         Button bouton4 = (Button) findViewById(R.id.BoutonMesDepenses);
+        Button bouton5 = (Button) findViewById(R.id.BoutonAide);
 
         setFont(bouton1,"QSregular.ttf");
         setFont(bouton2,"QSregular.ttf");
         setFont(bouton3,"QSregular.ttf");
         setFont(bouton4,"QSregular.ttf");
+        setFont(bouton5,"QSregular.ttf");
     }
     public void setFont(TextView textView, String fontName) {
         if(fontName != null){
@@ -64,6 +66,9 @@ public class MenuPrincipal extends BasicTrefleActivity
         boutonDepense.setOnClickListener(this);
 
         Button boutonParametre = (Button)this.findViewById(R.id.BoutonParametres);
+        boutonParametre.setOnClickListener(this);
+
+        Button boutonAide= (Button)this.findViewById(R.id.BoutonAide);
         boutonParametre.setOnClickListener(this);
     }
 
@@ -114,6 +119,7 @@ public class MenuPrincipal extends BasicTrefleActivity
         if(view.getId() == R.id.BoutonAide){
             //Action à faire lors de l'utilisation du bouton Aide
             final Intent intentAide = new Intent(MenuPrincipal.this, AideActivity.class);
+            this.startActivity(intentAide);
         }
     }
 }
