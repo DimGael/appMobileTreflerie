@@ -74,7 +74,6 @@ public class ParametresActivity extends BasicTrefleActivity
 
         TextView textView1 = (TextView) findViewById(R.id.textMontantMaxTransact);
         TextView textView2 = (TextView) findViewById(R.id.textTrefles);
-        TextView textView3 = (TextView) findViewById(R.id.txtAide);
 
         EditText editText1 = (EditText) findViewById(R.id.editTextMontantMax);
 
