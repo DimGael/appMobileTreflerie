@@ -69,22 +69,15 @@ public class ParametresActivity extends BasicTrefleActivity
         });
 
         Button bouton1 = (Button) findViewById(R.id.boutonValiderParametres);
-        Button bouton2 = (Button) findViewById(R.id.boutonSiteAide);
-        Button bouton3 = (Button) findViewById(R.id.boutonMailSupport);
+
 
         TextView textView1 = (TextView) findViewById(R.id.textMontantMaxTransact);
-        TextView textView2 = (TextView) findViewById(R.id.textTrefles);
-        TextView textView3 = (TextView) findViewById(R.id.txtAide);
 
         EditText editText1 = (EditText) findViewById(R.id.editTextMontantMax);
 
         setFont(bouton1,"QSregular.ttf");
-        setFont(bouton2,"QSregular.ttf");
-        setFont(bouton3,"QSregular.ttf");
 
         setFont(bouton1,"QSregular.ttf");
-        setFont(bouton2,"QSregular.ttf");
-        setFont(bouton3,"QSregular.ttf");
 
         setFont(editText1,"QSregular.ttf");
     }
