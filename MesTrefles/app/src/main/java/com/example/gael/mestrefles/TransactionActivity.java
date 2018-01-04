@@ -1,18 +1,13 @@
 package com.example.gael.mestrefles;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -51,7 +46,7 @@ public class TransactionActivity extends BasicTrefleActivity
         if(soldeEnvoye != -1.0){
             Toast.makeText(this, "Transaction bien effectuée !", Toast.LENGTH_SHORT).show();
             this.soldeDataSource.majSolde(this.soldeDataSource.getSoldeActuel() - soldeEnvoye);
-            this.majSoldeToolbar();
+            this.majSoldeAffichage(this.soldeDataSource.getSoldeActuel());
             ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
         }
 

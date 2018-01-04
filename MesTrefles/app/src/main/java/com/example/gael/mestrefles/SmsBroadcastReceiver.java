@@ -1,16 +1,13 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
-import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gael.soldeactuel.Solde;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 import java.util.regex.Pattern;
@@ -77,10 +74,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
-                            Intent transaction = new Intent(context, TransactionActivity.class);
-                            transaction.putExtra(TransactionActivity.INTENT_VALID_TRANSAC, soldeEnvoye);
-                            transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(transaction);
+                            this.ajouterSolde(context, soldeEnvoye*(-1));
                             break;
 
                         case "Recu ":
@@ -90,18 +84,17 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                 String provenanceNomPrenom = (msgReception[2]+" "+msgReception[3]);
                                 Toast.makeText(context, provenanceNomPrenom, Toast.LENGTH_SHORT).show();
                             }
+
                             if(!msgReception[4].isEmpty()) {
                                 String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
                                 String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
                                 String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
                                 String partieTrefles[] = smsBody.split(Pattern.quote(":"));
                                 String treflesRecus = partieTrefles[1];
-                                Toast.makeText(context, provenanceNumeroCompte, Toast.LENGTH_SHORT).show();
-                                Toast.makeText(context, treflesRecus, Toast.LENGTH_SHORT).show();
+
+                                final double treflesRecusValeur = this.getDoubleSansVirgule(treflesRecus);
+                                this.ajouterSolde(context, treflesRecusValeur);
                             }
-                            Intent recu = new Intent(context, TransactionActivity.class);
-                            recu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(recu);
                             break;
                         case "Trans":
                             Toast.makeText(context, "Transaction", Toast.LENGTH_SHORT).show();
@@ -127,10 +120,15 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         soldeDataSource.majSolde(nouvSolde);
     }
 
+    private void ajouterSolde(Context context, double soldeAAjouter) {
+        SoldeDataSource soldeDataSource = new SoldeDataSource(context);
+        soldeDataSource.open();
+        soldeDataSource.majSolde(soldeDataSource.getSoldeActuel()+soldeAAjouter);
+    }
+
     private void receptionSmsDansSoldeActivity(double nouvSolde) {
         //Choses à faire si on est dans SoldeActivity
-        SoldeActivity.instance.majAffichageSolde(nouvSolde);
-        SoldeActivity.instance.majSoldeToolbar();
+        SoldeActivity.instance.majSoldeAffichage(nouvSolde);
         ((TextView)SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
         SoldeActivity.instance.changerEtatBouton();
     }
