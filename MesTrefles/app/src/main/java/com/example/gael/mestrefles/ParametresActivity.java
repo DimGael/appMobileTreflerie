@@ -48,7 +48,7 @@ public class ParametresActivity extends BasicTrefleActivity
         ((Button)this.findViewById(R.id.boutonValiderNumServeur)).setOnClickListener(this);
 
         //Ajout du numéro du serveur de base sur l'edit Text
-        ((EditText)this.findViewById(R.id.editTextNumServeur)).setText(this.numeroServeurDataSource.getNumeroServeur());
+        ((EditText)this.findViewById(R.id.editTextNumServeur)).setText("");
 
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
