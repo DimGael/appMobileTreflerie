@@ -1,6 +1,5 @@
 package com.example.gael.mestrefles;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -42,10 +40,10 @@ public class ParametresActivity extends BasicTrefleActivity
         this.montantMaxDataSource.open();
 
         //Tant qu'on change rien le bouton n'est pas activable
-        ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
+        ((Button)findViewById(R.id.boutonValiderMontantMax)).setEnabled(false);
 
         //Ajout de l'écouteur sur le bouton
-        ((Button)this.findViewById(R.id.boutonValiderParametres)).setOnClickListener(this);
+        ((Button)this.findViewById(R.id.boutonValiderMontantMax)).setOnClickListener(this);
 
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
@@ -59,7 +57,7 @@ public class ParametresActivity extends BasicTrefleActivity
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(true);
+                ((Button)findViewById(R.id.boutonValiderMontantMax)).setEnabled(true);
             }
 
             @Override
@@ -68,7 +66,7 @@ public class ParametresActivity extends BasicTrefleActivity
             }
         });
 
-        Button bouton1 = (Button) findViewById(R.id.boutonValiderParametres);
+        Button bouton1 = (Button) findViewById(R.id.boutonValiderMontantMax);
 
 
         TextView textView1 = (TextView) findViewById(R.id.textMontantMaxTransact);
@@ -110,7 +108,7 @@ public class ParametresActivity extends BasicTrefleActivity
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if(id == R.id.boutonValiderParametres){
+        if(id == R.id.boutonValiderMontantMax){
             //Action lorsque l'utilisateur appuie sur le bouton valider en paramètres
 
             final EditText editTextMontantMax  = (EditText)this.findViewById(R.id.editTextMontantMax);
@@ -132,7 +130,7 @@ public class ParametresActivity extends BasicTrefleActivity
 
                 //Affichage d'un message de confirmation rapelant le nouveau montant max
                 Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
+                ((Button)findViewById(R.id.boutonValiderMontantMax)).setEnabled(false);
             }
         }
     }
