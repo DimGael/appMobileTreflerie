@@ -39,11 +39,16 @@ public class ParametresActivity extends BasicTrefleActivity
         this.montantMaxDataSource = new MontantMaxDataSource(this);
         this.montantMaxDataSource.open();
 
-        //Tant qu'on change rien le bouton n'est pas activable
+        //Tant qu'on ne change rien les boutons MontantMax et le bouton NumServeur ne sont pas activable
         ((Button)findViewById(R.id.boutonValiderMontantMax)).setEnabled(false);
+        ((Button)findViewById(R.id.boutonValiderNumServeur)).setEnabled(false);
 
-        //Ajout de l'écouteur sur le bouton
+        //Ajout de l'écouteur sur les boutons
         ((Button)this.findViewById(R.id.boutonValiderMontantMax)).setOnClickListener(this);
+        ((Button)this.findViewById(R.id.boutonValiderNumServeur)).setOnClickListener(this);
+
+        //Ajout du numéro du serveur de base sur l'edit Text
+        ((EditText)this.findViewById(R.id.editTextNumServeur)).setText(this.numeroServeurDataSource.getNumeroServeur());
 
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
@@ -81,6 +86,7 @@ public class ParametresActivity extends BasicTrefleActivity
 
         setFont(editText1,"QSregular.ttf");
     }
+
     public void setFont(TextView textView, String fontName) {
         if(fontName != null){
             try {
@@ -109,7 +115,7 @@ public class ParametresActivity extends BasicTrefleActivity
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.boutonValiderMontantMax){
-            //Action lorsque l'utilisateur appuie sur le bouton valider en paramètres
+            //Action lorsque l'utilisateur appuie sur le bouton valider en dessous de montant Max
 
             final EditText editTextMontantMax  = (EditText)this.findViewById(R.id.editTextMontantMax);
 
@@ -132,6 +138,13 @@ public class ParametresActivity extends BasicTrefleActivity
                 Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
                 ((Button)findViewById(R.id.boutonValiderMontantMax)).setEnabled(false);
             }
+        }
+
+        else if (id == R.id.boutonValiderNumServeur){
+            //Action à faire lorsque l'utilisateur appuie sur le bouton valider numéro du serveur
+
+
+
         }
     }
 
