@@ -20,7 +20,7 @@ public class MySQLiteHelperNumeroServeur extends SQLiteOpenHelper {
             + COLUMN_NUMERO_SERVEUR +" text not null)";
 
     public MySQLiteHelperNumeroServeur(Context context) {
-        super(context, "trefle.db", null, 1);
+        super(context, "numServeurTrefle.db", null, 1);
     }
 
 

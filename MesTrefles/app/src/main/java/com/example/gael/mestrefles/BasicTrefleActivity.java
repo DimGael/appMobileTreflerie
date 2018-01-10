@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 /**
@@ -20,6 +21,7 @@ import com.example.gael.soldeactuel.SoldeDataSource;
 public abstract class BasicTrefleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected SoldeDataSource soldeDataSource;
+    protected NumeroServeurDataSource numeroServeurDataSource;
 
     public abstract Toolbar getToolbar();
 
@@ -35,6 +37,9 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         this.soldeDataSource = new SoldeDataSource(this.getBaseContext());
         this.soldeDataSource.open();
+
+        this.numeroServeurDataSource = new NumeroServeurDataSource(this.getBaseContext());
+        this.numeroServeurDataSource.open();
 
         instance = this;
 
@@ -123,6 +128,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     @Override
     public void onPause(){
         instance = null;
+        this.numeroServeurDataSource.close();
         this.soldeDataSource.close();
         super.onPause();
     }
@@ -130,6 +136,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     @Override
     public void onResume(){
         instance = this;
+        this.numeroServeurDataSource.open();
         this.soldeDataSource.open();
         super.onResume();
     }

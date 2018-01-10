@@ -82,7 +82,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     public void onClick(View view) {
         //Lors de l'activation du bouton Actualiser
         final String message = "S?";
-        SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
+        SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
     }

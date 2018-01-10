@@ -137,7 +137,7 @@ public class TransactionActivity extends BasicTrefleActivity
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
                 final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
                 //Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
-                SmsManager.getDefault().sendTextMessage("+33782572437",null,message,null,null);
+                SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
 
                 editTextMontant.setText("");
                 editTextNumDestinataire.setText("");

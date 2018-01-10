@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 import java.util.regex.Pattern;
@@ -19,6 +21,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     public static final String SMS_BUNDLE = "pdus";
 
     public void onReceive(Context context, Intent intent) {
+
         boolean doitAfficher = false;
         Bundle intentExtras = intent.getExtras();
         if (intentExtras != null) {
@@ -30,9 +33,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                 String address = smsMessage.getOriginatingAddress();
 
-                if(address.equals("+33782572437")) {
+                if(address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
-                     smsMessageStr += "SMS Provenant de : " + address + "\n";
+                    smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
                     String debutMessage = smsBody.substring(0,5);
 
@@ -112,6 +115,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 }
             }
         }
+    }
+
+    private String getNumeroServeur(Context context) {
+        NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
+        numeroServeurDataSource.open();
+        return numeroServeurDataSource.getNumeroServeur();
     }
 
     private void updateSoldeBdd(Context context, double nouvSolde) {
