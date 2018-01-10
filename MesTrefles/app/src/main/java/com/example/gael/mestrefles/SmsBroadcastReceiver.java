@@ -130,7 +130,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         //Choses à faire si on est dans SoldeActivity
         SoldeActivity.instance.majSoldeAffichage(nouvSolde);
         ((TextView)SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
-        SoldeActivity.instance.changerEtatBouton();
+        ((SoldeActivity)SoldeActivity.instance).changerEtatBouton();
     }
 
     private double getDoubleSansVirgule(String message) {

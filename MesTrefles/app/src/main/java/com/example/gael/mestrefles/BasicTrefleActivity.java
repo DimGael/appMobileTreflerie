@@ -36,6 +36,8 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         this.soldeDataSource = new SoldeDataSource(this.getBaseContext());
         this.soldeDataSource.open();
 
+        instance = this;
+
         Toolbar toolbar = this.getToolbar();
         toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
         setSupportActionBar(toolbar);
@@ -120,12 +122,14 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
     @Override
     public void onPause(){
+        instance = null;
         this.soldeDataSource.close();
         super.onPause();
     }
 
     @Override
     public void onResume(){
+        instance = this;
         this.soldeDataSource.open();
         super.onResume();
     }

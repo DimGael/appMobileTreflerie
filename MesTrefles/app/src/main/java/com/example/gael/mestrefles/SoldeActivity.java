@@ -18,7 +18,6 @@ import android.widget.TextView;
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public static String INTENT_NOUV_SOLDE = "INTENT_NOUV_SOLDE";
-    public static SoldeActivity instance = null;
 
     @Override
     public Toolbar getToolbar() {
@@ -102,14 +101,12 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
     @Override
     public void onPause(){
-        instance = null;
         this.soldeDataSource.close();
         super.onPause();
     }
 
     @Override
     public void onResume(){
-        instance = this;
         this.soldeDataSource.open();
         super.onResume();
     }
