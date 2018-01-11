@@ -68,8 +68,8 @@ public class MenuPrincipal extends BasicTrefleActivity
         Button boutonParametre = (Button)this.findViewById(R.id.BoutonParametres);
         boutonParametre.setOnClickListener(this);
 
-        Button boutonAide= (Button)this.findViewById(R.id.BoutonAide);
-        boutonParametre.setOnClickListener(this);
+        Button boutonAide = (Button)this.findViewById(R.id.BoutonAide);
+        boutonAide.setOnClickListener(this);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
