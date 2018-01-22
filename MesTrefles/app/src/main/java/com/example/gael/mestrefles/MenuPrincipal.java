@@ -127,6 +127,17 @@ public class MenuPrincipal extends BasicTrefleActivity
 
     @Override
     public void onBackPressed() {
-        instance.finish();
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter")
+                .setMessage("Voulez vous vraiment quitter?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        MenuPrincipal.super.onBackPressed();
+                    }
+                }).create().show();
+
     }
 }
