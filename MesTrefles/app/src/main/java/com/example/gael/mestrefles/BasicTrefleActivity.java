@@ -66,6 +66,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         } else {
             final Intent intentAccueil = new Intent(this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
+            finish();
         }
     }
 
