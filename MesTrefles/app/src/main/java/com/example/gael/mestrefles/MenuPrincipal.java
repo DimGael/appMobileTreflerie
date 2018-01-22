@@ -1,5 +1,6 @@
 package com.example.gael.mestrefles;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -121,5 +123,19 @@ public class MenuPrincipal extends BasicTrefleActivity
             final Intent intentAide = new Intent(MenuPrincipal.this, AideActivity.class);
             this.startActivity(intentAide);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter")
+                .setMessage("Voulez vous vraiment quitter?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        MenuPrincipal.super.onBackPressed();
+                    }
+                }).create().show();
     }
 }
