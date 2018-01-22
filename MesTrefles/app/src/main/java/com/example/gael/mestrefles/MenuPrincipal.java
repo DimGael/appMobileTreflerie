@@ -134,7 +134,8 @@ public class MenuPrincipal extends BasicTrefleActivity
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
-                        MenuPrincipal.super.onBackPressed();
+                        finish();
+                        //MenuPrincipal.super.onBackPressed();
                     }
                 }).create().show();
     }
