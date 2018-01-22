@@ -29,6 +29,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
     public void majSoldeAffichage(double nouvSolde){
         this.getToolbar().setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+
     }
 
     @Override
@@ -37,7 +38,6 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         this.soldeDataSource = new SoldeDataSource(this.getBaseContext());
         this.soldeDataSource.open();
-
         this.numeroServeurDataSource = new NumeroServeurDataSource(this.getBaseContext());
         this.numeroServeurDataSource.open();
 
@@ -45,6 +45,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         Toolbar toolbar = this.getToolbar();
         toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+        toolbar.setLogo(R.drawable.logo);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -65,7 +66,14 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         } else {
             final Intent intentAccueil = new Intent(this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
+            finish();
         }
+    }
+
+    @Override
+    public void onRestart(){
+        this.finish();
+        super.onRestart();
     }
 
     @Override
