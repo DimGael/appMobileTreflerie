@@ -58,5 +58,6 @@
     <string name="bouttonAideSupport">Mail au support</string>
     <string name="bouttonAideSite">www.treflerie.fr</string>
     <string name="txtAide">Aide</string>
+    <string name="textNumeroServeur">Numéro du serveur :</string>
 
 </resources>

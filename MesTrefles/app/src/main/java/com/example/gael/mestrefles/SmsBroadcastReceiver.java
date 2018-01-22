@@ -1,16 +1,14 @@
 package com.example.gael.mestrefles;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
-import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gael.soldeactuel.Solde;
+import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 import java.util.regex.Pattern;
@@ -22,6 +20,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     public static final String SMS_BUNDLE = "pdus";
 
     public void onReceive(Context context, Intent intent) {
+
         boolean doitAfficher = false;
         Bundle intentExtras = intent.getExtras();
         if (intentExtras != null) {
@@ -33,9 +32,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                 String address = smsMessage.getOriginatingAddress();
 
-                if(address.equals("+33782572437")) {
+                if(address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
-                     smsMessageStr += "SMS Provenant de : " + address + "\n";
+                    smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
                     String debutMessage = smsBody.substring(0,5);
 
@@ -57,7 +56,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                 final double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
                                 this.updateSoldeBdd(context, nouvSolde);
                                 if(SoldeActivity.instance != null){
-                                    this.receptionSmsDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
+                                    this.receptionSmsSoldeDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
                                 }
                             }
 
@@ -73,14 +72,14 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             //A faire lors de la confirmation d'un transaction
                             String soldeEnvoyeString = smsBody.split(":")[1];
                             soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
-                            Toast.makeText(context, soldeEnvoyeString, Toast.LENGTH_SHORT).show();
 
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
-                            Intent transaction = new Intent(context, TransactionActivity.class);
-                            transaction.putExtra(TransactionActivity.INTENT_VALID_TRANSAC, soldeEnvoye);
-                            transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(transaction);
+                            this.ajouterSolde(context, soldeEnvoye*(-1));
+
+                            if(TransactionActivity.instance != null){
+                                ((TransactionActivity)TransactionActivity.instance).transactionReussie();
+                            }
                             break;
 
                         case "Recu ":
@@ -90,18 +89,17 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                 String provenanceNomPrenom = (msgReception[2]+" "+msgReception[3]);
                                 Toast.makeText(context, provenanceNomPrenom, Toast.LENGTH_SHORT).show();
                             }
+
                             if(!msgReception[4].isEmpty()) {
                                 String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
                                 String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
                                 String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
                                 String partieTrefles[] = smsBody.split(Pattern.quote(":"));
                                 String treflesRecus = partieTrefles[1];
-                                Toast.makeText(context, provenanceNumeroCompte, Toast.LENGTH_SHORT).show();
-                                Toast.makeText(context, treflesRecus, Toast.LENGTH_SHORT).show();
+
+                                final double treflesRecusValeur = this.getDoubleSansVirgule(treflesRecus);
+                                this.ajouterSolde(context, treflesRecusValeur);
                             }
-                            Intent recu = new Intent(context, TransactionActivity.class);
-                            recu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(recu);
                             break;
                         case "Trans":
                             Toast.makeText(context, "Transaction", Toast.LENGTH_SHORT).show();
@@ -121,18 +119,29 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
+    private String getNumeroServeur(Context context) {
+        NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
+        numeroServeurDataSource.open();
+        return numeroServeurDataSource.getNumeroServeur();
+    }
+
     private void updateSoldeBdd(Context context, double nouvSolde) {
         SoldeDataSource soldeDataSource = new SoldeDataSource(context);
         soldeDataSource.open();
         soldeDataSource.majSolde(nouvSolde);
     }
 
-    private void receptionSmsDansSoldeActivity(double nouvSolde) {
+    private void ajouterSolde(Context context, double soldeAAjouter) {
+        SoldeDataSource soldeDataSource = new SoldeDataSource(context);
+        soldeDataSource.open();
+        soldeDataSource.majSolde(soldeDataSource.getSoldeActuel()+soldeAAjouter);
+    }
+
+    private void receptionSmsSoldeDansSoldeActivity(double nouvSolde) {
         //Choses à faire si on est dans SoldeActivity
-        SoldeActivity.instance.majAffichageSolde(nouvSolde);
-        SoldeActivity.instance.majSoldeToolbar();
+        SoldeActivity.instance.majSoldeAffichage(nouvSolde);
         ((TextView)SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
-        SoldeActivity.instance.changerEtatBouton();
+        ((SoldeActivity)SoldeActivity.instance).changerEtatBouton();
     }
 
     private double getDoubleSansVirgule(String message) {

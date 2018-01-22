@@ -17,63 +17,97 @@
         tools:context="com.example.gael.mestrefles.ParametresActivity"
         tools:showIn="@layout/app_bar_parametres">
 
-        <TextView
-            android:id="@+id/textMontantMaxTransact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/textMontantMaxTransact"
-            android:textColor="@color/text"
-            android:textSize="20sp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="88dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+            <TextView
+                android:id="@+id/textMontantMaxTransact"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/textMontantMaxTransact"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editTextMontantMax"
                 android:layout_width="116dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="75dp"
-                android:layout_marginTop="10dp"
                 android:ems="10"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:inputType="numberDecimal"
                 android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textTrefles"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/textTrefles"
-                android:textColor="@color/text"
-                android:textSize="20sp" />
 
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="85dp">
+            android:layout_height="80dp">
 
             <Button
-                android:id="@+id/boutonValiderParametres"
+                android:id="@+id/boutonValiderMontantMax"
                 style="@style/BoutonClassique"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_weight="1"
                 android:text="@string/boutonValide" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="#000000" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/textNumeroServeur"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="@string/textNumeroServeur"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextNumServeur"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginLeft="10dp"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="phone"
+                android:textAlignment="center"
+                android:layout_marginEnd="60dp" android:layout_marginStart="10dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/boutonValiderNumServeur"
+                style="@style/BoutonClassique"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/boutonValide" />
+
         </RelativeLayout>
 
     </LinearLayout>
