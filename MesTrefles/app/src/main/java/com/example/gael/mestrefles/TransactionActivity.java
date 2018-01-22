@@ -1,7 +1,9 @@
 package com.example.gael.mestrefles;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -170,5 +172,13 @@ public class TransactionActivity extends BasicTrefleActivity
             return avantVirgule+"/"+numDestinataire;
         }
         return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
+    }
+
+    public void transactionReussie(){
+        final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
+        texteRep.setText("Transaction Réussie !");
+
+        final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
+        boutonValider.setEnabled(true);
     }
 }
