@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +56,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                 final double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
                                 this.updateSoldeBdd(context, nouvSolde);
                                 if(SoldeActivity.instance != null){
-                                    this.receptionSmsDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
+                                    this.receptionSmsSoldeDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
                                 }
                             }
 
@@ -73,11 +72,14 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             //A faire lors de la confirmation d'un transaction
                             String soldeEnvoyeString = smsBody.split(":")[1];
                             soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
-                            Toast.makeText(context, soldeEnvoyeString, Toast.LENGTH_SHORT).show();
 
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
                             this.ajouterSolde(context, soldeEnvoye*(-1));
+
+                            if(TransactionActivity.instance != null){
+                                ((TransactionActivity)TransactionActivity.instance).transactionReussie();
+                            }
                             break;
 
                         case "Recu ":
@@ -135,7 +137,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         soldeDataSource.majSolde(soldeDataSource.getSoldeActuel()+soldeAAjouter);
     }
 
-    private void receptionSmsDansSoldeActivity(double nouvSolde) {
+    private void receptionSmsSoldeDansSoldeActivity(double nouvSolde) {
         //Choses à faire si on est dans SoldeActivity
         SoldeActivity.instance.majSoldeAffichage(nouvSolde);
         ((TextView)SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
