@@ -42,9 +42,11 @@
 
     //Parametres
     <string name="textMontantMaxTransact">Montant maximal des transactions :</string>
-    <string name="boutonSiteAide">www.treflerie.info</string>
-    <string name="boutonMailSupport">Envoyer un mail au support</string>
+    <string name="textConfigMode">Choisir le mode :</string>
 
+        //RadioBoutons
+        <string name="textRadioBoutonParticulier">Particulier</string>
+        <string name="textRadioBoutonProfessionnel">Professionnel</string>
     //Depenses
     <string name="txtDepenses">Mes dépenses</string>
     <string name="txtBeneficiaire">Bénéficiaire</string>
@@ -57,6 +59,10 @@
     <string name="messageAideSite">Vous pouvez trouver de l\'aide sur notre site</string>
     <string name="bouttonAideSupport">Mail au support</string>
     <string name="bouttonAideSite">www.treflerie.fr</string>
+    //DOUBLONS ??
+    <string name="boutonSiteAide">www.treflerie.info</string>
+    <string name="boutonMailSupport">Envoyer un mail au support</string>
+
     <string name="txtAide">Aide</string>
     <string name="textNumeroServeur">Numéro du serveur :</string>
 

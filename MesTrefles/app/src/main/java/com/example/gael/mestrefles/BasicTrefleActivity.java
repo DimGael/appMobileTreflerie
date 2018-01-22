@@ -28,7 +28,8 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     public static BasicTrefleActivity instance = null;
 
     public void majSoldeAffichage(double nouvSolde){
-        this.getToolbar().setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+        this.getToolbar().setTitle("Solde : "+this.soldeDataSource.getSoldeActuel());
+
     }
 
     @Override
@@ -37,7 +38,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         this.soldeDataSource = new SoldeDataSource(this.getBaseContext());
         this.soldeDataSource.open();
-
+        this.getToolbar().setLogo(R.drawable.logo);
         this.numeroServeurDataSource = new NumeroServeurDataSource(this.getBaseContext());
         this.numeroServeurDataSource.open();
 
