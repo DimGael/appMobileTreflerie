@@ -1,12 +1,12 @@
 package com.example.gael.mestrefles;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.util.Log;
@@ -33,10 +33,14 @@ public class TransactionActivity extends BasicTrefleActivity
     //Classe qui va nous servir à manipuler la table MontantMax
     private MontantMaxDataSource montantMaxDataSource;
 
+    private boolean transactionEnCours;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_transaction);
         super.onCreate(savedInstanceState);
+
+        this.transactionEnCours = false;
 
         montantMaxDataSource = new MontantMaxDataSource(this);
         montantMaxDataSource.open();
@@ -138,15 +142,51 @@ public class TransactionActivity extends BasicTrefleActivity
                 ((Button)this.findViewById(R.id.boutonValider)).setEnabled(false);
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
                 final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
+
                 //Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
                 SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
 
-                editTextMontant.setText("");
-                editTextNumDestinataire.setText("");
-                editTextErrNumDestinaire.setText("");
-                editTextErrMontant.setText("");
+                this.transactionEnCours = true;
+
+                //Efface le contenu des EditText
+                this.resetChampTexte();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        afficherMessageSiTransactionEnCours();
+                    }
+                }, 40000);
             }
         }
+    }
+
+    private void afficherMessageSiTransactionEnCours() {
+        TransactionActivity instance = (TransactionActivity)TransactionActivity.instance;
+        if(instance.transactionEnCours)
+        new AlertDialog.Builder(instance)
+                .setTitle("Serveur indisponible")
+                .setMessage("Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.")
+                .setPositiveButton("J'ai compris", null)
+                .create().show();
+
+        final Button boutonValider = (Button) instance.findViewById(R.id.boutonValider);
+        boutonValider.setEnabled(true);
+
+        final TextView texteRep = (TextView)instance.findViewById(R.id.texteReponseSolde);
+        texteRep.setText("");
+    }
+
+    private void resetChampTexte() {
+        final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
+        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
+        final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurMontantTransaction);
+        final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
+
+        editTextMontant.setText("");
+        editTextNumDestinataire.setText("");
+        editTextErrNumDestinaire.setText("");
+        editTextErrMontant.setText("");
     }
 
     @Override
@@ -180,5 +220,7 @@ public class TransactionActivity extends BasicTrefleActivity
 
         final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
         boutonValider.setEnabled(true);
+
+        this.transactionEnCours = false;
     }
 }

@@ -2,10 +2,12 @@ package com.example.gael.mestrefles;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.util.Log;
@@ -85,6 +87,21 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                new AlertDialog.Builder((SoldeActivity)instance)
+                        .setTitle("Serveur indisponible")
+                        .setMessage("Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.")
+                        .setPositiveButton("J'ai compris", null)
+                        .create().show();
+
+                ((SoldeActivity)instance).changerEtatBouton();
+                ((TextView)((SoldeActivity)instance).findViewById(R.id.texteReponseSolde)).setText("");
+
+            }
+        }, 40000);
     }
 
     public void changerEtatBouton() {
