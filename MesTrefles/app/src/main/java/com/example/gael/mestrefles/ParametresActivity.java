@@ -39,9 +39,6 @@ public class ParametresActivity extends BasicTrefleActivity
         this.montantMaxDataSource = new MontantMaxDataSource(this);
         this.montantMaxDataSource.open();
 
-        //Tant qu'on ne change rien les boutons MontantMax et le bouton NumServeur ne sont pas activable
-        ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
-
         //Ajout de l'écouteur sur les boutons
         ((Button)this.findViewById(R.id.boutonValiderParametres)).setOnClickListener(this);
 
@@ -51,41 +48,6 @@ public class ParametresActivity extends BasicTrefleActivity
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
 
-        //Quand le texte change, le bouton est de nouveau actif
-        ((EditText)this.findViewById(R.id.editTextMontantMax)).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(true);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        //Quand le numéro de serveur change, le bouton devient actif
-        ((EditText)this.findViewById(R.id.editTextNumServeur)).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(true);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
 
         Button bouton1 = (Button) findViewById(R.id.boutonValiderParametres);
 
@@ -132,75 +94,55 @@ public class ParametresActivity extends BasicTrefleActivity
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.boutonValiderParametres){
-            //Action lorsque l'utilisateur appuie sur le bouton valider en dessous de montant Max
+            this.modificationMontantMax();
 
-            final EditText editTextMontantMax  = (EditText)this.findViewById(R.id.editTextMontantMax);
+            this.modificationNumeroServeur();
 
-            if(editTextMontantMax.getText().toString().equals("")){
-                //Si l'utilisateur n'a rien mis :
-                Toast.makeText(this,"Vous n'avez rien saisi", Toast.LENGTH_SHORT).show();
-            }
-            else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() > 250.0){
-                //Si l'utilisateur a mis une valeur supérieure à 250
-                Toast.makeText(this,"Vous ne pouvez pas excéder 250 trèfles", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                //Si l'utilisateur a tout rempli correctement, mise à jour du montant maximal puis affichage du montant maximal
-                final double nouvMontantMax = Double.valueOf(editTextMontantMax.getText().toString()).doubleValue();
-
-                //Mise à jour du montant max
-                this.montantMaxDataSource.majMontantMax(nouvMontantMax);
-
-                //Affichage d'un message de confirmation rapelant le nouveau montant max
-                Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
-            }
+            Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
         }
 
+    }
 
-            //Action à faire lorsque l'utilisateur appuie sur le bouton valider numéro du serveur
+    private void modificationNumeroServeur() {
+        //Modification du numéro de serveur
+        final EditText editTextNum = (EditText)this.findViewById(R.id.editTextNumServeur);
 
-            final EditText editTextNum = (EditText)this.findViewById(R.id.editTextNumServeur);
-
-            if(editTextNum.getText().toString().equals("")){
-                //Si l'utilisateur n'a rien mis :
-                Toast.makeText(this,"Vous n'avez rien saisi", Toast.LENGTH_SHORT).show();
-            }
-            else if(editTextNum.getText().toString().length() != 12 && editTextNum.getText().toString().length() != 10){
-                Toast.makeText(this,"Vous avez mal écris le numéro", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                final String nouvNumeroServeur = editTextNum.getText().toString();
-
-                this.numeroServeurDataSource.setNumeroServeur(nouvNumeroServeur);
-
-                Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
-                ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
-            }
-
-        //MODE
-        /*
-
-        final EditText editMode = (EditText)this.findViewById(R.id.editTextNumServeur);
-
-        if(editMode.getText().toString().equals("")){
+        if(editTextNum.getText().toString().equals("")){
             //Si l'utilisateur n'a rien mis :
             Toast.makeText(this,"Vous n'avez rien saisi", Toast.LENGTH_SHORT).show();
         }
-        else if(editMode.getText().toString().length() != 12 && editMode.getText().toString().length() != 10){
+        else if(editTextNum.getText().toString().length() != 12 && editTextNum.getText().toString().length() != 10){
             Toast.makeText(this,"Vous avez mal écris le numéro", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            final String nouvNumeroServeur = editMode.getText().toString();
+            final String nouvNumeroServeur = editTextNum.getText().toString();
 
             this.numeroServeurDataSource.setNumeroServeur(nouvNumeroServeur);
 
-            Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
-            ((Button)findViewById(R.id.boutonValiderParametres)).setEnabled(false);
-        }*/
 
+        }
+    }
+
+    private void modificationMontantMax() {
+        //Action lorsque l'utilisateur appuie sur le bouton valider en dessous de montant Max
+        final EditText editTextMontantMax  = (EditText)this.findViewById(R.id.editTextMontantMax);
+
+        if(editTextMontantMax.getText().toString().equals("")){
+            //Si l'utilisateur n'a rien mis :
+            Toast.makeText(this,"Vous n'avez rien saisi", Toast.LENGTH_SHORT).show();
+        }
+        else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() > 250.0){
+            //Si l'utilisateur a mis une valeur supérieure à 250
+            Toast.makeText(this,"Vous ne pouvez pas excéder 250 trèfles", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            //Si l'utilisateur a tout rempli correctement, mise à jour du montant maximal puis affichage du montant maximal
+            final double nouvMontantMax = Double.valueOf(editTextMontantMax.getText().toString()).doubleValue();
+
+            //Mise à jour du montant max
+            this.montantMaxDataSource.majMontantMax(nouvMontantMax);
+        }
     }
 
     @Override
