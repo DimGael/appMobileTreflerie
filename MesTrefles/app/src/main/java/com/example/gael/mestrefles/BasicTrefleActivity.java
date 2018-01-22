@@ -28,7 +28,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     public static BasicTrefleActivity instance = null;
 
     public void majSoldeAffichage(double nouvSolde){
-        this.getToolbar().setTitle("Solde : "+this.soldeDataSource.getSoldeActuel());
+        this.getToolbar().setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
 
     }
 
@@ -38,14 +38,14 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         this.soldeDataSource = new SoldeDataSource(this.getBaseContext());
         this.soldeDataSource.open();
-        this.getToolbar().setLogo(R.drawable.logo);
         this.numeroServeurDataSource = new NumeroServeurDataSource(this.getBaseContext());
         this.numeroServeurDataSource.open();
 
         instance = this;
 
         Toolbar toolbar = this.getToolbar();
-        toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel());
+        toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+        toolbar.setLogo(R.drawable.logo);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
