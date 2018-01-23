@@ -4,12 +4,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Paramètres</string>
-
-<<<<<<< HEAD
-    <string name="action_settings">Paramètres</string>
-
-=======
->>>>>>> d596fb2ba1bdddeef44dd9f27db8f1afb70c6b4a
+    
     //Refus
     <string name="messageRefus">Vous avez refusé les autorisations pour utiliser notre application !</string>
     <string name="messageRefus2">Notre application nécessite l\'envoi et la réception de SMS pour fonctionner</string>
