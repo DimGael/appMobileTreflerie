@@ -2,6 +2,7 @@ package com.example.gael.mestrefles;
 
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -26,12 +28,14 @@ public class AccueilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
+
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.SEND_SMS)) {
+                    Manifest.permission.READ_CONTACTS)) {
                 //Cela signifie que la permission a déjà été
                 //demandé et l'utilisateur l'a refusé
                 //Vous pouvez aussi expliquer à l'utilisateur pourquoi
@@ -39,7 +43,7 @@ public class AccueilActivity extends AppCompatActivity {
             } else {
                 //Sinon demander la permission
                 ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.SEND_SMS},
+                        new String[]{Manifest.permission.READ_CONTACTS},
                         MY_PERMISSIONS_REQUEST_SEND_SMS);
             }
         }
