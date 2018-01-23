@@ -4,7 +4,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Paramètres</string>
     //Refus
     <string name="messageRefus">Vous avez refusé les autorisations pour utiliser notre application ! Vous devez maintenant aller dans les paramètres de notre application puis autorisations et enfin autoriser les SMS a être lus et envoyés ! (Notre système fonctionne grâce à l\'aide des SMS !!!)</string>
 
