@@ -231,8 +231,7 @@ public class TransactionActivity extends BasicTrefleActivity
         this.transactionEnCours = false;
     }
 
-<<<<<<< HEAD
-=======
+
     public void transactionEchouee(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
         texteRep.setText("Transaction Echouée");
@@ -242,5 +241,5 @@ public class TransactionActivity extends BasicTrefleActivity
 
         this.transactionEnCours = false;
     }
->>>>>>> 3fa73129ec7240bf03126579485bff14eec5639b
+
 }
