@@ -7,63 +7,30 @@
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.gael.mestrefles.DepenseActivity"
-    tools:showIn="@layout/app_bar_depenses"
-    android:paddingTop="80dp">
-
-
-    <TextView
-        android:id="@+id/txtMsgDepenses"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:gravity="center"
-        android:text="@string/txtDepenses"
-        android:textSize="30sp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <TextView
-            android:id="@+id/txtBeneficiaire"
-            android:layout_width="200dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="@color/tableauGris"
-            android:gravity="center"
-            android:text="@string/txtBeneficiaire"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/txtMontant"
+            android:id="@+id/titreBeneficiaire"
             android:layout_width="150dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="@color/tableauGris"
-            android:gravity="center"
-            android:text="@string/txtMontant"
-            android:textSize="25sp" />
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="Beneficiaire"/>
 
         <TextView
-            android:id="@+id/txtDate"
-            android:layout_width="120dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="@color/tableauGris"
-            android:gravity="center"
-            android:text="@string/txtDate"
-            android:textSize="25sp" />
+            android:id="@+id/titreMontant"
+            android:layout_width="150dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="Montant"/>
 
     </LinearLayout>
 
-</LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_view_depenses"/>
+
 </ScrollView>
