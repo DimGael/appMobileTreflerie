@@ -15,7 +15,7 @@
     <string name="messageRefusExplication6">6 - Relancez l\'application</string>
 
     //Titres
-    <string name="titreTransaction">Transactions</string>
+    <string name="titreTransaction">Transaction</string>
     <string name="titreRefus">Autorisations refusées</string>
     <string name="titreSolde">Mon Solde</string>
     <string name="titreDepenses">Mes Dépenses</string>
@@ -23,12 +23,7 @@
 
     //Menu
     <string name="menuAccueil">Accueil</string>
-    <string name="menuDepenses">Mes dépenses</string>
-    <string name="menuSolde">Mon solde</string>
-    <string name="menuTransaction">Transaction</string>
     <string name="menuAide">Aide</string>
-    <string name="menuParametres">Paramètres</string>
-
 
     //Général / Utilisé plusieurs fois :
     <string name="textTrefles">Trèfles</string>
