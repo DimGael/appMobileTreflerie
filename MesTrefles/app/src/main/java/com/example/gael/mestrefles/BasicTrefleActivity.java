@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
@@ -42,12 +41,12 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         instance = this;
 
         Toolbar toolbar = this.getToolbar();
-        Log.d("STATE", String.valueOf(this.soldeDataSource));
-        if (this.soldeDataSource == null) {
-            toolbar.setTitle("Banque trèflerie");
-        } else {
-            toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
-        }
+
+        toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+
+
+        toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+        toolbar.setLogo(R.drawable.logo);
 
 
         setSupportActionBar(toolbar);
