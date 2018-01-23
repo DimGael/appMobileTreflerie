@@ -18,67 +18,64 @@
     tools:context="com.example.gael.mestrefles.MenuPrincipal"
     tools:showIn="@layout/app_bar_menu_principal">
 
-
-    <Button
-        android:id="@+id/BoutonMonSolde"
-        style="@style/BoutonClassique"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_weight="1"
-        android:text="@string/titreSolde" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/BoutonTransaction"
-        style="@style/BoutonClassique"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_weight="1"
-        android:text="@string/titreTransaction" />
+        <Button
+            android:id="@+id/BoutonMonSolde"
+            style="@style/BoutonClassique"
+            android:layout_alignLeft="@+id/BoutonTransaction"
+            android:layout_alignStart="@+id/BoutonTransaction"
+            android:layout_below="@+id/BoutonTransaction"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/titreSolde" />
 
-    <Button
-        android:id="@+id/BoutonMesDepenses"
-        style="@style/BoutonClassique"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_weight="1"
-        android:text="@string/titreDepenses" />
+        <Button
+            android:id="@+id/BoutonTransaction"
+            style="@style/BoutonClassique"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:text="@string/titreTransaction" />
 
-    <Button
-        android:id="@+id/BoutonParametres"
-        style="@style/BoutonClassique"
-        android:layout_height="50dp"
-        android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_weight="1"
-        android:text="@string/titreParametres" />
+        <Button
+            android:id="@+id/BoutonMesDepenses"
+            style="@style/BoutonClassique"
+            android:layout_alignLeft="@+id/BoutonMonSolde"
+            android:layout_alignStart="@+id/BoutonMonSolde"
+            android:layout_below="@+id/BoutonMonSolde"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/titreDepenses" />
 
-    <Button
-        android:id="@+id/BoutonAide"
-        style="@style/BoutonClassique"
-        android:layout_height="50dp"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="1"
-        android:text="Aide" />
+        <Button
+            android:id="@+id/BoutonParametres"
+            style="@style/BoutonClassique"
+            android:layout_alignLeft="@+id/BoutonMesDepenses"
+            android:layout_alignStart="@+id/BoutonMesDepenses"
+            android:layout_below="@+id/BoutonMesDepenses"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/titreParametres" />
 
+        <Button
+            android:id="@+id/BoutonAide"
+            style="@style/BoutonClassique"
+            android:layout_alignLeft="@+id/BoutonParametres"
+            android:layout_alignStart="@+id/BoutonParametres"
+            android:layout_below="@+id/BoutonParametres"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:text="Aide" />
+    </RelativeLayout>
 </LinearLayout>
 </ScrollView>

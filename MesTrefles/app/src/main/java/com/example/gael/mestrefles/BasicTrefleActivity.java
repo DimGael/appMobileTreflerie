@@ -45,10 +45,6 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
 
 
-        toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
-        toolbar.setLogo(R.drawable.logo);
-
-
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

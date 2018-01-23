@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.gael.mestrefles.TransactionActivity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Alexis on 10/12/2017.
@@ -63,7 +64,7 @@ public class TransactionDataSource {
         return transaction;
     }
 
-    public Transaction[] getListeTransaction(){
+    public List<Transaction> getListeTransaction(){
         Cursor cursor = database.query(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, allColumns, null, null, null, null, MySQLiteHelperTransaction.COLUMN_DATE);
         cursor.moveToFirst();
 
@@ -76,12 +77,10 @@ public class TransactionDataSource {
         transaction.setTypeTransaction(cursor.getString(4));
 
         //CA A L'AIR BIZARRE
-        Transaction[] transactions = {};
+        List<Transaction> transactions = new ArrayList<Transaction>();
 
-        transactions[0] = transaction;
-        int i = 0;
+        transactions.add(transaction);
         while (cursor.moveToNext()){
-            i++;
 
             transaction.setId(cursor.getLong(0));
             transaction.setBeneficiaire(cursor.getString(1));
@@ -89,7 +88,7 @@ public class TransactionDataSource {
             transaction.setDate(cursor.getString(3));
             transaction.setTypeTransaction(cursor.getString(4));
 
-            transactions[i] = transaction;
+            transactions.add(transaction);
         }
 
         return transactions;
