@@ -5,17 +5,17 @@ package com.example.gael.mestrefles;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
 
-public class RefusActivity extends BasicTrefleActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class RefusActivity extends AppCompatActivity {
 
-    @Override
+    /*@Override
     public Toolbar getToolbar() {
         return (Toolbar)this.findViewById(R.id.toolbar);
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
