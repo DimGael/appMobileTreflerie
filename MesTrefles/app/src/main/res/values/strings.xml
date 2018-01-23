@@ -5,8 +5,20 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Paramètres</string>
 
+<<<<<<< HEAD
+    <string name="action_settings">Paramètres</string>
+
+=======
+>>>>>>> d596fb2ba1bdddeef44dd9f27db8f1afb70c6b4a
     //Refus
-    <string name="messageRefus">Vous avez refusé les autorisations pour utiliser notre application ! Vous devez maintenant aller dans les paramètres de notre application puis autorisations et enfin autoriser les SMS a être lus et envoyés ! (Notre système fonctionne grâce à l\'aide des SMS !!!)</string>
+    <string name="messageRefus">Vous avez refusé les autorisations pour utiliser notre application !</string>
+    <string name="messageRefus2">Notre application nécessite l\'envoi et la réception de SMS pour fonctionner</string>
+    <string name="messageRefusExplication1">1 - Ouvrez "Paramètres"</string>
+    <string name="messageRefusExplication2">2 - Ouvrez "Applications"</string>
+    <string name="messageRefusExplication3">3 - Ouvrez "Banque trèflerie"</string>
+    <string name="messageRefusExplication4">4 - Ouvrez "Autorisations"</string>
+    <string name="messageRefusExplication5">5 - Cochez la case "SMS"</string>
+    <string name="messageRefusExplication6">6 - Relancez l\'application</string>
 
     //Titres
     <string name="titreTransaction">Transaction</string>
@@ -42,6 +54,7 @@
         //RadioBoutons
         <string name="textRadioBoutonParticulier">Particulier</string>
         <string name="textRadioBoutonProfessionnel">Professionnel</string>
+
     //Depenses
     <string name="txtDepenses">Mes dépenses</string>
     <string name="txtBeneficiaire">Bénéficiaire</string>
