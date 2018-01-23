@@ -138,7 +138,14 @@ public class TransactionActivity extends BasicTrefleActivity
             } else if (montant > montantMax) {
                 editTextErrMontant.setText("Montant trop élevé \n (Vous pouvez paramètrer le montant maximum dans les paramètres)");
                 editTextErrNumDestinaire.setText("");
-            } else {
+            } else if(this.soldeDataSource.getSoldeActuel() == 0.0) {
+                editTextErrMontant.setText("Votre solde est vide \n (Veuillez recharger votre solde ou l'actualiser si cela est déjà effectué)");
+                editTextErrNumDestinaire.setText("");
+            } else if(this.soldeDataSource.getSoldeActuel() < montant){
+                editTextErrMontant.setText("Votre solde est insuffisant pour cette transaction \n (Veuillez recharger votre solde ou l'actualiser si cela est déjà effectué)");
+                editTextErrNumDestinaire.setText("");
+            }
+            else {
                 ((Button)this.findViewById(R.id.boutonValider)).setEnabled(false);
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
                 final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
@@ -223,4 +230,17 @@ public class TransactionActivity extends BasicTrefleActivity
 
         this.transactionEnCours = false;
     }
+
+<<<<<<< HEAD
+=======
+    public void transactionEchouee(){
+        final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
+        texteRep.setText("Transaction Echouée");
+
+        final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
+        boutonValider.setEnabled(true);
+
+        this.transactionEnCours = false;
+    }
+>>>>>>> 3fa73129ec7240bf03126579485bff14eec5639b
 }

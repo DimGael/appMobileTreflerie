@@ -2,6 +2,7 @@ package com.example.gael.mestrefles;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +59,9 @@ public class ParametresActivity extends BasicTrefleActivity
         TextView textView2 = (TextView) findViewById(R.id.textTrefles);
 
         EditText editText1 = (EditText) findViewById(R.id.editTextMontantMax);
+
+        RadioButton particulier = (RadioButton) findViewById(R.id.radioBoutonParticulier);
+        particulier.setChecked(true);
 
         setFont(bouton1,"QSregular.ttf");
 
