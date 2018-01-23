@@ -18,17 +18,6 @@
     tools:context="com.example.gael.mestrefles.MenuPrincipal"
     tools:showIn="@layout/app_bar_menu_principal">
 
-    <Button
-        android:id="@+id/BoutonParametres"
-        style="@style/BoutonClassique"
-
-        android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_weight="1"
-        android:text="@string/titreParametres" />
 
     <Button
         android:id="@+id/BoutonMonSolde"
@@ -42,6 +31,17 @@
         android:text="@string/titreSolde" />
 
     <Button
+        android:id="@+id/BoutonTransaction"
+        style="@style/BoutonClassique"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_weight="1"
+        android:text="@string/titreTransaction" />
+
+    <Button
         android:id="@+id/BoutonMesDepenses"
         style="@style/BoutonClassique"
         android:layout_width="match_parent"
@@ -53,15 +53,16 @@
         android:text="@string/titreDepenses" />
 
     <Button
-        android:id="@+id/BoutonTransaction"
+        android:id="@+id/BoutonParametres"
         style="@style/BoutonClassique"
+
         android:layout_width="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_weight="1"
-        android:text="@string/titreTransaction" />
+        android:text="@string/titreParametres" />
 
     <Button
         android:id="@+id/BoutonAide"
