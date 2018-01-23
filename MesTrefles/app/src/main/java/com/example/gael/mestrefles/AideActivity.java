@@ -108,10 +108,12 @@ public class AideActivity extends BasicTrefleActivity
         }
         else if (view.getId() == R.id.boutonMailSupport) {
             //Action lorsque l'utilisateur appuie sur le bouton site
-            String url= "http://moloco.px.free.fr/spip.php?article7";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("message/rfc822");
+            i.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"contact@treflerie.info"});
+            i.putExtra(Intent.EXTRA_SUBJECT, "Aide sur l'application");
+            i.putExtra(Intent.EXTRA_TEXT, "Bonjour,");
+            startActivity(Intent.createChooser(i, "Mail au support"));
 
         }
     }
