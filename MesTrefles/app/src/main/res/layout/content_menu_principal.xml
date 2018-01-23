@@ -25,20 +25,19 @@
         <Button
             android:id="@+id/BoutonTransaction"
             style="@style/BoutonClassique"
-            android:layout_above="@+id/BoutonMesDepenses"
             android:layout_alignLeft="@+id/BoutonMesDepenses"
+            android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/BoutonMesDepenses"
-            android:layout_marginBottom="32dp"
             android:layout_weight="1"
             android:text="@string/titreTransaction" />
 
         <Button
             android:id="@+id/BoutonMonSolde"
             style="@style/BoutonClassique"
-            android:layout_above="@+id/BoutonTransaction"
+            android:layout_above="@+id/BoutonMesDepenses"
             android:layout_alignLeft="@+id/BoutonTransaction"
             android:layout_alignStart="@+id/BoutonTransaction"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="31dp"
             android:layout_weight="1"
             android:text="@string/titreSolde" />
 

@@ -14,10 +14,6 @@ import android.view.MenuItem;
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
-/**
- * Created by GaëlPortable on 06/12/2017.
- */
-
 public abstract class BasicTrefleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected SoldeDataSource soldeDataSource;
