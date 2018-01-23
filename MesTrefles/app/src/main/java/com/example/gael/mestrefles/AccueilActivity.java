@@ -18,10 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-/**
- * Created by Alexandre and Quentin on 30/11/2017.
- */
-
 public class AccueilActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
 
