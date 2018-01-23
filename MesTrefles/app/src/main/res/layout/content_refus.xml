@@ -40,82 +40,71 @@
                 android:textColor="@color/text"
                 android:textSize="20sp" />
 
-            <GridLayout
+            <TextView
+                android:id="@+id/messageRefusExplication1"
                 android:layout_width="match_parent"
-                android:layout_height="218dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/messageRefusExplication1"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/messageRefusExplication6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/messageRefusExplication6"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/messageRefusExplication2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/messageRefusExplication2"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/messageRefusExplication5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/messageRefusExplication5"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/messageRefusExplication3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/messageRefusExplication3"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/messageRefusExplication4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/messageRefusExplication4"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/messageRefusExplication4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/messageRefusExplication4"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/messageRefusExplication3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/messageRefusExplication3"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/messageRefusExplication5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/messageRefusExplication5"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/messageRefusExplication2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/messageRefusExplication2"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/messageRefusExplication1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/messageRefusExplication1"
-                    android:textColor="@color/text"
-                    android:textSize="20sp" />
-            </GridLayout>
+            <TextView
+                android:id="@+id/messageRefusExplication6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/messageRefusExplication6"
+                android:textColor="@color/text"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/messageRefus2"
