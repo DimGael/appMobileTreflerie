@@ -17,12 +17,7 @@
 
     //Menu
     <string name="menuAccueil">Accueil</string>
-    <string name="menuDepenses">Mes dépenses</string>
-    <string name="menuSolde">Mon solde</string>
-    <string name="menuTransaction">Transaction</string>
     <string name="menuAide">Aide</string>
-    <string name="menuParametres">Paramètres</string>
-
 
     //Général / Utilisé plusieurs fois :
     <string name="textTrefles">Trèfles</string>

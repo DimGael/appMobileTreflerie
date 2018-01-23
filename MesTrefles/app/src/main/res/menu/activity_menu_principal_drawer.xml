@@ -11,15 +11,15 @@
         <item
             android:id="@+id/mDepenses"
             android:icon="@drawable/ic_menu_depenses"
-            android:title="@string/menuDepenses" />
+            android:title="@string/titreDepenses" />
         <item
             android:id="@+id/mSolde"
             android:icon="@drawable/ic_menu_solde"
-            android:title="@string/menuSolde" />
+            android:title="@string/titreSolde" />
         <item
             android:id="@+id/mTransaction"
             android:icon="@drawable/ic_menu_transaction"
-            android:title="@string/menuTransaction" />
+            android:title="@string/titreTransaction" />
     </group>
 
     <item android:title="Aide">
@@ -31,7 +31,7 @@
             <item
                 android:id="@+id/mParametres"
                 android:icon="@drawable/ic_menu_parametres"
-                android:title="@string/menuParametres" />
+                android:title="@string/titreParametres" />
         </menu>
     </item>
 
