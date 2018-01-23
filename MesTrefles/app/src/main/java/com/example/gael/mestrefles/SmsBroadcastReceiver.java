@@ -101,11 +101,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                 this.ajouterSolde(context, treflesRecusValeur);
                             }
                             break;
-                        case "Trans":
-                            Toast.makeText(context, "Transaction", Toast.LENGTH_SHORT).show();
-                            /*Intent transaction = new Intent(context, TransactionActivity.class);
-                            transaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(transaction);*/
+                        case " Tran":
+
+                            if(TransactionActivity.instance != null){
+                                ((TransactionActivity)TransactionActivity.instance).transactionEchouee();
+                            }
                             break;
                         default:
                             Toast.makeText(context, "DEFAULT", Toast.LENGTH_SHORT).show();
