@@ -4,11 +4,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="action_settings">Paramètres</string>
     //Refus
     <string name="messageRefus">Vous avez refusé les autorisations pour utiliser notre application ! Vous devez maintenant aller dans les paramètres de notre application puis autorisations et enfin autoriser les SMS a être lus et envoyés ! (Notre système fonctionne grâce à l\'aide des SMS !!!)</string>
 
     //Titres
-    <string name="titreTransaction">Transaction</string>
+    <string name="titreTransaction">Transactions</string>
     <string name="titreRefus">Autorisations refusées</string>
     <string name="titreSolde">Mon Solde</string>
     <string name="titreDepenses">Mes Dépenses</string>
@@ -16,13 +17,18 @@
 
     //Menu
     <string name="menuAccueil">Accueil</string>
+    <string name="menuDepenses">Mes dépenses</string>
+    <string name="menuSolde">Mon solde</string>
+    <string name="menuTransaction">Transaction</string>
     <string name="menuAide">Aide</string>
+    <string name="menuParametres">Paramètres</string>
+
 
     //Général / Utilisé plusieurs fois :
     <string name="textTrefles">Trèfles</string>
     <string name="boutonValide">Valider</string>
 
-    //Transaction
+     //Transaction
     <string name="textNumeroDuDest">Numéro Du Destinataire :</string>
     <string name="TextMontant">Montant :</string>
     <string name="erreurMontantTransaction">Montant maximal : 250 trèfles   (réglable dans les paramètres)</string>
