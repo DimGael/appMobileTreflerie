@@ -22,9 +22,7 @@
     <Button
         android:id="@+id/BoutonMonSolde"
         style="@style/BoutonClassique"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
@@ -34,9 +32,7 @@
     <Button
         android:id="@+id/BoutonTransaction"
         style="@style/BoutonClassique"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
@@ -46,9 +42,7 @@
     <Button
         android:id="@+id/BoutonMesDepenses"
         style="@style/BoutonClassique"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
@@ -58,9 +52,7 @@
     <Button
         android:id="@+id/BoutonParametres"
         style="@style/BoutonClassique"
-        android:layout_height="50dp"
-        android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
@@ -70,13 +62,11 @@
     <Button
         android:id="@+id/BoutonAide"
         style="@style/BoutonClassique"
-        android:layout_height="50dp"
-        android:layout_width="match_parent"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:text="Aide" />
 

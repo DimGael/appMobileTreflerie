@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -33,17 +34,23 @@ public class AccueilActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
+            Log.d("STATE", "ça marche 1");
+
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.READ_CONTACTS)) {
-                //Cela signifie que la permission a déjà été
-                //demandé et l'utilisateur l'a refusé
-                //Vous pouvez aussi expliquer à l'utilisateur pourquoi
-                //cette permission est nécessaire et la redemander
+                    Manifest.permission.SEND_SMS)) {
+
+                Log.d("STATE", "ça marche 2");
+                final Intent intentRefus = new Intent(this, RefusActivity.class);
+                this.startActivity(intentRefus);
+
+                Log.d("STATE", "ça marche 3");
+
             } else {
                 //Sinon demander la permission
+                Log.d("STATE", "ça marche 4");
                 ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_CONTACTS},
+                        new String[]{Manifest.permission.SEND_SMS},
                         MY_PERMISSIONS_REQUEST_SEND_SMS);
             }
         }
