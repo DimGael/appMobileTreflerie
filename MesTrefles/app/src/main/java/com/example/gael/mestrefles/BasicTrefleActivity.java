@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
@@ -42,7 +41,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         Toolbar toolbar = this.getToolbar();
         toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
-
+        toolbar.setLogo(R.drawable.logo);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
