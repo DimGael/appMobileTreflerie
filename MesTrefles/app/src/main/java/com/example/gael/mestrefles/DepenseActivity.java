@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,10 +30,17 @@ public class DepenseActivity extends BasicTrefleActivity
         super.onCreate(savedInstanceState);
 
 
-        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+        ArrayList<Transaction> transactionsTests = new ArrayList<Transaction>();
+
+        transactionsTests.add(new Transaction(0, 10.0, "24/01/2018", "N°29 : Dim", "rentrant"));
+        transactionsTests.add(new Transaction(1, 15.26, "15/01/2018", "N°31 : Nadaud", "sortant"));
+        transactionsTests.add(new Transaction(2, 150.26, "15/01/2018", "N°12 : Rebierre", "sortant"));
 
         final ListView listView = (android.widget.ListView)this.findViewById(R.id.list_view_depenses);
-        listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactions));
+        listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactionsTests));
+
+        ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header_historique, listView, false);
+        listView.addHeaderView(viewGroup);
     }
 
 
