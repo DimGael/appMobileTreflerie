@@ -46,12 +46,23 @@ public class TransactionAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         convertView = layoutInflater.inflate(R.layout.ligne_historique, null);
+        final Transaction transactionPosition = this.transactions.get(position);
 
         TextView beneficiaire = (TextView)convertView.findViewById(R.id.beneficiaire);
-        beneficiaire.setText(this.transactions.get(position).getBeneficiaire());
+        beneficiaire.setText(transactionPosition.getBeneficiaire());
+
 
         TextView montant = (TextView)convertView.findViewById(R.id.montant);
-        montant.setText(new Double(transactions.get(position).getMontant()).toString());
+        if(transactionPosition.estSortant()){
+            montant.setText("-"+new Double(transactionPosition.getMontant()).toString());
+            montant.setTextColor(convertView.getResources().getColor(R.color.transactionSortante));
+        }else{
+            montant.setText("+"+new Double(transactionPosition.getMontant()).toString());
+            montant.setTextColor(convertView.getResources().getColor(R.color.transactionRentrante));
+        }
+
+        TextView date = (TextView)convertView.findViewById(R.id.date);
+        date.setText(transactionPosition.getDate());
 
         return convertView;
     }

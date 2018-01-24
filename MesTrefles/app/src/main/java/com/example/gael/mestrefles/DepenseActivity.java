@@ -32,9 +32,9 @@ public class DepenseActivity extends BasicTrefleActivity
 
         ArrayList<Transaction> transactionsTests = new ArrayList<Transaction>();
 
-        transactionsTests.add(new Transaction(0, 10.0, "24/01/2018", "N°29 : Dim", "rentrant"));
-        transactionsTests.add(new Transaction(1, 15.26, "15/01/2018", "N°31 : Nadaud", "sortant"));
-        transactionsTests.add(new Transaction(2, 150.26, "15/01/2018", "N°12 : Rebierre", "sortant"));
+        transactionsTests.add(new Transaction(0, 10.0, "24/01/18", "N°29 : Dim", "rentrant"));
+        transactionsTests.add(new Transaction(1, 15.26, "15/01/18", "N°31 : Nadaud", "sortant"));
+        transactionsTests.add(new Transaction(2, 150.26, "15/01/18", "N°12 : Rebierre", "sortant"));
 
         final ListView listView = (android.widget.ListView)this.findViewById(R.id.list_view_depenses);
         listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactionsTests));
