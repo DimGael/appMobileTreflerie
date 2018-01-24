@@ -13,11 +13,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.gael.TransactionHistorique.Transaction;
+import com.example.gael.TransactionHistorique.TransactionDataSource;
 
 import java.util.ArrayList;
 
 public class DepenseActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TransactionDataSource transactionDataSource;
 
     @Override
     public Toolbar getToolbar() {
@@ -29,15 +32,18 @@ public class DepenseActivity extends BasicTrefleActivity
         setContentView(R.layout.activity_depenses);
         super.onCreate(savedInstanceState);
 
+        transactionDataSource = new TransactionDataSource(this);
+        transactionDataSource.open();
+
 
         ArrayList<Transaction> transactionsTests = new ArrayList<Transaction>();
 
-        transactionsTests.add(new Transaction(0, 10.0, "24/01/18", "N°29 : Dim", "rentrant"));
-        transactionsTests.add(new Transaction(1, 15.26, "15/01/18", "N°31 : Nadaud", "sortant"));
-        transactionsTests.add(new Transaction(2, 150.26, "15/01/18", "N°12 : Rebierre", "sortant"));
+        transactionsTests.add(new Transaction(0, 10.0, "24/01/18", "N°29 : Dim", Transaction.RENTRANTE));
+        transactionsTests.add(new Transaction(1, 15.26, "15/01/18", "N°31 : Nadaud", Transaction.SORTANTE));
+        transactionsTests.add(new Transaction(2, 150.26, "15/01/18", "N°12 : Rebierre", Transaction.SORTANTE));
 
         final ListView listView = (android.widget.ListView)this.findViewById(R.id.list_view_depenses);
-        listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactionsTests));
+        listView.setAdapter(new TransactionAdapter(this.getBaseContext(), this.transactionDataSource.getAllTransaction()));
 
         ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header_historique, listView, false);
         listView.addHeaderView(viewGroup);
@@ -69,5 +75,17 @@ public class DepenseActivity extends BasicTrefleActivity
 
         //Sinon la méthode est gérée par la superclass (BasicTrefleActivity)
         return super.onNavigationItemSelected(item);
+    }
+
+    @Override
+    public void onPause(){
+        this.transactionDataSource.close();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        this.transactionDataSource.open();
+        super.onResume();
     }
 }

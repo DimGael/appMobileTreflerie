@@ -6,6 +6,9 @@ package com.example.gael.TransactionHistorique;
 
 public class Transaction  {
 
+    public static String SORTANTE = "sortante";
+    public static String RENTRANTE = "rentrante";
+
     private long id;
     private double montant;
     private String date;
@@ -26,50 +29,57 @@ public class Transaction  {
         return id;
     }
 
-    public void setId(long id) {
+    public Transaction setId(long id) {
         this.id = id;
+        return this;
     }
 
     public double getMontant() {
         return montant;
     }
 
-    public void setMontant(double montant) {
+    public Transaction setMontant(double montant) {
         this.montant = montant;
+        return this;
     }
 
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public Transaction setDate(String date) {
         this.date = date;
+        return this;
     }
 
     public String getBeneficiaire() {
         return beneficiaire;
     }
 
-    public void setBeneficiaire(String beneficiaire) {
+    public Transaction setBeneficiaire(String beneficiaire) {
         this.beneficiaire = beneficiaire;
+        return this;
     }
 
     public String getTypeTransaction() { return typeTransaction; }
 
-    public void setTypeTransaction(String typeTransaction){
+    public Transaction setTypeTransaction(String typeTransaction){
         this.typeTransaction = typeTransaction;
+        return this;
     }
 
-    public void setTypeTransactionRentrant() {
-        this.typeTransaction = "rentrant";
+    public Transaction setTypeTransactionRentrant() {
+        this.typeTransaction = this.RENTRANTE;
+        return this;
     }
 
-    public void setTypeTransactionSortant(){
-        this.typeTransaction = "sortant";
+    public Transaction setTypeTransactionSortant(){
+        this.typeTransaction = SORTANTE;
+        return this;
     }
 
     public boolean estSortant(){
-        return this.typeTransaction == "sortant";
+        return this.typeTransaction == SORTANTE;
     }
 
     @Override

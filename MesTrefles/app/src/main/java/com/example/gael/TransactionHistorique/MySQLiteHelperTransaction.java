@@ -11,22 +11,23 @@ import android.util.Log;
 
 public class MySQLiteHelperTransaction extends SQLiteOpenHelper {
 
-    public static final String TABLE_DEPENSES_HISTORIQUE = "DEPENSES_HISTORIQUE";
+    public static final String TABLE_DEPENSES_HISTORIQUE = "historique";
+
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_BENEFICIAIRE = "beneficiaire";
+    public static final String COLUMN_COMPTE = "beneficiaire";
     public static final String COLUMN_MONTANT = "montant";
     public static final String COLUMN_DATE = "date";
     public static final String COLUMN_TYPE = "type";
 
     private static final String TABLE_CREATE = "create table "+TABLE_DEPENSES_HISTORIQUE+" ("
             +COLUMN_ID+" integer primary key autoincrement,"
-            +COLUMN_BENEFICIAIRE+" text not null,"
+            + COLUMN_COMPTE +" text not null,"
             +COLUMN_MONTANT+" number not null,"
             +COLUMN_DATE+" text not null,"
             +COLUMN_TYPE+" text not null)";
 
     public MySQLiteHelperTransaction(Context context) {
-        super(context, "trefle.db", null, 1);
+        super(context, "historique_trefle.db", null, 1);
     }
 
 
