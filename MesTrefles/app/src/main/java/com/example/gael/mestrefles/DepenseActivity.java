@@ -7,7 +7,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,22 +31,20 @@ public class DepenseActivity extends BasicTrefleActivity
         setContentView(R.layout.activity_depenses);
         super.onCreate(savedInstanceState);
 
-        TextView textView1 = (TextView) findViewById(R.id.txtMsgDepenses);
-        TextView textView2 = (TextView) findViewById(R.id.txtBeneficiaire);
-        TextView textView3 = (TextView) findViewById(R.id.txtMontant);
-        TextView textView4 = (TextView) findViewById(R.id.txtDate);
-
-
-        setFont(textView1,"QSregular.ttf");
-        setFont(textView2,"QSregular.ttf");
-        setFont(textView3,"QSregular.ttf");
-        setFont(textView4,"QSregular.ttf");
-
-
         ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
+        Transaction nouv1 = new Transaction(0, 10.0, "10/02/2018", "N° 29", "sortant");
+        transactions.add(nouv1);
+
+
 
         final ListView listView = (android.widget.ListView)this.findViewById(R.id.list_view_depenses);
         listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactions));
+
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        ViewGroup myHeader = (ViewGroup)inflater.inflate(R.layout.header_historique, listView, false);
+        listView.addHeaderView(myHeader);
     }
 
 
