@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-/**
- * Created by Gael on 29/11/2017.
- */
 public class NumeroServeurDataSource {
 
     private SQLiteDatabase database;
