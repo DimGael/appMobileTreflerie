@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gael.soldeactuel.Solde;
+
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
@@ -91,15 +93,17 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(SoldeActivity.instance != null) {
-                    new AlertDialog.Builder((SoldeActivity) instance)
-                            .setTitle("Serveur indisponible")
-                            .setMessage("Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.")
-                            .setPositiveButton("J'ai compris", null)
-                            .create().show();
+                if(instance != null) {
+                    if(instance.getClass() == SoldeActivity.class) {
+                        new AlertDialog.Builder(getBaseContext())
+                                .setTitle(R.string.titreErreurServeur)
+                                .setMessage(R.string.messageErreurServeur)
+                                .setPositiveButton(R.string.boutonErreurServeur, null)
+                                .create().show();
 
-                    ((SoldeActivity) instance).changerEtatBouton();
-                    ((TextView) ((SoldeActivity) instance).findViewById(R.id.texteReponseSolde)).setText("");
+                        ((SoldeActivity) instance).changerEtatBouton();
+                        ((TextView) ((SoldeActivity) instance).findViewById(R.id.texteReponseSolde)).setText("");
+                    }
                 }
 
             }

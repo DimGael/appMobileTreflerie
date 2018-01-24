@@ -67,5 +67,8 @@
 
     <string name="txtAide">Aide</string>
     <string name="textNumeroServeur">Numéro du serveur :</string>
+    <string name="messageErreurServeur">Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.</string>
+    <string name="titreErreurServeur">Serveur indisponible</string>
+    <string name="boutonErreurServeur">J\'ai compris</string>
 
 </resources>
