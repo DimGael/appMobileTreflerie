@@ -11,4 +11,10 @@
     <color name="erreur">#b90000</color>
 
     <color name="couleurTextBouton">#FFFFFF</color>
+
+
+    //HISTORIQUE
+    <color name="transactionSortante">#cc0000</color>
+    <color name="transactionRentrante">#33cc33</color>
+
 </resources>

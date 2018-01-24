@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_historique"
+    tools:ignore="InvalidId">
+
+    <TextView
+        android:id="@+id/txtBeneficiaire"
+        android:layout_width="150dp"
+        android:layout_height="52dp"
+        android:layout_weight="1"
+        android:background="@color/tableauGris"
+        android:gravity="center"
+        android:text="@string/txtBeneficiaire"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/txtMontant"
+        android:layout_width="120dp"
+        android:layout_height="52dp"
+        android:layout_weight="1"
+        android:background="@color/tableauGris"
+        android:gravity="center"
+        android:text="@string/txtMontant"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="120dp"
+        android:layout_height="52dp"
+        android:layout_weight="1"
+        android:background="@color/tableauGris"
+        android:gravity="center"
+        android:text="@string/txtDate"
+        android:textSize="25sp" />
+
+</LinearLayout>

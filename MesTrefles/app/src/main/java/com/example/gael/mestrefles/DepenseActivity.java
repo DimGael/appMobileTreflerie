@@ -1,19 +1,20 @@
 package com.example.gael.mestrefles;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.gael.TransactionHistorique.Transaction;
+
+import java.util.ArrayList;
 
 public class DepenseActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,17 +29,21 @@ public class DepenseActivity extends BasicTrefleActivity
         setContentView(R.layout.activity_depenses);
         super.onCreate(savedInstanceState);
 
-        TextView textView1 = (TextView) findViewById(R.id.txtMsgDepenses);
-        TextView textView2 = (TextView) findViewById(R.id.txtBeneficiaire);
-        TextView textView3 = (TextView) findViewById(R.id.txtMontant);
-        TextView textView4 = (TextView) findViewById(R.id.txtDate);
 
+        ArrayList<Transaction> transactionsTests = new ArrayList<Transaction>();
 
-        setFont(textView1,"QSregular.ttf");
-        setFont(textView2,"QSregular.ttf");
-        setFont(textView3,"QSregular.ttf");
-        setFont(textView4,"QSregular.ttf");
+        transactionsTests.add(new Transaction(0, 10.0, "24/01/18", "N°29 : Dim", "rentrant"));
+        transactionsTests.add(new Transaction(1, 15.26, "15/01/18", "N°31 : Nadaud", "sortant"));
+        transactionsTests.add(new Transaction(2, 150.26, "15/01/18", "N°12 : Rebierre", "sortant"));
+
+        final ListView listView = (android.widget.ListView)this.findViewById(R.id.list_view_depenses);
+        listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactionsTests));
+
+        ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header_historique, listView, false);
+        listView.addHeaderView(viewGroup);
     }
+
+
     public void setFont(TextView textView, String fontName) {
         if(fontName != null){
             try {

@@ -20,8 +20,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:src="@drawable/logo"
-                android:layout_marginRight="0dp"/>
+                />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
