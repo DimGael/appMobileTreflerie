@@ -61,13 +61,16 @@
     <string name="messageAideSite">Vous pouvez trouver de l\'aide sur notre site</string>
     <string name="bouttonAideSupport">Mail au support</string>
     <string name="bouttonAideSite">www.treflerie.fr</string>
-    //DOUBLONS ??
+
+
     <string name="boutonSiteAide">www.treflerie.info</string>
     <string name="boutonMailSupport">Envoyer un mail au support</string>
 
     <string name="txtAide">Aide</string>
     <string name="textNumeroServeur">Numéro du serveur :</string>
-    <string name="messageErreurServeur">Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.</string>
+
+    //Erreur Serveur
+    <string name="messageErreurServeur">Le serveur ne répond pas. Veuillez rééssayer plus tard.</string>
     <string name="titreErreurServeur">Serveur indisponible</string>
     <string name="boutonErreurServeur">J\'ai compris</string>
 
