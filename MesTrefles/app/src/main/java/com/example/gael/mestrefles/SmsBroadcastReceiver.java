@@ -8,9 +8,12 @@ import android.telephony.SmsMessage;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gael.TransactionHistorique.Transaction;
+import com.example.gael.TransactionHistorique.TransactionDataSource;
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
+import java.util.Date;
 import java.util.regex.Pattern;
 
 
@@ -25,7 +28,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         Bundle intentExtras = intent.getExtras();
         if (intentExtras != null) {
             Object[] sms = (Object[]) intentExtras.get(SMS_BUNDLE);
-            String smsMessageStr = "";
 
             for (int i = 0; i < sms.length; ++i) {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) sms[i]);
@@ -34,21 +36,17 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                 if(address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
-                    smsMessageStr += "SMS Provenant de : " + address + "\n";
-                    smsMessageStr += smsBody + "\n";
                     String debutMessage = smsBody.substring(0,5);
 
                     switch (debutMessage){
                         case "Votre":
                             Toast.makeText(context, "Derniere transaction ...", Toast.LENGTH_SHORT).show();
-                            Intent derniereTransaction = new Intent(context, MenuPrincipal.class);
-                            derniereTransaction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(derniereTransaction);
                             break;
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
 
                             if(!msgSolde[5].isEmpty()) {
+                                //Traiter le numéro de compte
                                 String numeroCompte = (msgSolde[5]);
                             }
 
@@ -59,7 +57,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                                     this.receptionSmsSoldeDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
                                 }
                             }
-
                             break;
                         case "Volum":
                             Toast.makeText(context, "Volume ...", Toast.LENGTH_SHORT).show();
@@ -73,9 +70,17 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             String soldeEnvoyeString = smsBody.split(":")[1];
                             soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
 
+                            String numeroCompte = smsBody.split(" ")[4];
+                            numeroCompte = numeroCompte.charAt(1)+numeroCompte.charAt(2)+"";
+
+
+                            String nomPersonne = smsBody.split(" ")[2];
+
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
                             this.ajouterSolde(context, soldeEnvoye*(-1));
+
+                            this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
 
                             if(TransactionActivity.instance != null){
                                 ((TransactionActivity)TransactionActivity.instance).transactionReussie();
@@ -108,10 +113,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             }
                             break;
                         default:
-                            Toast.makeText(context, "DEFAULT", Toast.LENGTH_SHORT).show();
-                            Intent menu = new Intent(context, MenuPrincipal.class);
-                            menu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(menu);
                             break;
                     }
                 }
@@ -119,20 +120,39 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
+    private void ajouterNouvelleTransaction(Context context, double soldeEnvoye, boolean estSortant, String numeroCompte, String nomPersonne) {
+        final TransactionDataSource transactionDataSource = new TransactionDataSource(context);
+        transactionDataSource.open();
+
+        Date d=new Date();
+        String date = d.getDate()+"/"+d.getMonth()+"/"+Integer.toString(d.getYear()).substring(1);
+
+        String compte = numeroCompte + " : " + nomPersonne;
+        transactionDataSource.ajouterNouvelleTransaction(soldeEnvoye, date, compte, estSortant);
+    }
+
+    private void ajouterNouvelleTransactionSortante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
+        this.ajouterNouvelleTransaction(context, soldeEnvoye, true, numeroCompte, nomPersonne);
+    }
+
+    private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String type, String numeroCompte, String nomPersonne){
+        this.ajouterNouvelleTransaction(context, soldeEnvoye, false, numeroCompte, nomPersonne);
+    }
+
     private String getNumeroServeur(Context context) {
-        NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
+        final NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
         numeroServeurDataSource.open();
         return numeroServeurDataSource.getNumeroServeur();
     }
 
     private void updateSoldeBdd(Context context, double nouvSolde) {
-        SoldeDataSource soldeDataSource = new SoldeDataSource(context);
+        final SoldeDataSource soldeDataSource = new SoldeDataSource(context);
         soldeDataSource.open();
         soldeDataSource.majSolde(nouvSolde);
     }
 
     private void ajouterSolde(Context context, double soldeAAjouter) {
-        SoldeDataSource soldeDataSource = new SoldeDataSource(context);
+        final SoldeDataSource soldeDataSource = new SoldeDataSource(context);
         soldeDataSource.open();
         soldeDataSource.majSolde(soldeDataSource.getSoldeActuel()+soldeAAjouter);
     }
