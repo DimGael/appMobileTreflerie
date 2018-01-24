@@ -5,7 +5,7 @@ package com.example.gael.mestrefles;
  */
 
 public class Constantes {
-    public static String telServeur = "0782572437";
+    public static String telServeur = "+33782572437";
 
     public String getTelServeur(){
         return this.telServeur;
