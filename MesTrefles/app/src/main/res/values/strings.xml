@@ -37,6 +37,7 @@
 
 
     //Mon solde
+    <string name="textNumCompte">Compte</string>
     <string name="textMsgSolde">Vous possédez :</string>
     <string name="textNbrTrefles">50,65</string>
     <string name="boutonActualiser">Actualiser</string>

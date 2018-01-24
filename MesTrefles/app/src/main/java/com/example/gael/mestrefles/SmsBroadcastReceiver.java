@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gael.numerocompte.NumeroCompte;
+import com.example.gael.numerocompte.NumeroCompteDataSource;
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
@@ -32,13 +35,13 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                 String address = smsMessage.getOriginatingAddress();
 
-                if(address.equals(getNumeroServeur(context))) {
+                if (address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
                     smsMessageStr += "SMS Provenant de : " + address + "\n";
                     smsMessageStr += smsBody + "\n";
-                    String debutMessage = smsBody.substring(0,5);
+                    String debutMessage = smsBody.substring(0, 5);
 
-                    switch (debutMessage){
+                    switch (debutMessage) {
                         case "Votre":
                             Toast.makeText(context, "Derniere transaction ...", Toast.LENGTH_SHORT).show();
                             Intent derniereTransaction = new Intent(context, MenuPrincipal.class);
@@ -48,14 +51,15 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
 
-                            if(!msgSolde[5].isEmpty()) {
+                            if (!msgSolde[5].isEmpty()) {
                                 String numeroCompte = (msgSolde[5]);
+                                modificationNumeroCompte(context, numeroCompte);
                             }
 
-                            if(!msgSolde[8].isEmpty()) {
+                            if (!msgSolde[8].isEmpty()) {
                                 final double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
                                 this.updateSoldeBdd(context, nouvSolde);
-                                if(SoldeActivity.instance != null){
+                                if (SoldeActivity.instance != null) {
                                     this.receptionSmsSoldeDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
                                 }
                             }
@@ -75,22 +79,22 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
-                            this.ajouterSolde(context, soldeEnvoye*(-1));
+                            this.ajouterSolde(context, soldeEnvoye * (-1));
 
-                            if(TransactionActivity.instance != null){
-                                ((TransactionActivity)TransactionActivity.instance).transactionReussie();
+                            if (TransactionActivity.instance != null) {
+                                ((TransactionActivity) TransactionActivity.instance).transactionReussie();
                             }
                             break;
 
                         case "Recu ":
                             String[] msgReception = smsBody.split(" ");
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
-                            if(!msgReception[2].isEmpty() && !msgReception[3].isEmpty()) {
-                                String provenanceNomPrenom = (msgReception[2]+" "+msgReception[3]);
+                            if (!msgReception[2].isEmpty() && !msgReception[3].isEmpty()) {
+                                String provenanceNomPrenom = (msgReception[2] + " " + msgReception[3]);
                                 Toast.makeText(context, provenanceNomPrenom, Toast.LENGTH_SHORT).show();
                             }
 
-                            if(!msgReception[4].isEmpty()) {
+                            if (!msgReception[4].isEmpty()) {
                                 String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
                                 String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
                                 String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
@@ -103,8 +107,8 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             break;
                         case " Tran":
 
-                            if(TransactionActivity.instance != null){
-                                ((TransactionActivity)TransactionActivity.instance).transactionEchouee();
+                            if (TransactionActivity.instance != null) {
+                                ((TransactionActivity) TransactionActivity.instance).transactionEchouee();
                             }
                             break;
                         default:
@@ -131,24 +135,37 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         soldeDataSource.majSolde(nouvSolde);
     }
 
+    private String getNumeroCompte(Context context, long nouvCompte) {
+        NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
+        numeroCompteDataSource.open();
+        return numeroCompteDataSource.getNumeroCompte();
+    }
+
     private void ajouterSolde(Context context, double soldeAAjouter) {
         SoldeDataSource soldeDataSource = new SoldeDataSource(context);
         soldeDataSource.open();
-        soldeDataSource.majSolde(soldeDataSource.getSoldeActuel()+soldeAAjouter);
+        soldeDataSource.majSolde(soldeDataSource.getSoldeActuel() + soldeAAjouter);
     }
 
     private void receptionSmsSoldeDansSoldeActivity(double nouvSolde) {
         //Choses à faire si on est dans SoldeActivity
         SoldeActivity.instance.majSoldeAffichage(nouvSolde);
-        ((TextView)SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
-        ((SoldeActivity)SoldeActivity.instance).changerEtatBouton();
+        ((TextView) SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
+        ((SoldeActivity) SoldeActivity.instance).changerEtatBouton();
     }
 
     private double getDoubleSansVirgule(String message) {
-        if(message.contains(",")) {
+        if (message.contains(",")) {
             String[] messages = message.split(",");
-            return Double.valueOf(messages[0]+"."+messages[1]).doubleValue();
+            return Double.valueOf(messages[0] + "." + messages[1]).doubleValue();
         }
         return Double.valueOf(message).doubleValue();
+    }
+
+    private void modificationNumeroCompte(Context context, String numeroCompte) {
+        NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
+        numeroCompteDataSource.open();
+        numeroCompteDataSource.setNumeroCompte(numeroCompte);
+
     }
 }

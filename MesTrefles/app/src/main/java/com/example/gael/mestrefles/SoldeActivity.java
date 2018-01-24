@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gael.numerocompte.NumeroCompteDataSource;
+
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
@@ -42,6 +44,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         TextView textView2 = (TextView) findViewById(R.id.textNbrTrefles);
         TextView textView3 = (TextView) findViewById(R.id.textTrefles);
         TextView textView4 = (TextView) findViewById(R.id.texteReponseSolde);
+        TextView textViewNum = (TextView) findViewById(R.id.textNumCompte);
+
 
         Button bouton1 = (Button) findViewById(R.id.boutonActualiser);
 
@@ -49,6 +53,16 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         setFont(textView2,"QSregular.ttf");
         setFont(textView3,"QSregular.ttf");
         setFont(textView4,"QSregular.ttf");
+        setFont(textViewNum,"QSregular.ttf");
+
+        NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(this);
+        numeroCompteDataSource.open();
+
+        String numero = numeroCompteDataSource.getNumeroCompte();
+
+        Log.d("test", numero);
+
+        textViewNum.setText("Compte N°"+numero);
 
         setFont(bouton1,"QSregular.ttf");
         instance = this;
@@ -121,12 +135,14 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     @Override
     public void onPause(){
         this.soldeDataSource.close();
+        this.numeroServeurDataSource.close();
         super.onPause();
     }
 
     @Override
     public void onResume(){
         this.soldeDataSource.open();
+        this.numeroServeurDataSource.open();
         super.onResume();
     }
 }

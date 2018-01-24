@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gael.montantmax.MontantMaxDataSource;
+import com.example.gael.numerocompte.NumeroCompteDataSource;
 
 
 public class ParametresActivity extends BasicTrefleActivity
@@ -62,8 +63,6 @@ public class ParametresActivity extends BasicTrefleActivity
 
         RadioButton particulier = (RadioButton) findViewById(R.id.radioBoutonParticulier);
         particulier.setChecked(true);
-
-        setFont(bouton1,"QSregular.ttf");
 
         setFont(bouton1,"QSregular.ttf");
 
