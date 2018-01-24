@@ -17,11 +17,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-<<<<<<< HEAD
+
 import com.example.gael.numerocompte.NumeroCompteDataSource;
-=======
 import com.example.gael.soldeactuel.Solde;
->>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
+
 
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -139,7 +138,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         textViewSolde.setText(Double.toString(nouvSolde));
         super.majSoldeAffichage(nouvSolde);
     }
-<<<<<<< HEAD
+
 
     @Override
     public void onPause(){
@@ -154,6 +153,4 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         this.numeroServeurDataSource.open();
         super.onResume();
     }
-=======
->>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
 }

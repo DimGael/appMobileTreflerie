@@ -1,5 +1,4 @@
 package com.example.gael.mestrefles;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.content.BroadcastReceiver;
@@ -9,13 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
-import com.example.gael.numerocompte.NumeroCompte;
-import com.example.gael.numerocompte.NumeroCompteDataSource;
-=======
+
 import com.example.gael.TransactionHistorique.Transaction;
 import com.example.gael.TransactionHistorique.TransactionDataSource;
->>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
+
+import com.example.gael.numerocompte.NumeroCompteDataSource;
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
@@ -42,13 +39,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                 if (address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
-<<<<<<< HEAD
-                    smsMessageStr += "SMS Provenant de : " + address + "\n";
-                    smsMessageStr += smsBody + "\n";
-                    String debutMessage = smsBody.substring(0, 5);
-=======
+
                     String debutMessage = smsBody.substring(0,5);
->>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
+
 
                     switch (debutMessage) {
                         case "Votre":
@@ -57,12 +50,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
 
-<<<<<<< HEAD
-                            if (!msgSolde[5].isEmpty()) {
-=======
                             if(!msgSolde[5].isEmpty()) {
                                 //Traiter le numéro de compte
->>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
+
                                 String numeroCompte = (msgSolde[5]);
                                 modificationNumeroCompte(context, numeroCompte);
                             }
@@ -97,15 +87,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                             this.ajouterSolde(context, soldeEnvoye * (-1));
 
-<<<<<<< HEAD
-                            if (TransactionActivity.instance != null) {
-                                ((TransactionActivity) TransactionActivity.instance).transactionReussie();
-=======
                             this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
 
                             if(TransactionActivity.instance != null){
                                 ((TransactionActivity)TransactionActivity.instance).transactionReussie();
->>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
+
                             }
                             break;
 
