@@ -91,7 +91,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
 
-
+        /*
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -108,6 +108,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
             }
         }, 2000);
+        */
 
     }
 
