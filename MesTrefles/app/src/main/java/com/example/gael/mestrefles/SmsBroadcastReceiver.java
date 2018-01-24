@@ -57,6 +57,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                                 String numeroCompte = (msgSolde[5]);
                                 modificationNumeroCompte(context, numeroCompte);
+
+                                if(SoldeActivity.instance != null){
+                                    ((SoldeActivity)SoldeActivity.instance).setNumeroCompte(numeroCompte);
+                                }
                             }
 
                             if (!msgSolde[8].isEmpty()) {
@@ -104,20 +108,21 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         case "Recu ":
                             String[] msgReception = smsBody.split(" ");
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
-                            if (!msgReception[2].isEmpty() && !msgReception[3].isEmpty()) {
+                            if (!msgReception[2].isEmpty() && !msgReception[3].isEmpty() && !msgReception[4].isEmpty()) {
                                 String provenanceNomPrenom = (msgReception[2] + " " + msgReception[3]);
-                                Toast.makeText(context, provenanceNomPrenom, Toast.LENGTH_SHORT).show();
-                            }
+                                String nom = msgReception[2];
 
-                            if (!msgReception[4].isEmpty()) {
                                 String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
                                 String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
                                 String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
+
                                 String partieTrefles[] = smsBody.split(Pattern.quote(":"));
-                                String treflesRecus = partieTrefles[1];
+                                String treflesRecus = partieTrefles[1].split("T")[0];
 
                                 final double treflesRecusValeur = this.getDoubleSansVirgule(treflesRecus);
                                 this.ajouterSolde(context, treflesRecusValeur);
+
+                                this.ajouterNouvelleTransactionEntrante(context, treflesRecusValeur, provenanceNumeroCompte, nom);
                             }
                             break;
                         case " Tran":
@@ -153,7 +158,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         this.ajouterNouvelleTransaction(context, soldeEnvoye, true, numeroCompte, nomPersonne);
     }
 
-    private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String type, String numeroCompte, String nomPersonne){
+    private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
         this.ajouterNouvelleTransaction(context, soldeEnvoye, false, numeroCompte, nomPersonne);
     }
 

@@ -18,7 +18,7 @@
     <string name="titreTransaction">Transaction</string>
     <string name="titreRefus">Autorisations refusées</string>
     <string name="titreSolde">Mon Solde</string>
-    <string name="titreDepenses">Mes Dépenses</string>
+    <string name="titreDepenses">Historique</string>
     <string name="titreParametres">Paramètres</string>
 
     //Menu
@@ -52,7 +52,7 @@
 
     //Depenses
     <string name="txtDepenses">Mes dépenses</string>
-    <string name="titreCompteHistorique">Bénéficiaire</string>
+    <string name="titreCompteHistorique">Compte</string>
     <string name="titreMontantHistorique">Montant</string>
     <string name="titreDateHistorique">Date</string>
 

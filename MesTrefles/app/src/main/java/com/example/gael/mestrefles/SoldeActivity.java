@@ -63,9 +63,6 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         numeroCompteDataSource.open();
 
         String numero = numeroCompteDataSource.getNumeroCompte();
-
-        Log.d("test", numero);
-
         textViewNum.setText("Compte N°"+numero);
 
         setFont(bouton1,"QSregular.ttf");
@@ -81,6 +78,12 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
                 Log.e("FONT", fontName + " not found", e);
             }
         }
+    }
+
+    public void setNumeroCompte(String numeroCompte){
+        final TextView textViewNum = (TextView) findViewById(R.id.textNumCompte);
+
+        textViewNum.setText("Compte N°"+numeroCompte);
     }
 
 
