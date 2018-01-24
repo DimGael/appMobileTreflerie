@@ -1,5 +1,6 @@
 package com.example.gael.mestrefles;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -90,12 +91,12 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
 
+        /*
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(instance != null) {
                     if(instance.getClass() == SoldeActivity.class) {
-                        new AlertDialog.Builder(getBaseContext())
+                        new AlertDialog.Builder(instance.getBaseContext())
                                 .setTitle(R.string.titreErreurServeur)
                                 .setMessage(R.string.messageErreurServeur)
                                 .setPositiveButton(R.string.boutonErreurServeur, null)
@@ -104,10 +105,10 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
                         ((SoldeActivity) instance).changerEtatBouton();
                         ((TextView) ((SoldeActivity) instance).findViewById(R.id.texteReponseSolde)).setText("");
                     }
-                }
 
             }
-        }, 40000);
+        }, 2000);
+        */
     }
 
     public void changerEtatBouton() {
