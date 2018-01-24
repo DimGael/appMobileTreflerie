@@ -46,8 +46,16 @@ public class Transaction  {
 
     public String getTypeTransaction() { return typeTransaction; }
 
-    public void setTypeTransaction(String type) {
-        this.typeTransaction = type;
+    public void setTypeTransaction(String typeTransaction){
+        this.typeTransaction = typeTransaction;
+    }
+
+    public void setTypeTransactionRentrant() {
+        this.typeTransaction = "rentrant";
+    }
+
+    public void setTypeTransactionSortant(){
+        this.typeTransaction = "sortant";
     }
 
     @Override

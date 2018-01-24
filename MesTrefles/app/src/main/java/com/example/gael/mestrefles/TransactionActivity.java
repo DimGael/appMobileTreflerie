@@ -49,6 +49,7 @@ public class TransactionActivity extends BasicTrefleActivity
         boutonValider.setOnClickListener(this);
 
         final double soldeEnvoye = this.getIntent().getDoubleExtra(this.INTENT_VALID_TRANSAC, -1.0);
+
         if(soldeEnvoye != -1.0){
             Toast.makeText(this, "Transaction bien effectuée !", Toast.LENGTH_SHORT).show();
             this.soldeDataSource.majSolde(this.soldeDataSource.getSoldeActuel() - soldeEnvoye);
@@ -231,8 +232,6 @@ public class TransactionActivity extends BasicTrefleActivity
         this.transactionEnCours = false;
     }
 
-<<<<<<< HEAD
-=======
     public void transactionEchouee(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
         texteRep.setText("Transaction Echouée");
@@ -242,5 +241,4 @@ public class TransactionActivity extends BasicTrefleActivity
 
         this.transactionEnCours = false;
     }
->>>>>>> 3fa73129ec7240bf03126579485bff14eec5639b
 }
