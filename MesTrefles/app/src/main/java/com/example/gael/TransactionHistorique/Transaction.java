@@ -68,6 +68,10 @@ public class Transaction  {
         this.typeTransaction = "sortant";
     }
 
+    public boolean estSortant(){
+        return this.typeTransaction == "sortant";
+    }
+
     @Override
     public String toString(){
         return (this.beneficiaire + " " + Double.toString(this.montant) + " " + this.date + " " + this.typeTransaction);
