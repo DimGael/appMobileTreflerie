@@ -36,15 +36,15 @@ public class TransactionDataSource {
     }
 
     public Transaction ajouterNouvelleTransaction(Transaction transaction){
-        return this.ajouterNouvelleTransaction(transaction.getMontant(), transaction.getDate(), transaction.getBeneficiaire(), !transaction.estSortant());
+        return this.ajouterNouvelleTransaction(transaction.getMontant(), transaction.getDate(), transaction.getCompte(), transaction.getTypeTransaction() == Transaction.SORTANTE);
     }
 
-    public Transaction ajouterNouvelleTransaction(double montant, String date, String beneficiaire, boolean estSortant){
+    public Transaction ajouterNouvelleTransaction(double montant, String date, String compte, boolean estSortant){
         //Création d'un "ContentValues" qui est un objet contenant des clés associés à des valeurs
         ContentValues values = new ContentValues();
 
 
-        values.put(MySQLiteHelperTransaction.COLUMN_COMPTE, beneficiaire);
+        values.put(MySQLiteHelperTransaction.COLUMN_COMPTE, compte);
         values.put(MySQLiteHelperTransaction.COLUMN_MONTANT, montant);
         values.put(MySQLiteHelperTransaction.COLUMN_DATE, date);
 
@@ -67,7 +67,7 @@ public class TransactionDataSource {
             transaction = new Transaction()
                     .setId(
                             insertId)
-                    .setBeneficiaire(
+                    .setCompte(
                             cursor.getString(1))
                     .setMontant(
                             cursor.getDouble(2))
@@ -89,7 +89,7 @@ public class TransactionDataSource {
             transaction = new Transaction()
                     .setId(
                             cursor.getLong(0))
-                    .setBeneficiaire(
+                    .setCompte(
                             cursor.getString(1))
                     .setMontant(
                             cursor.getDouble(2))
@@ -101,19 +101,16 @@ public class TransactionDataSource {
             transactions.add(transaction);
 
             while (cursor.moveToNext()) {
-
-                transaction.setId(
-                        cursor.getLong(0))
-                        .setBeneficiaire(
+                transactions.add(new Transaction().setId(
+                            cursor.getLong(0))
+                        .setCompte(
                                 cursor.getString(1))
                         .setMontant(
                                 cursor.getDouble(2))
                         .setDate(
                                 cursor.getString(3))
                         .setTypeTransaction(
-                                cursor.getString(4));
-
-                transactions.add(transaction);
+                                cursor.getString(4)));
             }
         }
             return transactions;
