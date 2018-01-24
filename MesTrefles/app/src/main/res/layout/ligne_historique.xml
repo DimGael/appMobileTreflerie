@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorPrimary">
 
      <TextView android:id="@+id/beneficiaire"
-        android:layout_width="wrap_content"
+         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         android:text="N° 29"
+         android:gravity="center"
+         android:textSize="20sp"
          android:width="100dp"/>
 
     <TextView android:id="@+id/montant"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:layout_alignLeft="@+id/beneficiaire"
-        android:layout_below="@+id/beneficiaire"
-        android:text="26 Trèfles"
-        android:layout_alignStart="@+id/beneficiaire"/>
+        android:layout_alignLeft="@+id/montant"
+        android:layout_below="@+id/montant"
+        android:text="26 T"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_alignStart="@+id/montant"/>
+
+    <TextView android:id="@+id/date"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_alignLeft="@+id/date"
+        android:layout_below="@+id/date"
+        android:gravity="center"
+        android:text="07/01/98"
+        android:layout_alignStart="@+id/date" />
 
 </LinearLayout>

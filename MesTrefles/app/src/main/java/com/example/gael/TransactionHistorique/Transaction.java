@@ -12,6 +12,16 @@ public class Transaction  {
     private String beneficiaire;
     private String typeTransaction;
 
+    public Transaction(){}
+
+    public Transaction(long id, double montant, String date, String beneficiaire, String typeTransaction) {
+        this.id = id;
+        this.montant = montant;
+        this.date = date;
+        this.beneficiaire = beneficiaire;
+        this.typeTransaction = typeTransaction;
+    }
+
     public long getId() {
         return id;
     }
