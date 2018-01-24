@@ -12,11 +12,6 @@ import android.widget.TextView;
 
 public class RefusActivity extends AppCompatActivity {
 
-    /*@Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.toolbar);
-    }*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

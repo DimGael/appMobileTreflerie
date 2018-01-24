@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.gael.TransactionHistorique.Transaction;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by GaëlPortable on 23/01/2018.
@@ -21,9 +22,9 @@ public class TransactionAdapter extends BaseAdapter {
     private ArrayList<Transaction> transactions;
     private LayoutInflater layoutInflater;
 
-    public TransactionAdapter(Context context, ArrayList<Transaction> transactions) {
+    public TransactionAdapter(Context context, List<Transaction> transactions) {
         this.context = context;
-        this.transactions = transactions;
+        this.transactions = (ArrayList<Transaction>)transactions;
         layoutInflater = (LayoutInflater.from(context));
     }
 

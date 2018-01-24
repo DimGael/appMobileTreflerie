@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-/**
- * Created by Gael on 29/11/2017.
- */
 public class NumeroServeurDataSource {
 
     private SQLiteDatabase database;
@@ -36,7 +33,11 @@ public class NumeroServeurDataSource {
             return cursor.getString(1);
         }else
             //Le numéro de base du serveur
-            return "+33782572437";
+            return null;
+    }
+
+    public boolean numeroServeurExisteDansBdd(){
+        return getNumeroServeur().equals(null);
     }
 
     public NumeroServeur setNumeroServeur(String numeroServeur) throws IllegalArgumentException{

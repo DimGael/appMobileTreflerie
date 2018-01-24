@@ -1,5 +1,6 @@
 package com.example.gael.mestrefles;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +17,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.example.gael.numerocompte.NumeroCompteDataSource;
+=======
+import com.example.gael.soldeactuel.Solde;
+>>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
 
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -102,22 +107,25 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
 
+        /*
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(SoldeActivity.instance != null) {
-                    new AlertDialog.Builder((SoldeActivity) instance)
-                            .setTitle("Serveur indisponible")
-                            .setMessage("Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.")
-                            .setPositiveButton("J'ai compris", null)
-                            .create().show();
+                    if(instance.getClass() == SoldeActivity.class) {
+                        new AlertDialog.Builder(instance.getBaseContext())
+                                .setTitle(R.string.titreErreurServeur)
+                                .setMessage(R.string.messageErreurServeur)
+                                .setPositiveButton(R.string.boutonErreurServeur, null)
+                                .create().show();
 
-                    ((SoldeActivity) instance).changerEtatBouton();
-                    ((TextView) ((SoldeActivity) instance).findViewById(R.id.texteReponseSolde)).setText("");
-                }
+                        ((SoldeActivity) instance).changerEtatBouton();
+                        ((TextView) ((SoldeActivity) instance).findViewById(R.id.texteReponseSolde)).setText("");
+                    }
 
             }
-        }, 40000);
+        }, 2000);
+        */
+
     }
 
     public void changerEtatBouton() {
@@ -131,6 +139,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         textViewSolde.setText(Double.toString(nouvSolde));
         super.majSoldeAffichage(nouvSolde);
     }
+<<<<<<< HEAD
 
     @Override
     public void onPause(){
@@ -145,4 +154,6 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         this.numeroServeurDataSource.open();
         super.onResume();
     }
+=======
+>>>>>>> 2ea92c8a25a6d1a9e4215f834642f68e1d740996
 }

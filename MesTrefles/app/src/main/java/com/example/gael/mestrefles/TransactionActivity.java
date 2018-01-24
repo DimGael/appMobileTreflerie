@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gael.TransactionHistorique.Transaction;
 import com.example.gael.montantmax.MontantMaxDataSource;
 
 
@@ -169,19 +170,19 @@ public class TransactionActivity extends BasicTrefleActivity
     }
 
     private void afficherMessageSiTransactionEnCours() {
-        TransactionActivity instance = (TransactionActivity)TransactionActivity.instance;
-        if(instance.transactionEnCours)
-        new AlertDialog.Builder(instance)
-                .setTitle("Serveur indisponible")
-                .setMessage("Le serveur ne répond pas veuillez réésayer plus tard. Ne pas réessayer tout de suite svp.")
-                .setPositiveButton("J'ai compris", null)
-                .create().show();
+        if(instance.getClass() == TransactionActivity.class) {
+            new AlertDialog.Builder(instance)
+                    .setTitle(R.string.titreErreurServeur)
+                    .setMessage(R.string.messageErreurServeur)
+                    .setPositiveButton(R.string.boutonErreurServeur, null)
+                    .create().show();
 
-        final Button boutonValider = (Button) instance.findViewById(R.id.boutonValider);
-        boutonValider.setEnabled(true);
+            final Button boutonValider = (Button) instance.findViewById(R.id.boutonValider);
+            boutonValider.setEnabled(true);
 
-        final TextView texteRep = (TextView)instance.findViewById(R.id.texteReponseSolde);
-        texteRep.setText("");
+            final TextView texteRep = (TextView) instance.findViewById(R.id.texteReponseSolde);
+            texteRep.setText("");
+        }
     }
 
     private void resetChampTexte() {
