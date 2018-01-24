@@ -51,9 +51,9 @@
 
     //Depenses
     <string name="txtDepenses">Mes dépenses</string>
-    <string name="txtBeneficiaire">Bénéficiaire</string>
-    <string name="txtMontant">Montant</string>
-    <string name="txtDate">Date</string>
+    <string name="titreCompteHistorique">Bénéficiaire</string>
+    <string name="titreMontantHistorique">Montant</string>
+    <string name="titreDateHistorique">Date</string>
 
     //Aide
     <string name="titreAide">Aide</string>
