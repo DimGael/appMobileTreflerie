@@ -28,17 +28,6 @@ public class DepenseActivity extends BasicTrefleActivity
         setContentView(R.layout.activity_depenses);
         super.onCreate(savedInstanceState);
 
-        TextView textView1 = (TextView) findViewById(R.id.txtMsgDepenses);
-        TextView textView2 = (TextView) findViewById(R.id.txtBeneficiaire);
-        TextView textView3 = (TextView) findViewById(R.id.txtMontant);
-        TextView textView4 = (TextView) findViewById(R.id.txtDate);
-
-
-        setFont(textView1,"QSregular.ttf");
-        setFont(textView2,"QSregular.ttf");
-        setFont(textView3,"QSregular.ttf");
-        setFont(textView4,"QSregular.ttf");
-
 
         ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
