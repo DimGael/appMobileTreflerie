@@ -1,19 +1,19 @@
 package com.example.gael.mestrefles;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.gael.TransactionHistorique.Transaction;
+
+import java.util.ArrayList;
 
 public class DepenseActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +38,15 @@ public class DepenseActivity extends BasicTrefleActivity
         setFont(textView2,"QSregular.ttf");
         setFont(textView3,"QSregular.ttf");
         setFont(textView4,"QSregular.ttf");
+
+
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
+        final ListView listView = (android.widget.ListView)this.findViewById(R.id.list_view_depenses);
+        listView.setAdapter(new TransactionAdapter(this.getBaseContext(), transactions));
     }
+
+
     public void setFont(TextView textView, String fontName) {
         if(fontName != null){
             try {
