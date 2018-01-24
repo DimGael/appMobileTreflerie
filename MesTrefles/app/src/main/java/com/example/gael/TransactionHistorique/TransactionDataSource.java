@@ -42,10 +42,7 @@ public class TransactionDataSource {
         values.put(MySQLiteHelperTransaction.COLUMN_MONTANT, montant);
         values.put(MySQLiteHelperTransaction.COLUMN_BENEFICIAIRE, beneficiaire);
         values.put(MySQLiteHelperTransaction.COLUMN_DATE, date);
-        if(estRentrant)
-            values.put(MySQLiteHelperTransaction.COLUMN_TYPE, "rentrant");
-        else
-            values.put(MySQLiteHelperTransaction.COLUMN_TYPE, "sortant");
+        values.put(MySQLiteHelperTransaction.COLUMN_TYPE, estRentrant);
 
 
         //insertId récupère l'id du nouvel element inséré dans la bdd

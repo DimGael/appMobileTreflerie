@@ -36,7 +36,7 @@ public class NumeroServeurDataSource {
             return cursor.getString(1);
         }else
             //Le numéro de base du serveur
-            return "+33782572437";
+            return "0000000000";
     }
 
     public NumeroServeur setNumeroServeur(String numeroServeur) throws IllegalArgumentException{
