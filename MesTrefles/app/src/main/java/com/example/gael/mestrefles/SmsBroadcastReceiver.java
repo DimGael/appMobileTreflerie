@@ -41,9 +41,8 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     String smsBody = smsMessage.getMessageBody().toString();
 
                     String debutMessage = new String();
-
-                    if(smsBody.length() >= 5)
-                        debutMessage = smsBody.substring(0,5);
+                    if (smsBody.length() >= 5)
+                        debutMessage = smsBody.substring(0, 5);
 
                     switch (debutMessage) {
                         case "Votre":
@@ -52,14 +51,14 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         case "Le so":
                             String[] msgSolde = smsBody.split(" ");
 
-                            if(!msgSolde[5].isEmpty()) {
+                            if (!msgSolde[5].isEmpty()) {
                                 //Traiter le numéro de compte
 
                                 String numeroCompte = (msgSolde[5]);
                                 modificationNumeroCompte(context, numeroCompte);
 
-                                if(SoldeActivity.instance != null){
-                                    ((SoldeActivity)SoldeActivity.instance).setNumeroCompte(numeroCompte);
+                                if (SoldeActivity.instance != null) {
+                                    ((SoldeActivity) SoldeActivity.instance).setNumeroCompte(numeroCompte);
                                 }
                             }
 
@@ -88,7 +87,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             msgAvecNumCompte = msgAvecNumCompte.split(":")[0];
 
                             String numeroCompte = new String();
-                            for(int indexMsgNumCompte = 0; indexMsgNumCompte<msgAvecNumCompte.length()-1;indexMsgNumCompte++){
+                            for (int indexMsgNumCompte = 0; indexMsgNumCompte < msgAvecNumCompte.length() - 1; indexMsgNumCompte++) {
                                 numeroCompte += msgAvecNumCompte.charAt(indexMsgNumCompte);
                             }
 
@@ -96,12 +95,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
-                            this.ajouterSolde(context, soldeEnvoye*(-1));
+                            this.ajouterSolde(context, soldeEnvoye * (-1));
 
                             this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
 
-                            if(TransactionActivity.instance != null){
-                                ((TransactionActivity)TransactionActivity.instance).transactionReussie();
+                            if (TransactionActivity.instance != null) {
+                                ((TransactionActivity) TransactionActivity.instance).transactionReussie();
                             }
                             break;
 
