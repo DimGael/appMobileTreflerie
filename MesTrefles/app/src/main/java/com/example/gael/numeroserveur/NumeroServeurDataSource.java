@@ -33,7 +33,7 @@ public class NumeroServeurDataSource {
             return cursor.getString(1);
         }else
             //Le numéro de base du serveur
-            return null;
+            return "+33782572437";
     }
 
     public boolean numeroServeurExisteDansBdd(){
