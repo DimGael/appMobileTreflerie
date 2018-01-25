@@ -105,6 +105,11 @@ public class ParametresActivity extends BasicTrefleActivity
             Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
         }
 
+        if(id== R.id.boutonDefaultServeur){
+            
+            this.numeroServeurDataSource.setNumeroServeur("+33782572437");
+        }
+
     }
 
     private void modificationNumeroServeur() {
@@ -140,7 +145,11 @@ public class ParametresActivity extends BasicTrefleActivity
             //Si l'utilisateur a mis une valeur supérieure à 250
             Toast.makeText(this,"Vous ne pouvez pas excéder 250 trèfles", Toast.LENGTH_SHORT).show();
         }
-        else{
+        else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() <= 0.0){
+            //Si l'utilisateur a mis inférieure ou égale à 0
+            Toast.makeText(this,"Vous ne pouvez pas définir un motant nul", Toast.LENGTH_SHORT).show();
+        }
+        else {
             //Si l'utilisateur a tout rempli correctement, mise à jour du montant maximal puis affichage du montant maximal
             final double nouvMontantMax = Double.valueOf(editTextMontantMax.getText().toString()).doubleValue();
 

@@ -60,40 +60,58 @@
         </RelativeLayout>
 
         <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/textNumeroServeur"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@string/textNumeroServeur"
+            android:textColor="@color/text"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextNumServeur"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginStart="10dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="phone"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="5dp"
             android:orientation="horizontal"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
+            android:layout_height="60dp"
+            android:paddingEnd="15dp"
+            android:gravity="center"
+            android:paddingStart="15dp">
 
-            <TextView
-                android:id="@+id/textNumeroServeur"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="@string/textNumeroServeur"
-                android:textColor="@color/text"
-                android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/editTextNumServeur"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="60dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="60dp"
-                android:layout_marginStart="10dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="phone"
-                android:textAlignment="center" />
-
+            <Button
+                android:id="@+id/boutonDefaultServeur"
+                style="@style/BoutonClassique"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/boutonDefaultServeur" />
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="13dp">
+
 
             <View
                 android:layout_width="match_parent"
