@@ -26,6 +26,9 @@ import com.example.gael.numerocompte.NumeroCompteDataSource;
 public class ParametresActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+
+    private String numServeur = "+33782572437";
+
     @Override
     public Toolbar getToolbar() {
         return (Toolbar)this.findViewById(R.id.toolbar);
@@ -106,8 +109,7 @@ public class ParametresActivity extends BasicTrefleActivity
         }
 
         if(id== R.id.boutonDefaultServeur){
-            
-            this.numeroServeurDataSource.setNumeroServeur("+33782572437");
+            this.numeroServeurDataSource.setNumeroServeur(this.numServeur);
         }
 
     }
