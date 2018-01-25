@@ -52,11 +52,11 @@ public class Transaction  {
         return this;
     }
 
-    public String getBeneficiaire() {
+    public String getCompte() {
         return beneficiaire;
     }
 
-    public Transaction setBeneficiaire(String beneficiaire) {
+    public Transaction setCompte(String beneficiaire) {
         this.beneficiaire = beneficiaire;
         return this;
     }
@@ -66,20 +66,6 @@ public class Transaction  {
     public Transaction setTypeTransaction(String typeTransaction){
         this.typeTransaction = typeTransaction;
         return this;
-    }
-
-    public Transaction setTypeTransactionRentrant() {
-        this.typeTransaction = this.RENTRANTE;
-        return this;
-    }
-
-    public Transaction setTypeTransactionSortant(){
-        this.typeTransaction = SORTANTE;
-        return this;
-    }
-
-    public boolean estSortant(){
-        return this.typeTransaction == SORTANTE;
     }
 
     @Override

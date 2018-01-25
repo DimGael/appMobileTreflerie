@@ -40,8 +40,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 if (address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
 
-                    String debutMessage = smsBody.substring(0,5);
+                    String debutMessage = new String();
 
+                    if(smsBody.length() >= 5)
+                        debutMessage = smsBody.substring(0,5);
 
                     switch (debutMessage) {
                         case "Votre":
@@ -55,6 +57,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                                 String numeroCompte = (msgSolde[5]);
                                 modificationNumeroCompte(context, numeroCompte);
+
+                                if(SoldeActivity.instance != null){
+                                    ((SoldeActivity)SoldeActivity.instance).setNumeroCompte(numeroCompte);
+                                }
                             }
 
                             if (!msgSolde[8].isEmpty()) {
@@ -77,41 +83,46 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                             String soldeEnvoyeString = smsBody.split(":")[1];
                             soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
 
-                            String numeroCompte = smsBody.split(" ")[4];
-                            numeroCompte = numeroCompte.charAt(1)+numeroCompte.charAt(2)+"";
+                            String msgAvecNumCompte = smsBody.split(" ")[4];
+                            msgAvecNumCompte = msgAvecNumCompte.substring(1); //(31):62
+                            msgAvecNumCompte = msgAvecNumCompte.split(":")[0];
 
+                            String numeroCompte = new String();
+                            for(int indexMsgNumCompte = 0; indexMsgNumCompte<msgAvecNumCompte.length()-1;indexMsgNumCompte++){
+                                numeroCompte += msgAvecNumCompte.charAt(indexMsgNumCompte);
+                            }
 
                             String nomPersonne = smsBody.split(" ")[2];
 
                             double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
 
-                            this.ajouterSolde(context, soldeEnvoye * (-1));
+                            this.ajouterSolde(context, soldeEnvoye*(-1));
 
                             this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
 
                             if(TransactionActivity.instance != null){
                                 ((TransactionActivity)TransactionActivity.instance).transactionReussie();
-
                             }
                             break;
 
                         case "Recu ":
                             String[] msgReception = smsBody.split(" ");
                             Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
-                            if (!msgReception[2].isEmpty() && !msgReception[3].isEmpty()) {
+                            if (!msgReception[2].isEmpty() && !msgReception[3].isEmpty() && !msgReception[4].isEmpty()) {
                                 String provenanceNomPrenom = (msgReception[2] + " " + msgReception[3]);
-                                Toast.makeText(context, provenanceNomPrenom, Toast.LENGTH_SHORT).show();
-                            }
+                                String nom = msgReception[2];
 
-                            if (!msgReception[4].isEmpty()) {
                                 String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
                                 String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
                                 String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
+
                                 String partieTrefles[] = smsBody.split(Pattern.quote(":"));
-                                String treflesRecus = partieTrefles[1];
+                                String treflesRecus = partieTrefles[1].split("T")[0];
 
                                 final double treflesRecusValeur = this.getDoubleSansVirgule(treflesRecus);
                                 this.ajouterSolde(context, treflesRecusValeur);
+
+                                this.ajouterNouvelleTransactionEntrante(context, treflesRecusValeur, provenanceNumeroCompte, nom);
                             }
                             break;
                         case " Tran":
@@ -133,7 +144,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         transactionDataSource.open();
 
         Date d=new Date();
-        String date = d.getDate()+"/"+d.getMonth()+"/"+Integer.toString(d.getYear()).substring(1);
+        String month = Integer.toString(d.getMonth()+1);
+        if(month.length() == 1){
+            month="0"+month;
+        }
+        String date = d.getDate()+"/"+month +"/"+Integer.toString(d.getYear()).substring(1);
 
         String compte = numeroCompte + " : " + nomPersonne;
         transactionDataSource.ajouterNouvelleTransaction(soldeEnvoye, date, compte, estSortant);
@@ -143,7 +158,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         this.ajouterNouvelleTransaction(context, soldeEnvoye, true, numeroCompte, nomPersonne);
     }
 
-    private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String type, String numeroCompte, String nomPersonne){
+    private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
         this.ajouterNouvelleTransaction(context, soldeEnvoye, false, numeroCompte, nomPersonne);
     }
 
