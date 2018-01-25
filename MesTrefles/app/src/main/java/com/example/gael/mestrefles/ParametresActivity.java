@@ -47,7 +47,7 @@ public class ParametresActivity extends BasicTrefleActivity
 
         //Ajout de l'écouteur sur les boutons
         ((Button)this.findViewById(R.id.boutonValiderParametres)).setOnClickListener(this);
-
+        ((Button)this.findViewById(R.id.boutonDefaultServeur)).setOnClickListener(this);
         //Ajout du numéro du serveur de base sur l'edit Text
         ((EditText)this.findViewById(R.id.editTextNumServeur)).setText(this.numeroServeurDataSource.getNumeroServeur());
 
@@ -108,8 +108,13 @@ public class ParametresActivity extends BasicTrefleActivity
             Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
         }
 
-        if(id== R.id.boutonDefaultServeur){
+        if(id == R.id.boutonDefaultServeur){
+            Log.d("verif", "rentre dedans");
             this.numeroServeurDataSource.setNumeroServeur(this.numServeur);
+
+            final EditText editTextNum = (EditText)this.findViewById(R.id.editTextNumServeur);
+            editTextNum.setText(this.numServeur);
+            Log.d("verif", "fais tout ce qu'il faut");
         }
 
     }
