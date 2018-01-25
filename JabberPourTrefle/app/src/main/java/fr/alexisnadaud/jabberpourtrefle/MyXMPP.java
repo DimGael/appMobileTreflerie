@@ -1,31 +1,25 @@
 package fr.alexisnadaud.jabberpourtrefle;
 import android.os.AsyncTask;
-
 import android.os.Handler;
-
 import android.os.Looper;
-
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import org.jivesoftware.smack.AbstractXMPPConnection;
-
 import org.jivesoftware.smack.ConnectionConfiguration;
-
 import org.jivesoftware.smack.ConnectionListener;
-
 import org.jivesoftware.smack.SmackException;
-
 import org.jivesoftware.smack.XMPPConnection;
-
 import org.jivesoftware.smack.XMPPException;
-
 import org.jivesoftware.smack.chat.Chat;
-
 import org.jivesoftware.smack.chat.ChatManager;
-
+import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
-
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
+import org.jxmpp.jid.EntityBareJid;
+import org.jxmpp.jid.Jid;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
 
 import java.io.IOException;
 
@@ -67,28 +61,31 @@ public class MyXMPP {
         this.passWord = pwd;
 
         XMPPTCPConnectionConfiguration.Builder configBuilder = XMPPTCPConnectionConfiguration.builder();
-        configBuilder.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
 
         configBuilder.setUsernameAndPassword("nalexis", "soleil");
-
         configBuilder.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
 
-        configBuilder.setResource("Android");
+        try {
+            configBuilder.setResource("Android");
+        } catch (XmppStringprepException e) {
+            e.printStackTrace();
+        }
 
-        configBuilder.setServiceName(DOMAIN);
+        try {
+            configBuilder.setXmppDomain("mmtux.fr");
+        } catch (XmppStringprepException e) {
+            e.printStackTrace();
+        }
 
         configBuilder.setHost(HOST);
 
         configBuilder.setPort(PORT);
 
-        Log.d("xmpp", "connexion test 1");
+        configBuilder.setDebuggerEnabled(true);
 
-//configBuilder.setDebuggerEnabled(true);
         connection = new XMPPTCPConnection(configBuilder.build());
 
         connection.addConnectionListener(connectionListener);
-
-        Log.d("xmpp", "connexion test 2");
     }
 
     // Disconnect Function
@@ -126,11 +123,13 @@ public class MyXMPP {
                     connected = true;
 
                 } catch (IOException e) {
-
+                    e.printStackTrace();
                 } catch (SmackException e) {
-
+                    e.printStackTrace();
                 } catch (XMPPException e) {
-
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
 
                 return null;
@@ -151,7 +150,12 @@ public class MyXMPP {
 // Assume we’ve created an XMPPConnection name “connection”._
             chatmanager = ChatManager.getInstanceFor(connection);
 
-            newChat = chatmanager.createChat("rpierrick@mmtux.fr");
+            try {
+                EntityBareJid jid = JidCreate.entityBareFrom("rpierrick@mmtux.fr");
+                newChat = chatmanager.createChat(jid);
+            } catch (XmppStringprepException e) {
+                e.printStackTrace();
+            }
 
             try {
 
@@ -162,6 +166,8 @@ public class MyXMPP {
 
                 e.printStackTrace();
                 Log.d("xmpp","Message non envoyé !!! RT");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
         }
@@ -180,7 +186,7 @@ public class MyXMPP {
 //Log.i(“LOGIN”, “Yey! We’re connected to the Xmpp server!”);
 
         } catch (XMPPException | SmackException | IOException e) {
-
+            Log.d("Bug", "Bug ICI !");
             e.printStackTrace();
 
         } catch (Exception e) {
