@@ -29,10 +29,7 @@ import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
 import java.io.IOException;
 
-/**
 
- Created by Ankit on 10/3/2015.
- */
 public class MyXMPP {
     private static final String DOMAIN = "mmtux.fr";
 
