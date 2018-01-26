@@ -31,7 +31,12 @@ public class ParametresActivity extends BasicTrefleActivity
 
     @Override
     public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.toolbar);
+        return (Toolbar)this.findViewById(R.id.main_toolbar);
+    }
+
+    @Override
+    public DrawerLayout getMainDrawerLayout() {
+        return (DrawerLayout)findViewById(R.id.parametre_drawer_layout);
     }
 
     //Classe qui va nous servir à manipuler la table MontantMax
@@ -65,7 +70,7 @@ public class ParametresActivity extends BasicTrefleActivity
         int id = item.getItemId();
 
         if (id == R.id.mParametres) {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.parametre_drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
         }

@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/drawer_layout_menu_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    tools:context=".ActivityWithToolbar">
 
-    <include
-        layout="@layout/app_bar_menu_principal"
+    <LinearLayout android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        tools:context=".MenuPrincipal">
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:menu="@menu/activity_menu_principal_drawer" />
+        <include layout="@layout/main_toolbar"/>
+
+        <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/scrollView"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/ScrollViewBase">
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.example.gael.mestrefles.MenuPrincipal"
+                tools:showIn="@layout/app_bar_menu_principal"
+                style="@style/LinearLayoutBase">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/BoutonMonSolde"
+                        android:layout_below="@+id/BoutonTransaction"
+                        android:text="@string/titreSolde"
+                        style="@style/BoutonMenu"/>
+
+                    <Button
+                        android:id="@+id/BoutonTransaction"
+                        android:text="@string/titreTransaction"
+                        style="@style/BoutonMenu"/>
+
+
+                    <Button
+                        android:id="@+id/BoutonMesDepenses"
+                        android:layout_below="@+id/BoutonMonSolde"
+                        android:text="@string/titreDepenses"
+                        style="@style/BoutonMenu"/>
+
+                    <Button
+                        android:id="@+id/BoutonParametres"
+                        android:layout_below="@+id/BoutonMesDepenses"
+                        android:text="@string/titreParametres"
+                        style="@style/BoutonMenu"/>
+
+                    <Button
+                        android:id="@+id/BoutonAide"
+                        android:layout_below="@+id/BoutonParametres"
+                        android:text="Aide"
+                        style="@style/BoutonMenu"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <include layout="@layout/main_navigation_view"/>
 
 </android.support.v4.widget.DrawerLayout>

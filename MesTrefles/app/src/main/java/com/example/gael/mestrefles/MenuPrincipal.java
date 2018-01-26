@@ -24,7 +24,12 @@ public class MenuPrincipal extends BasicTrefleActivity
 
     @Override
     public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.toolbar);
+        return (Toolbar)this.findViewById(R.id.main_toolbar);
+    }
+
+    @Override
+    public DrawerLayout getMainDrawerLayout() {
+        return (DrawerLayout)findViewById(R.id.drawer_layout_menu_principal);
     }
 
     @Override
@@ -61,7 +66,7 @@ public class MenuPrincipal extends BasicTrefleActivity
 
         //Si l'utilisateur clique sur dépense, ne fais rien
         if (id == R.id.mAccueil) {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_menu_principal);
             drawer.closeDrawer(GravityCompat.START);
             return true;
         }

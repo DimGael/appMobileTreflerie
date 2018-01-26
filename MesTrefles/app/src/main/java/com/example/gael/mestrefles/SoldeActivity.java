@@ -30,7 +30,12 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
     @Override
     public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.toolbar);
+        return (Toolbar)this.findViewById(R.id.main_toolbar);
+    }
+
+    @Override
+    public DrawerLayout getMainDrawerLayout() {
+        return (DrawerLayout)findViewById(R.id.solde_drawer_layout);
     }
 
     @Override
@@ -69,7 +74,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         if (id == R.id.mSolde) {
             //Ne rien faire car on est déjà sur cette activité
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.solde_drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
         }

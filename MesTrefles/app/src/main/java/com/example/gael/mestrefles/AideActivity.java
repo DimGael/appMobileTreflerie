@@ -30,6 +30,11 @@ public class AideActivity extends BasicTrefleActivity
     }
 
     @Override
+    public DrawerLayout getMainDrawerLayout() {
+        return (DrawerLayout)findViewById(R.id.aide_drawer_layout);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_aide);
         super.onCreate(savedInstanceState);
@@ -54,7 +59,7 @@ public class AideActivity extends BasicTrefleActivity
             final Intent intentParam = new Intent(AideActivity.this, ParametresActivity.class);
             this.startActivity(intentParam);
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.aide_drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
 

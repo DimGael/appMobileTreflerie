@@ -1,16 +1,13 @@
 package com.example.gael.mestrefles;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.gael.TransactionHistorique.Transaction;
 import com.example.gael.TransactionHistorique.TransactionDataSource;
@@ -24,7 +21,12 @@ public class DepenseActivity extends BasicTrefleActivity
 
     @Override
     public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.toolbar);
+        return (Toolbar)this.findViewById(R.id.main_toolbar);
+    }
+
+    @Override
+    public DrawerLayout getMainDrawerLayout() {
+        return (DrawerLayout)findViewById(R.id.depense_drawer_layout);
     }
 
     @Override
@@ -56,7 +58,7 @@ public class DepenseActivity extends BasicTrefleActivity
 
         //Si l'utilisateur clique sur dépense, ne fais rien
         if (id == R.id.mDepenses) {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.depense_drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;
         }
