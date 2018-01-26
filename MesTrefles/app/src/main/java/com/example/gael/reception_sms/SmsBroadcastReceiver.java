@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.reception_sms;
 import android.content.Intent;
 import android.os.Bundle;
 import android.content.BroadcastReceiver;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.gael.TransactionHistorique.TransactionDataSource;
 
+import com.example.gael.mestrefles.R;
+import com.example.gael.mestrefles.SoldeActivity;
 import com.example.gael.numerocompte.NumeroCompteDataSource;
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
@@ -36,12 +38,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 if (address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
 
+                    //FONCTIONNE
                     RecuperationSms recuperationSms = new RecuperationSms(smsBody);
+                    MessageDechiffre messageDechiffre = recuperationSms.recupererMessageDechiffre();
 
-                    DechiffreurMessage typeMessageServeur = recuperationSms.determinerType();
-
-                    RecuperationSmsDechiffre recuperationSmsDechiffre = new RecuperationSmsDechiffre(typeMessageServeur);
-
+                    RecuperationSmsDechiffre recuperationSmsDechiffre = new RecuperationSmsDechiffre(messageDechiffre);
+                    recuperationSmsDechiffre.traiterLeMessage(context);
                 }
             }
         }
@@ -76,12 +78,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         return numeroServeurDataSource.getNumeroServeur();
     }
 
-    private void updateSoldeBdd(Context context, double nouvSolde) {
-        final SoldeDataSource soldeDataSource = new SoldeDataSource(context);
-        soldeDataSource.open();
-        soldeDataSource.majSolde(nouvSolde);
-    }
-
     private String getNumeroCompte(Context context, long nouvCompte) {
         NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
         numeroCompteDataSource.open();
@@ -94,25 +90,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         soldeDataSource.majSolde(soldeDataSource.getSoldeActuel() + soldeAAjouter);
     }
 
-    private void receptionSmsSoldeDansSoldeActivity(double nouvSolde) {
-        //Choses à faire si on est dans SoldeActivity
-        SoldeActivity.instance.majSoldeAffichage(nouvSolde);
-        ((TextView) SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
-        ((SoldeActivity) SoldeActivity.instance).changerEtatBouton();
-    }
-
     private double getDoubleSansVirgule(String message) {
         if (message.contains(",")) {
             String[] messages = message.split(",");
             return Double.valueOf(messages[0] + "." + messages[1]).doubleValue();
         }
         return Double.valueOf(message).doubleValue();
-    }
-
-    private void modificationNumeroCompte(Context context, String numeroCompte) {
-        NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
-        numeroCompteDataSource.open();
-        numeroCompteDataSource.setNumeroCompte(numeroCompte);
-        numeroCompteDataSource.close();
     }
 }

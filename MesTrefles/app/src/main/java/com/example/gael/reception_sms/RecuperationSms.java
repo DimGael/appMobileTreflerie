@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.reception_sms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,18 +10,21 @@ import java.util.List;
 
 public class RecuperationSms {
     private  String messageBrut;
-    private List<DechiffreurMessage> listTypeSms;
+    private List<MessageDechiffre> listTypeSms;
 
 
     public RecuperationSms(String messageBrut) {
         this.messageBrut = messageBrut;
-        this.listTypeSms = new ArrayList<DechiffreurMessage>(
-                Arrays.asList(new MessageDemandeSolde(messageBrut))
+        this.listTypeSms = new ArrayList<MessageDechiffre>(
+                Arrays.asList(
+                        new MessageDechiffreSolde(messageBrut)
+                )
         );
     }
 
-    public DechiffreurMessage determinerType(){
-        for (DechiffreurMessage typeMessage: this.listTypeSms) {
+    public MessageDechiffre recupererMessageDechiffre(){
+
+        for (MessageDechiffre typeMessage: this.listTypeSms) {
             if(typeMessage.estDeCeType()){
                 return typeMessage;
             }

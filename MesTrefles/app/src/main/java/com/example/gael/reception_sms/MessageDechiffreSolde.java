@@ -1,15 +1,15 @@
-package com.example.gael.mestrefles;
+package com.example.gael.reception_sms;
 
 
 /**
  * Cette classe comporte les informations du message de demande de solde : le nouveau solde et le numéro de compte.
  */
-public class MessageDemandeSolde extends DechiffreurMessage {
+public class MessageDechiffreSolde extends MessageDechiffre {
 
     private String numeroCompte;
     private double solde;
 
-    public MessageDemandeSolde(String messageBrut) {
+    public MessageDechiffreSolde(String messageBrut) {
         super(messageBrut);
 
         if(this.estDeCeType()) {

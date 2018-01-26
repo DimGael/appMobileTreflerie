@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.reception_sms;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by GaëlPortable on 25/01/2018.
  */
 
-public abstract class DechiffreurMessage {
+public abstract class MessageDechiffre {
 
     protected final String messageRecu;
 
@@ -15,7 +15,7 @@ public abstract class DechiffreurMessage {
      */
     public abstract boolean estDeCeType();
 
-    public DechiffreurMessage(String messageBrut){
+    public MessageDechiffre(String messageBrut){
         this.messageRecu = messageBrut;
     }
 
