@@ -1,7 +1,5 @@
 package com.example.gael.mestrefles;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -11,7 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,14 +16,12 @@ import android.widget.TextView;
 
 
 import com.example.gael.numerocompte.NumeroCompteDataSource;
-import com.example.gael.soldeactuel.Solde;
-
 
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public static String INTENT_NOUV_SOLDE = "INTENT_NOUV_SOLDE";
-    private boolean delai = false;
+    private boolean demandeSoldeEnCours = false;
 
     @Override
     public Toolbar getToolbar() {
@@ -55,14 +50,13 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(this);
         numeroCompteDataSource.open();
 
-        String numero = numeroCompteDataSource.getNumeroCompte();
+        setNumeroCompte(numeroCompteDataSource.getNumeroCompte());
 
         instance = this;
     }
 
     public void setNumeroCompte(String numeroCompte){
         final TextView textViewNum = (TextView) findViewById(R.id.textNumCompte);
-
         textViewNum.setText("Compte N°"+numeroCompte);
     }
 
@@ -84,6 +78,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     @Override
     public void onClick(View view) {
         //Lors de l'activation du bouton Actualiser
+        this.demandeSoldeEnCours = true;
         final String message = "S?";
 
         SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
@@ -94,7 +89,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                afficherMessageSiTransactionEnCours();
+                afficherMessageSiDemandeSoldeEnCours();
             }
         }, 40000);
 
@@ -102,8 +97,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     }
 
 
-    private void afficherMessageSiTransactionEnCours() {
-        if(instance.getClass() == SoldeActivity.class) {
+    private void afficherMessageSiDemandeSoldeEnCours() {
+        if(instance.getClass() == SoldeActivity.class && this.demandeSoldeEnCours) {
             new AlertDialog.Builder(instance)
                     .setTitle(R.string.titreErreurServeur)
                     .setMessage(R.string.messageErreurServeur)
@@ -128,7 +123,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
         textViewSolde.setText(Double.toString(nouvSolde));
         super.majSoldeAffichage(nouvSolde);
-        this.delai = true;
+        this.demandeSoldeEnCours = false;
     }
 
 

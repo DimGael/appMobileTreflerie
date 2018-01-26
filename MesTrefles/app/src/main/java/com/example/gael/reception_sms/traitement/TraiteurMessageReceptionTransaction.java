@@ -2,6 +2,7 @@ package com.example.gael.reception_sms.traitement;
 
 import android.content.Context;
 
+import com.example.gael.mestrefles.BasicTrefleActivity;
 import com.example.gael.reception_sms.tri.MessageDechiffre;
 import com.example.gael.reception_sms.tri.MessageDechiffreReceptionTransaction;
 
@@ -23,9 +24,13 @@ public class TraiteurMessageReceptionTransaction extends TraiteurMessage {
 
     @Override
     public void traiterMessage(Context context) {
-        double treflesRecusValeur = messageDechiffreReceptionTransaction.getMontantRecu();
-            this.ajouterSolde(context, treflesRecusValeur);
-            this.ajouterNouvelleTransactionEntrante(context, treflesRecusValeur, messageDechiffreReceptionTransaction.getNumeroCompte(), messageDechiffreReceptionTransaction.getNomExpediteur());
+        double montantRecu = messageDechiffreReceptionTransaction.getMontantRecu();
+            this.ajouterSolde(context, montantRecu);
+            this.ajouterNouvelleTransactionEntrante(context, montantRecu, messageDechiffreReceptionTransaction.getNumeroCompte(), messageDechiffreReceptionTransaction.getNomExpediteur());
+
+            if(BasicTrefleActivity.instance != null){
+                BasicTrefleActivity.instance.majSoldeAffichage(montantRecu);
+            }
         }
 
     @Override

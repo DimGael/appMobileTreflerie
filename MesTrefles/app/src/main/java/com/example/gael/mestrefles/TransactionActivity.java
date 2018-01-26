@@ -24,6 +24,11 @@ import com.example.gael.montantmax.MontantMaxDataSource;
 public class TransactionActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    //Classe qui va nous servir à manipuler la table MontantMax
+    private MontantMaxDataSource montantMaxDataSource;
+
+    private boolean transactionEnCours = false;
+
     public static final String INTENT_VALID_TRANSAC = "INTENT_VALID_TRANSAC";
 
     @Override
@@ -35,11 +40,6 @@ public class TransactionActivity extends BasicTrefleActivity
     public DrawerLayout getMainDrawerLayout() {
         return (DrawerLayout)findViewById(R.id.transaction_drawer_layout);
     }
-
-    //Classe qui va nous servir à manipuler la table MontantMax
-    private MontantMaxDataSource montantMaxDataSource;
-
-    private boolean transactionEnCours;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,7 +144,7 @@ public class TransactionActivity extends BasicTrefleActivity
     }
 
     private void afficherMessageSiTransactionEnCours() {
-        if(instance.getClass() == TransactionActivity.class) {
+        if(instance.getClass() == TransactionActivity.class && transactionEnCours) {
             new AlertDialog.Builder(instance)
                     .setTitle(R.string.titreErreurServeur)
                     .setMessage(R.string.messageErreurServeur)
