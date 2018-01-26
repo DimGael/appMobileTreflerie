@@ -47,30 +47,6 @@ public class TraiteurMessageTransactionReussie extends TraiteurMessage {
         return this.messageDechiffre instanceof MessageDechiffreTransactionReussie;
     }
 
-    private void ajouterSolde(Context context, double soldeAAjouter) {
-        final SoldeDataSource soldeDataSource = new SoldeDataSource(context);
-        soldeDataSource.open();
-        soldeDataSource.majSolde(soldeDataSource.getSoldeActuel() + soldeAAjouter);
-    }
 
-
-    private void ajouterNouvelleTransaction(Context context, double soldeEnvoye, boolean estSortant, String numeroCompte, String nomPersonne) {
-        final TransactionDataSource transactionDataSource = new TransactionDataSource(context);
-        transactionDataSource.open();
-
-        Date d=new Date();
-        String month = Integer.toString(d.getMonth()+1);
-        if(month.length() == 1){
-            month="0"+month;
-        }
-        String date = d.getDate()+"/"+month +"/"+Integer.toString(d.getYear()).substring(1);
-
-        String compte = numeroCompte + " : " + nomPersonne;
-        transactionDataSource.ajouterNouvelleTransaction(soldeEnvoye, date, compte, estSortant);
-    }
-
-    private void ajouterNouvelleTransactionSortante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
-        this.ajouterNouvelleTransaction(context, soldeEnvoye, true, numeroCompte, nomPersonne);
-    }
 }
 

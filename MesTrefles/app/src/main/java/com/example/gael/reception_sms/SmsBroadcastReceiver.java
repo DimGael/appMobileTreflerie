@@ -47,27 +47,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    private void ajouterNouvelleTransaction(Context context, double soldeEnvoye, boolean estSortant, String numeroCompte, String nomPersonne) {
-        final TransactionDataSource transactionDataSource = new TransactionDataSource(context);
-        transactionDataSource.open();
-
-        Date d=new Date();
-        String month = Integer.toString(d.getMonth()+1);
-        if(month.length() == 1){
-            month="0"+month;
-        }
-        String date = d.getDate()+"/"+month +"/"+Integer.toString(d.getYear()).substring(1);
-
-        String compte = numeroCompte + " : " + nomPersonne;
-        transactionDataSource.ajouterNouvelleTransaction(soldeEnvoye, date, compte, estSortant);
-    }
-
-
-
-    private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
-        this.ajouterNouvelleTransaction(context, soldeEnvoye, false, numeroCompte, nomPersonne);
-    }
-
     private String getNumeroServeur(Context context) {
         final NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
         numeroServeurDataSource.open();
@@ -78,15 +57,5 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
         numeroCompteDataSource.open();
         return numeroCompteDataSource.getNumeroCompte();
-    }
-
-
-
-    private double getDoubleSansVirgule(String message) {
-        if (message.contains(",")) {
-            String[] messages = message.split(",");
-            return Double.valueOf(messages[0] + "." + messages[1]).doubleValue();
-        }
-        return Double.valueOf(message).doubleValue();
     }
 }
