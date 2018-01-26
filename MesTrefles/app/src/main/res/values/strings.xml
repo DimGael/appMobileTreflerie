@@ -45,6 +45,7 @@
     //Parametres
     <string name="textMontantMaxTransact">Montant maximal des transactions :</string>
     <string name="textConfigMode">Choisir le mode :</string>
+    <string name="boutonDefaultServeur">Numéro par défaut</string>
 
         //RadioBoutons
         <string name="textRadioBoutonParticulier">Particulier</string>

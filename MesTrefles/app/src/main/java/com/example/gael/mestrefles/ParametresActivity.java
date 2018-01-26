@@ -26,6 +26,9 @@ import com.example.gael.numerocompte.NumeroCompteDataSource;
 public class ParametresActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+
+    private String numServeur = "+33782572437";
+
     @Override
     public Toolbar getToolbar() {
         return (Toolbar)this.findViewById(R.id.toolbar);
@@ -44,7 +47,7 @@ public class ParametresActivity extends BasicTrefleActivity
 
         //Ajout de l'écouteur sur les boutons
         ((Button)this.findViewById(R.id.boutonValiderParametres)).setOnClickListener(this);
-
+        ((Button)this.findViewById(R.id.boutonDefaultServeur)).setOnClickListener(this);
         //Ajout du numéro du serveur de base sur l'edit Text
         ((EditText)this.findViewById(R.id.editTextNumServeur)).setText(this.numeroServeurDataSource.getNumeroServeur());
 
@@ -105,6 +108,15 @@ public class ParametresActivity extends BasicTrefleActivity
             Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
         }
 
+        if(id == R.id.boutonDefaultServeur){
+            Log.d("verif", "rentre dedans");
+            this.numeroServeurDataSource.setNumeroServeur(this.numServeur);
+
+            final EditText editTextNum = (EditText)this.findViewById(R.id.editTextNumServeur);
+            editTextNum.setText(this.numServeur);
+            Log.d("verif", "fais tout ce qu'il faut");
+        }
+
     }
 
     private void modificationNumeroServeur() {
@@ -140,7 +152,11 @@ public class ParametresActivity extends BasicTrefleActivity
             //Si l'utilisateur a mis une valeur supérieure à 250
             Toast.makeText(this,"Vous ne pouvez pas excéder 250 trèfles", Toast.LENGTH_SHORT).show();
         }
-        else{
+        else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() <= 0.0){
+            //Si l'utilisateur a mis inférieure ou égale à 0
+            Toast.makeText(this,"Vous ne pouvez pas définir un motant nul", Toast.LENGTH_SHORT).show();
+        }
+        else {
             //Si l'utilisateur a tout rempli correctement, mise à jour du montant maximal puis affichage du montant maximal
             final double nouvMontantMax = Double.valueOf(editTextMontantMax.getText().toString()).doubleValue();
 
