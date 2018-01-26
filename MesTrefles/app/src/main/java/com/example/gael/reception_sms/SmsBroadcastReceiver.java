@@ -62,9 +62,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         transactionDataSource.ajouterNouvelleTransaction(soldeEnvoye, date, compte, estSortant);
     }
 
-    private void ajouterNouvelleTransactionSortante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
-        this.ajouterNouvelleTransaction(context, soldeEnvoye, true, numeroCompte, nomPersonne);
-    }
+
 
     private void ajouterNouvelleTransactionEntrante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
         this.ajouterNouvelleTransaction(context, soldeEnvoye, false, numeroCompte, nomPersonne);
@@ -82,11 +80,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         return numeroCompteDataSource.getNumeroCompte();
     }
 
-    private void ajouterSolde(Context context, double soldeAAjouter) {
-        final SoldeDataSource soldeDataSource = new SoldeDataSource(context);
-        soldeDataSource.open();
-        soldeDataSource.majSolde(soldeDataSource.getSoldeActuel() + soldeAAjouter);
-    }
+
 
     private double getDoubleSansVirgule(String message) {
         if (message.contains(",")) {
