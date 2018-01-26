@@ -12,7 +12,7 @@ public class MessageDechiffreSolde extends MessageDechiffre {
     public MessageDechiffreSolde(String messageBrut) {
         super(messageBrut);
 
-        if(this.estDeCeType()) {
+        if(this.messageRecuCorrespond()) {
             String[] msgSolde = messageBrut.split(" ");
             this.numeroCompte = msgSolde[5];
             this.solde = getDoubleSansVirgule(msgSolde[8]);
@@ -28,13 +28,10 @@ public class MessageDechiffreSolde extends MessageDechiffre {
     }
 
     @Override
-    public boolean estDeCeType() {
-        if(messageRecu.length() >= 5) {
-            final String debutMessage = messageRecu.substring(0, 5);
+    public boolean messageRecuCorrespond() {
+        if (this.getCinqPremieresLettres().equals("Le so"))
+            return true;
 
-            if (debutMessage.equals("Le so"))
-                return true;
-        }
         return false;
     }
 }

@@ -13,7 +13,7 @@ public abstract class MessageDechiffre {
     /**
      * @return vrai si le message est du type du nom de la classe
      */
-    public abstract boolean estDeCeType();
+    public abstract boolean messageRecuCorrespond();
 
     public MessageDechiffre(String messageBrut){
         this.messageRecu = messageBrut;
@@ -34,6 +34,16 @@ public abstract class MessageDechiffre {
             return Double.valueOf(messages[0] + "." + messages[1]).doubleValue();
         }
         return Double.valueOf(message).doubleValue();
+    }
+
+    /**
+     * @return les 5 premières lettres du messages
+     */
+    protected String getCinqPremieresLettres() {
+        if (messageRecu.length() >= 5) {
+            return messageRecu.substring(0, 5);
+        }
+        return messageRecu;
     }
 
 }
