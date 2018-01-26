@@ -23,12 +23,11 @@
             android:id="@+id/scrollView"
             xmlns:android="http://schemas.android.com/apk/res/android"
             style="@style/ScrollViewBase">
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
+
+            <LinearLayout
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                tools:context="com.example.gael.mestrefles.MenuPrincipal"
-                style="@style/LinearLayoutBase">
+                style="@style/LinearLayoutBase"
+                tools:context="com.example.gael.mestrefles.MenuPrincipal">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
