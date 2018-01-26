@@ -26,6 +26,7 @@ import com.example.gael.soldeactuel.Solde;
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public static String INTENT_NOUV_SOLDE = "INTENT_NOUV_SOLDE";
+    private boolean delai = false;
 
     @Override
     public Toolbar getToolbar() {
@@ -79,29 +80,37 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     public void onClick(View view) {
         //Lors de l'activation du bouton Actualiser
         final String message = "S?";
+
         SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
 
-        /*
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                    if(instance.getClass() == SoldeActivity.class) {
-                        new AlertDialog.Builder(instance.getBaseContext())
-                                .setTitle(R.string.titreErreurServeur)
-                                .setMessage(R.string.messageErreurServeur)
-                                .setPositiveButton(R.string.boutonErreurServeur, null)
-                                .create().show();
-
-                        ((SoldeActivity) instance).changerEtatBouton();
-                        ((TextView) ((SoldeActivity) instance).findViewById(R.id.texteReponseSolde)).setText("");
-                    }
-
+                afficherMessageSiTransactionEnCours();
             }
-        }, 2000);
-        */
+        }, 40000);
 
+
+    }
+
+
+    private void afficherMessageSiTransactionEnCours() {
+        if(instance.getClass() == SoldeActivity.class) {
+            new AlertDialog.Builder(instance)
+                    .setTitle(R.string.titreErreurServeur)
+                    .setMessage(R.string.messageErreurServeur)
+                    .setPositiveButton(R.string.boutonErreurServeur, null)
+                    .create().show();
+
+            final Button boutonActualiser = (Button) instance.findViewById(R.id.boutonActualiser);
+            boutonActualiser.setEnabled(true);
+
+            final TextView texteRep = (TextView) instance.findViewById(R.id.texteReponseSolde);
+            texteRep.setText("");
+        }
     }
 
     public void changerEtatBouton() {
@@ -114,6 +123,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
         textViewSolde.setText(Double.toString(nouvSolde));
         super.majSoldeAffichage(nouvSolde);
+        this.delai = true;
     }
 
 
