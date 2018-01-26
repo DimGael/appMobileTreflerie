@@ -41,7 +41,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         instance = this;
 
-        Toolbar toolbar = this.getToolbar();
+        Toolbar toolbar = this.findViewById(R.id.main_toolbar);
 
         toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
 
