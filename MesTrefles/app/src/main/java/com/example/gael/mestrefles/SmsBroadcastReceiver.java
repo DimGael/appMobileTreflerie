@@ -4,12 +4,9 @@ import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.example.gael.TransactionHistorique.Transaction;
 import com.example.gael.TransactionHistorique.TransactionDataSource;
 
 import com.example.gael.numerocompte.NumeroCompteDataSource;
@@ -17,7 +14,6 @@ import com.example.gael.numeroserveur.NumeroServeurDataSource;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 import java.util.Date;
-import java.util.regex.Pattern;
 
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
@@ -40,99 +36,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 if (address.equals(getNumeroServeur(context))) {
                     String smsBody = smsMessage.getMessageBody().toString();
 
-                    String debutMessage = new String();
-                    if (smsBody.length() >= 5)
-                        debutMessage = smsBody.substring(0, 5);
+                    RecuperationSms recuperationSms = new RecuperationSms(smsBody);
 
-                    switch (debutMessage) {
-                        case "Votre":
-                            Toast.makeText(context, "Derniere transaction ...", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "Le so":
-                            String[] msgSolde = smsBody.split(" ");
+                    DechiffreurMessage typeMessageServeur = recuperationSms.determinerType();
 
-                            if (!msgSolde[5].isEmpty()) {
-                                //Traiter le numéro de compte
+                    RecuperationSmsDechiffre recuperationSmsDechiffre = new RecuperationSmsDechiffre(typeMessageServeur);
 
-                                String numeroCompte = (msgSolde[5]);
-                                modificationNumeroCompte(context, numeroCompte);
-
-                                if (SoldeActivity.instance != null) {
-                                    ((SoldeActivity) SoldeActivity.instance).setNumeroCompte(numeroCompte);
-                                }
-                            }
-
-                            if (!msgSolde[8].isEmpty()) {
-                                final double nouvSolde = getDoubleSansVirgule(msgSolde[8]);
-                                this.updateSoldeBdd(context, nouvSolde);
-                                if (SoldeActivity.instance != null) {
-                                    this.receptionSmsSoldeDansSoldeActivity(this.getDoubleSansVirgule(msgSolde[8]));
-                                }
-                            }
-                            break;
-                        case "Volum":
-                            Toast.makeText(context, "Volume ...", Toast.LENGTH_SHORT).show();
-                            Intent volume = new Intent(context, MenuPrincipal.class);
-                            volume.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(volume);
-                            break;
-                        case "Donné":
-
-                            //A faire lors de la confirmation d'un transaction
-                            String soldeEnvoyeString = smsBody.split(":")[1];
-                            soldeEnvoyeString = soldeEnvoyeString.split("T")[0];
-
-                            String msgAvecNumCompte = smsBody.split(" ")[4];
-                            msgAvecNumCompte = msgAvecNumCompte.substring(1); //(31):62
-                            msgAvecNumCompte = msgAvecNumCompte.split(":")[0];
-
-                            String numeroCompte = new String();
-                            for (int indexMsgNumCompte = 0; indexMsgNumCompte < msgAvecNumCompte.length() - 1; indexMsgNumCompte++) {
-                                numeroCompte += msgAvecNumCompte.charAt(indexMsgNumCompte);
-                            }
-
-                            String nomPersonne = smsBody.split(" ")[2];
-
-                            double soldeEnvoye = getDoubleSansVirgule(soldeEnvoyeString);
-
-                            this.ajouterSolde(context, soldeEnvoye * (-1));
-
-                            this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
-
-                            if (TransactionActivity.instance != null) {
-                                ((TransactionActivity) TransactionActivity.instance).transactionReussie();
-                            }
-                            break;
-
-                        case "Recu ":
-                            String[] msgReception = smsBody.split(" ");
-                            Toast.makeText(context, "Reçu de ...", Toast.LENGTH_SHORT).show();
-                            if (!msgReception[2].isEmpty() && !msgReception[3].isEmpty() && !msgReception[4].isEmpty()) {
-                                String provenanceNomPrenom = (msgReception[2] + " " + msgReception[3]);
-                                String nom = msgReception[2];
-
-                                String partieAvecNumeroCompte[] = msgReception[4].split(Pattern.quote("("));
-                                String partieAvecNumeroCompte2[] = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
-                                String provenanceNumeroCompte = (partieAvecNumeroCompte2[0]);
-
-                                String partieTrefles[] = smsBody.split(Pattern.quote(":"));
-                                String treflesRecus = partieTrefles[1].split("T")[0];
-
-                                final double treflesRecusValeur = this.getDoubleSansVirgule(treflesRecus);
-                                this.ajouterSolde(context, treflesRecusValeur);
-
-                                this.ajouterNouvelleTransactionEntrante(context, treflesRecusValeur, provenanceNumeroCompte, nom);
-                            }
-                            break;
-                        case " Tran":
-
-                            if (TransactionActivity.instance != null) {
-                                ((TransactionActivity) TransactionActivity.instance).transactionEchouee();
-                            }
-                            break;
-                        default:
-                            break;
-                    }
                 }
             }
         }
@@ -204,6 +113,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
         numeroCompteDataSource.open();
         numeroCompteDataSource.setNumeroCompte(numeroCompte);
-
+        numeroCompteDataSource.close();
     }
 }
