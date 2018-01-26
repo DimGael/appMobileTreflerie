@@ -4,15 +4,13 @@ import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.telephony.SmsMessage;
-import android.widget.TextView;
 
 
 import com.example.gael.TransactionHistorique.TransactionDataSource;
 
-import com.example.gael.mestrefles.R;
-import com.example.gael.mestrefles.SoldeActivity;
 import com.example.gael.numerocompte.NumeroCompteDataSource;
 import com.example.gael.numeroserveur.NumeroServeurDataSource;
+import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 import java.util.Date;
