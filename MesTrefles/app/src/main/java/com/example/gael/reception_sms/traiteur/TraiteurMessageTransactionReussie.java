@@ -5,7 +5,6 @@ import android.content.Context;
 import com.example.gael.TransactionHistorique.TransactionDataSource;
 import com.example.gael.mestrefles.TransactionActivity;
 import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffreSolde;
 import com.example.gael.reception_sms.dechiffrage.MessageDechiffreTransactionReussie;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
@@ -16,7 +15,9 @@ import java.util.Date;
  */
 
 public class TraiteurMessageTransactionReussie extends TraiteurMessage {
+
     private MessageDechiffreTransactionReussie messageDechiffreTransactionReussie;
+
     public TraiteurMessageTransactionReussie(MessageDechiffre typeMessageServeur) {
         super(typeMessageServeur);
         if(aLeBonMessage()){
@@ -27,15 +28,15 @@ public class TraiteurMessageTransactionReussie extends TraiteurMessage {
     @Override
     public void traiterMessage(Context context) {
 
-        String numeroCompte = this.messageDechiffreTransactionReussie.getNumeroCompteBeneficiaire();
+        String numeroCompteBeneficiaire = this.messageDechiffreTransactionReussie.getNumeroCompteBeneficiaire();
 
-        String nomPersonne = this.messageDechiffreTransactionReussie.getNomBeneficiaire();
+        String nomBeneficiaire = this.messageDechiffreTransactionReussie.getNomBeneficiaire();
 
-        double soldeEnvoye = this.messageDechiffreTransactionReussie.getMontantEnvoye();
+        double montantEnvoye = this.messageDechiffreTransactionReussie.getMontantEnvoye();
 
-        this.ajouterSolde(context, soldeEnvoye*(-1));
+        this.ajouterSolde(context, montantEnvoye*(-1));
 
-        this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
+        this.ajouterNouvelleTransactionSortanteBdd(context, montantEnvoye, numeroCompteBeneficiaire, nomBeneficiaire);
 
         if(TransactionActivity.instance != null) {
             ((TransactionActivity) TransactionActivity.instance).transactionReussie();
@@ -53,8 +54,7 @@ public class TraiteurMessageTransactionReussie extends TraiteurMessage {
         soldeDataSource.majSolde(soldeDataSource.getSoldeActuel() + soldeAAjouter);
     }
 
-
-    private void ajouterNouvelleTransaction(Context context, double soldeEnvoye, boolean estSortant, String numeroCompte, String nomPersonne) {
+    private void ajouterNouvelleTransactionBdd(Context context, double soldeEnvoye, boolean estSortant, String numeroCompte, String nomPersonne) {
         final TransactionDataSource transactionDataSource = new TransactionDataSource(context);
         transactionDataSource.open();
 
@@ -69,8 +69,8 @@ public class TraiteurMessageTransactionReussie extends TraiteurMessage {
         transactionDataSource.ajouterNouvelleTransaction(soldeEnvoye, date, compte, estSortant);
     }
 
-    private void ajouterNouvelleTransactionSortante(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
-        this.ajouterNouvelleTransaction(context, soldeEnvoye, true, numeroCompte, nomPersonne);
+    private void ajouterNouvelleTransactionSortanteBdd(Context context, double soldeEnvoye, String numeroCompte, String nomPersonne){
+        this.ajouterNouvelleTransactionBdd(context, soldeEnvoye, true, numeroCompte, nomPersonne);
     }
 }
 
