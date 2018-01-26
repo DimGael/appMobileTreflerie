@@ -9,66 +9,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.gael.mestrefles.SoldeActivity"
     tools:showIn="@layout/app_bar_solde"
-    android:paddingTop="80dp">
+    style="@style/LinearLayoutBase">
 
 
     <TextView
         android:id="@+id/textNumCompte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:gravity="center"
+        style="@style/SousTitre"
         android:text="@string/textNumCompte"
-        android:textColor="@color/text"
-        android:textSize="30dp" />
-
-
+        />
 
     <TextView
         android:id="@+id/textMsgSolde"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:gravity="center"
-        android:text="@string/textMsgSolde"
-        android:textColor="@color/text"
-        android:textSize="30dp" />
+        style="@style/SousTitre"
+        android:text="@string/textMsgSolde" />
 
     <TextView
         android:id="@+id/textNbrTrefles"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/textNbrTrefles"
-        android:textColor="@color/text"
-        android:textSize="75dp" />
+        style="@style/Titre"
+        android:text="@string/textNbrTrefles" />
 
     <TextView
         android:id="@+id/textTrefles"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/textTrefles"
-        android:textColor="@color/text"
-        android:textSize="60dp"
-        android:gravity="center"/>
+        style="@style/SousTitre"
+        android:text="@string/textTrefles" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -79,26 +45,15 @@
             style="@style/BoutonClassique"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="17dp"
-            android:layout_weight="1"
-            android:text="@string/boutonActualiser"
-            android:textSize="20dp" />
+            android:text="@string/boutonActualiser" />
 
 
         <TextView
-    android:id="@+id/texteReponseSolde"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_below="@+id/boutonActualiser"
-    android:layout_marginTop="15dp"
-    android:textSize="25dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:textAlignment="center"
-    android:textColor="@color/text" />
-</RelativeLayout>
+            android:id="@+id/texteReponseSolde"
+            style="@style/Information"
+            android:layout_below="@+id/boutonActualiser" />
+
+    </RelativeLayout>
 
 </LinearLayout>
 </ScrollView>

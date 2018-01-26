@@ -17,10 +17,52 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="BoutonClassique" parent="@style/Widget.AppCompat.Button.Colored">
+    <style name="LinearLayoutBase">
+        <item name="android:textColor">@color/couleurTextBouton</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">80dp</item>
+    </style>
+
+    <style name="BoutonClassique">
         <item name="android:textColor">@color/couleurTextBouton</item>
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name ="SousTitre">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">35dp</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name ="Titre">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">75dp</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name ="Information">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/text</item>
     </style>
 
 </resources>
