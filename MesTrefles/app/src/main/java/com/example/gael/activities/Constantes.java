@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.activities;
 
 /**
  * Created by Alexis on 06/12/2017.

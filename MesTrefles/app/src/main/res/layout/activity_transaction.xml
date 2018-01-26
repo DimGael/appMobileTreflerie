@@ -26,7 +26,7 @@
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                tools:context="com.example.gael.mestrefles.TransactionActivity"
+                tools:context="com.example.gael.activities.TransactionActivity"
                 style="@style/LinearLayoutBase">
 
                 <TextView

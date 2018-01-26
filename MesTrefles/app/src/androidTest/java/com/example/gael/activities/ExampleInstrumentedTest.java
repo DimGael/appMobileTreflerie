@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.activities;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -3,8 +3,8 @@ package com.example.gael.reception_sms.traitement;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.example.gael.mestrefles.R;
-import com.example.gael.mestrefles.SoldeActivity;
+import com.example.gael.activities.R;
+import com.example.gael.activities.SoldeActivity;
 import com.example.gael.numerocompte.NumeroCompteDataSource;
 import com.example.gael.reception_sms.tri.MessageDechiffre;
 import com.example.gael.reception_sms.tri.MessageDechiffreSolde;

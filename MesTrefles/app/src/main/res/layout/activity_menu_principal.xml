@@ -27,7 +27,7 @@
             <LinearLayout
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 style="@style/LinearLayoutBase"
-                tools:context="com.example.gael.mestrefles.MenuPrincipal">
+                tools:context="com.example.gael.activities.MenuPrincipal">
 
                 <RelativeLayout
                     android:layout_width="match_parent"

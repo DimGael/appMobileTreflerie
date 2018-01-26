@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.transaction_historique;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.gael.TransactionHistorique.Transaction;
+import com.example.gael.activities.R;
 
 import java.util.ArrayList;
 import java.util.List;

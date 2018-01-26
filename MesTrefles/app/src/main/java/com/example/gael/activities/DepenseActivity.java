@@ -1,4 +1,4 @@
-package com.example.gael.mestrefles;
+package com.example.gael.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -9,8 +9,9 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.gael.TransactionHistorique.Transaction;
-import com.example.gael.TransactionHistorique.TransactionDataSource;
+import com.example.gael.transaction_historique.Transaction;
+import com.example.gael.transaction_historique.TransactionAdapter;
+import com.example.gael.transaction_historique.TransactionDataSource;
 
 import java.util.ArrayList;
 

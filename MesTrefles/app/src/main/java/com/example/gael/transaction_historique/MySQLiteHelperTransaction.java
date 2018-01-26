@@ -1,4 +1,4 @@
-package com.example.gael.TransactionHistorique;
+package com.example.gael.transaction_historique;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

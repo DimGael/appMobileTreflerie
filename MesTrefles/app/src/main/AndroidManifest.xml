@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gael.mestrefles">
+    package="com.example.gael.activities">
 
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".AccueilActivity"
+            android:name="com.example.gael.activities.AccueilActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,39 +27,39 @@
         </activity>
 
         <activity
-            android:name=".MenuPrincipal"
+            android:name="com.example.gael.activities.MenuPrincipal"
             android:windowActionBar="false"
             android:windowNoTitle="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".TransactionActivity"
+        <activity android:name="com.example.gael.activities.TransactionActivity"
             android:label="@string/titreTransaction"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".AideActivity"
+        <activity android:name="com.example.gael.activities.AideActivity"
             android:label="@string/titreAide"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".RefusActivity"
+        <activity android:name="com.example.gael.activities.RefusActivity"
             android:label="@string/titreRefus"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".SoldeActivity"
+        <activity android:name="com.example.gael.activities.SoldeActivity"
             android:label="@string/titreSolde"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".ParametresActivity"
+        <activity android:name="com.example.gael.activities.ParametresActivity"
             android:label="@string/titreParametres"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".DepenseActivity"
+        <activity android:name="com.example.gael.activities.DepenseActivity"
             android:label="@string/titreDepenses"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

@@ -1,6 +1,6 @@
 package com.example.gael.reception_sms.tri;
 
-import com.example.gael.TransactionHistorique.Transaction;
+import com.example.gael.transaction_historique.Transaction;
 
 /**
  * Created by GaëlPortable on 26/01/2018.
