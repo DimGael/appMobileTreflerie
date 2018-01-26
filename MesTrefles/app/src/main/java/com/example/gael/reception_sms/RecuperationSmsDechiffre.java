@@ -4,7 +4,10 @@ import android.content.Context;
 
 import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
 import com.example.gael.reception_sms.traiteur.TraiteurMessage;
+import com.example.gael.reception_sms.traiteur.TraiteurMessageReceptionTransaction;
 import com.example.gael.reception_sms.traiteur.TraiteurMessageSolde;
+import com.example.gael.reception_sms.traiteur.TraiteurMessageTransactionEchouee;
+import com.example.gael.reception_sms.traiteur.TraiteurMessageTransactionReussie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +28,10 @@ public class RecuperationSmsDechiffre {
     public RecuperationSmsDechiffre(MessageDechiffre typeMessageServeur) {
         this.listTraiteurs = new ArrayList<TraiteurMessage>(
                 Arrays.asList(
-                        new TraiteurMessageSolde(typeMessageServeur)
+                        new TraiteurMessageSolde(typeMessageServeur),
+                        new TraiteurMessageTransactionEchouee(typeMessageServeur),
+                        new TraiteurMessageTransactionReussie(typeMessageServeur),
+                        new TraiteurMessageReceptionTransaction(typeMessageServeur)
                 )
         );
     }

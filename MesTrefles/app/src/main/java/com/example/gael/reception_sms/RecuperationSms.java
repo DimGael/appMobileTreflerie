@@ -1,7 +1,11 @@
 package com.example.gael.reception_sms;
 
 import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
+import com.example.gael.reception_sms.dechiffrage.MessageDechiffreDerniereTransaction;
+import com.example.gael.reception_sms.dechiffrage.MessageDechiffreReceptionTransaction;
 import com.example.gael.reception_sms.dechiffrage.MessageDechiffreSolde;
+import com.example.gael.reception_sms.dechiffrage.MessageDechiffreTransactionEchouee;
+import com.example.gael.reception_sms.dechiffrage.MessageDechiffreTransactionReussie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +27,11 @@ public class RecuperationSms {
         this.messageBrut = messageBrut;
         this.listTypeSms = new ArrayList<MessageDechiffre>(
                 Arrays.asList(
-                        new MessageDechiffreSolde(messageBrut)
+                        new MessageDechiffreSolde(messageBrut),
+                        new MessageDechiffreTransactionEchouee(messageBrut),
+                        new MessageDechiffreTransactionReussie(messageBrut),
+                        new MessageDechiffreReceptionTransaction(messageBrut),
+                        new MessageDechiffreDerniereTransaction(messageBrut)
                 )
         );
     }

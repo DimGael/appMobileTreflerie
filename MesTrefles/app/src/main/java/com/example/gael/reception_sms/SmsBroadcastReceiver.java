@@ -52,10 +52,4 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
         numeroServeurDataSource.open();
         return numeroServeurDataSource.getNumeroServeur();
     }
-
-    private String getNumeroCompte(Context context, long nouvCompte) {
-        NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(context);
-        numeroCompteDataSource.open();
-        return numeroCompteDataSource.getNumeroCompte();
-    }
 }
