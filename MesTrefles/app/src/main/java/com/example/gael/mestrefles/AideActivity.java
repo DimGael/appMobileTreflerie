@@ -35,32 +35,7 @@ public class AideActivity extends BasicTrefleActivity
         super.onCreate(savedInstanceState);
         this.ajoutEcouteursSurBoutons();
 
-        TextView textView1 = (TextView) findViewById(R.id.textView);
-        TextView textView2 = (TextView) findViewById(R.id.textView2);
-        TextView textView3 = (TextView) findViewById(R.id.textView3);
-
-        Button bouton1 = (Button) findViewById(R.id.boutonSiteAide);
-        Button bouton2 = (Button) findViewById(R.id.boutonMailSupport);
-
-        setFont(textView1,"QSregular.ttf");
-        setFont(textView2,"QSregular.ttf");
-        setFont(textView3,"QSregular.ttf");
-
-        setFont(bouton1,"QSregular.ttf");
-        setFont(bouton2,"QSregular.ttf");
     }
-
-    public void setFont(TextView textView, String fontName) {
-        if(fontName != null){
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
-    }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

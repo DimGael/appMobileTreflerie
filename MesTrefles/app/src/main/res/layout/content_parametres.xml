@@ -2,40 +2,29 @@
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ScrollViewBase">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical"
-        android:paddingTop="80dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.example.gael.mestrefles.ParametresActivity"
-        tools:showIn="@layout/app_bar_parametres">
+        tools:showIn="@layout/app_bar_parametres"
+        style="@style/LinearLayoutBase">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:paddingEnd="15dp"
-            android:paddingStart="15dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textMontantMaxTransact"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="@string/textMontantMaxTransact"
-                android:textColor="@color/text"
-                android:textSize="20sp" />
+                style="@style/TexteSimple"/>
 
             <EditText
                 android:id="@+id/editTextMontantMax"
-                android:layout_width="116dp"
+                android:layout_width="115dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:ems="10"
@@ -47,21 +36,16 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="16dp">
+            android:layout_height="15dp">
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:background="#000000" />
+                style="@style/TraitNoir"/>
 
         </RelativeLayout>
 
         <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
@@ -94,7 +78,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:paddingEnd="15dp"
             android:gravity="center"
             android:paddingStart="15dp">
@@ -102,10 +86,8 @@
 
             <Button
                 android:id="@+id/boutonDefaultServeur"
-                style="@style/BoutonClassique"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:text="@string/boutonDefaultServeur" />
+                android:text="@string/boutonDefaultServeur"
+                style="@style/BoutonClassique"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -114,12 +96,7 @@
 
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:background="#000000" />
+                style="@style/TraitNoir"/>
 
         </RelativeLayout>
 
@@ -135,10 +112,8 @@
                 android:id="@+id/textConfigMode"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:gravity="center"
                 android:text="@string/textConfigMode"
-                android:textColor="@color/text"
-                android:textSize="20sp" />
+                style="@style/TexteSimple" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -146,17 +121,13 @@
 
                 <RadioButton
                     android:id="@+id/radioBoutonParticulier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
                     android:text="@string/textRadioBoutonParticulier"
-                    android:textSize="20sp" />
+                    style="@style/RadioBouton"/>
 
                 <RadioButton
                     android:id="@+id/radioBoutonProfessionnel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
                     android:text="@string/textRadioBoutonProfessionnel"
-                    android:textSize="20sp" />
+                    style="@style/RadioBouton"/>
             </RadioGroup>
 
 
@@ -166,12 +137,7 @@
             android:layout_height="13dp">
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:background="#000000" />
+                style="@style/TraitNoir"/>
 
         </RelativeLayout>
 
@@ -187,10 +153,8 @@
 
             <Button
                 android:id="@+id/boutonValiderParametres"
-                style="@style/BoutonClassique"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:text="@string/boutonValide" />
+                android:text="@string/boutonValide"
+                style="@style/BoutonClassique"/>
         </LinearLayout>
 
     </LinearLayout>

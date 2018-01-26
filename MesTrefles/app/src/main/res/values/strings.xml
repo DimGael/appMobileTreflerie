@@ -69,7 +69,7 @@
     <string name="boutonMailSupport">Envoyer un mail au support</string>
 
     <string name="txtAide">Aide</string>
-    <string name="textNumeroServeur">Numéro du serveur :</string>
+    <string name="textNumeroServeur">Numéro serveur :</string>
 
     //Erreur Serveur
     <string name="messageErreurServeur">Le serveur ne répond pas. Veuillez rééssayer plus tard.</string>

@@ -2,30 +2,18 @@
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ScrollViewBase">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical"
     tools:context="com.example.gael.mestrefles.TransactionActivity"
     tools:showIn="@layout/app_bar_transaction"
-    android:paddingTop="80dp">
+    style="@style/LinearLayoutBase">
 
     <TextView
         android:id="@+id/textNumeroDest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
         android:text="@string/textNumeroDuDest"
-        android:layout_marginVertical="20dp"
-        android:textColor="@color/text"
-        android:textSize="20sp" />
+        style="@style/TexteSimple"/>
 
     <EditText
         android:id="@+id/editTextNumeroDest"
@@ -39,26 +27,13 @@
         android:inputType="numberDecimal" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/erreurNumeroCompte"
-        android:text=""
-        android:textAlignment="center"
-        android:layout_marginLeft="50dp"
-        android:textColor="@color/erreur"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="40dp"/>
+        style="@style/erreur"/>
 
     <TextView
         android:id="@+id/textMontant"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
         android:text="@string/TextMontant"
-        android:layout_marginVertical="20dp"
-        android:textColor="@color/text"
-        android:textSize="20sp" />
+        style="@style/TexteSimple"/>
     <!-- Le contenu texte sera modifié dans le contexte de l'application -->
 
     <EditText
@@ -74,14 +49,8 @@
         />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/erreurMontantTransaction"
-        android:textAlignment="center"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:textColor="@color/erreur"
-        android:layout_marginBottom="30dp"/>
+        style="@style/erreur"/>
     <!-- Le contenu texte sera modifié dans le contexte de l'application -->
 
     <RelativeLayout
@@ -99,17 +68,8 @@
 
         <TextView
             android:id="@+id/texteReponseSolde"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/boutonValider"
-            android:layout_marginTop="15dp"
-            android:textSize="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/text" />
+            style="@style/ReponseServeur"/>
     </RelativeLayout>
 
 </LinearLayout>

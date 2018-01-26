@@ -49,18 +49,6 @@ public class DepenseActivity extends BasicTrefleActivity
         listView.addHeaderView(viewGroup);
     }
 
-
-    public void setFont(TextView textView, String fontName) {
-        if(fontName != null){
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

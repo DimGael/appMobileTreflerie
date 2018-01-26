@@ -54,33 +54,9 @@ public class ParametresActivity extends BasicTrefleActivity
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
 
-
-        Button bouton1 = (Button) findViewById(R.id.boutonValiderParametres);
-
-
-        TextView textView1 = (TextView) findViewById(R.id.textMontantMaxTransact);
-
-        TextView textView2 = (TextView) findViewById(R.id.textTrefles);
-
-        EditText editText1 = (EditText) findViewById(R.id.editTextMontantMax);
-
         RadioButton particulier = (RadioButton) findViewById(R.id.radioBoutonParticulier);
         particulier.setChecked(true);
 
-        setFont(bouton1,"QSregular.ttf");
-
-        setFont(editText1,"QSregular.ttf");
-    }
-
-    public void setFont(TextView textView, String fontName) {
-        if(fontName != null){
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
     }
 
     @Override

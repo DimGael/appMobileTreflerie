@@ -2,43 +2,25 @@
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ScrollViewBase">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical"
-        android:paddingTop="80dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.example.gael.mestrefles.ParametresActivity"
-        tools:showIn="@layout/app_bar_parametres">
+        tools:showIn="@layout/app_bar_parametres"
+        style="@style/LinearLayoutBase">
 
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
             android:text="@string/titreAide"
-            android:textSize="40dp"
-
-            />
+            style="@style/SousTitre"/>
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/messageAideSite"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-            />
+            style="@style/TexteSimple"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -46,40 +28,23 @@
 
             <Button
                 android:id="@+id/boutonSiteAide"
-                style="@style/BoutonClassique"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:layout_marginTop="20dp"
-                android:text="@string/bouttonAideSite" />
+                android:text="@string/bouttonAideSite"
+                style="@style/BoutonClassique"/>
         </RelativeLayout>
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/messageAideSupport"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            />
+            style="@style/TexteSimple"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/boutonMailSupport"
-                style="@style/BoutonClassique"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:layout_marginTop="20dp"
-                android:text="@string/bouttonAideSupport" />
+                android:text="@string/bouttonAideSupport"
+                style="@style/BoutonClassique"/>
         </RelativeLayout>
 
     </LinearLayout>

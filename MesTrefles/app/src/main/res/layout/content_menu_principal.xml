@@ -2,21 +2,15 @@
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ScrollViewBase">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="80dp"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.gael.mestrefles.MenuPrincipal"
-    tools:showIn="@layout/app_bar_menu_principal">
+    tools:showIn="@layout/app_bar_menu_principal"
+    style="@style/LinearLayoutBase">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,58 +18,33 @@
 
         <Button
             android:id="@+id/BoutonMonSolde"
-            style="@style/BoutonClassique"
-            android:layout_alignLeft="@+id/BoutonTransaction"
-            android:layout_alignStart="@+id/BoutonTransaction"
             android:layout_below="@+id/BoutonTransaction"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:text="@string/titreSolde" />
+            android:text="@string/titreSolde"
+            style="@style/BoutonMenu"/>
 
         <Button
             android:id="@+id/BoutonTransaction"
-            style="@style/BoutonClassique"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_weight="1"
-            android:text="@string/titreTransaction" />
+            android:text="@string/titreTransaction"
+            style="@style/BoutonMenu"/>
+
 
         <Button
             android:id="@+id/BoutonMesDepenses"
-            style="@style/BoutonClassique"
-            android:layout_alignLeft="@+id/BoutonMonSolde"
-            android:layout_alignStart="@+id/BoutonMonSolde"
             android:layout_below="@+id/BoutonMonSolde"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:text="@string/titreDepenses" />
+            android:text="@string/titreDepenses"
+            style="@style/BoutonMenu"/>
 
         <Button
             android:id="@+id/BoutonParametres"
-            style="@style/BoutonClassique"
-            android:layout_alignLeft="@+id/BoutonMesDepenses"
-            android:layout_alignStart="@+id/BoutonMesDepenses"
             android:layout_below="@+id/BoutonMesDepenses"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:text="@string/titreParametres" />
+            android:text="@string/titreParametres"
+            style="@style/BoutonMenu"/>
 
         <Button
             android:id="@+id/BoutonAide"
-            style="@style/BoutonClassique"
-            android:layout_alignLeft="@+id/BoutonParametres"
-            android:layout_alignStart="@+id/BoutonParametres"
             android:layout_below="@+id/BoutonParametres"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
-            android:layout_weight="1"
-            android:text="Aide" />
+            android:text="Aide"
+            style="@style/BoutonMenu"/>
     </RelativeLayout>
 </LinearLayout>
 </ScrollView>

@@ -33,28 +33,8 @@ public class MenuPrincipal extends BasicTrefleActivity
         super.onCreate(savedInstanceState);
 
         this.ajoutEcouteursSurBoutons();
-        Button bouton1 = (Button) findViewById(R.id.BoutonMonSolde);
-        Button bouton2 = (Button) findViewById(R.id.BoutonTransaction);
-        Button bouton3 = (Button) findViewById(R.id.BoutonParametres);
-        Button bouton4 = (Button) findViewById(R.id.BoutonMesDepenses);
-        Button bouton5 = (Button) findViewById(R.id.BoutonAide);
+    }
 
-        setFont(bouton1,"QSregular.ttf");
-        setFont(bouton2,"QSregular.ttf");
-        setFont(bouton3,"QSregular.ttf");
-        setFont(bouton4,"QSregular.ttf");
-        setFont(bouton5,"QSregular.ttf");
-    }
-    public void setFont(TextView textView, String fontName) {
-        if(fontName != null){
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
-    }
 
     private void ajoutEcouteursSurBoutons() {
         //Rajout des écouteurs sur les boutons

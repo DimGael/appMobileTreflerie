@@ -44,40 +44,14 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
 
-        TextView textView1 = (TextView) findViewById(R.id.textMsgSolde);
-        TextView textView2 = (TextView) findViewById(R.id.textNbrTrefles);
-        TextView textView3 = (TextView) findViewById(R.id.textTrefles);
-        TextView textView4 = (TextView) findViewById(R.id.texteReponseSolde);
         TextView textViewNum = (TextView) findViewById(R.id.textNumCompte);
-
-
-        Button bouton1 = (Button) findViewById(R.id.boutonActualiser);
-
-        setFont(textView1,"QSregular.ttf");
-        setFont(textView2,"QSregular.ttf");
-        setFont(textView3,"QSregular.ttf");
-        setFont(textView4,"QSregular.ttf");
-        setFont(textViewNum,"QSregular.ttf");
 
         NumeroCompteDataSource numeroCompteDataSource = new NumeroCompteDataSource(this);
         numeroCompteDataSource.open();
 
         String numero = numeroCompteDataSource.getNumeroCompte();
-        textViewNum.setText("Compte N°"+numero);
 
-        setFont(bouton1,"QSregular.ttf");
         instance = this;
-    }
-
-    public void setFont(TextView textView, String fontName) {
-        if(fontName != null){
-            try {
-                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
-                textView.setTypeface(typeface);
-            } catch (Exception e) {
-                Log.e("FONT", fontName + " not found", e);
-            }
-        }
     }
 
     public void setNumeroCompte(String numeroCompte){

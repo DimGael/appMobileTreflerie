@@ -2,19 +2,14 @@
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ScrollViewBase">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical"
-        android:paddingTop="80dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.example.gael.mestrefles.ParametresActivity"
-        tools:showIn="@layout/app_bar_accueil">
+        tools:showIn="@layout/app_bar_accueil"
+        style="@style/LinearLayoutBase">
     </LinearLayout>
+
 </ScrollView>
