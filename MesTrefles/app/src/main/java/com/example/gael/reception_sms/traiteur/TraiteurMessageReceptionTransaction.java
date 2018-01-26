@@ -11,6 +11,7 @@ import com.example.gael.reception_sms.dechiffrage.MessageDechiffreTransactionEch
  * Created by Barroblade on 26/01/2018.
  */
 
+
 public class TraiteurMessageReceptionTransaction extends TraiteurMessage {
 
     private MessageDechiffreReceptionTransaction messageDechiffreReceptionTransaction;
