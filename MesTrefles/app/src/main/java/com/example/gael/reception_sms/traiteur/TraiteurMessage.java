@@ -1,11 +1,16 @@
-package com.example.gael.reception_sms;
+package com.example.gael.reception_sms.traiteur;
 
 import android.content.Context;
+
+import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
 
 /**
  * Created by GaëlPortable on 26/01/2018.
  */
 
+/**
+ * Traite les messages déchiffrés
+ */
 public abstract class TraiteurMessage {
     protected MessageDechiffre messageDechiffre;
 
