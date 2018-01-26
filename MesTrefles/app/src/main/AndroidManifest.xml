@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gael.activities">
+    package="com.example.groupedtut.activities">
 
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.example.gael.activities.AccueilActivity"
+            android:name="com.example.groupedtut.activities.AccueilActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,44 +27,44 @@
         </activity>
 
         <activity
-            android:name="com.example.gael.activities.MenuPrincipal"
+            android:name="com.example.groupedtut.activities.MenuPrincipal"
             android:windowActionBar="false"
             android:windowNoTitle="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.gael.activities.TransactionActivity"
+        <activity android:name="com.example.groupedtut.activities.TransactionActivity"
             android:label="@string/titreTransaction"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.gael.activities.AideActivity"
+        <activity android:name="com.example.groupedtut.activities.AideActivity"
             android:label="@string/titreAide"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.gael.activities.RefusActivity"
+        <activity android:name="com.example.groupedtut.activities.RefusActivity"
             android:label="@string/titreRefus"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.gael.activities.SoldeActivity"
+        <activity android:name="com.example.groupedtut.activities.SoldeActivity"
             android:label="@string/titreSolde"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.gael.activities.ParametresActivity"
+        <activity android:name="com.example.groupedtut.activities.ParametresActivity"
             android:label="@string/titreParametres"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.gael.activities.DepenseActivity"
+        <activity android:name="com.example.groupedtut.activities.DepenseActivity"
             android:label="@string/titreDepenses"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <receiver android:name="com.example.gael.reception_sms.SmsBroadcastReceiver" android:exported="true" >
+        <receiver android:name="com.example.groupedtut.reception_sms.SmsBroadcastReceiver" android:exported="true" >
             <intent-filter android:priority="999" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
