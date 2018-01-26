@@ -49,7 +49,7 @@
 
         //RadioBoutons
         <string name="textRadioBoutonParticulier">Particulier</string>
-        <string name="textRadioBoutonProfessionnel">Professionnel</string>
+        <string name="textRadioBoutonProfessionnel">Pro</string>
 
     //Depenses
     <string name="txtDepenses">Mes dépenses</string>

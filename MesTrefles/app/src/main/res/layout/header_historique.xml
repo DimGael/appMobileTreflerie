@@ -10,31 +10,17 @@
     <TextView
         android:id="@+id/titreCompteHistorique"
         android:layout_width="150dp"
-        android:layout_height="52dp"
-        android:layout_weight="1"
-        android:background="@color/tableauGris"
-        android:gravity="center"
         android:text="@string/titreCompteHistorique"
-        android:textSize="25sp" />
+        style="@style/CategorieHistorique"/>
 
     <TextView
         android:id="@+id/TitreMontantHistorique"
-        android:layout_width="120dp"
-        android:layout_height="52dp"
-        android:layout_weight="1"
-        android:background="@color/tableauGris"
-        android:gravity="center"
         android:text="@string/titreMontantHistorique"
-        android:textSize="25sp" />
+        style="@style/CategorieHistorique"/>
 
     <TextView
         android:id="@+id/titreDateHistorique"
-        android:layout_width="120dp"
-        android:layout_height="52dp"
-        android:layout_weight="1"
-        android:background="@color/tableauGris"
-        android:gravity="center"
         android:text="@string/titreDateHistorique"
-        android:textSize="25sp" />
+        style="@style/CategorieHistorique"/>
 
 </LinearLayout>
