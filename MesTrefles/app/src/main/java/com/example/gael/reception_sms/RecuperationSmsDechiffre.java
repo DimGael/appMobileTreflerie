@@ -2,12 +2,12 @@ package com.example.gael.reception_sms;
 
 import android.content.Context;
 
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
-import com.example.gael.reception_sms.traiteur.TraiteurMessage;
-import com.example.gael.reception_sms.traiteur.TraiteurMessageReceptionTransaction;
-import com.example.gael.reception_sms.traiteur.TraiteurMessageSolde;
-import com.example.gael.reception_sms.traiteur.TraiteurMessageTransactionEchouee;
-import com.example.gael.reception_sms.traiteur.TraiteurMessageTransactionReussie;
+import com.example.gael.reception_sms.tri.MessageDechiffre;
+import com.example.gael.reception_sms.traitement.TraiteurMessage;
+import com.example.gael.reception_sms.traitement.TraiteurMessageReceptionTransaction;
+import com.example.gael.reception_sms.traitement.TraiteurMessageSolde;
+import com.example.gael.reception_sms.traitement.TraiteurMessageTransactionEchouee;
+import com.example.gael.reception_sms.traitement.TraiteurMessageTransactionReussie;
 
 import java.util.ArrayList;
 import java.util.Arrays;

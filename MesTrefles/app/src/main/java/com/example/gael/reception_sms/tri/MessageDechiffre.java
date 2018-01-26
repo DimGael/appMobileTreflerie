@@ -1,6 +1,4 @@
-package com.example.gael.reception_sms.dechiffrage;
-
-import android.content.Context;
+package com.example.gael.reception_sms.tri;
 
 /**
  * Created by GaëlPortable on 25/01/2018.

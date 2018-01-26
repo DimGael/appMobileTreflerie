@@ -1,4 +1,4 @@
-package com.example.gael.reception_sms.traiteur;
+package com.example.gael.reception_sms.traitement;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -6,8 +6,8 @@ import android.widget.TextView;
 import com.example.gael.mestrefles.R;
 import com.example.gael.mestrefles.SoldeActivity;
 import com.example.gael.numerocompte.NumeroCompteDataSource;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffreSolde;
+import com.example.gael.reception_sms.tri.MessageDechiffre;
+import com.example.gael.reception_sms.tri.MessageDechiffreSolde;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 /**

@@ -1,11 +1,10 @@
-package com.example.gael.reception_sms.traiteur;
+package com.example.gael.reception_sms.traitement;
 
 import android.content.Context;
 
 import com.example.gael.mestrefles.TransactionActivity;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffreTransactionEchouee;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffreTransactionReussie;
+import com.example.gael.reception_sms.tri.MessageDechiffre;
+import com.example.gael.reception_sms.tri.MessageDechiffreTransactionEchouee;
 
 /**
  * Created by Alexandre on 26/01/2018.

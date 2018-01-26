@@ -1,9 +1,9 @@
-package com.example.gael.reception_sms.traiteur;
+package com.example.gael.reception_sms.traitement;
 
 import android.content.Context;
 
 import com.example.gael.TransactionHistorique.TransactionDataSource;
-import com.example.gael.reception_sms.dechiffrage.MessageDechiffre;
+import com.example.gael.reception_sms.tri.MessageDechiffre;
 import com.example.gael.soldeactuel.SoldeDataSource;
 
 import java.util.Date;
