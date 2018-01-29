@@ -52,6 +52,7 @@ public class DepenseActivity extends BasicTrefleActivity
         listView.addHeaderView(viewGroup);
     }
 
+    
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
