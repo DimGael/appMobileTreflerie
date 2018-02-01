@@ -29,11 +29,6 @@ public class TransactionActivity extends BasicTrefleActivity
     public static final String INTENT_VALID_TRANSAC = "INTENT_VALID_TRANSAC";
 
     @Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.main_toolbar);
-    }
-
-    @Override
     public DrawerLayout getMainDrawerLayout() {
         return (DrawerLayout)findViewById(R.id.transaction_drawer_layout);
     }

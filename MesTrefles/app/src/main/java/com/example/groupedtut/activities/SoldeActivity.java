@@ -20,13 +20,7 @@ import com.example.groupedtut.numerocompte.NumeroCompteDataSource;
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    public static String INTENT_NOUV_SOLDE = "INTENT_NOUV_SOLDE";
     private boolean demandeSoldeEnCours = false;
-
-    @Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.main_toolbar);
-    }
 
     @Override
     public DrawerLayout getMainDrawerLayout() {
@@ -129,14 +123,12 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
 
     @Override
     public void onPause(){
-        this.soldeDataSource.close();
         this.numeroServeurDataSource.close();
         super.onPause();
     }
 
     @Override
     public void onResume(){
-        this.soldeDataSource.open();
         this.numeroServeurDataSource.open();
         super.onResume();
     }

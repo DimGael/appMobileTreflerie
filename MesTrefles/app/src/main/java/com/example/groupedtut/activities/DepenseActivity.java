@@ -21,11 +21,6 @@ public class DepenseActivity extends BasicTrefleActivity
     private TransactionDataSource transactionDataSource;
 
     @Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.main_toolbar);
-    }
-
-    @Override
     public DrawerLayout getMainDrawerLayout() {
         return (DrawerLayout)findViewById(R.id.depense_drawer_layout);
     }

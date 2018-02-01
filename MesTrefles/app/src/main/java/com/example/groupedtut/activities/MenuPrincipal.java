@@ -17,11 +17,6 @@ public class MenuPrincipal extends BasicTrefleActivity
 
 
     @Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.main_toolbar);
-    }
-
-    @Override
     public DrawerLayout getMainDrawerLayout() {
         return (DrawerLayout)findViewById(R.id.drawer_layout_menu_principal);
     }
