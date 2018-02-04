@@ -16,10 +16,6 @@ import android.widget.Button;
 public class AideActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    @Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.toolbar);
-    }
 
     @Override
     public DrawerLayout getMainDrawerLayout() {

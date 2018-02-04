@@ -24,11 +24,6 @@ public class ParametresActivity extends BasicTrefleActivity
     private String numServeur = "+33782572437";
 
     @Override
-    public Toolbar getToolbar() {
-        return (Toolbar)this.findViewById(R.id.main_toolbar);
-    }
-
-    @Override
     public DrawerLayout getMainDrawerLayout() {
         return (DrawerLayout)findViewById(R.id.parametre_drawer_layout);
     }

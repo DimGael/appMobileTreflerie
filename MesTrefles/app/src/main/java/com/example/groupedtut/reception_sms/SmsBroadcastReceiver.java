@@ -14,6 +14,8 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
 
     public static final String SMS_BUNDLE = "pdus";
+    private RecuperationSms recuperationSms;
+    private RecuperationSmsDechiffre recuperationSmsDechiffre;
 
     public void onReceive(Context context, Intent intent) {
 
@@ -31,10 +33,9 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     String smsBody = smsMessage.getMessageBody().toString();
 
                     //FONCTIONNE
-                    RecuperationSms recuperationSms = new RecuperationSms(smsBody);
-                    MessageDechiffre messageDechiffre = recuperationSms.recupererMessageDechiffre();
+                    this.recuperationSms = new RecuperationSms(smsBody);
 
-                    RecuperationSmsDechiffre recuperationSmsDechiffre = new RecuperationSmsDechiffre(messageDechiffre);
+                    this.recuperationSmsDechiffre = new RecuperationSmsDechiffre(this.recuperationSms.recupererMessageDechiffre());
                     recuperationSmsDechiffre.traiterLeMessage(context);
                 }
             }
