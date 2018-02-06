@@ -19,8 +19,7 @@ import com.example.groupedtut.montantmax.MontantMaxDataSource;
 
 public class ParametresActivity extends BasicTrefleActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-
-
+    
     private String numServeur = "+33782572437";
 
     @Override
