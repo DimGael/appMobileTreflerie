@@ -89,6 +89,7 @@
                         android:id="@+id/texteReponseSolde"
                         android:layout_below="@+id/boutonValider"
                         style="@style/ReponseServeur"/>
+
                 </RelativeLayout>
 
             </LinearLayout>
