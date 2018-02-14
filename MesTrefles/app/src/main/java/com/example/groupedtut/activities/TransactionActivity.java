@@ -45,16 +45,7 @@ public class TransactionActivity extends BasicTrefleActivity
         Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
         boutonValider.setOnClickListener(this);
 
-        final double soldeEnvoye = this.getIntent().getDoubleExtra(this.INTENT_VALID_TRANSAC, -1.0);
-        if(soldeEnvoye != -1.0){
-            Toast.makeText(this, "Transaction bien effectuée !", Toast.LENGTH_SHORT).show();
-            this.soldeDataSource.majSolde(this.soldeDataSource.getSoldeActuel() - soldeEnvoye);
-            this.majSoldeAffichage(this.soldeDataSource.getSoldeActuel());
-            ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
-        }
-
         ((Button)this.findViewById(R.id.boutonValider)).setEnabled(true);
-
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

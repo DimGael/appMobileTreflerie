@@ -62,6 +62,7 @@ public class AccueilActivity extends AppCompatActivity {
             }, 2000);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[],
