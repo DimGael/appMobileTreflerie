@@ -13,25 +13,23 @@ import com.example.groupedtut.reception_sms.tri.MessageDechiffreReceptionTransac
 
 public class TraiteurMessageReceptionTransaction extends TraiteurMessage {
 
-    private MessageDechiffreReceptionTransaction messageDechiffreReceptionTransaction;
-
     public TraiteurMessageReceptionTransaction(MessageDechiffre typeMessageServeur) {
         super(typeMessageServeur);
-        if(aLeBonMessage()){
-            this.messageDechiffreReceptionTransaction = (MessageDechiffreReceptionTransaction)this.messageDechiffre;
-        }
     }
 
     @Override
     public void traiterMessage(Context context) {
-        double montantRecu = messageDechiffreReceptionTransaction.getMontantRecu();
+        if (aLeBonMessage()) {
+            final MessageDechiffreReceptionTransaction messageDechiffreReceptionTransaction = (MessageDechiffreReceptionTransaction) this.messageDechiffre;
+            double montantRecu = messageDechiffreReceptionTransaction.getMontantRecu();
             this.ajouterSolde(context, montantRecu);
             this.ajouterNouvelleTransactionEntrante(context, montantRecu, messageDechiffreReceptionTransaction.getNumeroCompte(), messageDechiffreReceptionTransaction.getNomExpediteur());
 
-            if(BasicTrefleActivity.instance != null){
+            if (BasicTrefleActivity.instance != null) {
                 BasicTrefleActivity.instance.majSoldeAffichage(montantRecu);
             }
         }
+    }
 
     @Override
     public boolean aLeBonMessage() {

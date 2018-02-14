@@ -16,28 +16,24 @@ import com.example.groupedtut.soldeactuel.SoldeDataSource;
 
 public class TraiteurMessageSolde extends TraiteurMessage {
 
-    private MessageDechiffreSolde messageDechiffreSolde;
-
     public TraiteurMessageSolde(MessageDechiffre typeMessageServeur) {
         super(typeMessageServeur);
-        if(aLeBonMessage()){
-            this.messageDechiffreSolde = (MessageDechiffreSolde)this.messageDechiffre;
-        }
     }
 
     @Override
     public void traiterMessage(Context context) {
         // Si null alors message inconnu
         if(aLeBonMessage()){
-            modificationNumeroCompte(context, this.messageDechiffreSolde.getNumeroCompte());
+            final MessageDechiffreSolde messageDechiffreSolde = (MessageDechiffreSolde)this.messageDechiffre;
+            modificationNumeroCompte(context, messageDechiffreSolde.getNumeroCompte());
 
             if(SoldeActivity.instance != null){
-                ((SoldeActivity) SoldeActivity.instance).setNumeroCompte(this.messageDechiffreSolde.getNumeroCompte());
+                ((SoldeActivity) SoldeActivity.instance).setNumeroCompte(messageDechiffreSolde.getNumeroCompte());
             }
 
-            this.updateSoldeBdd(context, this.messageDechiffreSolde.getSolde());
+            this.updateSoldeBdd(context, messageDechiffreSolde.getSolde());
             if (SoldeActivity.instance != null) {
-                this.receptionSmsSoldeDansSoldeActivity(this.messageDechiffreSolde.getSolde());
+                this.receptionSmsSoldeDansSoldeActivity(messageDechiffreSolde.getSolde());
             }
         }
     }

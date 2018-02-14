@@ -11,29 +11,29 @@ import com.example.groupedtut.reception_sms.tri.MessageDechiffreTransactionReuss
  */
 
 public class TraiteurMessageTransactionReussie extends TraiteurMessage {
-    private MessageDechiffreTransactionReussie messageDechiffreTransactionReussie;
+
     public TraiteurMessageTransactionReussie(MessageDechiffre typeMessageServeur) {
         super(typeMessageServeur);
-        if(aLeBonMessage()){
-            this.messageDechiffreTransactionReussie = (MessageDechiffreTransactionReussie)this.messageDechiffre;
-        }
     }
 
     @Override
     public void traiterMessage(Context context) {
+        if(aLeBonMessage()) {
+            final MessageDechiffreTransactionReussie messageDechiffreTransactionReussie = (MessageDechiffreTransactionReussie) this.messageDechiffre;
 
-        String numeroCompte = this.messageDechiffreTransactionReussie.getNumeroCompteBeneficiaire();
+            String numeroCompte = messageDechiffreTransactionReussie.getNumeroCompteBeneficiaire();
 
-        String nomPersonne = this.messageDechiffreTransactionReussie.getNomBeneficiaire();
+            String nomPersonne = messageDechiffreTransactionReussie.getNomBeneficiaire();
 
-        double soldeEnvoye = this.messageDechiffreTransactionReussie.getMontantEnvoye();
+            double soldeEnvoye = messageDechiffreTransactionReussie.getMontantEnvoye();
 
-        this.ajouterSolde(context, soldeEnvoye*(-1));
+            this.ajouterSolde(context, soldeEnvoye * (-1));
 
-        this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
+            this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
 
-        if(TransactionActivity.instance != null) {
-            ((TransactionActivity) TransactionActivity.instance).transactionReussie();
+            if (TransactionActivity.instance != null) {
+                ((TransactionActivity) TransactionActivity.instance).transactionReussie();
+            }
         }
     }
 

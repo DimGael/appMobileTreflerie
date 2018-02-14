@@ -12,19 +12,16 @@ import com.example.groupedtut.reception_sms.tri.MessageDechiffreTransactionEchou
 
 public class TraiteurMessageTransactionEchouee extends TraiteurMessage {
 
-    private MessageDechiffreTransactionEchouee messageDechiffreTransactionEchouee;
-
     public TraiteurMessageTransactionEchouee(MessageDechiffre typeMessageServeur) {
         super(typeMessageServeur);
-        if(aLeBonMessage()){
-            this.messageDechiffreTransactionEchouee = (MessageDechiffreTransactionEchouee)this.messageDechiffre;
-        }
     }
 
     @Override
     public void traiterMessage(Context context) {
-        if (TransactionActivity.instance != null) {
-            ((TransactionActivity) TransactionActivity.instance).transactionEchouee();
+        if(aLeBonMessage()){
+            if (TransactionActivity.instance != null) {
+                ((TransactionActivity) TransactionActivity.instance).transactionEchouee();
+            }
         }
     }
 
