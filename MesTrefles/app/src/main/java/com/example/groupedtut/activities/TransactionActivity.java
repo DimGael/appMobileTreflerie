@@ -178,6 +178,9 @@ public class TransactionActivity extends BasicTrefleActivity
         return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
     }
 
+    /**
+     * Méthode à éxécuter lorsqu'on reçoit la confirmation de la réussite d'une transaction.
+     */
     public void transactionReussie(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
         texteRep.setText("Transaction Réussie !");
@@ -188,7 +191,9 @@ public class TransactionActivity extends BasicTrefleActivity
         this.transactionEnCours = false;
     }
 
-
+    /**
+     * Méthode à éxécuter lorsqu'on reçoit un message signalant l'échec de la transaction.
+     */
     public void transactionEchouee(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
         texteRep.setText("Transaction Echouée");
