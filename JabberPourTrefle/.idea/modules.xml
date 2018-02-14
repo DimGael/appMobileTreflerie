@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JabberPourTrefle.iml" filepath="$PROJECT_DIR$/JabberPourTrefle.iml" />
+      <module fileurl="file://C:\Workspace\appMobileTreflerie\JabberPourTrefle\JabberPourTrefle.iml" filepath="C:\Workspace\appMobileTreflerie\JabberPourTrefle\JabberPourTrefle.iml" />
       <module fileurl="file://C:\Users\Rebierre Quentin\Desktop\IUT\TUT Quentin\appMobileTreflerie\JabberPourTrefle\JabberPourTrefle.iml" filepath="C:\Users\Rebierre Quentin\Desktop\IUT\TUT Quentin\appMobileTreflerie\JabberPourTrefle\JabberPourTrefle.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Rebierre Quentin\Desktop\IUT\TUT Quentin\appMobileTreflerie\JabberPourTrefle\app\app.iml" filepath="C:\Users\Rebierre Quentin\Desktop\IUT\TUT Quentin\appMobileTreflerie\JabberPourTrefle\app\app.iml" />
+      <module fileurl="file://C:\Workspace\appMobileTreflerie\JabberPourTrefle\app\app.iml" filepath="C:\Workspace\appMobileTreflerie\JabberPourTrefle\app\app.iml" />
     </modules>
   </component>
 </project>

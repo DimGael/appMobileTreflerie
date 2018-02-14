@@ -75,7 +75,6 @@ public class TransactionActivity extends BasicTrefleActivity
         else {
             final double montant;
             int numDestinataire = 0;
-
             montant = Double.valueOf(editTextMontant.getText().toString()).doubleValue();
 
             try {
@@ -203,5 +202,4 @@ public class TransactionActivity extends BasicTrefleActivity
 
         this.transactionEnCours = false;
     }
-
 }

@@ -1,9 +1,11 @@
 package fr.alexisnadaud.jabberpourtrefle;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.ConnectionConfiguration;
@@ -13,6 +15,7 @@ import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.chat.ChatManager;
+import org.jivesoftware.smack.chat.ChatMessageListener;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
@@ -151,7 +154,7 @@ public class MyXMPP {
             chatmanager = ChatManager.getInstanceFor(connection);
 
             try {
-                EntityBareJid jid = JidCreate.entityBareFrom("rpierrick@mmtux.fr");
+                EntityBareJid jid = JidCreate.entityBareFrom("dgael@mmtux.fr");
                 newChat = chatmanager.createChat(jid);
             } catch (XmppStringprepException e) {
                 e.printStackTrace();
@@ -174,6 +177,13 @@ public class MyXMPP {
         else{
             Log.d("xmpp","message non envoyé co non réalisée");
         }
+
+        newChat.addMessageListener(new ChatMessageListener() {
+            @Override
+            public void processMessage(Chat chat, Message message) {
+                Log.d("Message reçu", message.getBody().toString()+" <= le nouveau message");
+            }
+        });
 
     }
 
