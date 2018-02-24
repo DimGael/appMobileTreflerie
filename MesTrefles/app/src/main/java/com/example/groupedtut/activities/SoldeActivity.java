@@ -13,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.groupedtut.expediteur_message.ExpediteurMessage;
+import com.example.groupedtut.expediteur_message.SMS.ExpediteurSMS;
 import com.example.groupedtut.numerocompte.NumeroCompteDataSource;
 
 
 public class SoldeActivity extends BasicTrefleActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private boolean demandeSoldeEnCours = false;
+    private ExpediteurMessage expediteurMessage;
 
     @Override
     public DrawerLayout getMainDrawerLayout() {
@@ -29,6 +32,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_solde);
         super.onCreate(savedInstanceState);
+
+        this.expediteurMessage = new ExpediteurSMS();
 
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
@@ -71,9 +76,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     public void onClick(View view) {
         //Lors de l'activation du bouton Actualiser
         this.demandeSoldeEnCours = true;
-        final String message = "S?";
 
-        SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
+        this.expediteurMessage.demandeSoldeActuel(this);
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Actualisation du solde en cours ...");
         this.changerEtatBouton();
 
