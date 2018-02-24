@@ -64,6 +64,12 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity android:name="com.example.groupedtut.activities.ParametreJabberActivity"
+            android:label="@string/titreParametresJabber"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+
         <receiver android:name="com.example.groupedtut.reception_sms.SmsBroadcastReceiver" android:exported="true" >
             <intent-filter android:priority="999" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />

@@ -17,6 +17,6 @@ public class ParametreJabberActivity extends BasicTrefleActivity {
 
     @Override
     public DrawerLayout getMainDrawerLayout() {
-        return null;
+        return (DrawerLayout)findViewById(R.id.drawer_layout_param_jabber);
     }
 }

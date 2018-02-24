@@ -1,5 +1,6 @@
 package com.example.groupedtut.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,8 +10,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.groupedtut.montantmax.MontantMaxDataSource;
@@ -45,11 +48,17 @@ public class ParametresActivity extends BasicTrefleActivity
 
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
-
-        /*
-        RadioButton particulier = (RadioButton) findViewById(R.id.radioBoutonParticulier);
-        particulier.setChecked(true);
-        */
+        
+        final Switch switchPro = (Switch)this.findViewById(R.id.switchModePro);
+        switchPro.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(switchPro.isChecked()){
+                    final Intent intentParametresJabber = new Intent(getApplicationContext(), ParametreJabberActivity.class);
+                    startActivity(intentParametresJabber);
+                }
+            }
+        });
 
     }
 

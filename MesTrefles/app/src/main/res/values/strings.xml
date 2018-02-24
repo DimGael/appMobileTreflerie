@@ -76,5 +76,6 @@
     <string name="titreErreurServeur">Serveur indisponible</string>
     <string name="boutonErreurServeur">J\'ai compris</string>
     <string name="hint_login_jabber">Exemple : joel2</string>
+    <string name="titreParametresJabber">Paramètres Jabber</string>
 
 </resources>
