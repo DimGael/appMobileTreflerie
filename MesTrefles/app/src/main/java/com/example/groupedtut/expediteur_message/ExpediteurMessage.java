@@ -9,5 +9,6 @@ import android.content.Context;
 public interface ExpediteurMessage {
 
     void demandeSoldeActuel(Context context);
+
     void transaction(double montant, String destinataire, Context context);
 }

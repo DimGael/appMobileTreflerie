@@ -3,7 +3,6 @@ package com.example.groupedtut.expediteur_message.SMS;
 import android.content.Context;
 import android.telephony.SmsManager;
 
-import com.example.groupedtut.activities.BasicTrefleActivity;
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 
@@ -15,14 +14,15 @@ public class ExpediteurSMS implements ExpediteurMessage {
 
     @Override
     public void demandeSoldeActuel(Context context) {
-        NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
-        numeroServeurDataSource.open();
-        SmsManager.getDefault().sendTextMessage(numeroServeurDataSource.getNumeroServeur(),null,"S?",null,null);
-        numeroServeurDataSource.close();
+        final NumeroServeurDataSource numServeurDataSource = new NumeroServeurDataSource(context);
+        numServeurDataSource.open();
+
+        SmsManager.getDefault().sendTextMessage(numServeurDataSource.getNumeroServeur(),null,"S?",null,null);
+
+        numServeurDataSource.close();
     }
 
     @Override
     public void transaction(double montant, String destinataire, Context context) {
-
     }
 }
