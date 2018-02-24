@@ -24,5 +24,24 @@ public class ExpediteurSMS implements ExpediteurMessage {
 
     @Override
     public void transaction(double montant, String destinataire, Context context) {
+        final NumeroServeurDataSource numServeurDataSource = new NumeroServeurDataSource(context);
+        numServeurDataSource.open();
+
+        SmsManager.getDefault().sendTextMessage(numServeurDataSource.getNumeroServeur(),null,this.creerMessage(montant, destinataire),null,null);
+
+        numServeurDataSource.close();
+    }
+
+    private String creerMessage(double montant, String numDestinataire){
+        int avantVirgule;
+        double apresVirgule;
+
+        avantVirgule = (int)montant;
+        apresVirgule = (montant%1)*100;
+
+        if(apresVirgule == 0.0){
+            return avantVirgule+"/"+numDestinataire;
+        }
+        return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
     }
 }

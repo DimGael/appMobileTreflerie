@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.groupedtut.expediteur_message.ExpediteurMessage;
+import com.example.groupedtut.expediteur_message.SMS.ExpediteurSMS;
 import com.example.groupedtut.montantmax.MontantMaxDataSource;
 
 
@@ -27,6 +29,8 @@ public class TransactionActivity extends BasicTrefleActivity
 
     public static final String INTENT_VALID_TRANSAC = "INTENT_VALID_TRANSAC";
 
+    private ExpediteurMessage expediteurMessage;
+
     @Override
     public DrawerLayout getMainDrawerLayout() {
         return (DrawerLayout)findViewById(R.id.transaction_drawer_layout);
@@ -36,6 +40,8 @@ public class TransactionActivity extends BasicTrefleActivity
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_transaction);
         super.onCreate(savedInstanceState);
+
+        this.expediteurMessage = new ExpediteurSMS();
 
         this.transactionEnCours = false;
 
@@ -104,10 +110,8 @@ public class TransactionActivity extends BasicTrefleActivity
             else {
                 ((Button)this.findViewById(R.id.boutonValider)).setEnabled(false);
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
-                final String message = this.creerMessage(montant, Integer.toString(numDestinataire));
 
-                //Toast.makeText(TransactionActivity.this, "Message : " + message, Toast.LENGTH_SHORT).show();
-                SmsManager.getDefault().sendTextMessage(this.numeroServeurDataSource.getNumeroServeur(),null,message,null,null);
+                this.expediteurMessage.transaction(montant, Integer.toString(numDestinataire), this);
 
                 this.transactionEnCours = true;
 
