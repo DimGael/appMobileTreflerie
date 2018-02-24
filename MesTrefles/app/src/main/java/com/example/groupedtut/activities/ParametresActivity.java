@@ -46,8 +46,10 @@ public class ParametresActivity extends BasicTrefleActivity
         //Ajouter le montant actuel du montant max de transaction
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
 
+        /*
         RadioButton particulier = (RadioButton) findViewById(R.id.radioBoutonParticulier);
         particulier.setChecked(true);
+        */
 
     }
 

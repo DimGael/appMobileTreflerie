@@ -126,29 +126,15 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp">
 
-                        <TextView
-                            android:id="@+id/textConfigMode"
+                        <Switch
+                            android:id="@+id/switchModePro"
                             android:layout_width="wrap_content"
-                            android:layout_height="60dp"
-                            android:text="@string/textConfigMode"
-                            style="@style/TexteSimple" />
-
-                        <RadioGroup
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/radioBoutonParticulier"
-                                android:text="@string/textRadioBoutonParticulier"
-                                style="@style/RadioBouton"/>
-
-                            <RadioButton
-                                android:id="@+id/radioBoutonProfessionnel"
-                                android:text="@string/textRadioBoutonProfessionnel"
-                                style="@style/RadioBouton"/>
-                        </RadioGroup>
-
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="20dp"
+                            android:text="Activer le mode professionnel :" />
                 </LinearLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="13dp">
