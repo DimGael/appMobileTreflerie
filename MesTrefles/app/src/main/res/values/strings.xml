@@ -75,5 +75,6 @@
     <string name="messageErreurServeur">Le serveur ne répond pas. Veuillez rééssayer plus tard.</string>
     <string name="titreErreurServeur">Serveur indisponible</string>
     <string name="boutonErreurServeur">J\'ai compris</string>
+    <string name="hint_login_jabber">Exemple : joel2</string>
 
 </resources>
