@@ -65,7 +65,7 @@ public class MyXMPP {
 
         XMPPTCPConnectionConfiguration.Builder configBuilder = XMPPTCPConnectionConfiguration.builder();
 
-        configBuilder.setUsernameAndPassword("nalexis", "soleil");
+        configBuilder.setUsernameAndPassword(userId, pwd);
         configBuilder.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
 
         try {
@@ -154,7 +154,7 @@ public class MyXMPP {
             chatmanager = ChatManager.getInstanceFor(connection);
 
             try {
-                EntityBareJid jid = JidCreate.entityBareFrom("dgael@mmtux.fr");
+                EntityBareJid jid = JidCreate.entityBareFrom("volet@mmtux.fr");
                 newChat = chatmanager.createChat(jid);
             } catch (XmppStringprepException e) {
                 e.printStackTrace();
@@ -162,7 +162,7 @@ public class MyXMPP {
 
             try {
 
-                newChat.sendMessage("Howdy!");
+                newChat.sendMessage("S?");
                 Log.d("xmpp","Message envoyé !!!");
 
             } catch (SmackException.NotConnectedException e) {

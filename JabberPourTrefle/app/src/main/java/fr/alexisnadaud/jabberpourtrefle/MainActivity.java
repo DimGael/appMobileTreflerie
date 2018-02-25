@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View view) {
         if(view.getId() == R.id.BoutonConnexion){
             this.myXMPP = new MyXMPP();
-            this.myXMPP.init("nalexis", "soleil");
+            this.myXMPP.init("dgael", "soleil");
             this.myXMPP.connectConnection();
         }
         else if(view.getId() == R.id.BoutonMessage){

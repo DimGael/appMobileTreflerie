@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
 import com.example.groupedtut.expediteur_message.SMS.ExpediteurSMS;
+import com.example.groupedtut.expediteur_message.jabber.ExpediteurJabber;
 import com.example.groupedtut.numerocompte.NumeroCompteDataSource;
 
 
@@ -34,6 +35,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         super.onCreate(savedInstanceState);
 
         this.expediteurMessage = new ExpediteurSMS();
+        //this.expediteurMessage = new ExpediteurJabber("dgael@mmtux.fr", "soleil");
 
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);

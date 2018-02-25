@@ -11,12 +11,16 @@ import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.chat.ChatMessageListener;
+import org.jivesoftware.smack.filter.AbstractFromToMatchesFilter;
+import org.jivesoftware.smack.filter.StanzaFilter;
 import org.jivesoftware.smack.packet.Message;
+import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 import org.jxmpp.jid.EntityBareJid;
@@ -65,7 +69,7 @@ public class MyXMPP {
 
         XMPPTCPConnectionConfiguration.Builder configBuilder = XMPPTCPConnectionConfiguration.builder();
 
-        configBuilder.setUsernameAndPassword("nalexis", "soleil");
+        configBuilder.setUsernameAndPassword(this.userName, this.passWord);
         configBuilder.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
 
         try {
@@ -108,7 +112,6 @@ public class MyXMPP {
     }
 
     public void connectConnection()
-
     {
 
         AsyncTask<Void, Void, Boolean> connectionThread = new AsyncTask<Void, Void, Boolean>() {
@@ -145,7 +148,19 @@ public class MyXMPP {
 
     }
 
-    public void sendMsg() {
+    public void sendMsg(String destinataire, String message) {
+        connection.addPacketInterceptor(new StanzaListener() {
+            @Override
+            public void processStanza(Stanza packet) throws SmackException.NotConnectedException, InterruptedException {
+                Log.d("Stanza Listener","Ligne 155");
+            }
+        }, new StanzaFilter() {
+            @Override
+            public boolean accept(Stanza stanza) {
+                Log.d("Stanza Filter","Ligne 160, filter");
+                return false;
+            }
+        });
 
         if (connection.isConnected()== true) {
             Log.d("xmpp","co réalisée");
@@ -154,7 +169,7 @@ public class MyXMPP {
             chatmanager = ChatManager.getInstanceFor(connection);
 
             try {
-                EntityBareJid jid = JidCreate.entityBareFrom("dgael@mmtux.fr");
+                EntityBareJid jid = JidCreate.entityBareFrom("volet@mmtux.fr");
                 newChat = chatmanager.createChat(jid);
             } catch (XmppStringprepException e) {
                 e.printStackTrace();
@@ -162,7 +177,7 @@ public class MyXMPP {
 
             try {
 
-                newChat.sendMessage("Howdy!");
+                newChat.sendMessage(message);
                 Log.d("xmpp","Message envoyé !!!");
 
             } catch (SmackException.NotConnectedException e) {
