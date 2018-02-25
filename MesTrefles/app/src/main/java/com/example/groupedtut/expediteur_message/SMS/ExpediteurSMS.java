@@ -6,6 +6,8 @@ import android.telephony.SmsManager;
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Gael on 24/02/2018.
  */
@@ -33,15 +35,18 @@ public class ExpediteurSMS implements ExpediteurMessage {
     }
 
     private String creerMessage(double montant, String numDestinataire){
-        int avantVirgule;
-        double apresVirgule;
+        BigDecimal bd = new BigDecimal(montant);
+        bd= bd.setScale(2,BigDecimal.ROUND_DOWN);
+        double montantArrondi = bd.doubleValue();
 
-        avantVirgule = (int)montant;
-        apresVirgule = (montant%1)*100;
+        final int avantVirgule = (int) montantArrondi;
 
-        if(apresVirgule == 0.0){
+        int indexVirgule = new Double(montantArrondi).toString().indexOf(".");
+        String apresVirgule = new Double(montantArrondi).toString().substring(indexVirgule + 1);
+
+        if (apresVirgule.equals("0"))
             return avantVirgule+"/"+numDestinataire;
-        }
-        return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
+        else
+            return avantVirgule + "," + apresVirgule + "/"+numDestinataire;
     }
 }
