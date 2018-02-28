@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 public class ExpediteurJabber implements ExpediteurMessage {
     private MyXMPP myXMPP;
-    private static String DESTINATAIRE = "volet@mmtux.fr";
+    private static String DESTINATAIRE = "volet";
 
     public ExpediteurJabber(String userId, String pwd){
         this.myXMPP = new MyXMPP();

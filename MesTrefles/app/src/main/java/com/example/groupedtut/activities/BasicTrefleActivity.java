@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.groupedtut.expediteur_message.jabber.MyXMPP;
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 import com.example.groupedtut.soldeactuel.SoldeDataSource;
 
@@ -21,6 +22,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     private Toolbar toolbar;
 
     public static BasicTrefleActivity instance = null;
+    public static MyXMPP myXMPP;
 
     public abstract DrawerLayout getMainDrawerLayout();
 

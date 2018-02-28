@@ -145,7 +145,7 @@ public class MyXMPP {
 
     }
 
-    public void sendMsg() {
+    public void sendMsg(String destinataire, String message) {
 
         if (connection.isConnected()== true) {
             Log.d("xmpp","co réalisée");
@@ -154,7 +154,7 @@ public class MyXMPP {
             chatmanager = ChatManager.getInstanceFor(connection);
 
             try {
-                EntityBareJid jid = JidCreate.entityBareFrom("volet@mmtux.fr");
+                EntityBareJid jid = JidCreate.entityBareFrom(destinataire+"@"+HOST);
                 newChat = chatmanager.createChat(jid);
             } catch (XmppStringprepException e) {
                 e.printStackTrace();
@@ -162,7 +162,7 @@ public class MyXMPP {
 
             try {
 
-                newChat.sendMessage("S?");
+                newChat.sendMessage(message);
                 Log.d("xmpp","Message envoyé !!!");
 
             } catch (SmackException.NotConnectedException e) {

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             this.myXMPP.connectConnection();
         }
         else if(view.getId() == R.id.BoutonMessage){
-            this.myXMPP.sendMsg();
+            this.myXMPP.sendMsg("volet", "S?");
         }
     }
 
