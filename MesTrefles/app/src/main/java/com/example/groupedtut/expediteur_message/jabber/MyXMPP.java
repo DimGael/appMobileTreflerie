@@ -7,6 +7,7 @@ import android.util.Log;
 import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionListener;
+import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
@@ -24,6 +25,9 @@ import java.io.IOException;
 
 
 public class MyXMPP {
+
+    public static MyXMPP globalMyXmpp;
+
     private static final String DOMAIN = "mmtux.fr";
 
     private static final String HOST = "mmtux.fr";
@@ -49,6 +53,16 @@ public class MyXMPP {
     private boolean chat_created;
 
     private boolean loggedin;
+
+    private ChatMessageListener messageRecuListener;
+
+    public boolean hasMessageRecuListener(){
+        return messageRecuListener != null;
+    }
+
+    public void setMessageRecuListener(ChatMessageListener messageRecuListener){
+        this.messageRecuListener = messageRecuListener;
+    }
 
     //Initialize
     public void init(String userId,String pwd ) {
@@ -174,12 +188,9 @@ public class MyXMPP {
             Log.d("xmpp","message non envoyé co non réalisée");
         }
 
-        newChat.addMessageListener(new ChatMessageListener() {
-            @Override
-            public void processMessage(Chat chat, Message message) {
-                Log.d("Message reçu", message.getBody().toString()+" <= le nouveau message");
-            }
-        });
+        if(this.hasMessageRecuListener()){
+            newChat.addMessageListener(this.messageRecuListener);
+        }
 
     }
 

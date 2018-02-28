@@ -36,7 +36,7 @@ public class RecuperationSms {
         );
     }
 
-    public MessageDechiffre recupererMessageDechiffre(){
+    public MessageDechiffre getMessageDechiffre(){
 
         for (MessageDechiffre typeMessage: this.listTypeSms) {
             if(typeMessage.messageRecuCorrespond()){

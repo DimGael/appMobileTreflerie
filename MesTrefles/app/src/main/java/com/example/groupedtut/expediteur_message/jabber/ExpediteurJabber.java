@@ -14,24 +14,18 @@ public class ExpediteurJabber implements ExpediteurMessage {
     private MyXMPP myXMPP;
     private static String DESTINATAIRE = "volet";
 
-    public ExpediteurJabber(String userId, String pwd){
-        this.myXMPP = new MyXMPP();
-        this.myXMPP.init(userId, pwd);
-        this.myXMPP.connectConnection();
+    public ExpediteurJabber(MyXMPP myXMPP){
+        this.myXMPP = myXMPP;
     }
 
     @Override
     public void demandeSoldeActuel(Context context) {
-        this.myXMPP.connectConnection();
         this.myXMPP.sendMsg(DESTINATAIRE, "S?");
-        this.myXMPP.disconnectConnection();
     }
 
     @Override
     public void transaction(double montant, String destinataire, Context context) {
-        this.myXMPP.connectConnection();
         this.myXMPP.sendMsg(DESTINATAIRE, creerMessage(montant, destinataire));
-        this.myXMPP.disconnectConnection();
     }
 
     private String creerMessage(double montant, String numDestinataire){

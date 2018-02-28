@@ -67,7 +67,12 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         DrawerLayout drawer = getMainDrawerLayout();
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else if(this.getClass() == ParametreJabberActivity.class)
+        {
+            super.onBackPressed();
+        }
+        else{
             final Intent intentAccueil = new Intent(this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
             finish();

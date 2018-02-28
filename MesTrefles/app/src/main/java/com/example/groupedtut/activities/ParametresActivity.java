@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.groupedtut.expediteur_message.jabber.MyXMPP;
 import com.example.groupedtut.montantmax.MontantMaxDataSource;
 
 
@@ -57,8 +58,18 @@ public class ParametresActivity extends BasicTrefleActivity
                     final Intent intentParametresJabber = new Intent(getApplicationContext(), ParametreJabberActivity.class);
                     startActivity(intentParametresJabber);
                 }
+                else{
+                    MyXMPP.globalMyXmpp.disconnectConnection();
+                    MyXMPP.globalMyXmpp = null;
+                }
             }
         });
+
+        if(MyXMPP.globalMyXmpp != null) {
+            switchPro.setChecked(true);
+        }
+
+
 
     }
 

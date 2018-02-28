@@ -7,7 +7,6 @@ import android.telephony.SmsMessage;
 
 
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
-import com.example.groupedtut.reception_sms.tri.MessageDechiffre;
 
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
@@ -35,7 +34,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                     //FONCTIONNE
                     this.recuperationSms = new RecuperationSms(smsBody);
 
-                    this.recuperationSmsDechiffre = new RecuperationSmsDechiffre(this.recuperationSms.recupererMessageDechiffre());
+                    this.recuperationSmsDechiffre = new RecuperationSmsDechiffre(this.recuperationSms.getMessageDechiffre());
                     recuperationSmsDechiffre.traiterLeMessage(context);
                 }
             }
