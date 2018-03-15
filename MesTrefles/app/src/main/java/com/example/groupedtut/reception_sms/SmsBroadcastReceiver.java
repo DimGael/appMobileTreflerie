@@ -8,9 +8,7 @@ import android.telephony.SmsMessage;
 
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 
-
 public class SmsBroadcastReceiver extends BroadcastReceiver {
-
 
     public static final String SMS_BUNDLE = "pdus";
     private RecuperationSms recuperationSms;
@@ -18,7 +16,6 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
     public void onReceive(Context context, Intent intent) {
 
-        boolean doitAfficher = false;
         Bundle intentExtras = intent.getExtras();
         if (intentExtras != null) {
             Object[] sms = (Object[]) intentExtras.get(SMS_BUNDLE);
@@ -44,6 +41,8 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     private String getNumeroServeur(Context context) {
         final NumeroServeurDataSource numeroServeurDataSource = new NumeroServeurDataSource(context);
         numeroServeurDataSource.open();
-        return numeroServeurDataSource.getNumeroServeur();
+        final String numServeur = numeroServeurDataSource.getNumeroServeur();
+        numeroServeurDataSource.close();
+        return numServeur;
     }
 }
