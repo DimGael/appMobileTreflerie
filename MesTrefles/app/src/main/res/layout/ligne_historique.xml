@@ -13,7 +13,7 @@
         android:textColor="@android:color/black"
         android:textStyle="bold"
          android:layout_weight="1"
-        android:text="N° 29"
+        android:text="29 : Quentin"
          android:gravity="center"
          android:textSize="20sp"
          android:width="100dp"/>
@@ -21,11 +21,11 @@
     <TextView android:id="@+id/montant"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
+        android:textColor="@color/transactionRentrante"
         android:layout_weight="1"
         android:layout_alignLeft="@+id/montant"
         android:layout_below="@+id/montant"
-        android:text="26 T"
+        android:text="+26"
         android:gravity="center"
         android:textSize="20sp"
         android:layout_alignStart="@+id/montant"/>
@@ -39,7 +39,7 @@
         android:layout_alignLeft="@+id/date"
         android:layout_below="@+id/date"
         android:gravity="center"
-        android:text="07/01/98"
+        android:text="07/01/18"
         android:layout_alignStart="@+id/date" />
 
 </LinearLayout>
