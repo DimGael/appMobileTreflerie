@@ -34,7 +34,9 @@ public class DepenseActivity extends BasicTrefleActivity
 
 
         ArrayList<Transaction> transactionsTests = new ArrayList<Transaction>();
-
+        /*
+          tests de différentes transaction
+         */
         transactionsTests.add(new Transaction(0, 10.0, "24/01/18", "N°29 : Dim", Transaction.RENTRANTE));
         transactionsTests.add(new Transaction(1, 15.26, "15/01/18", "N°31 : Nadaud", Transaction.SORTANTE));
         transactionsTests.add(new Transaction(2, 150.26, "15/01/18", "N°12 : Rebierre", Transaction.SORTANTE));

@@ -22,6 +22,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     private Toolbar toolbar;
 
     public static BasicTrefleActivity instance = null;
+    //declaration du xampp
     public static MyXMPP myXMPP;
 
     public abstract DrawerLayout getMainDrawerLayout();

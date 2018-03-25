@@ -67,14 +67,14 @@ public class AideActivity extends BasicTrefleActivity
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.boutonSiteAide) {
-
+            //action lorsque l'utilisateur clique sur le bouton site
             String url= "http://moloco.px.free.fr/";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             startActivity(i);
         }
         else if (view.getId() == R.id.boutonMailSupport) {
-            //Action lorsque l'utilisateur appuie sur le bouton site
+            //Action lorsque l'utilisateur appuie sur le bouton mail
             Intent i = new Intent(Intent.ACTION_SEND);
             i.setType("message/rfc822");
             i.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"contact@treflerie.info"});
