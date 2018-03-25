@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
+import com.example.groupedtut.expediteur_message.SMS.ExpediteurSMS;
 import com.example.groupedtut.expediteur_message.jabber.ExpediteurJabber;
 import com.example.groupedtut.expediteur_message.jabber.MyXMPP;
 import com.example.groupedtut.numerocompte.NumeroCompteDataSource;
@@ -40,8 +41,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         setContentView(R.layout.activity_solde);
         super.onCreate(savedInstanceState);
 
-        //this.expediteurMessage = new ExpediteurSMS();
-        this.expediteurMessage = new ExpediteurJabber(MyXMPP.globalMyXmpp);
+        this.expediteurMessage = new ExpediteurSMS();
+        //this.expediteurMessage = new ExpediteurJabber(MyXMPP.globalMyXmpp);
         MyXMPP.globalMyXmpp.setMessageRecuListener(this);
 
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
