@@ -120,7 +120,7 @@ public class TransactionActivity extends BasicTrefleActivity
                     public void run() {
                         afficherMessageSiTransactionEnCours();
                     }
-                }, 1000);
+                }, 40000);
             }
         }
     }
