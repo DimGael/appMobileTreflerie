@@ -115,8 +115,6 @@ public class TransactionActivity extends BasicTrefleActivity
 
                 this.transactionEnCours = true;
 
-
-
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
