@@ -38,9 +38,9 @@ public class RecuperationSms {
 
     public MessageDechiffre getMessageDechiffre(){
 
-        for (MessageDechiffre typeMessage: this.listTypeSms) {
-            if(typeMessage.messageRecuCorrespond()){
-                return typeMessage;
+        for (MessageDechiffre messageDechiffre: this.listTypeSms) {
+            if(messageDechiffre.messageRecuCorrespond()){
+                return messageDechiffre;
             }
         }
 

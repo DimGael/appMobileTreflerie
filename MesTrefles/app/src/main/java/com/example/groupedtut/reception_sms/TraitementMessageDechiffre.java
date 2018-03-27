@@ -21,11 +21,11 @@ import java.util.List;
 /**
  * Récupère les Messages déchiffrés par la classe MessageDechiffre, puis traite ces messages
  */
-public class RecuperationSmsDechiffre {
+public class TraitementMessageDechiffre {
 
     private final List<TraiteurMessage> listTraiteurs;
 
-    public RecuperationSmsDechiffre(MessageDechiffre typeMessageServeur) {
+    public TraitementMessageDechiffre(MessageDechiffre typeMessageServeur) {
         this.listTraiteurs = new ArrayList<TraiteurMessage>(
                 Arrays.asList(
                         new TraiteurMessageSolde(typeMessageServeur),

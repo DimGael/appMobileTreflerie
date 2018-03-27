@@ -7,12 +7,13 @@ import android.telephony.SmsMessage;
 
 
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
+import com.example.groupedtut.reception_sms.tri.MessageDechiffre;
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
 
     public static final String SMS_BUNDLE = "pdus";
     private RecuperationSms recuperationSms;
-    private RecuperationSmsDechiffre recuperationSmsDechiffre;
+    private TraitementMessageDechiffre recuperationSmsDechiffre;
 
     public void onReceive(Context context, Intent intent) {
 
@@ -30,9 +31,12 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
 
                     //FONCTIONNE
                     this.recuperationSms = new RecuperationSms(smsBody);
+                    final MessageDechiffre messageDechiffre = this.recuperationSms.getMessageDechiffre();
 
-                    this.recuperationSmsDechiffre = new RecuperationSmsDechiffre(this.recuperationSms.getMessageDechiffre());
-                    recuperationSmsDechiffre.traiterLeMessage(context);
+                    if(messageDechiffre != null) {
+                        this.recuperationSmsDechiffre = new TraitementMessageDechiffre(messageDechiffre);
+                        recuperationSmsDechiffre.traiterLeMessage(context);
+                    }
                 }
             }
         }
