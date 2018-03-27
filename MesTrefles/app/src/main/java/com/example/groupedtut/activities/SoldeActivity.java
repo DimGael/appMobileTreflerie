@@ -48,7 +48,7 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         final Button boutonActualiser = (Button)this.findViewById(R.id.boutonActualiser);
         boutonActualiser.setOnClickListener(this);
 
-        this.majSoldeAffichage(this.soldeDataSource.getSoldeActuel());
+        this.majSoldeAffichage();
 
         ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("");
 
@@ -125,10 +125,10 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
     }
 
     @Override
-    public void majSoldeAffichage(double nouvSolde){
+    public void majSoldeAffichage(){
         TextView textViewSolde = (TextView)this.findViewById(R.id.textNbrTrefles);
-        textViewSolde.setText(Double.toString(nouvSolde));
-        super.majSoldeAffichage(nouvSolde);
+        textViewSolde.setText(afficherSoldeDeuxDecimal(this.soldeDataSource.getSoldeActuel()));
+        super.majSoldeAffichage();
         this.demandeSoldeEnCours = false;
     }
 

@@ -27,11 +27,11 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
     public abstract DrawerLayout getMainDrawerLayout();
 
-    public void majSoldeAffichage(double nouvSolde){
+    public void majSoldeAffichage(){
         this.toolbar.setTitle("Solde : "+afficherSoldeDeuxDecimal(this.soldeDataSource.getSoldeActuel())+" Trèfles");
     }
 
-    private String afficherSoldeDeuxDecimal(double solde) {
+    protected String afficherSoldeDeuxDecimal(double solde) {
         String str = new Double(solde).toString();
         String[] tab = str.split(Pattern.quote("."));
 
@@ -51,7 +51,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
         this.toolbar = this.findViewById(R.id.main_toolbar);
 
-        this.majSoldeAffichage(this.soldeDataSource.getSoldeActuel());
+        this.majSoldeAffichage();
 
         setSupportActionBar(toolbar);
 

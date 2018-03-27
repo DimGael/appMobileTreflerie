@@ -45,7 +45,7 @@ public class TraiteurMessageSolde extends TraiteurMessage {
 
     private void receptionSmsSoldeDansSoldeActivity(double nouvSolde) {
         //Choses à faire si on est dans SoldeActivity
-        SoldeActivity.instance.majSoldeAffichage(nouvSolde);
+        SoldeActivity.instance.majSoldeAffichage();
         ((TextView) SoldeActivity.instance.findViewById(R.id.texteReponseSolde)).setText("Solde Actualisé !");
         ((SoldeActivity) SoldeActivity.instance).changerEtatBouton();
     }

@@ -115,15 +115,14 @@ public class TransactionActivity extends BasicTrefleActivity
 
                 this.transactionEnCours = true;
 
-                //Efface le contenu des EditText
-                this.resetChampTexte();
+
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         afficherMessageSiTransactionEnCours();
                     }
-                }, 40000);
+                }, 1000);
             }
         }
     }
@@ -141,6 +140,9 @@ public class TransactionActivity extends BasicTrefleActivity
 
             final TextView texteRep = (TextView) instance.findViewById(R.id.texteReponseSolde);
             texteRep.setText("");
+            
+            //Efface le contenu des EditText
+            resetChampTexte();
         }
     }
 
@@ -168,25 +170,14 @@ public class TransactionActivity extends BasicTrefleActivity
         super.onResume();
     }
 
-    private String creerMessage(double montant, String numDestinataire){
-        int avantVirgule;
-        double apresVirgule;
-
-        avantVirgule = (int)montant;
-        apresVirgule = (montant%1)*100;
-
-        if(apresVirgule == 0.0){
-            return avantVirgule+"/"+numDestinataire;
-        }
-        return avantVirgule+","+(int)apresVirgule+"/"+numDestinataire;
-    }
-
     /**
      * Méthode à éxécuter lorsqu'on reçoit la confirmation de la réussite d'une transaction.
      */
     public void transactionReussie(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
         texteRep.setText("Transaction Réussie !");
+
+        this.resetChampTexte();
 
         final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
         boutonValider.setEnabled(true);
@@ -200,6 +191,8 @@ public class TransactionActivity extends BasicTrefleActivity
     public void transactionEchouee(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
         texteRep.setText("Transaction Echouée");
+
+        this.resetChampTexte();
 
         final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
         boutonValider.setEnabled(true);
