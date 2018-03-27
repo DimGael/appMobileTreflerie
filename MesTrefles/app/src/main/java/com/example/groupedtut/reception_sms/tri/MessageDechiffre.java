@@ -29,7 +29,8 @@ public abstract class MessageDechiffre {
     protected double getDoubleSansVirgule(String message) {
         if (message.contains(",")) {
             String[] messages = message.split(",");
-            return Double.valueOf(messages[0] + "." + messages[1]).doubleValue();
+            final double retour = Double.valueOf(messages[0] + "." + messages[1].substring(0,2)).doubleValue();
+            return retour;
         }
         return Double.valueOf(message).doubleValue();
     }

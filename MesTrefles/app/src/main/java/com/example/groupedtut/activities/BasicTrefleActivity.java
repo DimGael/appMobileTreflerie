@@ -15,6 +15,8 @@ import com.example.groupedtut.expediteur_message.jabber.MyXMPP;
 import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 import com.example.groupedtut.soldeactuel.SoldeDataSource;
 
+import java.util.regex.Pattern;
+
 public abstract class BasicTrefleActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected SoldeDataSource soldeDataSource;
@@ -22,14 +24,18 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     private Toolbar toolbar;
 
     public static BasicTrefleActivity instance = null;
-    //declaration du xampp
-    public static MyXMPP myXMPP;
 
     public abstract DrawerLayout getMainDrawerLayout();
 
     public void majSoldeAffichage(double nouvSolde){
-        this.toolbar.setTitle("Solde : "+this.soldeDataSource.getSoldeActuel()+" Trèfles");
+        this.toolbar.setTitle("Solde : "+afficherSoldeDeuxDecimal(this.soldeDataSource.getSoldeActuel())+" Trèfles");
+    }
 
+    private String afficherSoldeDeuxDecimal(double solde) {
+        String str = new Double(solde).toString();
+        String[] tab = str.split(Pattern.quote("."));
+
+        return tab[0]+'.'+tab[1].substring(0, 2);
     }
 
     @Override

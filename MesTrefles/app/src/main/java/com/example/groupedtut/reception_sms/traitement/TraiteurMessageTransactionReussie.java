@@ -25,9 +25,9 @@ public class TraiteurMessageTransactionReussie extends TraiteurMessage {
 
             String nomPersonne = messageDechiffreTransactionReussie.getNomBeneficiaire();
 
-            double soldeEnvoye = messageDechiffreTransactionReussie.getMontantEnvoye();
+            double soldeEnvoye = messageDechiffreTransactionReussie.getMontantEnvoye() * (-1);
 
-            this.ajouterSolde(context, soldeEnvoye * (-1));
+            this.ajouterSolde(context, soldeEnvoye);
 
             this.ajouterNouvelleTransactionSortante(context, soldeEnvoye, numeroCompte, nomPersonne);
 
