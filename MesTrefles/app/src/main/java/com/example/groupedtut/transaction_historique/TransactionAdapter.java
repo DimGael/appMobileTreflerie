@@ -101,7 +101,7 @@ public class TransactionAdapter extends BaseAdapter {
                                 linearLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary));
                             }
                         })
-                        .setPositiveButton("Suprimmer", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Supprimer", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 transactions.remove(position);
