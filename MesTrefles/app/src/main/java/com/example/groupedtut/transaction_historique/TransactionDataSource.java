@@ -80,7 +80,7 @@ public class TransactionDataSource {
     }
 
     public List<Transaction> getAllTransaction(){
-        Cursor cursor = database.query(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, allColumns, null, null, null, null, MySQLiteHelperTransaction.COLUMN_DATE);
+        Cursor cursor = database.query(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, allColumns, null, null, null, null, MySQLiteHelperTransaction.COLUMN_ID + " DESC");
 
         List<Transaction> transactions = new ArrayList<Transaction>();
         Transaction transaction = new Transaction();
@@ -114,6 +114,14 @@ public class TransactionDataSource {
             }
         }
             return transactions;
+    }
+
+    public int supprimerTransaction(Transaction transaction){
+        return this.supprimerTransaction(transaction.getId());
+    }
+
+    public int supprimerTransaction(long id) {
+        return this.database.delete(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, MySQLiteHelperTransaction.COLUMN_ID+" = "+id, null);
     }
 
 }

@@ -16,5 +16,6 @@
     //HISTORIQUE
     <color name="transactionSortante">#cc0000</color>
     <color name="transactionRentrante">#33cc33</color>
+    <color name="ligneChoisie">#e1e1e1</color>
 
 </resources>
