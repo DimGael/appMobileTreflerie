@@ -77,15 +77,15 @@ public class TransactionAdapter extends BaseAdapter {
         TextView date = (TextView)convertView.findViewById(R.id.date);
         date.setText(transaction.getDate());
 
-        final LinearLayout linearLayout = (LinearLayout)convertView.findViewById(R.id.ligne_historique);
 
+        /*
         convertView.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View view) {
 
                 linearLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.ligneChoisie));
 
-                new AlertDialog.Builder(BasicTrefleActivity.instance)
+                /*new AlertDialog.Builder(BasicTrefleActivity.instance)
                         .setCancelable(true)
                         .setOnCancelListener(new DialogInterface.OnCancelListener() {
                             @Override
@@ -120,6 +120,7 @@ public class TransactionAdapter extends BaseAdapter {
                 return true;
             }
         });
+        */
 
         return convertView;
     }
