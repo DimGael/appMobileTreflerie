@@ -1,13 +1,17 @@
 # Projet Tut : Application mobile pour la trèflerie
-Repository pour l'application mobile "tréflerie".
+Voici le github pour l'application mobile Android Banque Trèflerie.
 
 Il contient les mini-projets et le dossier principal du projet.
+
+Le dossier principal du projet est /MesTrefles
 
 
 Pour trouver le code source et les manifests => MiniProjet/app/src/main/
 
 
- Lien des maquettes : https://app.moqups.com/dimgael98@gmail.com/9rBbPUHDcR/view
- 
- 
- Lorsque vous faîtes une tâche => allez dans ressource et notez ce que vous avez fait.
+Le projet a été développé sur Android Studio par
+
+Gaël DIM
+Alexis NADAUD
+Alexandre POMMARAT
+Quentin Rebierre
