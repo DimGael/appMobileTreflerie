@@ -32,8 +32,9 @@ public class NumeroServeurDataSource {
         if(cursor.moveToFirst()){
             return cursor.getString(1);
         }else
-            //Le numéro de base du serveur
-            return "+33782572437";
+            //Numéro du serveur de test
+            //return "+33782572437";
+            return "+33768658944";
     }
 
     public boolean numeroServeurExisteDansBdd(){

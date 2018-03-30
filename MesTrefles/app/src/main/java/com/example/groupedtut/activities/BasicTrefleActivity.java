@@ -32,10 +32,14 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     }
 
     protected String afficherSoldeDeuxDecimal(double solde) {
-        String str = new Double(solde).toString();
-        String[] tab = str.split(Pattern.quote("."));
+        if(solde%1 > 0) {
+            String str = new Double(solde).toString();
+            String[] tab = str.split(Pattern.quote("."));
 
-        return tab[0]+'.'+tab[1].substring(0, 2);
+            return tab[0] + '.' + tab[1].substring(0, 2);
+        }
+
+        return new Double(solde).toString();
     }
 
     @Override
@@ -87,12 +91,6 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
     }
 
     @Override
-    public void onRestart(){
-        this.finish();
-        super.onRestart();
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_principal, menu);
@@ -110,6 +108,7 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         if (id == R.id.action_settings) {
             final Intent intentParam = new Intent(this, ParametresActivity.class);
             this.startActivity(intentParam);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -123,10 +122,12 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         if (id == R.id.mAccueil) {
             final Intent intentAccueil = new Intent(this, MenuPrincipal.class);
             this.startActivity(intentAccueil);
+            finish();
 
         } else if (id == R.id.mDepenses) {
             final Intent intentDepense = new Intent(this, DepenseActivity.class);
             this.startActivity(intentDepense);
+            finish();
 
         } else if (id == R.id.mSolde) {
             final Intent intentSolde = new Intent(this, SoldeActivity.class);
@@ -135,13 +136,17 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
         } else if (id == R.id.mTransaction) {
             final Intent intentTransac = new Intent(this, TransactionActivity.class);
             this.startActivity(intentTransac);
+            finish();
 
         } else if (id == R.id.mAide) {
             final Intent intentAide = new Intent(this, AideActivity.class);
             this.startActivity(intentAide);
+            finish();
+
         } else if (id == R.id.mParametres) {
             final Intent intentParam = new Intent(this, ParametresActivity.class);
             this.startActivity(intentParam);
+            finish();
         }
 
         DrawerLayout drawer = getMainDrawerLayout();
@@ -151,17 +156,17 @@ public abstract class BasicTrefleActivity extends AppCompatActivity implements N
 
     @Override
     public void onPause(){
+        super.onPause();
         instance = null;
         this.numeroServeurDataSource.close();
         this.soldeDataSource.close();
-        super.onPause();
     }
 
     @Override
     public void onResume(){
+        super.onResume();
         instance = this;
         this.numeroServeurDataSource.open();
         this.soldeDataSource.open();
-        super.onResume();
     }
 }

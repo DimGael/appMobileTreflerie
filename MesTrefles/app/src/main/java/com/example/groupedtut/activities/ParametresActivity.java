@@ -101,12 +101,9 @@ public class ParametresActivity extends BasicTrefleActivity
         }
 
         if(id == R.id.boutonDefaultServeur){
-            Log.d("verif", "rentre dedans");
-            this.numeroServeurDataSource.setNumeroServeur(this.numServeur);
 
             final EditText editTextNum = (EditText)this.findViewById(R.id.editTextNumServeur);
             editTextNum.setText(this.numServeur);
-            Log.d("verif", "fais tout ce qu'il faut");
         }
 
     }
@@ -142,6 +139,8 @@ public class ParametresActivity extends BasicTrefleActivity
         }
         else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() > 250.0){
             //Si l'utilisateur a mis une valeur supérieure à 250
+            this.montantMaxDataSource.majMontantMax(250.0);
+            editTextMontantMax.setText("250.0");
             Toast.makeText(this,"Vous ne pouvez pas excéder 250 trèfles", Toast.LENGTH_SHORT).show();
         }
         else if(Double.valueOf(editTextMontantMax.getText().toString()).doubleValue() <= 0.0){

@@ -16,16 +16,11 @@ import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 
     public class AccueilActivity extends AppCompatActivity {
         private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
-        private NumeroServeurDataSource numeroServeurDataSource;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_accueil);
-
-            this.numeroServeurDataSource = new NumeroServeurDataSource(this);
-            this.numeroServeurDataSource.open();
-
 
 
             if (ContextCompat.checkSelfPermission(this,
@@ -93,18 +88,6 @@ import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
                     return;
                 }
             }
-        }
-
-        @Override
-        public void onResume(){
-            this.numeroServeurDataSource.open();
-            super.onResume();
-        }
-
-        @Override
-        public void onPause(){
-            this.numeroServeurDataSource.close();
-            super.onPause();
         }
 
 

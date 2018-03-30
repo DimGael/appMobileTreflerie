@@ -41,7 +41,8 @@ public class SoldeActivity extends BasicTrefleActivity implements NavigationView
         this.expediteurMessage = new ExpediteurSMS();
 
         /*Mode JABBER
-        this.expediteurMessage = new ExpediteurJabber(MyXMPP.globalMyXmpp);
+        Pour utiliser le mode jabber, il faut utiliser cette ligne :  this.expediteurMessage = new ExpediteurJabber(MyXMPP.globalMyXmpp);
+        ATTENTION : il faut avant cela vérifier que l'utilisateur est connecté
         MyXMPP.globalMyXmpp.setMessageRecuListener(this);
         */
 

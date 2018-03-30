@@ -70,6 +70,7 @@ public class MenuPrincipal extends BasicTrefleActivity
             //Action à faire lors de l'utilisation du bouton Transaction
             final Intent intentTransac = new Intent(MenuPrincipal.this, TransactionActivity.class);
             this.startActivity(intentTransac);
+            finish();
 
         }
 
@@ -77,24 +78,28 @@ public class MenuPrincipal extends BasicTrefleActivity
             //Action à faire lors de l'utilisation du bouton Solde
             final Intent intentSolde = new Intent(MenuPrincipal.this, SoldeActivity.class);
             this.startActivity(intentSolde);
+            finish();
         }
 
         if(view.getId() == R.id.BoutonMesDepenses){
             //Action à faire lors de l'utilisation du bouton Dépenses
             final Intent intentDepenses = new Intent(MenuPrincipal.this, DepenseActivity.class);
             this.startActivity(intentDepenses);
+            finish();
         }
 
         if(view.getId() == R.id.BoutonParametres){
             //Action à faire lors de l'utilisation du bouton Parametres
             final Intent intentParam = new Intent(MenuPrincipal.this, ParametresActivity.class);
             this.startActivity(intentParam);
+            finish();
         }
 
         if(view.getId() == R.id.BoutonAide){
             //Action à faire lors de l'utilisation du bouton Aide
             final Intent intentAide = new Intent(MenuPrincipal.this, AideActivity.class);
             this.startActivity(intentAide);
+            finish();
         }
     }
 
@@ -102,13 +107,12 @@ public class MenuPrincipal extends BasicTrefleActivity
     public void onBackPressed() {
         new AlertDialog.Builder(this)
                 .setTitle("Quitter")
-                .setMessage("Voulez vous vraiment quitter?")
+                .setMessage("Voulez vous vraiment quitter ?")
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
-                        //MenuPrincipal.super.onBackPressed();
+                        moveTaskToBack(true);
                     }
                 }).create().show();
 
