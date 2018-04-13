@@ -5,10 +5,10 @@ import android.widget.TextView;
 
 import com.example.groupedtut.activities.R;
 import com.example.groupedtut.activities.SoldeActivity;
-import com.example.groupedtut.numerocompte.NumeroCompteDataSource;
+import com.example.groupedtut.SQLite.numerocompte.NumeroCompteDataSource;
 import com.example.groupedtut.reception_sms.tri.MessageDechiffre;
 import com.example.groupedtut.reception_sms.tri.MessageDechiffreSolde;
-import com.example.groupedtut.soldeactuel.SoldeDataSource;
+import com.example.groupedtut.SQLite.soldeactuel.SoldeDataSource;
 
 /**
  * Created by GaëlPortable on 26/01/2018.

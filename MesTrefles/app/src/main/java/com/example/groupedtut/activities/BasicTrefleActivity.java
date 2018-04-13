@@ -11,9 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.groupedtut.expediteur_message.jabber.MyXMPP;
-import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
-import com.example.groupedtut.soldeactuel.SoldeDataSource;
+import com.example.groupedtut.SQLite.numeroserveur.NumeroServeurDataSource;
+import com.example.groupedtut.SQLite.soldeactuel.SoldeDataSource;
 
 import java.util.regex.Pattern;
 

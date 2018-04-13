@@ -1,6 +1,6 @@
 package com.example.groupedtut.reception_sms.tri;
 
-import com.example.groupedtut.transaction_historique.Transaction;
+import com.example.groupedtut.SQLite.transaction_historique.Transaction;
 
 /**
  * Created by GaëlPortable on 26/01/2018.

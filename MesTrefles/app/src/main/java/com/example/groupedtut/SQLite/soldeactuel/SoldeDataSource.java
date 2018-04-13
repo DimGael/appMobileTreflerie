@@ -1,10 +1,12 @@
-package com.example.groupedtut.soldeactuel;
+package com.example.groupedtut.SQLite.soldeactuel;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.groupedtut.SQLite.MySQLiteHelper;
 
 
 /**
@@ -13,12 +15,22 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class SoldeDataSource {
 
+    public static final String TABLE_SOLDE = "solde";
     private SQLiteDatabase database;
-    private MySQLiteHelperSolde dbHelper;
-    private static final String[] allColumns = new String[]{MySQLiteHelperSolde.COLUMN_ID, MySQLiteHelperSolde.COLUMN_SOLDE};
+    private MySQLiteHelper dbHelper;
+
+
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_SOLDE = "solde";
+
+    private static final String[] allColumns = new String[]{COLUMN_ID, COLUMN_SOLDE};
+
+    public static final String TABLE_CREATE = "CREATE TABLE "+ TABLE_SOLDE + "("+
+            COLUMN_ID+" integer primary key autoincrement," +
+            COLUMN_SOLDE+" number not null)";
 
     public SoldeDataSource(Context context) {
-        dbHelper = new MySQLiteHelperSolde(context);
+        dbHelper = new MySQLiteHelper(context);
     }
 
     public void open() throws SQLException {
@@ -36,12 +48,12 @@ public class SoldeDataSource {
     public static Solde majSolde(double solde, SQLiteDatabase sqldb){
         ContentValues values = new ContentValues();
 
-        values.put(MySQLiteHelperSolde.COLUMN_SOLDE, solde);
+        values.put(COLUMN_SOLDE, solde);
 
         //insertId récupère l'id du nouvel element inséré dans la bdd
-        long insertId = sqldb.insert(MySQLiteHelperSolde.TABLE_SOLDE, null, values);
+        long insertId = sqldb.insert(TABLE_SOLDE, null, values);
 
-        Cursor cursor = sqldb.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, MySQLiteHelperSolde.COLUMN_ID+"="+insertId, null, null, null, null);
+        Cursor cursor = sqldb.query(TABLE_SOLDE, allColumns, COLUMN_ID+"="+insertId, null, null, null, null);
         cursor.moveToFirst();
 
         Solde nouvSolde = new Solde();
@@ -56,15 +68,15 @@ public class SoldeDataSource {
     }
 
     private void deleteAncienSoldes(long insertId){
-        this.database.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+insertId, null);
+        this.database.delete(TABLE_SOLDE, COLUMN_ID+"!="+insertId, null);
     }
 
     private static void deleteAncienSoldes(long insertId, SQLiteDatabase sqldb){
-        sqldb.delete(MySQLiteHelperSolde.TABLE_SOLDE, MySQLiteHelperSolde.COLUMN_ID+"!="+insertId, null);
+        sqldb.delete(TABLE_SOLDE, COLUMN_ID+"!="+insertId, null);
     }
 
     public double getSoldeActuel(){
-        Cursor cursor = this.database.query(MySQLiteHelperSolde.TABLE_SOLDE, allColumns, null, null, null, null, null);
+        Cursor cursor = this.database.query(TABLE_SOLDE, allColumns, null, null, null, null, null);
         if(cursor.moveToFirst()){
             return cursor.getDouble(1);
         }

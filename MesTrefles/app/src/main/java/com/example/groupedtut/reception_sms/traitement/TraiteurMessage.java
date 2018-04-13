@@ -2,9 +2,9 @@ package com.example.groupedtut.reception_sms.traitement;
 
 import android.content.Context;
 
-import com.example.groupedtut.transaction_historique.TransactionDataSource;
+import com.example.groupedtut.SQLite.transaction_historique.TransactionDataSource;
 import com.example.groupedtut.reception_sms.tri.MessageDechiffre;
-import com.example.groupedtut.soldeactuel.SoldeDataSource;
+import com.example.groupedtut.SQLite.soldeactuel.SoldeDataSource;
 
 import java.util.Date;
 

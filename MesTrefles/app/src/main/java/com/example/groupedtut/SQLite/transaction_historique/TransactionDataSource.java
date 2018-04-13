@@ -1,4 +1,4 @@
-package com.example.groupedtut.transaction_historique;
+package com.example.groupedtut.SQLite.transaction_historique;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,25 +6,42 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.groupedtut.SQLite.MySQLiteHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionDataSource {
 
+    public static final String TABLE_DEPENSES_HISTORIQUE = "historique";
+
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_COMPTE = "beneficiaire";
+    public static final String COLUMN_MONTANT = "montant";
+    public static final String COLUMN_DATE = "date";
+    public static final String COLUMN_TYPE = "type";
+
+    public static final String TABLE_CREATE = "create table "+TABLE_DEPENSES_HISTORIQUE+" ("
+            +COLUMN_ID+" integer primary key autoincrement,"
+            + COLUMN_COMPTE +" text not null,"
+            +COLUMN_MONTANT+" number not null,"
+            +COLUMN_DATE+" text not null,"
+            +COLUMN_TYPE+" text not null)";
+
     private SQLiteDatabase database;
-    private MySQLiteHelperTransaction dbHelper;
+    private MySQLiteHelper dbHelper;
     private String[] allColumns;
 
     public TransactionDataSource(Context context){
         this.allColumns = new String[]{
-                MySQLiteHelperTransaction.COLUMN_ID,
-                MySQLiteHelperTransaction.COLUMN_COMPTE,
-                MySQLiteHelperTransaction.COLUMN_MONTANT,
-                MySQLiteHelperTransaction.COLUMN_DATE,
-                MySQLiteHelperTransaction.COLUMN_TYPE
+                COLUMN_ID,
+                COLUMN_COMPTE,
+                COLUMN_MONTANT,
+                COLUMN_DATE,
+                COLUMN_TYPE
         };
 
-        dbHelper = new MySQLiteHelperTransaction(context);
+        dbHelper = new MySQLiteHelper(context);
     }
 
     public void open() throws SQLException {
@@ -44,22 +61,22 @@ public class TransactionDataSource {
         ContentValues values = new ContentValues();
 
 
-        values.put(MySQLiteHelperTransaction.COLUMN_COMPTE, compte);
-        values.put(MySQLiteHelperTransaction.COLUMN_MONTANT, montant);
-        values.put(MySQLiteHelperTransaction.COLUMN_DATE, date);
+        values.put(COLUMN_COMPTE, compte);
+        values.put(COLUMN_MONTANT, montant);
+        values.put(COLUMN_DATE, date);
 
         if(estSortant)
-            values.put(MySQLiteHelperTransaction.COLUMN_TYPE, Transaction.SORTANTE);
+            values.put(COLUMN_TYPE, Transaction.SORTANTE);
         else
-            values.put(MySQLiteHelperTransaction.COLUMN_TYPE, Transaction.RENTRANTE);
+            values.put(COLUMN_TYPE, Transaction.RENTRANTE);
 
 
         //insertId récupère l'id du nouvel element inséré dans la bdd
-        long insertId = database.insert(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, null, values);
+        long insertId = database.insert(TABLE_DEPENSES_HISTORIQUE, null, values);
 
         //On récupere le nouveau montantMax Récupéré :
         //Le curseur pointe maintenant sur le premier élément de la selection, soit le nouveau MontantMax
-        Cursor cursor = database.query(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, allColumns, MySQLiteHelperTransaction.COLUMN_ID+"="+insertId, null, null, null, null);
+        Cursor cursor = database.query(TABLE_DEPENSES_HISTORIQUE, allColumns, COLUMN_ID+"="+insertId, null, null, null, null);
 
         Transaction transaction = new Transaction();
         if(cursor.moveToFirst()) {
@@ -80,7 +97,7 @@ public class TransactionDataSource {
     }
 
     public List<Transaction> getAllTransaction(){
-        Cursor cursor = database.query(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, allColumns, null, null, null, null, MySQLiteHelperTransaction.COLUMN_ID + " DESC");
+        Cursor cursor = database.query(TABLE_DEPENSES_HISTORIQUE, allColumns, null, null, null, null, COLUMN_ID + " DESC");
 
         List<Transaction> transactions = new ArrayList<Transaction>();
         Transaction transaction = new Transaction();
@@ -121,7 +138,7 @@ public class TransactionDataSource {
     }
 
     public int supprimerTransaction(long id) {
-        return this.database.delete(MySQLiteHelperTransaction.TABLE_DEPENSES_HISTORIQUE, MySQLiteHelperTransaction.COLUMN_ID+" = "+id, null);
+        return this.database.delete(TABLE_DEPENSES_HISTORIQUE, COLUMN_ID+" = "+id, null);
     }
 
 }

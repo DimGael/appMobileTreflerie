@@ -1,19 +1,14 @@
-package com.example.groupedtut.transaction_historique;
+package com.example.groupedtut.activities;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.groupedtut.activities.BasicTrefleActivity;
+import com.example.groupedtut.SQLite.transaction_historique.Transaction;
 import com.example.groupedtut.activities.R;
 
 import java.util.ArrayList;

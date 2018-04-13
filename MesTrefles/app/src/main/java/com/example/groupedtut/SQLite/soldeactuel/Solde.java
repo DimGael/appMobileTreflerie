@@ -1,4 +1,4 @@
-package com.example.groupedtut.soldeactuel;
+package com.example.groupedtut.SQLite.soldeactuel;
 
 /**
  * Created by Gael on 06/12/2017.

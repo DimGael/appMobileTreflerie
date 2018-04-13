@@ -1,4 +1,4 @@
-package com.example.groupedtut.numeroserveur;
+package com.example.groupedtut.SQLite.numeroserveur;
 
 /**
  * Created by Gael on 29/11/2017.

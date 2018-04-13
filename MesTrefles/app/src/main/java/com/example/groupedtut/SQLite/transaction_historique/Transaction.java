@@ -1,4 +1,4 @@
-package com.example.groupedtut.transaction_historique;
+package com.example.groupedtut.SQLite.transaction_historique;
 
 /**
  * Created by Alexis on 10/12/2017.

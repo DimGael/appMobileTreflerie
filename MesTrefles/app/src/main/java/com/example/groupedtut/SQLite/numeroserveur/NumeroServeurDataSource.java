@@ -1,4 +1,4 @@
-package com.example.groupedtut.numeroserveur;
+package com.example.groupedtut.SQLite.numeroserveur;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,17 +6,27 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.groupedtut.SQLite.MySQLiteHelper;
+
 public class NumeroServeurDataSource {
 
+    public static final String TABLE_NUMERO_SERVEUR = "numero_serveur";
+    public static final String COLUMN_NUMERO_SERVEUR = "numero";
+    public static final String COLUMN_ID = "_id";
+
+    public static final String TABLE_CREATE = "create table "+ TABLE_NUMERO_SERVEUR +" ("
+            +COLUMN_ID+" integer primary key autoincrement,"
+            + COLUMN_NUMERO_SERVEUR +" text not null)";
+
     private SQLiteDatabase database;
-    private MySQLiteHelperNumeroServeur dbHelper;
+    private MySQLiteHelper dbHelper;
     private String[] allColumns;
 
     public NumeroServeurDataSource(Context context){
-        this.allColumns = new String[]{MySQLiteHelperNumeroServeur.COLUMN_ID,
-                MySQLiteHelperNumeroServeur.COLUMN_NUMERO_SERVEUR};
+        this.allColumns = new String[]{COLUMN_ID,
+                COLUMN_NUMERO_SERVEUR};
 
-        dbHelper = new MySQLiteHelperNumeroServeur(context);
+        dbHelper = new MySQLiteHelper(context);
     }
 
     public void open() throws SQLException {
@@ -28,7 +38,7 @@ public class NumeroServeurDataSource {
     }
 
     public String getNumeroServeur(){
-        Cursor cursor = database.query(MySQLiteHelperNumeroServeur.TABLE_NUMERO_SERVEUR, allColumns, null, null, null, null, null);
+        Cursor cursor = database.query(TABLE_NUMERO_SERVEUR, allColumns, null, null, null, null, null);
         if(cursor.moveToFirst()){
             return cursor.getString(1);
         }else
@@ -49,11 +59,11 @@ public class NumeroServeurDataSource {
 
         ContentValues values = new ContentValues();
 
-        values.put(MySQLiteHelperNumeroServeur.COLUMN_NUMERO_SERVEUR, numeroServeur);
+        values.put(COLUMN_NUMERO_SERVEUR, numeroServeur);
 
-        final long insertId = database.insert(MySQLiteHelperNumeroServeur.TABLE_NUMERO_SERVEUR, null, values);
+        final long insertId = database.insert(TABLE_NUMERO_SERVEUR, null, values);
 
-        Cursor cursor = database.query(MySQLiteHelperNumeroServeur.TABLE_NUMERO_SERVEUR, allColumns, MySQLiteHelperNumeroServeur.COLUMN_ID+"="+insertId, null, null, null, null);
+        Cursor cursor = database.query(TABLE_NUMERO_SERVEUR, allColumns, COLUMN_ID+"="+insertId, null, null, null, null);
         cursor.moveToFirst();
 
         NumeroServeur nouveauNumeroServeur = new NumeroServeur();
@@ -67,7 +77,7 @@ public class NumeroServeurDataSource {
 
     private void deleteAutresNumeroServeur(NumeroServeur nouveauNumeroServeur) {
         //Suppression de tous les autres montants sauf celui en paramètres
-        database.delete(MySQLiteHelperNumeroServeur.TABLE_NUMERO_SERVEUR, MySQLiteHelperNumeroServeur.COLUMN_ID+"!="+nouveauNumeroServeur.getId(), null);
+        database.delete(TABLE_NUMERO_SERVEUR, COLUMN_ID+"!="+nouveauNumeroServeur.getId(), null);
     }
 
 }

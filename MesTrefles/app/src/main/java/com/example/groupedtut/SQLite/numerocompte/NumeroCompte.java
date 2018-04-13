@@ -1,4 +1,4 @@
-package com.example.groupedtut.numerocompte;
+package com.example.groupedtut.SQLite.numerocompte;
 
 
 public class NumeroCompte {

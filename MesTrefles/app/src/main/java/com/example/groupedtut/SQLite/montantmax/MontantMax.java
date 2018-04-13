@@ -1,4 +1,4 @@
-package com.example.groupedtut.montantmax;
+package com.example.groupedtut.SQLite.montantmax;
 
 /**
  * Created by Gael on 29/11/2017.

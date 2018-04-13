@@ -15,8 +15,7 @@ import android.widget.Toast;
 
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
 import com.example.groupedtut.expediteur_message.SMS.ExpediteurSMS;
-import com.example.groupedtut.expediteur_message.jabber.MyXMPP;
-import com.example.groupedtut.numerocompte.NumeroCompteDataSource;
+import com.example.groupedtut.SQLite.numerocompte.NumeroCompteDataSource;
 
 import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.chat.ChatMessageListener;

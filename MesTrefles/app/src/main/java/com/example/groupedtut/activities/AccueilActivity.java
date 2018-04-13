@@ -11,10 +11,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
 
-
-    public class AccueilActivity extends AppCompatActivity {
+public class AccueilActivity extends AppCompatActivity {
         private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
 
         @Override

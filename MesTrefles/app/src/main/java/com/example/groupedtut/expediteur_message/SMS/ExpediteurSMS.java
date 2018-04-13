@@ -4,7 +4,7 @@ import android.content.Context;
 import android.telephony.SmsManager;
 
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
-import com.example.groupedtut.numeroserveur.NumeroServeurDataSource;
+import com.example.groupedtut.SQLite.numeroserveur.NumeroServeurDataSource;
 
 import java.util.regex.Pattern;
 

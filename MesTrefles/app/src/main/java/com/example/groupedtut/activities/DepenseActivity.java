@@ -8,9 +8,8 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.groupedtut.transaction_historique.Transaction;
-import com.example.groupedtut.transaction_historique.TransactionAdapter;
-import com.example.groupedtut.transaction_historique.TransactionDataSource;
+import com.example.groupedtut.SQLite.transaction_historique.Transaction;
+import com.example.groupedtut.SQLite.transaction_historique.TransactionDataSource;
 
 import java.util.ArrayList;
 
