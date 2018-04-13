@@ -80,10 +80,10 @@ public class TransactionActivity extends BasicTrefleActivity
         else {
             final double montant;
             int numDestinataire = 0;
-            montant = Double.valueOf(editTextMontant.getText().toString()).doubleValue();
+            montant = Double.valueOf(editTextMontant.getText().toString());
 
             try {
-                numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString()).intValue();
+                numDestinataire = Integer.valueOf(editTextNumDestinataire.getText().toString());
             }
             catch (NumberFormatException e){
                 numDestinataire = 10001;
@@ -172,7 +172,7 @@ public class TransactionActivity extends BasicTrefleActivity
      */
     public void transactionReussie(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
-        texteRep.setText("Transaction Réussie !");
+        texteRep.setText(R.string.msg_transaction_sucess);
 
         this.resetChampTexte();
 
@@ -187,7 +187,7 @@ public class TransactionActivity extends BasicTrefleActivity
      */
     public void transactionEchouee(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
-        texteRep.setText("Transaction Echouée");
+        texteRep.setText(R.string.msg_transaction_fail);
 
         this.resetChampTexte();
 

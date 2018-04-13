@@ -77,5 +77,7 @@
     <string name="boutonErreurServeur">J\'ai compris</string>
     <string name="hint_login_jabber">Exemple : joel2</string>
     <string name="titreParametresJabber">Paramètres Jabber</string>
+    <string name="msg_transaction_sucess">Transaction Réussie !</string>
+    <string name="msg_transaction_fail">Transaction Echouée</string>
 
 </resources>
