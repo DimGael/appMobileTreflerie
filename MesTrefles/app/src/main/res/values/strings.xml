@@ -30,7 +30,7 @@
     <string name="boutonValide">Valider</string>
 
      //Transaction
-    <string name="textNumeroDuDest">Numéro Du Destinataire :</string>
+    <string name="textNumeroDuDest">Destinataire :</string>
     <string name="TextMontant">Montant :</string>
     <string name="erreurMontantTransaction">Montant maximal : 250 trèfles   (réglable dans les paramètres)</string>
     <string name="erreurNumeroDestinataireTransaction">Erreur, ce numéro de compte n\'existe pas</string>
