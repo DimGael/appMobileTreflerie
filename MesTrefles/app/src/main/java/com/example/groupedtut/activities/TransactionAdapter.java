@@ -20,15 +20,13 @@ import java.util.List;
 
 public class TransactionAdapter extends BaseAdapter {
 
-    private ListView listView;
     private Context context;
     private ArrayList<Transaction> transactions;
     private LayoutInflater layoutInflater;
 
-    public TransactionAdapter(Context context, List<Transaction> transactions, ListView listView) {
+    public TransactionAdapter(Context context, List<Transaction> transactions) {
         this.context = context;
         this.transactions = (ArrayList<Transaction>)transactions;
-        this.listView = listView;
         layoutInflater = (LayoutInflater.from(context));
     }
 
@@ -73,8 +71,11 @@ public class TransactionAdapter extends BaseAdapter {
         date.setText(transaction.getDate());
 
 
+
+        //Enlever les /**/ pour activer la suppression de lignes dans l'historique
         /*
         convertView.setOnLongClickListener(new View.OnLongClickListener(){
+
             @Override
             public boolean onLongClick(View view) {
 
@@ -106,7 +107,7 @@ public class TransactionAdapter extends BaseAdapter {
                                 transactionDataSource.supprimerTransaction(transaction);
                                 transactionDataSource.close();
 
-                                listView.setAdapter(new TransactionAdapter(context, transactions, listView));
+                                notifyDataSetChanged();
 
                                 Toast.makeText(context, "Transaction suprimmée", Toast.LENGTH_SHORT).show();
                             }

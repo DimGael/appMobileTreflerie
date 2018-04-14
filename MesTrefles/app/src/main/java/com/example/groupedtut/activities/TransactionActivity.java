@@ -47,13 +47,13 @@ public class TransactionActivity extends BasicTrefleActivity
         montantMaxDataSource = new MontantMaxDataSource(this);
         montantMaxDataSource.open();
 
-        Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
+        Button boutonValider = (Button)this.findViewById(R.id.bouton_valider_transaction);
         boutonValider.setOnClickListener(this);
 
-        ((Button)this.findViewById(R.id.boutonValider)).setEnabled(true);
+        ((Button)this.findViewById(R.id.bouton_valider_transaction)).setEnabled(true);
 
         //Mise en place d'un hint pour indiquer quelle valeur maximale l'utilisateur peut saisir
-        ((TextView)this.findViewById(R.id.editTextMontant)).setHint("Montant Max. : "+this.montantMaxDataSource.getMontantMax());
+        ((TextView)this.findViewById(R.id.transaction_saisie_montant)).setHint("Montant Max. : "+this.montantMaxDataSource.getMontantMax());
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -74,8 +74,8 @@ public class TransactionActivity extends BasicTrefleActivity
 
     @Override
     public void onClick(View view) {
-        final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
-        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
+        final EditText editTextMontant = (EditText)this.findViewById(R.id.transaction_saisie_montant);
+        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.transaction_saisie_dest);
 
         if (editTextNumDestinataire.getText().toString().equals("") || editTextMontant.getText().toString().equals("")) {
             Toast.makeText(TransactionActivity.this, "Vous n'avez pas rempli les champs", Toast.LENGTH_SHORT).show();
@@ -110,7 +110,7 @@ public class TransactionActivity extends BasicTrefleActivity
                 editTextErrNumDestinaire.setText("");
             }
             else {
-                ((Button)this.findViewById(R.id.boutonValider)).setEnabled(false);
+                ((Button)this.findViewById(R.id.bouton_valider_transaction)).setEnabled(false);
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
 
                 this.expediteurMessage.transaction(montant, Integer.toString(numDestinataire), this);
@@ -135,7 +135,7 @@ public class TransactionActivity extends BasicTrefleActivity
                     .setPositiveButton(R.string.boutonErreurServeur, null)
                     .create().show();
 
-            final Button boutonValider = (Button) instance.findViewById(R.id.boutonValider);
+            final Button boutonValider = (Button) instance.findViewById(R.id.bouton_valider_transaction);
             boutonValider.setEnabled(true);
 
             final TextView texteRep = (TextView) instance.findViewById(R.id.texteReponseSolde);
@@ -147,8 +147,8 @@ public class TransactionActivity extends BasicTrefleActivity
     }
 
     private void resetChampTexte() {
-        final EditText editTextMontant = (EditText)this.findViewById(R.id.editTextMontant);
-        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.editTextNumeroDest);
+        final EditText editTextMontant = (EditText)this.findViewById(R.id.transaction_saisie_montant);
+        final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.transaction_saisie_dest);
         final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurMontantTransaction);
         final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
 
@@ -179,7 +179,7 @@ public class TransactionActivity extends BasicTrefleActivity
 
         this.resetChampTexte();
 
-        final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
+        final Button boutonValider = (Button)this.findViewById(R.id.bouton_valider_transaction);
         boutonValider.setEnabled(true);
 
         this.transactionEnCours = false;
@@ -194,7 +194,7 @@ public class TransactionActivity extends BasicTrefleActivity
 
         this.resetChampTexte();
 
-        final Button boutonValider = (Button)this.findViewById(R.id.boutonValider);
+        final Button boutonValider = (Button)this.findViewById(R.id.bouton_valider_transaction);
         boutonValider.setEnabled(true);
 
         this.transactionEnCours = false;

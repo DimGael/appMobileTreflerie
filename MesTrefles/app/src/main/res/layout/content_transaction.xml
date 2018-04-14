@@ -10,7 +10,7 @@
         style="@style/TexteSimple"/>
 
     <EditText
-        android:id="@+id/editTextNumeroDest"
+        android:id="@+id/transaction_saisie_dest"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
@@ -31,7 +31,7 @@
     <!-- Le contenu texte sera modifié dans le contexte de l'application -->
 
     <EditText
-        android:id="@+id/editTextMontant"
+        android:id="@+id/transaction_saisie_montant"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
@@ -52,7 +52,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/boutonValider"
+            android:id="@+id/bouton_valider_transaction"
             style="@style/BoutonClassique"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -63,7 +63,7 @@
 
         <TextView
             android:id="@+id/texteReponseSolde"
-            android:layout_below="@+id/boutonValider"
+            android:layout_below="@+id/bouton_valider_transaction"
             style="@style/ReponseServeur"/>
 
     </RelativeLayout>
