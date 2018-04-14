@@ -15,6 +15,8 @@ public class Transaction  {
     private String beneficiaire;
     private String typeTransaction;
 
+    private String commentaire;
+
     public Transaction(){}
 
     public Transaction(long id, double montant, String date, String beneficiaire, String typeTransaction) {
@@ -23,6 +25,28 @@ public class Transaction  {
         this.date = date;
         this.beneficiaire = beneficiaire;
         this.typeTransaction = typeTransaction;
+        this.commentaire = "";
+    }
+
+    public Transaction(long id, double montant, String date, String beneficiaire, String typeTransaction, String commentaire) {
+        this.id = id;
+        this.montant = montant;
+        this.date = date;
+        this.beneficiaire = beneficiaire;
+        this.typeTransaction = typeTransaction;
+        this.commentaire = commentaire;
+    }
+
+    public boolean aUnCommentaire(){
+        return !this.commentaire.equals("");
+    }
+
+    public String getCommentaire(){
+        return commentaire;
+    }
+
+    public void setCommentaire(String commentaire){
+        this.commentaire = commentaire;
     }
 
     public long getId() {
