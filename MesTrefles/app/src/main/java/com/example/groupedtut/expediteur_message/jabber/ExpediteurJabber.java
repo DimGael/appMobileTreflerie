@@ -28,6 +28,11 @@ public class ExpediteurJabber implements ExpediteurMessage {
         this.myXMPP.sendMsg(DESTINATAIRE, creerMessage(montant, destinataire));
     }
 
+    @Override
+    public void transactionCommentaire(double montant, String commentaire, String destinataire, Context context) {
+
+    }
+
     private String creerMessage(double montant, String numDestinataire){
         BigDecimal bd = new BigDecimal(montant);
         bd= bd.setScale(2,BigDecimal.ROUND_DOWN);

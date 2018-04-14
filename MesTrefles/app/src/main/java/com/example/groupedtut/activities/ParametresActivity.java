@@ -48,7 +48,7 @@ public class ParametresActivity extends BasicTrefleActivity
         //Ajout du numéro du serveur de base sur l'edit Text
         ((EditText)this.findViewById(R.id.editTextNumServeur)).setText(this.numeroServeurDataSource.getNumeroServeur());
 
-        //Ajouter le montant actuel du montant max de transaction
+        //Ajouter le montant actuel du montant max de transactionCommentaire
         ((EditText)this.findViewById(R.id.editTextMontantMax)).setText(Double.toString(this.montantMaxDataSource.getMontantMax()));
         
         final Switch switchPro = (Switch)this.findViewById(R.id.switchModePro);

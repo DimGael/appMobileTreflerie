@@ -95,6 +95,7 @@ public class TransactionActivity extends BasicTrefleActivity
             final double montantMax = this.montantMaxDataSource.getMontantMax();
             final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurMontantTransaction);
             final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
+            final String commentaire = ((EditText)findViewById(R.id.transaction_saisie_commentaire)).getText().toString();
 
             if (numDestinataire > 10000) {
                 editTextErrNumDestinaire.setText("Erreur, la saisie du numéro du destinataire est invalide");
@@ -106,14 +107,15 @@ public class TransactionActivity extends BasicTrefleActivity
                 editTextErrMontant.setText("Votre solde est vide \n (Veuillez recharger votre solde ou l'actualiser si cela est déjà effectué)");
                 editTextErrNumDestinaire.setText("");
             } else if(this.soldeDataSource.getSoldeActuel() < montant){
-                editTextErrMontant.setText("Votre solde est insuffisant pour cette transaction \n (Veuillez recharger votre solde ou l'actualiser si cela est déjà effectué)");
+                editTextErrMontant.setText("Votre solde est insuffisant pour cette transactionCommentaire \n (Veuillez recharger votre solde ou l'actualiser si cela est déjà effectué)");
                 editTextErrNumDestinaire.setText("");
             }
             else {
                 ((Button)this.findViewById(R.id.bouton_valider_transaction)).setEnabled(false);
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
 
-                this.expediteurMessage.transaction(montant, Integer.toString(numDestinataire), this);
+                Toast.makeText(this, commentaire, Toast.LENGTH_SHORT).show();
+                this.expediteurMessage.transactionCommentaire(montant, commentaire, Integer.toString(numDestinataire), this);
 
                 this.transactionEnCours = true;
 
@@ -151,11 +153,13 @@ public class TransactionActivity extends BasicTrefleActivity
         final EditText editTextNumDestinataire = (EditText)this.findViewById(R.id.transaction_saisie_dest);
         final TextView editTextErrMontant = (TextView) this.findViewById(R.id.erreurMontantTransaction);
         final TextView editTextErrNumDestinaire = (TextView) this.findViewById(R.id.erreurNumeroCompte);
+        final EditText editTextCom = (EditText)findViewById(R.id.transaction_saisie_commentaire);
 
         editTextMontant.setText("");
         editTextNumDestinataire.setText("");
         editTextErrNumDestinaire.setText("");
         editTextErrMontant.setText("");
+        editTextCom.setText("");
     }
 
     @Override
@@ -171,7 +175,7 @@ public class TransactionActivity extends BasicTrefleActivity
     }
 
     /**
-     * Méthode à éxécuter lorsqu'on reçoit la confirmation de la réussite d'une transaction.
+     * Méthode à éxécuter lorsqu'on reçoit la confirmation de la réussite d'une transactionCommentaire.
      */
     public void transactionReussie(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);
@@ -186,7 +190,7 @@ public class TransactionActivity extends BasicTrefleActivity
     }
 
     /**
-     * Méthode à éxécuter lorsqu'on reçoit un message signalant l'échec de la transaction.
+     * Méthode à éxécuter lorsqu'on reçoit un message signalant l'échec de la transactionCommentaire.
      */
     public void transactionEchouee(){
         final TextView texteRep = (TextView)this.findViewById(R.id.texteReponseSolde);

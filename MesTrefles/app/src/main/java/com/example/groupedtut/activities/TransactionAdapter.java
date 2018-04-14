@@ -90,7 +90,7 @@ public class TransactionAdapter extends BaseAdapter {
                             }
                         })
                         .setTitle("Suprimmer")
-                        .setMessage("Voulez-vous supprimer la transaction \"" + transaction.getCompte() + "\" ?")
+                        .setMessage("Voulez-vous supprimer la transactionCommentaire \"" + transactionCommentaire.getCompte() + "\" ?")
                         .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -104,7 +104,7 @@ public class TransactionAdapter extends BaseAdapter {
 
                                 TransactionDataSource transactionDataSource = new TransactionDataSource(context);
                                 transactionDataSource.open();
-                                transactionDataSource.supprimerTransaction(transaction);
+                                transactionDataSource.supprimerTransaction(transactionCommentaire);
                                 transactionDataSource.close();
 
                                 notifyDataSetChanged();

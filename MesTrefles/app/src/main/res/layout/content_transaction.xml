@@ -97,6 +97,7 @@
         android:layout_margin="20dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/transaction_saisie_commentaire"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/transaction_titre_saisie_com"

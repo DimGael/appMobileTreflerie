@@ -11,4 +11,6 @@ public interface ExpediteurMessage {
     void demandeSoldeActuel(Context context);
 
     void transaction(double montant, String destinataire, Context context);
+
+    void transactionCommentaire(double montant, String commentaire, String destinataire, Context context);
 }

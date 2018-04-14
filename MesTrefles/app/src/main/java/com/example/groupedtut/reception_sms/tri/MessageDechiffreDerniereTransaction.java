@@ -40,7 +40,7 @@ public class MessageDechiffreDerniereTransaction extends MessageDechiffre {
             //Récupération du montant
             this.montant = getDoubleSansVirgule(tabMotSms[12]);
 
-            //Récupération des informations du compte associé à la transaction
+            //Récupération des informations du compte associé à la transactionCommentaire
             this.numeroCompte = tabMotSms[9];
             this.nom = tabMotSms[10];
             this.prenom = tabMotSms[11];

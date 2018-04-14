@@ -2,6 +2,7 @@ package com.example.groupedtut.expediteur_message.SMS;
 
 import android.content.Context;
 import android.telephony.SmsManager;
+import android.widget.Toast;
 
 import com.example.groupedtut.expediteur_message.ExpediteurMessage;
 import com.example.groupedtut.SQLite.numeroserveur.NumeroServeurDataSource;
@@ -34,11 +35,29 @@ public class ExpediteurSMS implements ExpediteurMessage {
         numServeurDataSource.close();
     }
 
+    @Override
+    public void transactionCommentaire(double montant, String commentaire, String destinataire, Context context) {
+
+        if(commentaire.equals("")){
+            transaction(montant, destinataire, context);
+        }
+        else {
+
+            final NumeroServeurDataSource numServeurDataSource = new NumeroServeurDataSource(context);
+            numServeurDataSource.open();
+
+            String messageDemandeTransac = creerMessage(montant, destinataire);
+            messageDemandeTransac += " ## " + commentaire;
+            SmsManager.getDefault().sendTextMessage(numServeurDataSource.getNumeroServeur(), null, messageDemandeTransac, null, null);
+
+            numServeurDataSource.close();
+        }
+    }
+
     private String creerMessage(double montant, String numDestinataire) {
         String str_montant = new Double(montant).toString();
         String[] tab = str_montant.split(Pattern.quote("."));
-        System.out.println(tab.length);
-        System.out.println(tab[0]);
+
         return numDestinataire + "/" + tab[0] + "," + tab[1];
     }
 }
