@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.groupedtut.activities.TransactionActivity"
+    style="@style/LinearLayoutBase">
+
+    <TextView
+        android:id="@+id/textNumeroDest"
+        android:text="@string/textNumeroDuDest"
+        style="@style/TexteSimple"/>
+
+    <EditText
+        android:id="@+id/editTextNumeroDest"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:textColor="@color/text"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/erreurNumeroCompte"
+        style="@style/erreur"/>
+
+    <TextView
+        android:id="@+id/textMontant"
+        android:text="@string/TextMontant"
+        style="@style/TexteSimple"/>
+    <!-- Le contenu texte sera modifié dans le contexte de l'application -->
+
+    <EditText
+        android:id="@+id/editTextMontant"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:textColor="@color/text"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
+        android:inputType="numberDecimal"
+        />
+
+    <TextView
+        android:id="@+id/erreurMontantTransaction"
+        style="@style/erreur"/>
+    <!-- Le contenu texte sera modifié dans le contexte de l'application -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/boutonValider"
+            style="@style/BoutonClassique"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:text="@string/boutonValide"
+            android:layout_marginBottom="20dp"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/texteReponseSolde"
+            android:layout_below="@+id/boutonValider"
+            style="@style/ReponseServeur"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -51,6 +51,9 @@ public class TransactionActivity extends BasicTrefleActivity
         boutonValider.setOnClickListener(this);
 
         ((Button)this.findViewById(R.id.boutonValider)).setEnabled(true);
+
+        //Mise en place d'un hint pour indiquer quelle valeur maximale l'utilisateur peut saisir
+        ((TextView)this.findViewById(R.id.editTextMontant)).setHint("Montant Max. : "+this.montantMaxDataSource.getMontantMax());
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
