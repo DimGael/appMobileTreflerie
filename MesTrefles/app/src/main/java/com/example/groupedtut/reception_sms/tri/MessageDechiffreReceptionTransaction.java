@@ -12,6 +12,7 @@ public class MessageDechiffreReceptionTransaction extends MessageDechiffre {
     private String nomExpediteur;
     private String prenomExpediteur;
     private String numeroCompte;
+    private String commentaire;
 
     public MessageDechiffreReceptionTransaction(String messageBrut) {
         super(messageBrut);
@@ -31,6 +32,14 @@ public class MessageDechiffreReceptionTransaction extends MessageDechiffre {
             String partieAvecNumeroCompte[] = smsSplitBySpace[4].split(Pattern.quote("("));
             partieAvecNumeroCompte = partieAvecNumeroCompte[1].split(Pattern.quote(")"));
             this.numeroCompte = (partieAvecNumeroCompte[0]);
+
+            //Commentaire
+            if(messageBrut.contains("#")){
+                String partieAvecCommentaire = messageBrut.split("#")[1];
+                this.commentaire = partieAvecCommentaire.trim();
+            }
+            else
+                this.commentaire = "";
         }
     }
 
@@ -40,6 +49,10 @@ public class MessageDechiffreReceptionTransaction extends MessageDechiffre {
             return true;
 
         return false;
+    }
+
+    public String getCommentaire(){
+        return this.commentaire;
     }
 
     public double getMontantRecu() {
@@ -56,5 +69,9 @@ public class MessageDechiffreReceptionTransaction extends MessageDechiffre {
 
     public String getNumeroCompte() {
         return numeroCompte;
+    }
+
+    public boolean aUnCommentaire(){
+        return !this.commentaire.equals("");
     }
 }

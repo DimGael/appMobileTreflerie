@@ -22,8 +22,16 @@ public class TraiteurMessageReceptionTransaction extends TraiteurMessage {
         if (aLeBonMessage()) {
             final MessageDechiffreReceptionTransaction messageDechiffreReceptionTransaction = (MessageDechiffreReceptionTransaction) this.messageDechiffre;
             double montantRecu = messageDechiffreReceptionTransaction.getMontantRecu();
+
             this.ajouterSolde(context, montantRecu);
-            this.ajouterNouvelleTransactionEntrante(context, montantRecu, messageDechiffreReceptionTransaction.getNumeroCompte(), messageDechiffreReceptionTransaction.getNomExpediteur());
+
+            this.ajouterNouvelleTransactionEntrante(
+                    context,
+                    montantRecu,
+                    messageDechiffreReceptionTransaction.getNumeroCompte(),
+                    messageDechiffreReceptionTransaction.getNomExpediteur()
+                    //messageDechiffreReceptionTransaction.getCommentaire()
+            );
 
             if (BasicTrefleActivity.instance != null) {
                 BasicTrefleActivity.instance.majSoldeAffichage();
