@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -96,6 +97,10 @@ public class ParametresActivity extends BasicTrefleActivity
             this.modificationNumeroServeur();
 
             Toast.makeText(this,"Modifications sauvegardées", Toast.LENGTH_SHORT).show();
+
+            //Redirection vers le Menu principal
+            startActivity(new Intent(ParametresActivity.this, MenuPrincipal.class));
+            finish();
         }
 
         if(id == R.id.boutonDefaultServeur){
