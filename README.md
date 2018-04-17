@@ -6,10 +6,13 @@ Il contient les mini-projets et le dossier principal du projet.
 
 Le dossier principal du projet est /MesTrefles.
 
-Pour trouver le code source et les manifests => DossierAndroid\app\src\main\
-Code source du projet principal : \MesTrefles\app\src\main\
+Pour trouver le code source d'une application => DossierAndroid\app\src\main\
 
-Pour trouver les apk => DossierAndroid\app\build\outputs\apk\debug\app-debug.apk
+Le code source du projet principal se trouve [ici](MesTrefles/app/src/main)
+
+## Récupérer l'application (APK)
+
+L'apk est disponible [ici](MesTrefles/app/build/outputs/apk/debug/), il suffit de la mettre dans un appareil Android, et de l'exécuter.
 
 
 ## L'equipe
