@@ -4,3 +4,7 @@ MesTrefles/.idea/misc.xml
 MesTrefles/app/.idea/workspace.xml
 MesTrefles/app/.idea/workspace.xml
 MesTrefles/.idea/misc.xml
+MesTrefles/app/build/generated
+MesTrefles/app/build/intermediates
+MesTrefles/app/build/tmp
+
