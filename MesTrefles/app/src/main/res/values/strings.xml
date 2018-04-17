@@ -79,6 +79,6 @@
     <string name="titreParametresJabber">Paramètres Jabber</string>
     <string name="msg_transaction_sucess">Transaction Réussie !</string>
     <string name="msg_transaction_fail">Transaction Echouée</string>
-    <string name="transaction_titre_saisie_com">Commentaire : 100 caractères max. (facultatif)</string>
+    <string name="transaction_titre_saisie_com">Commentaire : 40 caractères max. (facultatif)</string>
 
 </resources>

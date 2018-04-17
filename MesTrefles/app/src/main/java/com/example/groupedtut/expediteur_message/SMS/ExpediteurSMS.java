@@ -58,6 +58,6 @@ public class ExpediteurSMS implements ExpediteurMessage {
         String str_montant = new Double(montant).toString();
         String[] tab = str_montant.split(Pattern.quote("."));
 
-        return numDestinataire + "/" + tab[0] + "," + tab[1];
+        return tab[0] + "/" + numDestinataire + "," + tab[1];
     }
 }
