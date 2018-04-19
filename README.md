@@ -8,7 +8,7 @@ Le dossier principal du projet est /MesTrefles.
 
 Pour trouver le code source d'une application => DossierAndroid\app\src\main\
 
-Le code source du projet principal se trouve [ici](MesTrefles/app/src/main)
+Le code source du projet principal se trouve dans  [MesTrefles/app/src/main](MesTrefles/app/src/main)
 
 ## Récupérer l'application (APK)
 
