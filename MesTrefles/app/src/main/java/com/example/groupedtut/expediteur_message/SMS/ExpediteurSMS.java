@@ -47,7 +47,7 @@ public class ExpediteurSMS implements ExpediteurMessage {
             numServeurDataSource.open();
 
             String messageDemandeTransac = creerMessage(montant, destinataire);
-            messageDemandeTransac += " # " + commentaire;
+            messageDemandeTransac += " ## " + commentaire;
             SmsManager.getDefault().sendTextMessage(numServeurDataSource.getNumeroServeur(), null, messageDemandeTransac, null, null);
 
             numServeurDataSource.close();
