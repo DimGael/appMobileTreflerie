@@ -114,7 +114,6 @@ public class TransactionActivity extends BasicTrefleActivity
                 ((Button)this.findViewById(R.id.bouton_valider_transaction)).setEnabled(false);
                 ((TextView)this.findViewById(R.id.texteReponseSolde)).setText("Transaction en cours, veuillez patienter !");
 
-                Toast.makeText(this, commentaire, Toast.LENGTH_SHORT).show();
                 this.expediteurMessage.transactionCommentaire(montant, commentaire, Integer.toString(numDestinataire), this);
 
                 this.transactionEnCours = true;
