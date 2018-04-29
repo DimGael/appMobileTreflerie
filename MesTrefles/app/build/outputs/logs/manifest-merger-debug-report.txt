@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
+INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
+INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
+INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\6c19122ab9e188c387080b15d309b41e\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\7d5c512f1aa4cf61cdbace2fc51a2bf0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\8caa8a27efd37270cac13c82016d141e\AndroidManifest.xml:2:1-11:12
@@ -18,20 +18,20 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Gael\.gradl
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\fd13c1fb474b2a89ea2675115ca70e4e\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b26a6172a6207f10d2d9a963e8d233\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\1d796025caffd749ccaa3e17e6d53493\AndroidManifest.xml:17:1-30:12
-INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
+INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
+INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
 	package
 		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
 		INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-84:12
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:1-82:12
 		INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:2:11-69
@@ -39,20 +39,12 @@ uses-permission#android.permission.SEND_SMS
 ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:5:5-66
 	android:name
 		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:5:22-64
-uses-permission#android.permission.READ_SMS
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:6:5-67
-	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.RECEIVE_SMS
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:7:5-70
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:6:5-70
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:7:22-67
-uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:9:5-78
-	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:9:22-75
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:6:22-67
 application
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:11:5-81:19
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:9:5-79:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\6c19122ab9e188c387080b15d309b41e\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\6c19122ab9e188c387080b15d309b41e\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\7d5c512f1aa4cf61cdbace2fc51a2bf0\AndroidManifest.xml:25:5-29:19
@@ -82,117 +74,117 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Gael\.gradle\ca
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\1d796025caffd749ccaa3e17e6d53493\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Gael\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\1d796025caffd749ccaa3e17e6d53493\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:15:9-54
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:13:9-54
 	android:icon
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:13:9-39
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:11:9-39
 	android:allowBackup
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:17:9-40
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:15:9-40
 activity#com.example.groupedtut.activities.AccueilActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:19:9-29:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:17:9-27:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:21:13-45
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:19:13-45
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:22:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:20:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:20:13-44
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:18:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:23:13-27:29
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:24:17-69
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:24:25-66
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:26:27-74
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:24:27-74
 activity#com.example.groupedtut.activities.MenuPrincipal
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:31:9-37:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:29:9-35:20
 	android:windowNoTitle
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:34:13-41
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:32:13-41
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:35:13-45
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:33:13-45
 	android:windowActionBar
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:33:13-44
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:31:13-44
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:36:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:34:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:32:13-75
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:30:13-75
 activity#com.example.groupedtut.activities.TransactionActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:39:9-42:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:37:9-40:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:40:13-53
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:38:13-53
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:41:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:39:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:39:19-87
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:37:19-87
 activity#com.example.groupedtut.activities.AideActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:44:9-47:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:42:9-45:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:45:13-46
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:43:13-46
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:46:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:44:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:44:19-80
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:42:19-80
 activity#com.example.groupedtut.activities.RefusActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:49:9-52:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:47:9-50:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:50:13-47
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:48:13-47
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:51:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:49:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:49:19-81
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:47:19-81
 activity#com.example.groupedtut.activities.SoldeActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:54:9-57:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:52:9-55:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:55:13-47
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:53:13-47
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:56:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:54:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:54:19-81
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:52:19-81
 activity#com.example.groupedtut.activities.ParametresActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:59:9-62:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:57:9-60:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:60:13-52
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:58:13-52
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:61:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:59:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:59:19-86
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:57:19-86
 activity#com.example.groupedtut.activities.DepenseActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:64:9-67:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:62:9-65:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:65:13-50
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:63:13-50
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:66:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:64:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:64:19-83
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:62:19-83
 activity#com.example.groupedtut.activities.ParametreJabberActivity
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:69:9-72:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:67:9-70:20
 	android:label
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:70:13-58
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:68:13-58
 	android:theme
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:71:13-56
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:69:13-56
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:69:19-91
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:67:19-91
 receiver#com.example.groupedtut.reception_sms.SmsBroadcastReceiver
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:75:9-79:20
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:73:9-77:20
 	android:exported
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:75:92-115
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:73:92-115
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:75:19-91
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:73:19-91
 intent-filter#action:name:android.provider.Telephony.SMS_RECEIVED
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:76:13-78:29
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:74:13-76:29
 	android:priority
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:76:28-50
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:74:28-50
 action#android.provider.Telephony.SMS_RECEIVED
-ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:77:17-82
+ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:75:17-82
 	android:name
-		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:77:25-79
+		ADDED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml:75:25-79
 uses-sdk
 INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Documents\GitHub\appMobileTreflerie\MesTrefles\app\src\main\AndroidManifest.xml
