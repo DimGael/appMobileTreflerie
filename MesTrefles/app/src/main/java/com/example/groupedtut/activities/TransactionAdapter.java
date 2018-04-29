@@ -58,7 +58,7 @@ public class TransactionAdapter extends BaseAdapter {
 
         TextView montant = (TextView)convertView.findViewById(R.id.montant);
         if(transaction.getTypeTransaction().equals(Transaction.SORTANTE)){
-            montant.setText("-"+new Double(transaction.getMontant()).toString());
+            montant.setText(new Double(transaction.getMontant()).toString());
             montant.setTextColor(convertView.getResources().getColor(R.color.transactionSortante));
         }
         else
